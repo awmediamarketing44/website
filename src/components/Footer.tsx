@@ -4,17 +4,17 @@ import { motion } from "motion/react";
 
 const footerLinks = {
   Company: [
-    { label: "About", href: "#about" },
-    { label: "Work", href: "#work" },
-    { label: "Blog", href: "#blog" },
+    { label: "About", href: "/about" },
+    { label: "Work", href: "/work" },
+    { label: "Blog", href: "/blog" },
   ],
   Services: [
-    { label: "Web Design", href: "#services" },
-    { label: "Branding", href: "#services" },
-    { label: "SEO & Support", href: "#services" },
+    { label: "Web Design", href: "/services" },
+    { label: "Branding", href: "/services" },
+    { label: "SEO & Support", href: "/services" },
   ],
   Contact: [
-    { label: "Book a Call", href: "#cta" },
+    { label: "Book a Call", href: "/contact" },
     { label: "alex@awmedia.marketing", href: "mailto:alex@awmedia.marketing" },
   ],
 };

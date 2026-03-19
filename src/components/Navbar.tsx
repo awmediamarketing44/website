@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 
 const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Blog", href: "#blog" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export default function Navbar() {
@@ -79,7 +79,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            href="#faq"
+            href="/contact"
             className="text-sm text-muted hover:text-white transition-colors duration-200"
           >
             Free Review
@@ -90,7 +90,7 @@ export default function Navbar() {
             transition={{ delay: 0.4, duration: 0.5, type: "spring" }}
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(249,38,114,0.3)" }}
             whileTap={{ scale: 0.95 }}
-            href="#cta"
+            href="/contact"
             className="rounded-full bg-pink px-5 py-2 text-sm font-semibold text-white"
           >
             Book a Call
@@ -144,7 +144,7 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <motion.a
-                href="#cta"
+                href="/contact"
                 onClick={() => setMobileOpen(false)}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
