@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import Image from "next/image";
 import MagneticButton from "./MagneticButton";
 import { SplitText } from "./TextReveal";
 
@@ -102,6 +103,31 @@ export default function Hero() {
           </motion.span>
         ))}
       </div>
+
+      {/* Hero figure image */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 0.4, scale: 1 }}
+        transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+        style={{ y: bgY }}
+        className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none"
+      >
+        <motion.div
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="relative w-[500px] h-[700px] sm:w-[600px] sm:h-[800px] lg:w-[700px] lg:h-[900px]"
+        >
+          <Image
+            src="/images/hero-figure.png"
+            alt="Fitness professional"
+            fill
+            className="object-contain"
+            priority
+          />
+          {/* Pink glow behind figure */}
+          <div className="absolute inset-0 bg-pink/10 blur-[60px] rounded-full -z-10" />
+        </motion.div>
+      </motion.div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
         <motion.div
