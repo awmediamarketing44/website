@@ -146,7 +146,7 @@ export default function Hero() {
           </motion.span>
         </motion.div>
 
-        <h1 className="mx-auto max-w-5xl text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl lg:text-8xl">
+        <h1 className="mx-auto max-w-5xl text-5xl font-extrabold leading-[1.1] tracking-tight sm:text-6xl lg:text-8xl lg:leading-[1.05]">
           {"Your website".split(" ").map((word, i) => (
             <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
               <motion.span

@@ -30,25 +30,32 @@ export default function Intro() {
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left text */}
+          {/* Left text - line by line animation */}
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              <SplitText className="text-pink">Award-winning</SplitText>{" "}
-              <SplitText delay={0.15}>
-                web design and digital services for fitness professionals and business owners who are
-              </SplitText>{" "}
-              <motion.span
-                initial={{ backgroundSize: "0% 3px" }}
-                whileInView={{ backgroundSize: "100% 3px" }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="bg-gradient-to-r from-pink to-pink bg-no-repeat bg-bottom pb-1"
-              >
-                <SplitText delay={0.4}>done wasting time</SplitText>
-              </motion.span>{" "}
-              <SplitText delay={0.5}>
-                on things that should just work.
-              </SplitText>
+              {[
+                { text: "Award-winning", className: "text-pink" },
+                { text: "web design and digital services" },
+                { text: "for fitness professionals" },
+                { text: "and business owners who are" },
+                { text: "done wasting time", className: "text-pink font-extrabold" },
+                { text: "on things that should just work." },
+              ].map((line, i) => (
+                <motion.span
+                  key={i}
+                  className={`block ${line.className || ""}`}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: i * 0.12,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  {line.text}
+                </motion.span>
+              ))}
             </h2>
           </div>
 
