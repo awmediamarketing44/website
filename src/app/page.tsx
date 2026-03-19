@@ -1,3 +1,4 @@
+import FloatingParticles from "@/components/FloatingParticles";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
@@ -15,6 +16,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <FloatingParticles count={35} />
       <Navbar />
       <main>
         <Hero />

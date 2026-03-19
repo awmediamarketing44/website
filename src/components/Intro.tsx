@@ -1,49 +1,90 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
+import { SplitText } from "./TextReveal";
+import TiltCard from "./TiltCard";
 
 const workCards = [
-  { label: "Social media work (graphics, web, branding)" },
-  { label: "Social media work (graphics, web, branding)" },
+  { label: "Web Design & Development", tag: "Design" },
+  { label: "Logo & Brand Identity", tag: "Branding" },
+  { label: "Social Media Graphics", tag: "Social" },
+  { label: "SEO & Growth", tag: "Marketing" },
 ];
 
 export default function Intro() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const x = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+
   return (
-    <section className="relative py-24 lg:py-32">
+    <section ref={ref} className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Floating background accent */}
+      <motion.div
+        style={{ x }}
+        className="absolute -right-32 top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-pink/5 rounded-full blur-[100px]"
+      />
+
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left text */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
+          <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              <span className="text-pink">Award-winning</span> web design and
-              digital services for fitness professionals and business owners who
-              are <span className="underline decoration-pink underline-offset-4">done wasting time</span> on
-              things that should just work.
+              <SplitText className="text-pink">Award-winning</SplitText>{" "}
+              <SplitText delay={0.15}>
+                web design and digital services for fitness professionals and business owners who are
+              </SplitText>{" "}
+              <motion.span
+                initial={{ backgroundSize: "0% 3px" }}
+                whileInView={{ backgroundSize: "100% 3px" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="bg-gradient-to-r from-pink to-pink bg-no-repeat bg-bottom pb-1"
+              >
+                <SplitText delay={0.4}>done wasting time</SplitText>
+              </motion.span>{" "}
+              <SplitText delay={0.5}>
+                on things that should just work.
+              </SplitText>
             </h2>
-          </motion.div>
+          </div>
 
-          {/* Right cards */}
-          <div className="space-y-4">
+          {/* Right cards - 2x2 grid with 3D tilt */}
+          <div className="grid grid-cols-2 gap-4">
             {workCards.map((card, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, rotateX: 20 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-                whileHover={{ scale: 1.02 }}
-                className="group relative overflow-hidden rounded-2xl border border-card-border bg-card p-6 h-48 flex items-end"
+                transition={{
+                  duration: 0.6,
+                  delay: 0.1 + i * 0.12,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-                <div className="absolute inset-0 bg-pink/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <p className="relative z-20 text-sm text-muted">
-                  {card.label}
-                </p>
+                <TiltCard className="h-full">
+                  <div className="group relative overflow-hidden rounded-2xl border border-card-border bg-card p-6 h-44 flex flex-col justify-between transition-colors duration-300 hover:border-pink/30">
+                    <span className="text-xs font-medium text-pink/60 uppercase tracking-wider">
+                      {card.tag}
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold">{card.label}</p>
+                      <motion.div
+                        className="mt-2 h-0.5 bg-pink/30"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "40%" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
+                      />
+                    </div>
+                    {/* Hover glow */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>

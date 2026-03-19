@@ -1,41 +1,143 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
+import MagneticButton from "./MagneticButton";
+import { SplitText } from "./TextReveal";
 
 export default function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background gradient glow */}
+    <motion.section
+      ref={ref}
+      style={{ opacity, scale }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+    >
+      {/* Animated background orbs */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink/20 rounded-full blur-[120px]" />
-        <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-pink/10 rounded-full blur-[80px]" />
+        <motion.div
+          style={{ y: bgY }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px]"
+        >
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 bg-pink/20 rounded-full blur-[120px]"
+          />
+        </motion.div>
+
+        <motion.div
+          animate={{
+            x: [0, 100, -50, 0],
+            y: [0, -60, 40, 0],
+            scale: [1, 1.3, 0.8, 1],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-pink/10 rounded-full blur-[80px]"
+        />
+
+        <motion.div
+          animate={{
+            x: [0, -80, 60, 0],
+            y: [0, 50, -30, 0],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] bg-purple-500/10 rounded-full blur-[80px]"
+        />
+
+        {/* Floating rings */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-pink/5 rounded-full"
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] border border-white/5 rounded-full"
+        />
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-pink/3 rounded-full"
+        />
+      </div>
+
+      {/* Floating code/AI elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {["</>", "AI", "{}", "01", "//", "ML", "⚡", "λ"].map((text, i) => (
+          <motion.span
+            key={i}
+            className="absolute text-pink/10 font-mono text-sm font-bold select-none"
+            style={{
+              left: `${10 + i * 12}%`,
+              top: `${15 + (i % 4) * 20}%`,
+            }}
+            animate={{
+              y: [0, -40 - i * 10, 0],
+              x: [0, 15 + i * 5, -10, 0],
+              rotate: [0, 10, -10, 0],
+              opacity: [0.1, 0.25, 0.1],
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              delay: i * 0.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            {text}
+          </motion.span>
+        ))}
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-4 text-sm font-medium uppercase tracking-widest text-pink"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-6"
         >
-          Web Design for Fitness Professionals
-        </motion.p>
+          <motion.span
+            animate={{
+              boxShadow: [
+                "0 0 20px rgba(249,38,114,0)",
+                "0 0 20px rgba(249,38,114,0.3)",
+                "0 0 20px rgba(249,38,114,0)",
+              ],
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="inline-block rounded-full border border-pink/30 bg-pink/5 px-5 py-2 text-xs font-medium uppercase tracking-widest text-pink"
+          >
+            Web Design for Fitness Professionals
+          </motion.span>
+        </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="mx-auto max-w-4xl text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl lg:text-7xl"
-        >
-          Your website isn&apos;t{" "}
-          <span className="gradient-text">performing.</span>
-        </motion.h1>
+        <h1 className="mx-auto max-w-5xl text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl lg:text-8xl">
+          <SplitText>Your website</SplitText>
+          <br />
+          <SplitText delay={0.3} className="gradient-text">
+            isn&apos;t performing.
+          </SplitText>
+        </h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-2xl text-lg text-muted leading-relaxed"
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mx-auto mt-8 max-w-2xl text-lg text-muted leading-relaxed"
         >
           You know it. Your conversion rate knows it.
           <br />
@@ -44,41 +146,42 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
-            href="#cta"
-            className="rounded-full bg-pink px-8 py-3.5 text-sm font-semibold text-white hover:bg-pink-dark transition-colors duration-200"
-          >
+          <MagneticButton href="#cta" variant="primary">
             Book a FREE Call
-          </a>
-          <a
-            href="#work"
-            className="rounded-full border border-card-border px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/5 transition-colors duration-200"
-          >
+          </MagneticButton>
+          <MagneticButton href="#work" variant="secondary">
             View Recent Work
-          </a>
+          </MagneticButton>
         </motion.div>
 
-        {/* Scroll indicator */}
+        {/* Animated scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="mt-20"
+          transition={{ delay: 1.5, duration: 0.8 }}
+          className="mt-24"
         >
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="mx-auto h-10 w-6 rounded-full border-2 border-muted/30 flex items-start justify-center pt-2"
+            className="mx-auto flex flex-col items-center gap-2"
           >
-            <div className="h-2 w-1 rounded-full bg-pink" />
+            <span className="text-xs text-muted/50 uppercase tracking-widest">Scroll</span>
+            <div className="h-12 w-6 rounded-full border-2 border-muted/20 flex items-start justify-center pt-2">
+              <motion.div
+                animate={{ y: [0, 16, 0], opacity: [1, 0.3, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="h-2 w-1 rounded-full bg-pink"
+              />
+            </div>
           </motion.div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
