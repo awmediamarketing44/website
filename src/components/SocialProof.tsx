@@ -35,11 +35,8 @@ export default function SocialProof() {
       >
         <p className="text-2xl sm:text-3xl lg:text-5xl font-medium leading-relaxed">
           {[
-            { text: "Over 90% of our clients" },
-            { text: "are fitness professionals.", className: "text-pink font-bold" },
-            { text: "We know what works in your industry" },
-            { text: "because we've built hundreds of websites" },
-            { text: "for coaches, PTs, and gym owners." },
+            { text: "Over 90% of our clients are fitness professionals.", className: "text-pink font-bold" },
+            { text: "We know what works in your industry because we've built hundreds of websites for coaches, PTs, and gym owners." },
           ].map((line, i) => (
             <motion.span
               key={i}
