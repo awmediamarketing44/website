@@ -126,11 +126,39 @@ export default function Hero() {
         </motion.div>
 
         <h1 className="mx-auto max-w-5xl text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl lg:text-8xl">
-          <SplitText>Your website</SplitText>
+          {"Your website".split(" ").map((word, i) => (
+            <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+              <motion.span
+                className="inline-block"
+                initial={{ y: "110%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.2 + i * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                {word}
+              </motion.span>
+            </span>
+          ))}
           <br />
-          <SplitText delay={0.3} className="gradient-text">
-            isn&apos;t performing.
-          </SplitText>
+          {"isn't performing.".split(" ").map((word, i) => (
+            <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+              <motion.span
+                className="inline-block gradient-text"
+                initial={{ y: "110%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.5 + i * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                {word}
+              </motion.span>
+            </span>
+          ))}
         </h1>
 
         <motion.p

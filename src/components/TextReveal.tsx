@@ -13,25 +13,34 @@ export function SplitText({ children, className = "", delay = 0, once = true }: 
   const words = children.split(" ");
 
   return (
-    <span className={className}>
+    <motion.span
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once, amount: 0.1 }}
+    >
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
           <motion.span
             className="inline-block"
-            initial={{ y: "110%", rotateX: 40 }}
-            whileInView={{ y: 0, rotateX: 0 }}
-            viewport={{ once }}
-            transition={{
-              duration: 0.6,
-              delay: delay + i * 0.04,
-              ease: [0.16, 1, 0.3, 1],
+            variants={{
+              hidden: { y: "110%", opacity: 0 },
+              visible: {
+                y: 0,
+                opacity: 1,
+                transition: {
+                  duration: 0.6,
+                  delay: delay + i * 0.04,
+                  ease: [0.16, 1, 0.3, 1],
+                },
+              },
             }}
           >
             {word}
           </motion.span>
         </span>
       ))}
-    </span>
+    </motion.span>
   );
 }
 
