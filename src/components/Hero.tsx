@@ -104,29 +104,24 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Hero figure image */}
+      {/* Hero background image - full screen */}
       <motion.div
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 0.4, scale: 1 }}
-        transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+        initial={{ opacity: 0, scale: 1.05 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2, delay: 0.2, ease: "easeOut" }}
         style={{ y: bgY }}
-        className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none"
+        className="absolute inset-0 z-[1] pointer-events-none"
       >
-        <motion.div
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="relative w-[500px] h-[700px] sm:w-[600px] sm:h-[800px] lg:w-[700px] lg:h-[900px]"
-        >
-          <Image
-            src="/images/hero-figure.png"
-            alt="Fitness professional"
-            fill
-            className="object-contain"
-            priority
-          />
-          {/* Pink glow behind figure */}
-          <div className="absolute inset-0 bg-pink/10 blur-[60px] rounded-full -z-10" />
-        </motion.div>
+        <Image
+          src="/images/hero-figure.png"
+          alt="Fitness professional"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+        {/* Dark overlay so text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
       </motion.div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
