@@ -30,9 +30,9 @@ export default function PainPoint() {
           transition={{ duration: 1 }}
         >
           <p className="text-2xl sm:text-3xl lg:text-4xl font-medium leading-relaxed text-muted">
-            <CountUpText>You&apos;ve got a </CountUpText>
-            <span className="text-white font-bold">business to run</span>
-            <CountUpText>, clients to serve, and content to create.</CountUpText>
+            You&apos;ve got a{" "}
+            <span className="text-white font-bold">business to run</span>,
+            clients to serve, and content to create.
           </p>
         </motion.div>
 
