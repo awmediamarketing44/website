@@ -55,16 +55,28 @@ export default function WhyUs() {
   return (
     <section className="py-24 lg:py-32 relative">
       <div className="mx-auto max-w-7xl px-6">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-16 max-w-xl"
-        >
-          <SplitText>Why</SplitText>{" "}
-          <SplitText delay={0.1} className="text-pink">fitness professionals</SplitText>{" "}
-          <SplitText delay={0.2}>choose us.</SplitText>
-        </motion.h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-16 max-w-xl">
+          {[
+            { text: "Why" },
+            { text: "fitness professionals", className: "text-pink" },
+            { text: "choose us." },
+          ].map((line, i) => (
+            <motion.span
+              key={i}
+              className={`block ${line.className || ""}`}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.12,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              {line.text}
+            </motion.span>
+          ))}
+        </h2>
 
         <div className="grid sm:grid-cols-2 gap-6">
           {reasons.map((reason, i) => (

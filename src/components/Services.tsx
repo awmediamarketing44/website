@@ -55,17 +55,30 @@ export default function Services() {
   return (
     <section id="services" className="py-24 lg:py-32 relative">
       <div className="mx-auto max-w-7xl px-6">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-2xl">
-            <SplitText>Stop paying multiple agencies for things that should</SplitText>{" "}
-            <SplitText delay={0.3} className="text-pink">work together.</SplitText>
+            {[
+              { text: "Stop paying multiple agencies" },
+              { text: "for things that should" },
+              { text: "work together.", className: "text-pink" },
+            ].map((line, i) => (
+              <motion.span
+                key={i}
+                className={`block ${line.className || ""}`}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: i * 0.12,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                {line.text}
+              </motion.span>
+            ))}
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 gap-6">
           {services.map((service, i) => (
