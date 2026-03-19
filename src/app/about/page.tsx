@@ -24,6 +24,11 @@ const team = [
     role: "Web Design & Development",
     bio: "Brings years of development experience to the team. Paul works alongside Alex to build fast, reliable websites that don't just look good — they perform.",
   },
+  {
+    name: "Lahcen",
+    role: "Graphic Design",
+    bio: "The creative eye behind our social media graphics, brand assets, and visual content. Lahcen turns ideas into scroll-stopping designs that make your brand stand out in a crowded feed.",
+  },
 ];
 
 const values = [
@@ -199,7 +204,7 @@ export default function AboutPage() {
               ))}
             </h2>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {team.map((member, i) => (
                 <motion.div
                   key={member.name}
