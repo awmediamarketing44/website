@@ -7,11 +7,20 @@ const footerLinks = {
     { label: "About", href: "/about" },
     { label: "Work", href: "/work" },
     { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
   ],
   Services: [
-    { label: "Web Design", href: "/services" },
-    { label: "Branding", href: "/services" },
-    { label: "SEO & Support", href: "/services" },
+    { label: "Web Design", href: "/services/web-design" },
+    { label: "Branding", href: "/services/branding" },
+    { label: "SEO & Support", href: "/services/seo-support" },
+    { label: "All Services", href: "/services" },
+  ],
+  Industries: [
+    { label: "Fitness & PTs", href: "/industries/fitness" },
+    { label: "Construction", href: "/industries/construction" },
+    { label: "Dental", href: "/industries/dental" },
+    { label: "Photography", href: "/industries/photography" },
+    { label: "Aesthetics", href: "/industries/aesthetics" },
   ],
   Contact: [
     { label: "Book a Call", href: "/contact" },
@@ -29,7 +38,7 @@ export default function Footer() {
       className="border-t border-card-border py-16"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Logo column */}
           <div>
             <span className="text-xl font-bold tracking-tight">
