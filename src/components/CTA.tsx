@@ -62,7 +62,7 @@ export default function CTA() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-[0.9] sm:leading-[0.85] lg:leading-[0.8] pb-[0.15em]"
+          className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-[0.9] sm:leading-[0.85] lg:leading-[0.8] pb-[0.3em]"
         >
           <SplitText>Ready to stop losing clients to</SplitText>
           <br />
