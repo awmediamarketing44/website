@@ -71,7 +71,7 @@ export default function Intro() {
                 }}
               >
                 <TiltCard className="h-full">
-                  <div className="group relative overflow-hidden rounded-2xl border border-card-border bg-card p-6 h-44 flex flex-col justify-between transition-colors duration-300 hover:border-pink/30">
+                  <div className="group relative overflow-hidden rounded-2xl border border-card-border bg-card p-4 sm:p-6 h-36 sm:h-44 flex flex-col justify-between transition-colors duration-300 hover:border-pink/30">
                     <span className="text-xs font-medium text-pink/60 uppercase tracking-wider">
                       {card.tag}
                     </span>

@@ -24,7 +24,7 @@ export default function SocialProof() {
         whileInView={{ opacity: 0.03 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] font-black text-white pointer-events-none select-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] sm:text-[14rem] lg:text-[20rem] font-black text-white pointer-events-none select-none"
       >
         90%
       </motion.div>
@@ -33,7 +33,7 @@ export default function SocialProof() {
         style={{ scale, opacity }}
         className="mx-auto max-w-4xl px-6 text-center relative z-10"
       >
-        <p className="text-2xl sm:text-3xl lg:text-5xl font-medium leading-relaxed">
+        <p className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium leading-relaxed">
           {[
             { text: "Over 90% of our clients are fitness professionals.", className: "text-pink font-bold" },
             { text: "We know what works in your industry because we've built hundreds of websites for coaches, PTs, and gym owners." },

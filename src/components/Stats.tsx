@@ -90,13 +90,13 @@ export default function Stats() {
                 y: -8,
                 boxShadow: "0 20px 60px rgba(249,38,114,0.1)",
               }}
-              className="rounded-2xl border border-card-border bg-card p-8 relative overflow-hidden group"
+              className="rounded-2xl border border-card-border bg-card p-5 sm:p-8 relative overflow-hidden group"
             >
               {/* Hover glow */}
               <div className="absolute inset-0 bg-gradient-to-t from-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10">
-                <p className="text-4xl lg:text-5xl font-extrabold text-pink mb-3">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-pink mb-3">
                   {stat.text ? (
                     <motion.span
                       initial={{ opacity: 0, filter: "blur(10px)" }}

@@ -29,7 +29,7 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative z-10 w-full max-w-2xl rounded-2xl border border-card-border bg-[#0a0a0a] overflow-hidden shadow-2xl"
+            className="relative z-10 w-full max-w-2xl max-h-[90vh] rounded-2xl border border-card-border bg-[#0a0a0a] overflow-hidden shadow-2xl"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-card-border">
@@ -48,7 +48,7 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
             </div>
 
             {/* Calendly iframe */}
-            <div className="relative" style={{ height: "630px" }}>
+            <div className="relative" style={{ height: "min(630px, calc(90vh - 80px))" }}>
               <iframe
                 src="https://calendly.com/awmedia-marketing/aw-discovery-call?hide_event_type_details=1&hide_gdpr_banner=1"
                 width="100%"

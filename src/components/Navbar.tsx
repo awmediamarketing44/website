@@ -1,25 +1,51 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
+import { useCalendly } from "./CalendlyProvider";
+
+const serviceLinks = [
+  { label: "Web Design & Development", href: "/services/web-design" },
+  { label: "Logo Design & Branding", href: "/services/branding" },
+  { label: "Social Media Graphics", href: "/services/social-media" },
+  { label: "SEO & Monthly Support", href: "/services/seo-support" },
+  { label: "Shopify & E-Commerce", href: "/services/ecommerce" },
+  { label: "Landing Pages & Ads", href: "/services/landing-pages" },
+];
 
 const navLinks = [
   { label: "Work", href: "/work" },
-  { label: "Services", href: "/services" },
+  { label: "Services", href: "/services", hasDropdown: true },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const bgOpacity = useTransform(scrollY, [0, 100], [0, 0.9]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const { openCalendly } = useCalendly();
 
   useEffect(() => {
     const unsub = scrollY.on("change", (v) => setScrolled(v > 50));
     return unsub;
   }, [scrollY]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
   return (
     <motion.nav
@@ -35,41 +61,113 @@ export default function Navbar() {
 
       <div className="relative mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <motion.a
-          href="#"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2"
-        >
+        <Link href="/">
           <motion.span
-            animate={scrolled ? { fontSize: "1.125rem" } : { fontSize: "1.25rem" }}
-            transition={{ duration: 0.3 }}
-            className="font-bold tracking-tight"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2"
           >
-            aw<span className="text-pink">media.</span>
+            <motion.span
+              animate={scrolled ? { fontSize: "1.125rem" } : { fontSize: "1.25rem" }}
+              transition={{ duration: 0.3 }}
+              className="font-bold tracking-tight"
+            >
+              aw<span className="text-pink">media.</span>
+            </motion.span>
           </motion.span>
-        </motion.a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link, i) => (
-            <motion.a
-              key={link.label}
-              href={link.href}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + i * 0.05, duration: 0.5 }}
-              whileHover={{ y: -2, color: "#F92672" }}
-              className="relative text-sm text-muted transition-colors duration-200 group"
-            >
-              {link.label}
-              <motion.span
-                className="absolute -bottom-1 left-0 h-0.5 bg-pink"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.2 }}
-              />
-            </motion.a>
+            <div key={link.label} className="relative" ref={link.hasDropdown ? dropdownRef : undefined}>
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + i * 0.05, duration: 0.5 }}
+                className="relative"
+              >
+                {link.hasDropdown ? (
+                  <button
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                    onMouseEnter={() => setServicesOpen(true)}
+                    className="flex items-center gap-1 text-sm text-muted transition-colors duration-200 hover:text-pink group"
+                  >
+                    {link.label}
+                    <motion.svg
+                      animate={{ rotate: servicesOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="w-3.5 h-3.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </motion.svg>
+                  </button>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted transition-colors duration-200 hover:text-pink group"
+                  >
+                    {link.label}
+                    <motion.span
+                      className="absolute -bottom-1 left-0 h-0.5 bg-pink"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </Link>
+                )}
+              </motion.div>
+
+              {/* Services dropdown */}
+              {link.hasDropdown && (
+                <AnimatePresence>
+                  {servicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                      onMouseLeave={() => setServicesOpen(false)}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-xl border border-card-border bg-[#111111]/95 backdrop-blur-xl p-2 shadow-2xl"
+                    >
+                      {/* Arrow */}
+                      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-[#111111] border-l border-t border-card-border" />
+
+                      {serviceLinks.map((service, j) => (
+                        <Link
+                          key={service.href}
+                          href={service.href}
+                          onClick={() => setServicesOpen(false)}
+                          className="block rounded-lg px-4 py-2.5 text-sm text-muted hover:text-white hover:bg-pink/10 transition-colors duration-150"
+                        >
+                          <motion.span
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: j * 0.03 }}
+                          >
+                            {service.label}
+                          </motion.span>
+                        </Link>
+                      ))}
+
+                      <div className="border-t border-card-border mt-1 pt-1">
+                        <Link
+                          href="/services"
+                          onClick={() => setServicesOpen(false)}
+                          className="block rounded-lg px-4 py-2.5 text-sm text-pink font-medium hover:bg-pink/10 transition-colors duration-150"
+                        >
+                          View all services →
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              )}
+            </div>
           ))}
         </div>
 
@@ -84,17 +182,17 @@ export default function Navbar() {
           >
             Free Review
           </motion.a>
-          <motion.a
+          <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.5, type: "spring" }}
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(249,38,114,0.3)" }}
             whileTap={{ scale: 0.95 }}
-            href="/contact"
+            onClick={openCalendly}
             className="rounded-full bg-pink px-5 py-2 text-sm font-semibold text-white"
           >
             Book a Call
-          </motion.a>
+          </motion.button>
         </div>
 
         {/* Mobile toggle */}
@@ -131,28 +229,90 @@ export default function Navbar() {
           >
             <div className="px-6 py-8 flex flex-col gap-4">
               {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  className="text-2xl font-semibold text-muted hover:text-white transition-colors"
-                >
-                  {link.label}
-                </motion.a>
+                <div key={link.label}>
+                  {link.hasDropdown ? (
+                    <>
+                      <motion.button
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.05 }}
+                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                        className="flex items-center justify-between w-full text-2xl font-semibold text-muted hover:text-white transition-colors"
+                      >
+                        {link.label}
+                        <motion.svg
+                          animate={{ rotate: mobileServicesOpen ? 180 : 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </motion.svg>
+                      </motion.button>
+                      <AnimatePresence>
+                        {mobileServicesOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pt-3 pb-1 flex flex-col gap-2">
+                              {serviceLinks.map((service, j) => (
+                                <Link
+                                  key={service.href}
+                                  href={service.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="text-base text-muted hover:text-pink transition-colors py-1"
+                                >
+                                  {service.label}
+                                </Link>
+                              ))}
+                              <Link
+                                href="/services"
+                                onClick={() => setMobileOpen(false)}
+                                className="text-base text-pink font-medium pt-1"
+                              >
+                                View all services →
+                              </Link>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="text-2xl font-semibold text-muted hover:text-white transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  )}
+                </div>
               ))}
-              <motion.a
-                href="/contact"
-                onClick={() => setMobileOpen(false)}
+              <motion.button
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
+                onClick={() => {
+                  setMobileOpen(false);
+                  openCalendly();
+                }}
                 className="mt-4 rounded-full bg-pink px-5 py-3 text-center text-sm font-semibold text-white"
               >
                 Book a Call
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         )}
