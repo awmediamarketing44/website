@@ -150,7 +150,7 @@ export default function Hero() {
         <h1 className="mx-auto max-w-5xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-8xl leading-[0.85] sm:leading-[0.8] lg:leading-[0.75]">
           <span className="block">
             {"Your website".split(" ").map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.3em] pb-[0.25em]">
+              <span key={i} className="inline-block overflow-hidden mr-[0.3em] pb-[0.35em] -mb-[0.35em]">
                 <motion.span
                   className="inline-block"
                   initial={{ y: "110%", opacity: 0 }}
@@ -168,7 +168,7 @@ export default function Hero() {
           </span>
           <span className="block">
             {"isn't performing.".split(" ").map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.3em] pb-[0.25em]">
+              <span key={i} className="inline-block overflow-hidden mr-[0.3em] pb-[0.35em] -mb-[0.35em]">
                 <motion.span
                   className="inline-block gradient-text"
                   initial={{ y: "110%", opacity: 0 }}
