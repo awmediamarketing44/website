@@ -12,11 +12,13 @@ const serviceLinks = [
   { label: "SEO & Monthly Support", href: "/services/seo-support" },
   { label: "Shopify & E-Commerce", href: "/services/ecommerce" },
   { label: "Landing Pages & Ads", href: "/services/landing-pages" },
+  { label: "AI-Powered Web Design", href: "/services/ai-design" },
 ];
 
 const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Services", href: "/services", hasDropdown: true },
+  { label: "Industries", href: "/industries" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -77,8 +79,8 @@ export default function Navbar() {
           </motion.span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop nav - centered */}
+        <div className="hidden lg:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link, i) => (
             <div key={link.label} className="relative" ref={link.hasDropdown ? dropdownRef : undefined}>
               <motion.div
@@ -172,7 +174,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <motion.a
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -198,7 +200,7 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
         >
           <motion.span
@@ -225,7 +227,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-card-border"
+            className="lg:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-card-border"
           >
             <div className="px-6 py-8 flex flex-col gap-4">
               {navLinks.map((link, i) => (

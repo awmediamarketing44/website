@@ -406,6 +406,79 @@ export const services: ServiceData[] = [
     ctaSubtext: "Book a call and we'll audit your current setup for free.",
     relatedProjects: ["Pyper Fitness"],
   },
+  {
+    slug: "ai-design",
+    title: "AI-Powered Web Design",
+    tag: "AI Design",
+    headerTitle: "The future of web design",
+    headerAccent: "is already here.",
+    headerDescription:
+      "We use cutting-edge AI tools alongside human creativity to design faster, iterate smarter, and deliver websites that would have taken twice as long just two years ago.",
+    longDescription: [
+      "AI isn't replacing designers — it's making the good ones dangerous. At AW Media, we've integrated AI into every stage of our design process: from rapid moodboarding and concept generation to layout prototyping and content creation. The result? Faster turnarounds, bolder creative, and more options at every stage.",
+      "While other agencies are still dragging elements around in Figma for weeks, we're generating multiple high-fidelity concepts in days. AI handles the heavy lifting — research, initial layouts, image generation, copy drafts — so our designers can focus on what actually matters: making your brand look incredible and your website convert.",
+      "This isn't about cutting corners. It's about working smarter. You get more concepts, more iterations, and a higher-quality end product — all delivered faster and at a fraction of the traditional cost. We're not just using AI as a gimmick. We've built our entire workflow around it because we've seen the results.",
+      "From AI-assisted wireframing to intelligent content structuring, every website we build benefits from tools that didn't exist two years ago. And because we've been early adopters, we know which tools actually deliver and which ones are just hype.",
+    ],
+    features: [
+      "AI-accelerated design concepts & moodboards",
+      "Rapid prototyping with multiple directions",
+      "AI-assisted copywriting & content structure",
+      "Intelligent layout optimisation",
+      "AI image generation & enhancement",
+      "Human-led creative direction throughout",
+      "Faster delivery without compromising quality",
+      "Modern tech stack (Next.js, React, Tailwind)",
+    ],
+    benefits: [
+      {
+        title: "Faster ideation. Bolder creative.",
+        description:
+          "AI lets us explore more concepts in less time. Instead of 2-3 directions, you see 5-6 — all high quality, all tailored to your brand. More options, better outcomes.",
+      },
+      {
+        title: "Half the time. Same premium quality.",
+        description:
+          "What used to take 4-6 weeks now takes 2-3. AI handles the grunt work so our designers focus on the creative decisions that actually move the needle for your business.",
+      },
+      {
+        title: "Built on tech that's years ahead.",
+        description:
+          "Your website isn't just designed with AI — it's built on a modern tech stack that loads faster, ranks higher, and scales better than anything WordPress can offer.",
+      },
+    ],
+    whoIsThisFor: [
+      "Fitness brands that want a cutting-edge website without the cutting-edge price tag",
+      "Coaches who need a site fast — launching a programme, rebrand, or new business",
+      "Anyone who's been quoted 6+ weeks by traditional agencies and thought 'there has to be a better way'",
+      "Forward-thinking businesses that want to work with an agency that's ahead of the curve",
+    ],
+    faqs: [
+      {
+        question: "Does AI design mean my website will look generic?",
+        answer:
+          "The opposite. AI gives us more creative options to explore, not fewer. Every concept is guided by our designers who understand your brand, your audience, and your goals. AI is the tool — we're the ones making the creative decisions.",
+      },
+      {
+        question: "What AI tools do you actually use?",
+        answer:
+          "We use a combination of tools depending on the project: AI for concept generation and moodboarding, GPT-based tools for content structuring, and custom workflows for layout prototyping. We also build on modern frameworks like Next.js and React — the same tech used by the biggest brands in the world.",
+      },
+      {
+        question: "Is AI design cheaper than traditional web design?",
+        answer:
+          "It can be — because we're more efficient, we can offer competitive pricing without cutting quality. You're not paying for wasted hours of a designer staring at a blank screen. You're paying for focused, high-quality creative work enhanced by the best tools available.",
+      },
+      {
+        question: "Will my website still be unique?",
+        answer:
+          "100%. Every site we build is custom. AI helps us get to great ideas faster, but the final product is entirely bespoke to your brand. No templates, no cookie-cutter layouts.",
+      },
+    ],
+    ctaHeadline: "Ready to see what AI-powered design can do for your business?",
+    ctaSubtext: "Book a free call. We'll show you exactly how our process works — and what it could look like for you.",
+    relatedProjects: ["Hard to Kill", "Glean App", "Newgen Coaching"],
+  },
 ];
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {

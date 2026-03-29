@@ -20,7 +20,7 @@ export function SplitText({ children, className = "", delay = 0, once = true }: 
       viewport={{ once, amount: 0.1 }}
     >
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+        <span key={i} className="inline-block overflow-hidden mr-[0.3em] pb-[0.15em]">
           <motion.span
             className="inline-block"
             variants={{

@@ -22,6 +22,7 @@ export async function POST(request: Request) {
       seo: "SEO & Monthly Support",
       shopify: "Shopify & E-Commerce",
       landing: "Landing Page",
+      "ai-design": "AI-Powered Web Design",
       other: "Something else",
     };
 

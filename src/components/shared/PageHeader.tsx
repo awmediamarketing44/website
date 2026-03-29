@@ -29,7 +29,7 @@ export default function PageHeader({ tag, title, titleAccent, description }: Pag
           {tag}
         </motion.span>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[0.9] sm:leading-[0.85] lg:leading-[0.8] tracking-tight pb-[0.5em]">
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.1] sm:leading-[1.05] lg:leading-none tracking-tight">
           {[title, ...(titleAccent ? [titleAccent] : [])].map((line, i, arr) => (
             <motion.span
               key={i}

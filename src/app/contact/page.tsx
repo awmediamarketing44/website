@@ -202,6 +202,7 @@ export default function ContactPage() {
                         <option value="seo">SEO & Monthly Support</option>
                         <option value="shopify">Shopify & E-Commerce</option>
                         <option value="landing">Landing Page</option>
+                        <option value="ai-design">AI-Powered Web Design</option>
                         <option value="other">Something else</option>
                       </select>
                     </div>
