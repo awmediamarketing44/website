@@ -147,8 +147,8 @@ export default function Hero() {
           </motion.span>
         </motion.div>
 
-        <h1 className="mx-auto max-w-5xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-8xl">
-          <span className="block leading-[1.15] lg:leading-[1.1]">
+        <h1 className="mx-auto max-w-5xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-8xl leading-[0.85] sm:leading-[0.8] lg:leading-[0.75]">
+          <span className="block">
             {"Your website".split(" ").map((word, i) => (
               <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
                 <motion.span
@@ -166,7 +166,7 @@ export default function Hero() {
               </span>
             ))}
           </span>
-          <span className="block leading-[1.15] lg:leading-[1.1]">
+          <span className="block">
             {"isn't performing.".split(" ").map((word, i) => (
               <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
                 <motion.span
