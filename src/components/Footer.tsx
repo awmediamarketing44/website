@@ -42,15 +42,22 @@ export default function Footer() {
 
             {/* Social icons */}
             <div className="mt-6 flex gap-3">
-              {["instagram", "facebook", "tiktok"].map((social) => (
+              {[
+                { name: "Instagram", href: "https://www.instagram.com/awmedia.marketing/", icon: "Ig" },
+                { name: "Facebook", href: "https://www.facebook.com/awmedianmarketing", icon: "Fb" },
+                { name: "Threads", href: "https://www.threads.net/@awmedia.marketing", icon: "Th" },
+                { name: "LinkedIn", href: "https://www.linkedin.com/in/alex-whitehead-193549109/", icon: "Li" },
+              ].map((social) => (
                 <a
-                  key={social}
-                  href="#"
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-card border border-card-border text-muted hover:text-pink hover:border-pink/30 transition-colors duration-200"
-                  aria-label={social}
+                  aria-label={social.name}
                 >
-                  <span className="text-xs font-bold uppercase">
-                    {social[0]}
+                  <span className="text-xs font-bold">
+                    {social.icon}
                   </span>
                 </a>
               ))}

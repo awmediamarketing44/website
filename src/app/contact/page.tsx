@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Script from "next/script";
 import { motion } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
@@ -98,14 +99,21 @@ export default function ContactPage() {
                   className="pt-4"
                 >
                   <p className="text-sm text-muted mb-3">Follow us</p>
-                  <div className="flex gap-3">
-                    {["Instagram", "Facebook", "TikTok"].map((social) => (
+                  <div className="flex gap-3 flex-wrap">
+                    {[
+                      { name: "Instagram", href: "https://www.instagram.com/awmedia.marketing/" },
+                      { name: "Facebook", href: "https://www.facebook.com/awmedianmarketing" },
+                      { name: "Threads", href: "https://www.threads.net/@awmedia.marketing" },
+                      { name: "LinkedIn", href: "https://www.linkedin.com/in/alex-whitehead-193549109/" },
+                    ].map((social) => (
                       <a
-                        key={social}
-                        href="#"
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="rounded-full border border-card-border bg-card px-4 py-2 text-xs font-medium text-muted hover:text-pink hover:border-pink/30 transition-colors duration-200"
                       >
-                        {social}
+                        {social.name}
                       </a>
                     ))}
                   </div>
@@ -229,15 +237,23 @@ export default function ContactPage() {
               15 minutes. Free. No obligation.
             </motion.p>
 
-            {/* Calendly embed placeholder */}
+            {/* Calendly embed */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="rounded-2xl border border-card-border bg-card/50 backdrop-blur-sm p-16 text-muted"
+              className="rounded-2xl border border-card-border bg-card/50 backdrop-blur-sm overflow-hidden"
             >
-              <p className="text-sm uppercase tracking-widest">Calendly Integration Here</p>
+              <div
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/awmedia-marketing/aw-discovery-call?hide_event_type_details=1&hide_gdpr_banner=1"
+                style={{ minWidth: "320px", height: "700px" }}
+              />
+              <Script
+                src="https://assets.calendly.com/assets/external/widget.js"
+                strategy="lazyOnload"
+              />
             </motion.div>
           </div>
         </section>
