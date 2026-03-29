@@ -32,11 +32,13 @@ export default function Intro() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left text - line by line animation */}
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-snug lg:leading-tight">
               {[
-                { text: "Award-winning web design and digital services", className: "text-pink" },
-                { text: "for fitness professionals and business owners" },
-                { text: "who are done wasting time on things that should just work." },
+                { text: "Award-winning web design", className: "text-pink" },
+                { text: "and digital services for fitness" },
+                { text: "professionals who are done" },
+                { text: "wasting time on things that" },
+                { text: "should just work." },
               ].map((line, i) => (
                 <motion.span
                   key={i}
@@ -46,7 +48,7 @@ export default function Intro() {
                   viewport={{ once: true }}
                   transition={{
                     duration: 0.6,
-                    delay: i * 0.12,
+                    delay: i * 0.1,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >

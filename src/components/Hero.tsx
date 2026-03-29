@@ -147,47 +147,50 @@ export default function Hero() {
           </motion.span>
         </motion.div>
 
-        <h1 className="mx-auto max-w-5xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-8xl lg:leading-[1.05]">
-          {"Your website".split(" ").map((word, i) => (
-            <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
-              <motion.span
-                className="inline-block"
-                initial={{ y: "110%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.2 + i * 0.08,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              >
-                {word}
-              </motion.span>
-            </span>
-          ))}
-          <br />
-          {"isn't performing.".split(" ").map((word, i) => (
-            <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
-              <motion.span
-                className="inline-block gradient-text"
-                initial={{ y: "110%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.5 + i * 0.08,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              >
-                {word}
-              </motion.span>
-            </span>
-          ))}
+        <h1 className="mx-auto max-w-5xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-8xl">
+          <span className="block leading-[1.15] lg:leading-[1.1]">
+            {"Your website".split(" ").map((word, i) => (
+              <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+                <motion.span
+                  className="inline-block"
+                  initial={{ y: "110%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2 + i * 0.08,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </span>
+          <span className="block leading-[1.15] lg:leading-[1.1] mt-1 sm:mt-2 lg:mt-3">
+            {"isn't performing.".split(" ").map((word, i) => (
+              <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+                <motion.span
+                  className="inline-block gradient-text"
+                  initial={{ y: "110%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.5 + i * 0.08,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </span>
         </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mx-auto mt-8 max-w-2xl text-lg text-muted leading-relaxed"
+          className="mx-auto mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg text-muted leading-relaxed"
         >
           You know it. Your conversion rate knows it.
           <br />

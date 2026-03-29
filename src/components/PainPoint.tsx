@@ -29,7 +29,7 @@ export default function PainPoint() {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <p className="text-2xl sm:text-3xl lg:text-4xl font-medium leading-relaxed text-muted">
+          <p className="text-xl sm:text-2xl lg:text-4xl font-medium leading-relaxed text-muted">
             You&apos;ve got a{" "}
             <span className="text-white font-bold">business to run</span>,
             clients to serve, and content to create.

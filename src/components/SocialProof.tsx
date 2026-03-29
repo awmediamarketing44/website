@@ -33,7 +33,7 @@ export default function SocialProof() {
         style={{ scale, opacity }}
         className="mx-auto max-w-4xl px-6 text-center relative z-10"
       >
-        <p className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium leading-relaxed">
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-medium leading-snug sm:leading-relaxed">
           {[
             { text: "Over 90% of our clients are fitness professionals.", className: "text-pink font-bold" },
             { text: "We know what works in your industry because we've built hundreds of websites for coaches, PTs, and gym owners." },
