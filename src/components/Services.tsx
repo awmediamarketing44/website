@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import TiltCard from "./TiltCard";
 import { SplitText } from "./TextReveal";
 
 const services = [
   {
+    slug: "web-design",
     title: "Web Design & Development",
     description:
       "Stop losing clients to better-looking websites. We build fast, conversion-focused sites that make your fitness brand look as good as your results.",
@@ -17,6 +19,7 @@ const services = [
     gradient: "from-pink/20 to-purple-500/10",
   },
   {
+    slug: "branding",
     title: "Logo Design & Branding",
     description:
       "Your Canva logo isn't cutting you clients. Get a brand identity that stands out in a saturated fitness market and builds instant trust.",
@@ -28,6 +31,7 @@ const services = [
     gradient: "from-orange-500/20 to-pink/10",
   },
   {
+    slug: "social-media",
     title: "Social Media Graphics",
     description:
       "Stop wasting hours in Canva. We create scroll-stopping templates and graphics so your feed looks professional without eating into your coaching time.",
@@ -39,6 +43,7 @@ const services = [
     gradient: "from-blue-500/20 to-pink/10",
   },
   {
+    slug: "seo-support",
     title: "SEO & Monthly Support",
     description:
       "We don't just build it and disappear. Ongoing SEO, updates, and support so your site keeps ranking and converting long after launch.",
@@ -93,8 +98,9 @@ export default function Services() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
+              <Link href={`/services/${service.slug}`}>
               <TiltCard>
-                <div className="group relative overflow-hidden rounded-2xl border border-card-border bg-card p-8 transition-all duration-500 hover:border-pink/30">
+                <div className="group relative overflow-hidden rounded-2xl border border-card-border bg-card p-8 transition-all duration-500 hover:border-pink/30 cursor-pointer">
                   {/* Background gradient on hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
@@ -134,6 +140,7 @@ export default function Services() {
                   </div>
                 </div>
               </TiltCard>
+              </Link>
             </motion.div>
           ))}
         </div>
