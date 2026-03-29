@@ -46,10 +46,28 @@ const contactMethods = [
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -199,10 +217,18 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {error && (
+                      <p className="text-sm text-red-400">{error}</p>
+                    )}
+
                     <div>
-                      <MagneticButton href="#" className="w-full text-center">
-                        Send Message
-                      </MagneticButton>
+                      <button
+                        type="submit"
+                        disabled={sending}
+                        className="w-full rounded-full bg-pink px-8 py-3.5 text-sm font-semibold text-white hover:shadow-[0_0_40px_rgba(249,38,114,0.4)] transition-shadow duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {sending ? "Sending..." : "Send Message"}
+                      </button>
                     </div>
                   </form>
                 )}
