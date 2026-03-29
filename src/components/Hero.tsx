@@ -120,6 +120,32 @@ export default function Hero() {
           className="object-cover object-top"
           priority
         />
+        {/* Animated pink light glow on figure */}
+        <motion.div
+          animate={{
+            opacity: [0, 0.15, 0.05, 0.2, 0.08, 0.18, 0],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            times: [0, 0.15, 0.3, 0.5, 0.7, 0.85, 1],
+          }}
+          className="absolute inset-0 bg-gradient-to-tr from-pink/30 via-pink/10 to-transparent mix-blend-soft-light"
+        />
+        <motion.div
+          animate={{
+            opacity: [0.1, 0.25, 0.1, 0.3, 0.15, 0.1],
+            scale: [1, 1.05, 0.98, 1.03, 1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-[15%] left-[30%] w-[40%] h-[40%] bg-pink/20 rounded-full blur-[80px] mix-blend-soft-light"
+        />
+
         {/* Dark overlay so text stays readable */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
