@@ -35,8 +35,8 @@ export default function Intro() {
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-snug lg:leading-tight">
               {[
                 { text: "Award-winning design for", className: "text-pink" },
-                { text: "fitness professionals who are" },
-                { text: "done wasting time." },
+                { text: "fitness professionals" },
+                { text: "who are done wasting time." },
               ].map((line, i) => (
                 <motion.span
                   key={i}
