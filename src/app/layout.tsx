@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalendlyProvider from "@/components/CalendlyProvider";
+import FloatingOrbs from "@/components/FloatingOrbs";
 import "./globals.css";
 
 const siteUrl = "https://awmedia.marketing";
@@ -50,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
+        <FloatingOrbs />
         <CalendlyProvider>{children}</CalendlyProvider>
       </body>
     </html>
