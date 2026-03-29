@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import MagneticButton from "./MagneticButton";
+import BookCallButton from "./BookCallButton";
 import { SplitText } from "./TextReveal";
 
 export default function CTA() {
@@ -87,20 +87,9 @@ export default function CTA() {
           transition={{ duration: 0.6, delay: 0.5, type: "spring" }}
           className="mt-12"
         >
-          <MagneticButton href="#" className="text-base px-12 py-4">
+          <BookCallButton className="text-base px-12 py-4">
             Book a FREE Call
-          </MagneticButton>
-        </motion.div>
-
-        {/* Calendly placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-16 rounded-2xl border border-card-border bg-card/50 backdrop-blur-sm p-12 text-muted"
-        >
-          <p className="text-sm uppercase tracking-widest">Calendly Integration Here</p>
+          </BookCallButton>
         </motion.div>
       </div>
     </section>

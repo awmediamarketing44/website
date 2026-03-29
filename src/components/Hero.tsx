@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import Image from "next/image";
 import MagneticButton from "./MagneticButton";
+import BookCallButton from "./BookCallButton";
 import { SplitText } from "./TextReveal";
 
 export default function Hero() {
@@ -200,9 +201,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <MagneticButton href="#cta" variant="primary">
+          <BookCallButton>
             Book a FREE Call
-          </MagneticButton>
+          </BookCallButton>
           <MagneticButton href="#work" variant="secondary">
             View Recent Work
           </MagneticButton>

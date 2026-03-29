@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import MagneticButton from "./MagneticButton";
+import BookCallButton from "./BookCallButton";
 import { CountUpText } from "./TextReveal";
 
 export default function PainPoint() {
@@ -71,7 +71,7 @@ export default function PainPoint() {
           transition={{ duration: 0.6, delay: 0.4, type: "spring" }}
           className="mt-12"
         >
-          <MagneticButton href="#cta">Let&apos;s Fix That</MagneticButton>
+          <BookCallButton>Let&apos;s Fix That</BookCallButton>
         </motion.div>
       </div>
     </section>

@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import TiltCard from "@/components/TiltCard";
-import MagneticButton from "@/components/MagneticButton";
+import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
 
 const filters = ["All", "Web Design", "Branding", "Shopify", "Landing Page"];
@@ -198,7 +198,7 @@ export default function WorkPage() {
               transition={{ delay: 0.3 }}
               className="mt-8"
             >
-              <MagneticButton href="/contact">Book a FREE Call</MagneticButton>
+              <BookCallButton>Book a FREE Call</BookCallButton>
             </motion.div>
           </div>
         </section>

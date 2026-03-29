@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import TiltCard from "@/components/TiltCard";
-import MagneticButton from "@/components/MagneticButton";
+import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
 
 const team = [
@@ -256,7 +256,7 @@ export default function AboutPage() {
               Want to work with us?
             </motion.h2>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="mt-8">
-              <MagneticButton href="/contact">Book a FREE Call</MagneticButton>
+              <BookCallButton>Book a FREE Call</BookCallButton>
             </motion.div>
           </div>
         </section>

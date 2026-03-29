@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import TiltCard from "@/components/TiltCard";
-import MagneticButton from "@/components/MagneticButton";
+import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
 import { getServiceBySlug, services } from "@/data/services";
 
@@ -128,7 +128,7 @@ export default function ServicePage() {
                   ))}
                 </ul>
                 <div className="mt-8">
-                  <MagneticButton href="/contact">Get Started</MagneticButton>
+                  <BookCallButton>Get Started</BookCallButton>
                 </div>
               </motion.div>
             </div>
@@ -351,7 +351,7 @@ export default function ServicePage() {
               transition={{ delay: 0.3 }}
               className="mt-8"
             >
-              <MagneticButton href="/contact">Book a FREE Call</MagneticButton>
+              <BookCallButton>Book a FREE Call</BookCallButton>
             </motion.div>
           </div>
         </section>
