@@ -166,7 +166,7 @@ export default function Hero() {
               </span>
             ))}
           </span>
-          <span className="block leading-[1.15] lg:leading-[1.1] mt-1 sm:mt-2 lg:mt-3">
+          <span className="block leading-[1.15] lg:leading-[1.1]">
             {"isn't performing.".split(" ").map((word, i) => (
               <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
                 <motion.span
