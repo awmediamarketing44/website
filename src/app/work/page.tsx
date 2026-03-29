@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
@@ -8,59 +9,9 @@ import PageHeader from "@/components/shared/PageHeader";
 import TiltCard from "@/components/TiltCard";
 import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
+import { projects } from "@/data/projects";
 
 const filters = ["All", "Web Design", "Branding", "Shopify", "Landing Page"];
-
-const projects = [
-  {
-    title: "Hard to Kill",
-    category: "Web Design",
-    description: "Full website build for a premium fitness coaching brand. Dark, bold aesthetic with integrated booking system.",
-    tags: ["Next.js", "Animations", "Booking"],
-  },
-  {
-    title: "Glean App",
-    category: "Web Design",
-    description: "SaaS landing page for a fitness tracking application. Clean UI with interactive demo sections.",
-    tags: ["React", "SaaS", "UI/UX"],
-  },
-  {
-    title: "Lumina Stone",
-    category: "Branding",
-    description: "Complete brand identity including logo, colour palette, typography, and brand guidelines.",
-    tags: ["Logo", "Brand Guide", "Print"],
-  },
-  {
-    title: "Newgen Coaching",
-    category: "Web Design",
-    description: "Coaching platform with client portal, programme delivery, and payment integration.",
-    tags: ["WordPress", "Portal", "Payments"],
-  },
-  {
-    title: "Bridge2Fitness",
-    category: "Web Design",
-    description: "Personal training website with online booking, class timetables, and testimonial system.",
-    tags: ["Booking", "Timetable", "SEO"],
-  },
-  {
-    title: "Pyper Fitness",
-    category: "Landing Page",
-    description: "High-converting landing page for 1:1 online coaching. Optimised for ad traffic.",
-    tags: ["Conversion", "Ads", "Copywriting"],
-  },
-  {
-    title: "The Mind Architect",
-    category: "Branding",
-    description: "Brand identity for a behavioural performance coach. Minimal, premium positioning.",
-    tags: ["Logo", "Social Templates", "Strategy"],
-  },
-  {
-    title: "FitGear Store",
-    category: "Shopify",
-    description: "E-commerce store for fitness equipment and supplements with subscription model.",
-    tags: ["Shopify", "E-commerce", "Subscriptions"],
-  },
-];
 
 export default function WorkPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -119,8 +70,9 @@ export default function WorkPage() {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.4 }}
                   >
+                    <Link href={`/work/${project.slug}`}>
                     <TiltCard>
-                      <div className="group relative rounded-2xl border border-card-border bg-card overflow-hidden transition-all duration-500 hover:border-pink/30">
+                      <div className="group relative rounded-2xl border border-card-border bg-card overflow-hidden transition-all duration-500 hover:border-pink/30 cursor-pointer">
                         {/* Image placeholder */}
                         <div className="aspect-[16/10] relative overflow-hidden">
                           <motion.div
@@ -143,8 +95,8 @@ export default function WorkPage() {
                           <h3 className="mt-2 text-lg font-bold group-hover:text-pink transition-colors duration-300">
                             {project.title}
                           </h3>
-                          <p className="mt-2 text-sm text-muted leading-relaxed">
-                            {project.description}
+                          <p className="mt-2 text-sm text-muted leading-relaxed line-clamp-2">
+                            {project.brief}
                           </p>
                           <div className="mt-4 flex flex-wrap gap-2">
                             {project.tags.map((tag) => (
@@ -159,6 +111,7 @@ export default function WorkPage() {
                         </div>
                       </div>
                     </TiltCard>
+                    </Link>
                   </motion.div>
                 ))}
               </AnimatePresence>
