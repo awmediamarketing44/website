@@ -150,11 +150,11 @@ export default function Hero() {
         <h1 className="mx-auto max-w-5xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-8xl leading-[0.85] sm:leading-[0.8] lg:leading-[0.75]">
           <span className="block">
             {"Your website".split(" ").map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.3em] pb-[0.5em] -mb-[0.5em]">
+              <span key={i} className="inline-block mr-[0.3em]">
                 <motion.span
                   className="inline-block"
-                  initial={{ y: "110%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
+                  initial={{ y: 20, opacity: 0, filter: "blur(8px)" }}
+                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                   transition={{
                     duration: 0.6,
                     delay: 0.2 + i * 0.08,
@@ -168,11 +168,11 @@ export default function Hero() {
           </span>
           <span className="block">
             {"isn't performing.".split(" ").map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.3em] pb-[0.5em] -mb-[0.5em]">
+              <span key={i} className="inline-block mr-[0.3em]">
                 <motion.span
                   className="inline-block gradient-text"
-                  initial={{ y: "110%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
+                  initial={{ y: 20, opacity: 0, filter: "blur(8px)" }}
+                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                   transition={{
                     duration: 0.6,
                     delay: 0.5 + i * 0.08,
