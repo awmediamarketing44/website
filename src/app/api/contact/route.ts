@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       from: "AW Media Website <noreply@awmedia.marketing>",
       to: ["alex@awmedia.marketing"],
       replyTo: email,
-      subject: `New enquiry from ${name}${service ? ` — ${serviceLabels[service] || service}` : ""}`,
+      subject: `New enquiry from ${name}${service ? ` - ${serviceLabels[service] || service}` : ""}`,
       html: `
         <div style="font-family: -apple-system, sans-serif; max-width: 600px;">
           <h2 style="margin-bottom: 24px;">New website enquiry</h2>

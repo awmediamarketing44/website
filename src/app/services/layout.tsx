@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services — Web Design, Branding, SEO & More",
+  title: "Services | Web Design, Branding, SEO & More",
   description:
-    "Web design, branding, social media graphics, SEO, Shopify stores, and landing pages — all under one roof. Built specifically for fitness professionals.",
+    "Web design, branding, social media graphics, SEO, Shopify stores, and landing pages, all under one roof. Built specifically for fitness professionals.",
   openGraph: {
-    title: "Our Services — AW Media & Marketing",
+    title: "Our Services | AW Media & Marketing",
     description:
-      "Everything your fitness business needs online. Web design, branding, social media, SEO — no more juggling multiple agencies.",
+      "Everything your fitness business needs online. Web design, branding, social media, SEO. No more juggling multiple agencies.",
   },
 };
 

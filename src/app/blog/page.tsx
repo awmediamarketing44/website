@@ -11,7 +11,7 @@ const featuredPost = {
   tag: "Web Design",
   title: "Why Your Fitness Coaching Website Isn't Turning Visitors Into Paying Clients",
   excerpt:
-    "You're getting traffic but nobody's booking a call. Here's why — and the 7 things you can fix today to start converting visitors into paying clients.",
+    "You're getting traffic but nobody's booking a call. Here's why, and the 7 things you can fix today to start converting visitors into paying clients.",
   date: "March 2026",
 };
 
@@ -25,7 +25,7 @@ const posts = [
   {
     tag: "Marketing",
     title: "The 5 Biggest Mistakes Fitness Coaches Make With Their Online Presence",
-    excerpt: "From broken links to missing CTAs — these are the errors we see on almost every fitness coach's website. Number 3 is costing you clients daily.",
+    excerpt: "From broken links to missing CTAs, these are the errors we see on almost every fitness coach's website. Number 3 is costing you clients daily.",
     date: "February 2026",
   },
   {
@@ -49,7 +49,7 @@ const posts = [
   {
     tag: "Business",
     title: "How Much Should a Fitness Coach Spend on a Website in 2026?",
-    excerpt: "From DIY to agency — we break down the real costs, what you get at each price point, and when it's worth investing more.",
+    excerpt: "From DIY to agency, we break down the real costs, what you get at each price point, and when it's worth investing more.",
     date: "December 2025",
   },
 ];
@@ -64,7 +64,7 @@ export default function BlogPage() {
           tag="Blog"
           title="Tips, tricks &"
           titleAccent="honest advice."
-          description="Practical guides for fitness professionals who want a better online presence. No fluff — just stuff that actually works."
+          description="Practical guides for fitness professionals who want a better online presence. No fluff. Just stuff that actually works."
         />
 
         {/* Featured post */}

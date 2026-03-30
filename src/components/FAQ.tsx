@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "Do I need to provide all the content?",
     answer:
-      "We'll guide you through everything. We provide a simple content questionnaire, and our team can help with copywriting, photography direction, and content strategy. You focus on coaching — we handle the rest.",
+      "We'll guide you through everything. We provide a simple content questionnaire, and our team can help with copywriting, photography direction, and content strategy. You focus on coaching and we handle the rest.",
   },
   {
     question: "Can I update the website myself?",
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Do you only work with fitness businesses?",
     answer:
-      "While over 90% of our clients are fitness professionals — coaches, PTs, gym owners — we work with any ambitious business that wants a website that actually converts. Fitness is our specialty, but great design is universal.",
+      "While over 90% of our clients are fitness professionals (coaches, PTs, gym owners), we work with any ambitious business that wants a website that actually converts. Fitness is our specialty, but great design is universal.",
   },
 ];
 

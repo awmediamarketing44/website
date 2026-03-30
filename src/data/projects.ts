@@ -44,14 +44,14 @@ export const projects: ProjectData[] = [
       website: "https://hardtokill.fitness",
     },
     brief:
-      "Hard to Kill needed a website that matched the intensity of their brand — dark, bold, and built to convert serious fitness clients who don't mess around.",
+      "Hard to Kill needed a website that matched the intensity of their brand: dark, bold, and built to convert serious fitness clients who don't mess around.",
     challenge: [
       "Their old site was a basic WordPress template that looked like every other PT in Manchester. Nothing about it said 'premium'.",
       "They were getting traffic from Instagram but losing people the moment they landed on the website. The bounce rate was over 70%.",
-      "No booking integration — clients had to DM to book, which meant lost enquiries overnight and on weekends.",
+      "No booking integration, so clients had to DM to book, which meant lost enquiries overnight and on weekends.",
     ],
     approach: [
-      "We started with a deep dive into their brand positioning. Hard to Kill isn't your average coaching brand — the name says it all. We designed a dark, aggressive aesthetic with bold typography and sharp animations that match the energy.",
+      "We started with a deep dive into their brand positioning. Hard to Kill isn't your average coaching brand. The name says it all. We designed a dark, aggressive aesthetic with bold typography and sharp animations that match the energy.",
       "Every section was built with conversion in mind. The hero hits hard with a clear value proposition, social proof is front and centre, and the CTA is impossible to miss.",
       "We integrated Calendly directly into the site so clients can book 24/7 without DMing. We also built a transformation gallery with before/after sliders to let the results speak for themselves.",
     ],
@@ -61,7 +61,7 @@ export const projects: ProjectData[] = [
       "Before & after transformation gallery",
       "Mobile-first responsive design",
       "SEO-optimised for local search terms",
-      "Fast loading — under 2 second page speed",
+      "Fast loading, under 2 second page speed",
     ],
     testimonial: {
       quote: "The website Alex built us is absolutely unreal. We've had more enquiries in the first month than the previous six months combined. People actually take us seriously now.",
@@ -100,9 +100,9 @@ export const projects: ProjectData[] = [
     brief:
       "Glean needed a landing page for their fitness tracking app that communicated the product's value instantly and drove app downloads.",
     challenge: [
-      "The existing page was developer-built with no design direction — functional but forgettable.",
+      "The existing page was developer-built with no design direction. Functional but forgettable.",
       "Conversion rate on the landing page was under 2%, well below industry average for SaaS.",
-      "No clear visual hierarchy — visitors didn't know where to look or what to do next.",
+      "No clear visual hierarchy. Visitors didn't know where to look or what to do next.",
     ],
     approach: [
       "We redesigned the entire landing page with a clear visual story: problem → solution → proof → action. Every scroll moves the visitor closer to downloading.",
@@ -141,13 +141,13 @@ export const projects: ProjectData[] = [
     brief:
       "Complete brand identity for a premium stone masonry company that needed to look as solid and refined as the work they produce.",
     challenge: [
-      "No existing brand identity — just a name and word-of-mouth reputation.",
+      "No existing brand identity. Just a name and word-of-mouth reputation.",
       "Competing against established companies with decades of brand recognition.",
       "Needed to appeal to both commercial developers and high-end residential clients.",
     ],
     approach: [
       "We researched the premium construction and masonry space to understand what visual language communicates trust and quality in this industry.",
-      "The brand direction leans into clean, architectural aesthetics — strong geometric shapes, a refined colour palette, and typography that feels built to last.",
+      "The brand direction leans into clean, architectural aesthetics with strong geometric shapes, a refined colour palette, and typography that feels built to last.",
       "We delivered a complete brand system: primary logo with variations, colour palette, typography scale, brand guidelines, business cards, vehicle livery, and social templates.",
     ],
     features: [
@@ -181,14 +181,14 @@ export const projects: ProjectData[] = [
       location: "Birmingham, UK",
     },
     brief:
-      "Newgen needed a coaching platform with client portal, programme delivery, and integrated payments — not just a brochure site.",
+      "Newgen needed a coaching platform with client portal, programme delivery, and integrated payments. Not just a brochure site.",
     challenge: [
-      "Managing clients through spreadsheets and WhatsApp groups — no centralised system.",
+      "Managing clients through spreadsheets and WhatsApp groups with no centralised system.",
       "No way for clients to access programmes, track progress, or make payments through the website.",
-      "The brand looked inconsistent — different styles across Instagram, website, and client materials.",
+      "The brand looked inconsistent, with different styles across Instagram, website, and client materials.",
     ],
     approach: [
-      "We built a full coaching platform, not just a website. Clients log in, access their programmes, track workouts, and manage their subscription — all from one place.",
+      "We built a full coaching platform, not just a website. Clients log in, access their programmes, track workouts, and manage their subscription, all from one place.",
       "Payment integration with Stripe means recurring billing is automatic. No more chasing invoices.",
       "The design unifies the brand across every touchpoint, from the public-facing marketing site to the private client portal.",
     ],
@@ -226,13 +226,13 @@ export const projects: ProjectData[] = [
       "A personal training website with online booking, class timetables, and a testimonial system that builds trust with new visitors.",
     challenge: [
       "Existing Wix site looked generic and didn't reflect the quality of coaching on offer.",
-      "Clients couldn't book sessions online — everything was done over the phone or in person.",
-      "Zero Google visibility — not ranking for any local search terms despite being established for years.",
+      "Clients couldn't book sessions online. Everything was done over the phone or in person.",
+      "Zero Google visibility. Not ranking for any local search terms despite being established for years.",
     ],
     approach: [
       "We designed a clean, energetic site that immediately communicates professionalism and results.",
       "Integrated an online booking system with a live class timetable so clients can see availability and book instantly.",
-      "Built with local SEO from day one — optimised for 'personal trainer Leeds' and related terms with proper schema markup.",
+      "Built with local SEO from day one, optimised for 'personal trainer Leeds' and related terms with proper schema markup.",
     ],
     features: [
       "Online booking with live availability",
@@ -266,14 +266,14 @@ export const projects: ProjectData[] = [
     brief:
       "A high-converting landing page for 1:1 online coaching, optimised specifically for Facebook and Instagram ad traffic.",
     challenge: [
-      "Running ads to the homepage — low conversion rate, high cost per lead.",
-      "No dedicated landing page for the coaching offer — visitors were overwhelmed with options.",
+      "Running ads to the homepage with a low conversion rate, high cost per lead.",
+      "No dedicated landing page for the coaching offer. Visitors were overwhelmed with options.",
       "Ad spend was being wasted on clicks that never converted.",
     ],
     approach: [
       "We built a single-focus landing page with one goal: get the visitor to book a call. No navigation, no distractions.",
       "Sharp, conversion-focused copy that speaks directly to the target audience's pain points.",
-      "Social proof placed strategically — testimonials, transformation photos, and trust badges exactly where hesitation typically happens.",
+      "Social proof placed strategically: testimonials, transformation photos, and trust badges exactly where hesitation typically happens.",
     ],
     features: [
       "Single-goal landing page design",
@@ -307,13 +307,13 @@ export const projects: ProjectData[] = [
     brief:
       "Brand identity for a behavioural performance coach who needed a minimal, premium positioning that stood apart from the typical 'mindset coach' aesthetic.",
     challenge: [
-      "The mindset/performance coaching space is saturated with generic branding — motivational quotes on sunset backgrounds.",
+      "The mindset/performance coaching space is saturated with generic branding. Motivational quotes on sunset backgrounds.",
       "Needed to attract high-ticket corporate and executive clients, not just general consumers.",
-      "No existing brand assets — starting completely from scratch.",
+      "No existing brand assets. Starting completely from scratch.",
     ],
     approach: [
-      "We went minimal and architectural — clean lines, structured layouts, and a restrained colour palette that whispers premium rather than shouting it.",
-      "The logo concept plays on the idea of 'architecture of the mind' — geometric, precise, and memorable.",
+      "We went minimal and architectural: clean lines, structured layouts, and a restrained colour palette that whispers premium rather than shouting it.",
+      "The logo concept plays on the idea of 'architecture of the mind'. Geometric, precise, and memorable.",
       "Social templates were designed for LinkedIn and Instagram, tailored to the kind of content that resonates with executive audiences.",
     ],
     features: [
@@ -349,12 +349,12 @@ export const projects: ProjectData[] = [
       "An e-commerce store for fitness equipment and supplements with a subscription model for recurring supplement orders.",
     challenge: [
       "Previous WooCommerce store was slow, buggy, and losing sales to checkout abandonment.",
-      "No subscription option — missing out on recurring revenue from supplement customers.",
+      "No subscription option, missing out on recurring revenue from supplement customers.",
       "Product pages were basic with poor photography and no reviews.",
     ],
     approach: [
       "Migrated to Shopify for reliability and scalability. Custom theme designed to showcase products with high-quality imagery and detailed descriptions.",
-      "Set up subscription billing for supplements with flexible delivery schedules — customers can pause, skip, or cancel anytime.",
+      "Set up subscription billing for supplements with flexible delivery schedules. Customers can pause, skip, or cancel anytime.",
       "Optimised the checkout flow to reduce abandonment: fewer steps, guest checkout, multiple payment options, and abandoned cart recovery emails.",
     ],
     features: [

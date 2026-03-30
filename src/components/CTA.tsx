@@ -76,7 +76,7 @@ export default function CTA() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-8 text-lg text-muted max-w-2xl mx-auto"
         >
-          Book a free 15-minute call. No pressure, no jargon — just an honest
+          Book a free 15-minute call. No pressure, no jargon. Just an honest
           conversation about what your fitness business needs to grow online.
         </motion.p>
 

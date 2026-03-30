@@ -22,7 +22,7 @@ const team = [
   {
     name: "Paul Rendell",
     role: "Web Design & Development",
-    bio: "Brings years of development experience to the team. Paul works alongside Alex to build fast, reliable websites that don't just look good — they perform.",
+    bio: "Brings years of development experience to the team. Paul works alongside Alex to build fast, reliable websites that don't just look good. They perform.",
   },
   {
     name: "Lahcen",
@@ -38,7 +38,7 @@ const values = [
   },
   {
     title: "Built to convert.",
-    description: "Every decision we make — from layout to copy to colour — is designed to turn visitors into clients. Pretty isn't enough.",
+    description: "Every decision we make, from layout to copy to colour, is designed to turn visitors into clients. Pretty isn't enough.",
   },
   {
     title: "We actually care.",
@@ -71,7 +71,7 @@ export default function AboutPage() {
           tag="About Us"
           title="We're not your typical"
           titleAccent="web design agency."
-          description="We're a small team in Sheffield that builds websites for fitness professionals. That's it. No fluff, no corporate waffle — just honest work for people who want results."
+          description="We're a small team in Sheffield that builds websites for fitness professionals. That's it. No fluff, no corporate waffle. Just honest work for people who want results."
         />
 
         {/* Story */}
@@ -112,7 +112,7 @@ export default function AboutPage() {
                     middlemen, no account managers, no 6-week wait times.
                   </p>
                   <p>
-                    Fast forward to today — we&apos;ve built over 400 websites, won
+                    Fast forward to today and we&apos;ve built over 400 websites, won
                     multiple awards back to back, and over 90% of our clients are
                     fitness professionals. We know this space inside out.
                   </p>

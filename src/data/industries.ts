@@ -24,9 +24,9 @@ export const industries: IndustryData[] = [
     headerDescription:
       "Over 90% of our clients are in fitness. We know your market, your audience, and exactly what converts visitors into coaching clients.",
     intro: [
-      "We've built over 400 websites for fitness coaches, personal trainers, gym owners, and online coaching brands. This isn't a sideline for us — it's what we do every single day.",
-      "We understand how your clients think, what makes them enquire, and what puts them off. We know the difference between an online coaching brand that charges £50 a month and one that charges £500 — and we know how to make your website reflect which one you are.",
-      "From booking integrations to programme delivery, from lead magnets to transformation galleries — we've built it all. No learning curve, no guesswork. Just a team that speaks your language.",
+      "We've built over 400 websites for fitness coaches, personal trainers, gym owners, and online coaching brands. This isn't a sideline for us. It's what we do every single day.",
+      "We understand how your clients think, what makes them enquire, and what puts them off. We know the difference between an online coaching brand that charges £50 a month and one that charges £500, and we know how to make your website reflect which one you are.",
+      "From booking integrations to programme delivery, from lead magnets to transformation galleries. We've built it all. No learning curve, no guesswork. Just a team that speaks your language.",
     ],
     painPoints: [
       {
@@ -35,7 +35,7 @@ export const industries: IndustryData[] = [
       },
       {
         title: "You're getting DMs but not website enquiries.",
-        description: "If people are messaging you on Instagram but bouncing off your site, the problem isn't your coaching — it's your website. We fix that.",
+        description: "If people are messaging you on Instagram but bouncing off your site, the problem isn't your coaching. It's your website. We fix that.",
       },
       {
         title: "You're spending hours in Canva instead of coaching.",
@@ -56,14 +56,14 @@ export const industries: IndustryData[] = [
     faqs: [
       {
         question: "Do you integrate with booking systems?",
-        answer: "Yes — we work with Calendly, Acuity, PTminder, TrueCoach, My PT Hub, and most other fitness booking platforms. If you use it, we can integrate it.",
+        answer: "Yes, we work with Calendly, Acuity, PTminder, TrueCoach, My PT Hub, and most other fitness booking platforms. If you use it, we can integrate it.",
       },
       {
         question: "Can you build a client portal or programme delivery system?",
         answer: "Absolutely. We've built coaching platforms with client logins, video libraries, workout trackers, and payment integration. We'll recommend the best approach for your business.",
       },
       {
-        question: "I only coach online — do I still need a website?",
+        question: "I only coach online. Do I still need a website?",
         answer: "Especially if you coach online. Your website is your shopfront. It's where people go to decide if you're legit before they DM you. A strong website means higher-quality enquiries and fewer tyre-kickers.",
       },
     ],
@@ -79,8 +79,8 @@ export const industries: IndustryData[] = [
     headerDescription:
       "Professional websites for builders, contractors, and tradespeople that generate enquiries and make you look like the obvious choice.",
     intro: [
-      "Most construction company websites look like they were built in 2012. Blurry photos, clip art icons, and a contact form that probably doesn't work. Your competitors are winning jobs because they look more professional online — even if your work is better.",
-      "We build clean, modern websites that showcase your projects, highlight your expertise, and make it dead easy for potential clients to get in touch. No fluff, no jargon — just a site that does its job so you can do yours.",
+      "Most construction company websites look like they were built in 2012. Blurry photos, clip art icons, and a contact form that probably doesn't work. Your competitors are winning jobs because they look more professional online, even if your work is better.",
+      "We build clean, modern websites that showcase your projects, highlight your expertise, and make it dead easy for potential clients to get in touch. No fluff, no jargon. Just a site that does its job so you can do yours.",
       "Whether you're a sole trader, a specialist contractor, or a multi-site construction firm, we'll build you something that stands out in an industry where most websites are embarrassingly bad.",
     ],
     painPoints: [
@@ -94,7 +94,7 @@ export const industries: IndustryData[] = [
       },
       {
         title: "You don't have time to mess around with websites.",
-        description: "You're on-site all day. We handle everything — design, build, content — and deliver a site you're proud to hand out on a business card.",
+        description: "You're on-site all day. We handle everything: design, build, content, and deliver a site you're proud to hand out on a business card.",
       },
     ],
     services: [
@@ -111,19 +111,19 @@ export const industries: IndustryData[] = [
     faqs: [
       {
         question: "Can you add a project gallery I can update myself?",
-        answer: "Yes. We build easy-to-update galleries where you can upload project photos, add descriptions, and categorise by type of work. No coding needed — if you can use a phone, you can update your site.",
+        answer: "Yes. We build easy-to-update galleries where you can upload project photos, add descriptions, and categorise by type of work. No coding needed. If you can use a phone, you can update your site.",
       },
       {
         question: "Do you do vehicle wraps and workwear design?",
         answer: "We design the branding and provide print-ready files for vehicle livery, workwear, signage, and anything else you need. We work with trusted print partners if you need production too.",
       },
       {
-        question: "I just want something simple — is that okay?",
+        question: "I just want something simple. Is that okay?",
         answer: "Simple is often best. A clean 5-page site with your services, project photos, testimonials, and a contact form is usually all a trades business needs. We won't over-engineer it.",
       },
     ],
     ctaHeadline: "Ready to look as professional online as you are on-site?",
-    ctaSubtext: "Book a free call. No jargon, no hard sell — just a chat about what you need.",
+    ctaSubtext: "Book a free call. No jargon, no hard sell. Just a chat about what you need.",
   },
   {
     slug: "dental",
@@ -135,13 +135,13 @@ export const industries: IndustryData[] = [
       "Professional, trust-building websites for dentists and dental practices that turn visitors into booked appointments.",
     intro: [
       "Patients choose their dentist online before they ever pick up the phone. If your website looks outdated, loads slowly, or doesn't clearly explain your treatments, they're booking with the practice down the road instead.",
-      "We build clean, modern dental websites that do three things: build trust instantly, explain your services clearly, and make it effortless to book an appointment. No stock photos of models with perfect teeth — just a professional site that reflects the quality of care you provide.",
+      "We build clean, modern dental websites that do three things: build trust instantly, explain your services clearly, and make it effortless to book an appointment. No stock photos of models with perfect teeth. Just a professional site that reflects the quality of care you provide.",
       "From NHS practices to private cosmetic clinics, we understand the dental industry and what patients look for when choosing a new practice.",
     ],
     painPoints: [
       {
         title: "Patients are going to competitors with better websites.",
-        description: "When someone searches 'dentist near me', they click the top results and pick the one that looks most trustworthy. Your website is your waiting room — make it feel right.",
+        description: "When someone searches 'dentist near me', they click the top results and pick the one that looks most trustworthy. Your website is your waiting room. Make it feel right.",
       },
       {
         title: "Your treatment pages don't explain enough.",
@@ -166,11 +166,11 @@ export const industries: IndustryData[] = [
     faqs: [
       {
         question: "Can you integrate with our booking system?",
-        answer: "Yes — we work with Dentally, Software of Excellence, Exact, and most other dental practice management systems. If yours has an online booking widget, we can integrate it seamlessly.",
+        answer: "Yes, we work with Dentally, Software of Excellence, Exact, and most other dental practice management systems. If yours has an online booking widget, we can integrate it seamlessly.",
       },
       {
         question: "Do you handle GDPR compliance?",
-        answer: "All our sites are built with GDPR in mind — cookie consent, privacy policies, secure forms, and compliant data handling. We'll make sure your site ticks every box.",
+        answer: "All our sites are built with GDPR in mind: cookie consent, privacy policies, secure forms, and compliant data handling. We'll make sure your site ticks every box.",
       },
       {
         question: "Can patients leave reviews on the site?",
@@ -191,7 +191,7 @@ export const industries: IndustryData[] = [
     intro: [
       "Your photos are incredible. Your website? Probably not doing them justice. If your portfolio is buried in a slow-loading Squarespace template with tiny thumbnails, you're underselling yourself before a client even sees your best work.",
       "We build fast, visually stunning portfolio websites that let your photography take centre stage. Full-screen galleries, smooth transitions, and a design that gets out of the way and lets your images do the talking.",
-      "Whether you shoot weddings, commercial, portraits, or events, we'll build you a site that positions you as a premium photographer — because that's what your work deserves.",
+      "Whether you shoot weddings, commercial, portraits, or events, we'll build you a site that positions you as a premium photographer, because that's what your work deserves.",
     ],
     painPoints: [
       {
@@ -221,15 +221,15 @@ export const industries: IndustryData[] = [
     faqs: [
       {
         question: "Will my photos load quickly on the site?",
-        answer: "Yes. We use advanced image optimisation — responsive sizing, lazy loading, and modern formats — so your photos look stunning but don't slow the site down. Best of both worlds.",
+        answer: "Yes. We use advanced image optimisation: responsive sizing, lazy loading, and modern formats so your photos look stunning but don't slow the site down. Best of both worlds.",
       },
       {
         question: "Can I update the gallery myself?",
-        answer: "Absolutely. We build a simple backend where you can upload new shoots, create albums, reorder images, and publish — no technical knowledge needed.",
+        answer: "Absolutely. We build a simple backend where you can upload new shoots, create albums, reorder images, and publish. No technical knowledge needed.",
       },
       {
         question: "Do you work with videographers too?",
-        answer: "Yes — we can embed showreels, integrate Vimeo or YouTube, and build portfolio pages that showcase both photo and video work seamlessly.",
+        answer: "Yes, we can embed showreels, integrate Vimeo or YouTube, and build portfolio pages that showcase both photo and video work seamlessly.",
       },
     ],
     ctaHeadline: "Ready for a website as good as your photography?",
@@ -244,7 +244,7 @@ export const industries: IndustryData[] = [
     headerDescription:
       "Elegant, trust-building websites for aesthetics clinics, beauty salons, and medispas that attract high-value clients.",
     intro: [
-      "In aesthetics, trust is everything. Your clients are putting their face in your hands — literally. If your website looks cheap, outdated, or like a DIY job, they're not booking. They're going to the clinic down the road with the better website.",
+      "In aesthetics, trust is everything. Your clients are putting their face in your hands. Literally. If your website looks cheap, outdated, or like a DIY job, they're not booking. They're going to the clinic down the road with the better website.",
       "We design websites that feel premium from the first click. Clean layouts, elegant typography, professional imagery, and a booking flow that makes it effortless to schedule a consultation. Every detail is designed to say: this is a clinic you can trust.",
       "From standalone practitioners to multi-treatment medispas, we understand the aesthetics industry and what high-value clients expect to see before they commit.",
     ],
@@ -264,7 +264,7 @@ export const industries: IndustryData[] = [
     ],
     services: [
       { title: "Clinic websites", description: "Elegant, premium sites with treatment menus, before & after galleries, practitioner profiles, and seamless online booking." },
-      { title: "Brand identity", description: "Luxury branding that positions your clinic as the premium choice — logo, colour palette, social templates, and print materials." },
+      { title: "Brand identity", description: "Luxury branding that positions your clinic as the premium choice: logo, colour palette, social templates, and print materials." },
       { title: "SEO & Google Ads", description: "Local SEO to rank for treatment searches in your area, plus landing pages optimised for paid ad campaigns." },
     ],
     stats: [
@@ -276,7 +276,7 @@ export const industries: IndustryData[] = [
     faqs: [
       {
         question: "Can you integrate with my booking system?",
-        answer: "Yes — we integrate with Fresha, Timely, Pabau, Cliniko, and most other clinic booking platforms. If you use it, we can make it work seamlessly on your site.",
+        answer: "Yes, we integrate with Fresha, Timely, Pabau, Cliniko, and most other clinic booking platforms. If you use it, we can make it work seamlessly on your site.",
       },
       {
         question: "Can I show before and after photos?",

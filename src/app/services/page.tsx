@@ -58,7 +58,7 @@ export default function ServicesPage() {
           tag="What We Do"
           title="Everything your fitness"
           titleAccent="business needs online."
-          description="Web design, branding, social media, SEO — all under one roof. No more juggling multiple agencies."
+          description="Web design, branding, social media, SEO, all under one roof. No more juggling multiple agencies."
         />
 
         {/* Services Grid */}

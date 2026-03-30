@@ -25,7 +25,7 @@ export const services: ServiceData[] = [
     headerDescription:
       "Custom-built, conversion-focused websites for fitness professionals. No templates. No page builders. Just websites that actually work.",
     longDescription: [
-      "Your website is the first impression most clients will ever have of your business. And right now? It's probably costing you enquiries. A slow, outdated, template-looking site tells potential clients you're not serious — even if you're the best coach in your area.",
+      "Your website is the first impression most clients will ever have of your business. And right now? It's probably costing you enquiries. A slow, outdated, template-looking site tells potential clients you're not serious, even if you're the best coach in your area.",
       "We design and build websites from scratch, specifically for fitness coaches, PTs, and gym owners. Every layout, every section, every call-to-action is designed with one goal: get your visitors to book a call or sign up. Not just look pretty.",
       "You get a site that loads in under 2 seconds, looks premium on every device, ranks on Google, and integrates with your booking system and payment provider. Built on modern tech that won't break when you need it most.",
     ],
@@ -41,7 +41,7 @@ export const services: ServiceData[] = [
       {
         title: "More enquiries, less chasing.",
         description:
-          "A website built to convert means your inbox fills up with qualified leads — people who are already sold before they message you.",
+          "A website built to convert means your inbox fills up with qualified leads. People who are already sold before they message you.",
       },
       {
         title: "Look like the premium option.",
@@ -64,7 +64,7 @@ export const services: ServiceData[] = [
       {
         question: "How long does a website take to build?",
         answer:
-          "Most websites are delivered within 2-4 weeks. More complex builds with booking systems, client portals, or e-commerce features take 4-6 weeks. We'll give you a clear timeline before we start — and we stick to it.",
+          "Most websites are delivered within 2-4 weeks. More complex builds with booking systems, client portals, or e-commerce features take 4-6 weeks. We'll give you a clear timeline before we start, and we stick to it.",
       },
       {
         question: "Will I be able to update it myself?",
@@ -91,8 +91,8 @@ export const services: ServiceData[] = [
       "Your brand is more than a logo. It's the reason someone chooses you over the other 50 coaches in their feed.",
     longDescription: [
       "Here's the truth: most fitness coaches are using a logo they got off Fiverr for £20 and a colour palette they picked because they liked it. There's no strategy behind it, no consistency across platforms, and no connection to the audience they're trying to attract.",
-      "Your brand is every touchpoint a potential client has with your business — your logo, your colours, your fonts, your social posts, your website, your email signature. When all of those things feel cohesive and premium, you don't have to convince people you're worth the price. They already feel it.",
-      "We build complete brand identities from the ground up. Not just a logo — a full system that works across your website, social media, print materials, and everything in between. Designed specifically for the fitness industry, where standing out in a crowded market is everything.",
+      "Your brand is every touchpoint a potential client has with your business. Your logo, your colours, your fonts, your social posts, your website, your email signature. When all of those things feel cohesive and premium, you don't have to convince people you're worth the price. They already feel it.",
+      "We build complete brand identities from the ground up. Not just a logo. A full system that works across your website, social media, print materials, and everything in between. Designed specifically for the fitness industry, where standing out in a crowded market is everything.",
     ],
     features: [
       "Primary logo + variations",
@@ -116,7 +116,7 @@ export const services: ServiceData[] = [
       {
         title: "Stand out in a saturated market.",
         description:
-          "The fitness industry is packed. A distinctive brand identity means people remember you — and come back when they're ready to buy.",
+          "The fitness industry is packed. A distinctive brand identity means people remember you and come back when they're ready to buy.",
       },
     ],
     whoIsThisFor: [
@@ -134,12 +134,12 @@ export const services: ServiceData[] = [
       {
         question: "What if I already have a logo but need everything else?",
         answer:
-          "No problem. We can build a full brand system around your existing logo — colour palette, typography, templates, guidelines. We'll be honest if we think the logo needs work, but the call is always yours.",
+          "No problem. We can build a full brand system around your existing logo: colour palette, typography, templates, guidelines. We'll be honest if we think the logo needs work, but the call is always yours.",
       },
       {
         question: "How long does a branding project take?",
         answer:
-          "Typically 2-3 weeks from kickoff to final delivery. The timeline depends on how quickly you provide feedback on concepts — we don't drag things out.",
+          "Typically 2-3 weeks from kickoff to final delivery. The timeline depends on how quickly you provide feedback on concepts. We don't drag things out.",
       },
     ],
     ctaHeadline: "Ready to look like a brand people trust?",
@@ -153,11 +153,11 @@ export const services: ServiceData[] = [
     headerTitle: "Content that actually",
     headerAccent: "looks professional.",
     headerDescription:
-      "Scroll-stopping graphics and templates so your feed looks consistent, branded, and premium — without you spending hours in Canva.",
+      "Scroll-stopping graphics and templates so your feed looks consistent, branded, and premium without you spending hours in Canva.",
     longDescription: [
       "You know you need to post consistently. But between coaching clients, writing programmes, and actually living your life, designing social media content falls to the bottom of the list. And when you do get around to it, you're stuck in Canva for three hours making something you'll probably delete anyway.",
       "Your Instagram feed is often the first thing potential clients check before they enquire. If it looks inconsistent, messy, or like every other fitness account, you're losing people before they even read your caption.",
-      "We design custom templates and graphics that match your brand, so every post looks like it was made by a design team — because it was. You get templates you can reuse, custom one-off designs for launches and campaigns, and a feed that finally looks like it belongs to a premium brand.",
+      "We design custom templates and graphics that match your brand, so every post looks like it was made by a design team. Because it was. You get templates you can reuse, custom one-off designs for launches and campaigns, and a feed that finally looks like it belongs to a premium brand.",
     ],
     features: [
       "Custom post & story templates",
@@ -176,7 +176,7 @@ export const services: ServiceData[] = [
       {
         title: "Look premium in every feed.",
         description:
-          "When someone lands on your profile, they see a cohesive, professional brand — not a random collection of different styles and fonts.",
+          "When someone lands on your profile, they see a cohesive, professional brand, not a random collection of different styles and fonts.",
       },
       {
         title: "More engagement, more reach.",
@@ -204,7 +204,7 @@ export const services: ServiceData[] = [
       {
         question: "Do you offer ongoing design support?",
         answer:
-          "Absolutely. We offer monthly packages where we design fresh content for you on a rolling basis — new templates, campaign graphics, whatever you need. No more DIY.",
+          "Absolutely. We offer monthly packages where we design fresh content for you on a rolling basis: new templates, campaign graphics, whatever you need. No more DIY.",
       },
     ],
     ctaHeadline: "Ready to stop dreading content day?",
@@ -218,7 +218,7 @@ export const services: ServiceData[] = [
     headerTitle: "A website that keeps",
     headerAccent: "working after launch.",
     headerDescription:
-      "Ongoing SEO, security, performance, and content support. Think of it as having a web team on retainer — without the overhead.",
+      "Ongoing SEO, security, performance, and content support. Think of it as having a web team on retainer, without the overhead.",
     longDescription: [
       "Most agencies build your site, hand over the keys, and disappear. Six months later your plugins are outdated, your site's been hacked, and you're on page 4 of Google wondering what went wrong. Sound familiar?",
       "A website isn't a set-and-forget thing. Google changes its algorithm constantly, security threats evolve, and your competitors are investing in their online presence every month. If your site isn't being maintained and improved, it's falling behind.",
@@ -283,11 +283,11 @@ export const services: ServiceData[] = [
     headerTitle: "An online store that",
     headerAccent: "actually sells.",
     headerDescription:
-      "Supplements, merch, digital programmes, subscriptions — we build Shopify stores that look premium and are built to convert.",
+      "Supplements, merch, digital programmes, subscriptions. We build Shopify stores that look premium and are built to convert.",
     longDescription: [
-      "Selling online should be straightforward. But if your store looks like a default Shopify template with stock photos and generic descriptions, your customers are bouncing before they even add something to the cart. In fitness, trust is everything — and a cheap-looking store kills it instantly.",
+      "Selling online should be straightforward. But if your store looks like a default Shopify template with stock photos and generic descriptions, your customers are bouncing before they even add something to the cart. In fitness, trust is everything, and a cheap-looking store kills it instantly.",
       "We design and build custom Shopify stores that match the quality of your products. From product photography direction to checkout optimisation, every detail is designed to reduce friction and increase conversions. Whether you're selling supplements, gym apparel, meal plans, or coaching programmes.",
-      "And we don't just make it look good — we set up the systems that make your life easier. Automated inventory management, subscription billing, abandoned cart recovery, and analytics that actually tell you what's working.",
+      "And we don't just make it look good. We set up the systems that make your life easier. Automated inventory management, subscription billing, abandoned cart recovery, and analytics that actually tell you what's working.",
     ],
     features: [
       "Custom Shopify theme design",
@@ -324,7 +324,7 @@ export const services: ServiceData[] = [
       {
         question: "Do I need to use Shopify?",
         answer:
-          "For e-commerce, Shopify is our top recommendation — it's the most reliable, scalable platform for product-based businesses. But if you have specific needs, we'll recommend what works best for you.",
+          "For e-commerce, Shopify is our top recommendation. It's the most reliable, scalable platform for product-based businesses. But if you have specific needs, we'll recommend what works best for you.",
       },
       {
         question: "Can you migrate my existing store?",
@@ -350,8 +350,8 @@ export const services: ServiceData[] = [
     headerDescription:
       "High-converting landing pages designed specifically for paid traffic. Every element tested, every word intentional.",
     longDescription: [
-      "You're spending money on Facebook ads, Instagram ads, maybe Google too. The clicks are coming in. But the conversions? Nowhere near what they should be. The problem isn't your ads — it's where you're sending people.",
-      "A homepage is not a landing page. Sending paid traffic to a page with a navigation bar, six different CTAs, and your life story is the fastest way to burn your ad budget. A proper landing page has one goal, one message, and one action — and it's designed to make that action feel like a no-brainer.",
+      "You're spending money on Facebook ads, Instagram ads, maybe Google too. The clicks are coming in. But the conversions? Nowhere near what they should be. The problem isn't your ads. It's where you're sending people.",
+      "A homepage is not a landing page. Sending paid traffic to a page with a navigation bar, six different CTAs, and your life story is the fastest way to burn your ad budget. A proper landing page has one goal, one message, and one action, and it's designed to make that action feel like a no-brainer.",
       "We build landing pages specifically for paid traffic. Clean design, sharp copy, social proof in the right places, and a conversion path that's been tested across hundreds of fitness industry campaigns. Your ads bring the traffic. Our pages close the deal.",
     ],
     features: [
@@ -389,7 +389,7 @@ export const services: ServiceData[] = [
       {
         question: "How fast can you build a landing page?",
         answer:
-          "A single landing page can be designed, built, and live within 3-5 business days. If you're in a rush, we can often do faster — just ask.",
+          "A single landing page can be designed, built, and live within 3-5 business days. If you're in a rush, we can often do faster. Just ask.",
       },
       {
         question: "Do you write the copy too?",
@@ -415,9 +415,9 @@ export const services: ServiceData[] = [
     headerDescription:
       "We use cutting-edge AI tools alongside human creativity to design faster, iterate smarter, and deliver websites that would have taken twice as long just two years ago.",
     longDescription: [
-      "AI isn't replacing designers — it's making the good ones dangerous. At AW Media, we've integrated AI into every stage of our design process: from rapid moodboarding and concept generation to layout prototyping and content creation. The result? Faster turnarounds, bolder creative, and more options at every stage.",
-      "While other agencies are still dragging elements around in Figma for weeks, we're generating multiple high-fidelity concepts in days. AI handles the heavy lifting — research, initial layouts, image generation, copy drafts — so our designers can focus on what actually matters: making your brand look incredible and your website convert.",
-      "This isn't about cutting corners. It's about working smarter. You get more concepts, more iterations, and a higher-quality end product — all delivered faster and at a fraction of the traditional cost. We're not just using AI as a gimmick. We've built our entire workflow around it because we've seen the results.",
+      "AI isn't replacing designers. It's making the good ones dangerous. At AW Media, we've integrated AI into every stage of our design process: from rapid moodboarding and concept generation to layout prototyping and content creation. The result? Faster turnarounds, bolder creative, and more options at every stage.",
+      "While other agencies are still dragging elements around in Figma for weeks, we're generating multiple high-fidelity concepts in days. AI handles the heavy lifting: research, initial layouts, image generation, copy drafts, so our designers can focus on what actually matters: making your brand look incredible and your website convert.",
+      "This isn't about cutting corners. It's about working smarter. You get more concepts, more iterations, and a higher-quality end product, all delivered faster and at a fraction of the traditional cost. We're not just using AI as a gimmick. We've built our entire workflow around it because we've seen the results.",
       "From AI-assisted wireframing to intelligent content structuring, every website we build benefits from tools that didn't exist two years ago. And because we've been early adopters, we know which tools actually deliver and which ones are just hype.",
     ],
     features: [
@@ -434,7 +434,7 @@ export const services: ServiceData[] = [
       {
         title: "Faster ideation. Bolder creative.",
         description:
-          "AI lets us explore more concepts in less time. Instead of 2-3 directions, you see 5-6 — all high quality, all tailored to your brand. More options, better outcomes.",
+          "AI lets us explore more concepts in less time. Instead of 2-3 directions, you see 5-6, all high quality, all tailored to your brand. More options, better outcomes.",
       },
       {
         title: "Half the time. Same premium quality.",
@@ -444,12 +444,12 @@ export const services: ServiceData[] = [
       {
         title: "Built on tech that's years ahead.",
         description:
-          "Your website isn't just designed with AI — it's built on a modern tech stack that loads faster, ranks higher, and scales better than anything WordPress can offer.",
+          "Your website isn't just designed with AI. It's built on a modern tech stack that loads faster, ranks higher, and scales better than anything WordPress can offer.",
       },
     ],
     whoIsThisFor: [
       "Fitness brands that want a cutting-edge website without the cutting-edge price tag",
-      "Coaches who need a site fast — launching a programme, rebrand, or new business",
+      "Coaches who need a site fast, whether launching a programme, rebrand, or new business",
       "Anyone who's been quoted 6+ weeks by traditional agencies and thought 'there has to be a better way'",
       "Forward-thinking businesses that want to work with an agency that's ahead of the curve",
     ],
@@ -457,17 +457,17 @@ export const services: ServiceData[] = [
       {
         question: "Does AI design mean my website will look generic?",
         answer:
-          "The opposite. AI gives us more creative options to explore, not fewer. Every concept is guided by our designers who understand your brand, your audience, and your goals. AI is the tool — we're the ones making the creative decisions.",
+          "The opposite. AI gives us more creative options to explore, not fewer. Every concept is guided by our designers who understand your brand, your audience, and your goals. AI is the tool. We're the ones making the creative decisions.",
       },
       {
         question: "What AI tools do you actually use?",
         answer:
-          "We use a combination of tools depending on the project: AI for concept generation and moodboarding, GPT-based tools for content structuring, and custom workflows for layout prototyping. We also build on modern frameworks like Next.js and React — the same tech used by the biggest brands in the world.",
+          "We use a combination of tools depending on the project: AI for concept generation and moodboarding, GPT-based tools for content structuring, and custom workflows for layout prototyping. We also build on modern frameworks like Next.js and React, the same tech used by the biggest brands in the world.",
       },
       {
         question: "Is AI design cheaper than traditional web design?",
         answer:
-          "It can be — because we're more efficient, we can offer competitive pricing without cutting quality. You're not paying for wasted hours of a designer staring at a blank screen. You're paying for focused, high-quality creative work enhanced by the best tools available.",
+          "It can be. Because we're more efficient, we can offer competitive pricing without cutting quality. You're not paying for wasted hours of a designer staring at a blank screen. You're paying for focused, high-quality creative work enhanced by the best tools available.",
       },
       {
         question: "Will my website still be unique?",
@@ -476,7 +476,7 @@ export const services: ServiceData[] = [
       },
     ],
     ctaHeadline: "Ready to see what AI-powered design can do for your business?",
-    ctaSubtext: "Book a free call. We'll show you exactly how our process works — and what it could look like for you.",
+    ctaSubtext: "Book a free call. We'll show you exactly how our process works and what it could look like for you.",
     relatedProjects: ["Hard to Kill", "Glean App", "Newgen Coaching"],
   },
 ];

@@ -79,7 +79,7 @@ export default function ContactPage() {
           tag="Get In Touch"
           title="Let's build something"
           titleAccent="that actually works."
-          description="Book a free 15-minute call or send us a message. No pressure, no jargon — just an honest conversation about what your business needs."
+          description="Book a free 15-minute call or send us a message. No pressure, no jargon. Just an honest conversation about what your business needs."
         />
 
         <section className="py-12 pb-24">

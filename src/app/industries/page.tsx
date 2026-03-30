@@ -44,7 +44,7 @@ export default function IndustriesPage() {
           tag="Industries"
           title="We know your"
           titleAccent="industry inside out."
-          description="From fitness coaches to construction companies — we build websites tailored to the industries we understand best. No generic templates. Just design that converts in your market."
+          description="From fitness coaches to construction companies, we build websites tailored to the industries we understand best. No generic templates. Just design that converts in your market."
         />
 
         {/* Industries Grid */}
