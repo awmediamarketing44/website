@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { motion } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
-import MagneticButton from "@/components/MagneticButton";
 import Footer from "@/components/Footer";
 
 const contactMethods = [
@@ -43,11 +43,44 @@ const contactMethods = [
   },
 ];
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", service: "", message: "" });
+function ContactForm() {
+  const searchParams = useSearchParams();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    lane: "",
+    service: "",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+
+  // Pre-fill lane / service / message from /pricing CTAs (?lane=ai&package=website)
+  useEffect(() => {
+    const lane = searchParams.get("lane");
+    const pkg = searchParams.get("package");
+    if (lane || pkg) {
+      const laneLabel =
+        lane === "ai" ? "AI" : lane === "bespoke" ? "Bespoke" : "";
+      const pkgLabel = pkg
+        ? pkg
+            .split("-")
+            .map((w) => w[0].toUpperCase() + w.slice(1))
+            .join(" ")
+        : "";
+      setFormData((prev) => ({
+        ...prev,
+        lane: lane && (lane === "ai" || lane === "bespoke") ? lane : prev.lane,
+        service: pkg ?? prev.service,
+        message:
+          prev.message ||
+          (laneLabel && pkgLabel
+            ? `Hi — I'd like to start a ${laneLabel} ${pkgLabel} project. `
+            : ""),
+      }));
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -189,6 +222,40 @@ export default function ContactPage() {
                     </div>
 
                     <div>
+                      <label className="block text-sm font-medium mb-2">
+                        AI or Bespoke?{" "}
+                        <span className="text-muted/70 font-normal">
+                          (skip if you&apos;re not sure)
+                        </span>
+                      </label>
+                      <div className="grid grid-cols-3 gap-2 rounded-xl border border-card-border bg-background p-1">
+                        {[
+                          { value: "ai", label: "AI" },
+                          { value: "bespoke", label: "Bespoke" },
+                          { value: "", label: "Not sure" },
+                        ].map((opt) => {
+                          const active = formData.lane === opt.value;
+                          return (
+                            <button
+                              key={opt.label}
+                              type="button"
+                              onClick={() =>
+                                setFormData({ ...formData, lane: opt.value })
+                              }
+                              className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 ${
+                                active
+                                  ? "bg-pink text-white shadow-[0_0_20px_rgba(249,38,114,0.3)]"
+                                  : "text-muted hover:text-white"
+                              }`}
+                            >
+                              {opt.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div>
                       <label className="block text-sm font-medium mb-2">What do you need?</label>
                       <select
                         value={formData.service}
@@ -196,13 +263,12 @@ export default function ContactPage() {
                         className="w-full rounded-xl border border-card-border bg-background px-4 py-3 text-sm text-white focus:border-pink/50 focus:outline-none transition-colors appearance-none"
                       >
                         <option value="">Select a service</option>
-                        <option value="web-design">Web Design & Development</option>
+                        <option value="landing-page">Landing Page</option>
+                        <option value="website">Website</option>
+                        <option value="online-store">Online Store</option>
                         <option value="branding">Logo Design & Branding</option>
                         <option value="social">Social Media Graphics</option>
                         <option value="seo">SEO & Monthly Support</option>
-                        <option value="shopify">Shopify & E-Commerce</option>
-                        <option value="landing">Landing Page</option>
-                        <option value="ai-design">AI-Powered Web Design</option>
                         <option value="other">Something else</option>
                       </select>
                     </div>
@@ -287,5 +353,13 @@ export default function ContactPage() {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={null}>
+      <ContactForm />
+    </Suspense>
   );
 }

@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
-    const { name, email, service, message } = await request.json();
+    const { name, email, lane, service, message } = await request.json();
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     if (!name || !email) {
@@ -16,6 +16,9 @@ export async function POST(request: Request) {
     }
 
     const serviceLabels: Record<string, string> = {
+      "landing-page": "Landing Page",
+      website: "Website",
+      "online-store": "Online Store",
       "web-design": "Web Design & Development",
       branding: "Logo Design & Branding",
       social: "Social Media Graphics",
@@ -26,11 +29,16 @@ export async function POST(request: Request) {
       other: "Something else",
     };
 
+    const laneLabel =
+      lane === "ai" ? "AI" : lane === "bespoke" ? "Bespoke" : "";
+    const serviceLabel = service ? serviceLabels[service] || service : "";
+    const subjectTail = [laneLabel, serviceLabel].filter(Boolean).join(" ");
+
     await resend.emails.send({
       from: "AW Media Website <noreply@awmedia.marketing>",
       to: ["alex@awmedia.marketing"],
       replyTo: email,
-      subject: `New enquiry from ${name}${service ? ` - ${serviceLabels[service] || service}` : ""}`,
+      subject: `New enquiry from ${name}${subjectTail ? ` - ${subjectTail}` : ""}`,
       html: `
         <div style="font-family: -apple-system, sans-serif; max-width: 600px;">
           <h2 style="margin-bottom: 24px;">New website enquiry</h2>
@@ -43,9 +51,13 @@ export async function POST(request: Request) {
               <td style="padding: 8px 0; color: #666;">Email</td>
               <td style="padding: 8px 0;"><a href="mailto:${email}">${email}</a></td>
             </tr>
-            ${service ? `<tr>
+            ${laneLabel ? `<tr>
+              <td style="padding: 8px 0; color: #666;">Lane</td>
+              <td style="padding: 8px 0; font-weight: 600;">${laneLabel}</td>
+            </tr>` : ""}
+            ${serviceLabel ? `<tr>
               <td style="padding: 8px 0; color: #666;">Service</td>
-              <td style="padding: 8px 0;">${serviceLabels[service] || service}</td>
+              <td style="padding: 8px 0;">${serviceLabel}</td>
             </tr>` : ""}
           </table>
           ${message ? `
