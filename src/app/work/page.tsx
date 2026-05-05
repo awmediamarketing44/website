@@ -11,7 +11,14 @@ import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
 import { projects } from "@/data/projects";
 
-const filters = ["All", "Web Design", "Branding", "Shopify", "Landing Page"];
+const filters = [
+  "All",
+  "Web Design & Build",
+  "AI-Powered",
+  "Graphic Subscriptions",
+  "Branding / Logo Design",
+  "Landing Pages",
+];
 
 export default function WorkPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -59,6 +66,29 @@ export default function WorkPage() {
         {/* Projects Grid */}
         <section className="py-12 pb-24">
           <div className="mx-auto max-w-7xl px-6">
+            {filtered.length === 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="rounded-2xl border border-card-border bg-card px-6 py-16 text-center"
+              >
+                <p className="text-lg font-semibold mb-2">
+                  Fresh case studies on the way.
+                </p>
+                <p className="text-sm text-muted max-w-md mx-auto">
+                  We&apos;re publishing new {activeFilter.toLowerCase()} work
+                  shortly. In the meantime, get in touch and we&apos;ll send
+                  examples direct.
+                </p>
+                <Link
+                  href="/contact"
+                  className="mt-6 inline-block rounded-full border border-pink/30 bg-pink/5 px-5 py-2 text-sm font-medium text-pink hover:bg-pink/10 transition-colors duration-200"
+                >
+                  Request examples →
+                </Link>
+              </motion.div>
+            )}
+
             <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <AnimatePresence mode="popLayout">
                 {filtered.map((project) => (

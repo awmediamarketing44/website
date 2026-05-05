@@ -32,7 +32,7 @@ export const projects: ProjectData[] = [
   {
     slug: "hard-to-kill",
     title: "Hard to Kill",
-    category: "Web Design",
+    category: "Web Design & Build",
     tags: ["Next.js", "Animations", "Booking"],
     heroImage: "/images/projects/hard-to-kill/hero.jpg",
     thumbnailImage: "/images/projects/hard-to-kill/thumb.jpg",
@@ -87,7 +87,7 @@ export const projects: ProjectData[] = [
   {
     slug: "glean-app",
     title: "Glean App",
-    category: "Web Design",
+    category: "Web Design & Build",
     tags: ["React", "SaaS", "UI/UX"],
     heroImage: "/images/projects/glean-app/hero.jpg",
     thumbnailImage: "/images/projects/glean-app/thumb.jpg",
@@ -128,7 +128,7 @@ export const projects: ProjectData[] = [
   {
     slug: "lumina-stone",
     title: "Lumina Stone",
-    category: "Branding",
+    category: "Branding / Logo Design",
     tags: ["Logo", "Brand Guide", "Print"],
     heroImage: "/images/projects/lumina-stone/hero.jpg",
     thumbnailImage: "/images/projects/lumina-stone/thumb.jpg",
@@ -170,7 +170,7 @@ export const projects: ProjectData[] = [
   {
     slug: "newgen-coaching",
     title: "Newgen Coaching",
-    category: "Web Design",
+    category: "Web Design & Build",
     tags: ["WordPress", "Portal", "Payments"],
     heroImage: "/images/projects/newgen-coaching/hero.jpg",
     thumbnailImage: "/images/projects/newgen-coaching/thumb.jpg",
@@ -212,7 +212,7 @@ export const projects: ProjectData[] = [
   {
     slug: "bridge2fitness",
     title: "Bridge2Fitness",
-    category: "Web Design",
+    category: "Web Design & Build",
     tags: ["Booking", "Timetable", "SEO"],
     heroImage: "/images/projects/bridge2fitness/hero.jpg",
     thumbnailImage: "/images/projects/bridge2fitness/thumb.jpg",
@@ -253,7 +253,7 @@ export const projects: ProjectData[] = [
   {
     slug: "pyper-fitness",
     title: "Pyper Fitness",
-    category: "Landing Page",
+    category: "Landing Pages",
     tags: ["Conversion", "Ads", "Copywriting"],
     heroImage: "/images/projects/pyper-fitness/hero.jpg",
     thumbnailImage: "/images/projects/pyper-fitness/thumb.jpg",
@@ -294,7 +294,7 @@ export const projects: ProjectData[] = [
   {
     slug: "the-mind-architect",
     title: "The Mind Architect",
-    category: "Branding",
+    category: "Branding / Logo Design",
     tags: ["Logo", "Social Templates", "Strategy"],
     heroImage: "/images/projects/the-mind-architect/hero.jpg",
     thumbnailImage: "/images/projects/the-mind-architect/thumb.jpg",
@@ -335,7 +335,7 @@ export const projects: ProjectData[] = [
   {
     slug: "fitgear-store",
     title: "FitGear Store",
-    category: "Shopify",
+    category: "Web Design & Build",
     tags: ["Shopify", "E-commerce", "Subscriptions"],
     heroImage: "/images/projects/fitgear-store/hero.jpg",
     thumbnailImage: "/images/projects/fitgear-store/thumb.jpg",
