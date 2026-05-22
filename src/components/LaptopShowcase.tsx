@@ -74,15 +74,49 @@ export default function LaptopShowcase() {
             }}
             className="relative w-full flex items-center justify-center px-4 sm:px-8 z-10 h-[45vh] sm:h-[55vh] lg:h-[60vh]"
           >
-            <div className="relative w-full h-full max-w-[1400px]">
-              <Image
-                src="/images/hero-laptop-tcc.webp"
-                alt="A silver MacBook displaying The Coach Consultant — a recent AW Media build."
-                fill
-                priority={false}
-                sizes="(max-width: 1024px) 100vw, 1400px"
-                className="object-contain select-none pointer-events-none"
-              />
+            {/* Aspect-locked wrapper so the screen polygon coords stay aligned with the image */}
+            <div className="relative w-full h-full max-w-[1400px] flex items-center justify-center">
+              <div className="relative w-full aspect-[2400/1340] max-h-full">
+                <Image
+                  src="/images/hero-laptop-tcc.webp"
+                  alt="A silver MacBook displaying The Coach Consultant — a recent AW Media build."
+                  fill
+                  priority={false}
+                  sizes="(max-width: 1024px) 100vw, 1400px"
+                  className="object-contain select-none pointer-events-none"
+                />
+
+                {/*
+                  Screen overlay: TCC scrolling video, clipped to the laptop's
+                  screen trapezoid. Bbox lives inside the 2400×1340 image at
+                  (37.5%, 24%) → (80.5%, 67.5%). Polygon in local coords:
+                    TL 0% 0%, TR 100% 9.2%, BR 88.4% 100%, BL 1.2% 95.4%.
+                */}
+                <div
+                  aria-hidden
+                  className="absolute overflow-hidden pointer-events-none"
+                  style={{
+                    left: "38%",
+                    top: "27%",
+                    width: "42%",
+                    height: "40%",
+                    clipPath:
+                      "polygon(0% 0%, 100% 7.5%, 88% 100%, 0% 95%)",
+                  }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/videos/tcc-scroll-loop.webm" type="video/webm" />
+                    <source src="/videos/tcc-scroll-loop.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
             </div>
           </motion.div>
 
