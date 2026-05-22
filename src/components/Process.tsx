@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const steps = [
   {
@@ -41,6 +42,13 @@ const steps = [
 ];
 
 export default function Process() {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 80%", "end 20%"],
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
     <section className="py-24 lg:py-32 border-t border-card-border relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-6">
@@ -64,8 +72,12 @@ export default function Process() {
           </p>
         </motion.div>
 
-        <div className="relative">
-          <div className="absolute left-[24px] sm:left-[34px] top-2 bottom-2 w-px bg-gradient-to-b from-pink/40 via-pink/15 to-transparent" />
+        <div ref={timelineRef} className="relative">
+          <div className="absolute left-[24px] sm:left-[34px] top-2 bottom-2 w-px bg-gradient-to-b from-pink/15 via-pink/5 to-transparent" />
+          <motion.div
+            style={{ height: lineHeight }}
+            className="absolute left-[24px] sm:left-[34px] top-2 w-px bg-pink shadow-[0_0_15px_rgba(249,38,114,0.5)]"
+          />
 
           <div className="space-y-12 lg:space-y-16">
             {steps.map((step, i) => (

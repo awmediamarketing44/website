@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const stack = [
   {
@@ -36,15 +37,32 @@ const stack = [
 ];
 
 export default function Stack() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const gridY = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const orbY = useTransform(scrollYProgress, [0, 1], [100, -120]);
+
   return (
-    <section className="py-24 lg:py-32 border-t border-card-border relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+    <section
+      ref={sectionRef}
+      className="py-24 lg:py-32 border-t border-card-border relative overflow-hidden"
+    >
+      <motion.div
         style={{
+          y: gridY,
           backgroundImage:
             "linear-gradient(rgba(249,38,114,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(249,38,114,0.4) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+      />
+
+      <motion.div
+        style={{ y: orbY }}
+        className="absolute top-1/2 -right-40 w-[420px] h-[420px] bg-pink/[0.04] rounded-full blur-[120px] pointer-events-none"
       />
 
       <div className="relative mx-auto max-w-7xl px-6">

@@ -1,8 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "motion/react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "motion/react";
 
 type Lane = "ai" | "bespoke";
 
@@ -49,12 +54,32 @@ const laneData: Record<
 };
 
 export default function CompareLanes() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const orbAY = useTransform(scrollYProgress, [0, 1], [140, -120]);
+  const orbBY = useTransform(scrollYProgress, [0, 1], [-100, 140]);
+
   const [lane, setLane] = useState<Lane>("ai");
   const data = laneData[lane];
 
   return (
-    <section className="py-24 lg:py-32 border-t border-card-border relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-6">
+    <section
+      ref={sectionRef}
+      className="py-24 lg:py-32 border-t border-card-border relative overflow-hidden"
+    >
+      <motion.div
+        style={{ y: orbAY }}
+        className="absolute top-0 -left-40 w-[420px] h-[420px] bg-pink/[0.05] rounded-full blur-[130px] pointer-events-none"
+      />
+      <motion.div
+        style={{ y: orbBY }}
+        className="absolute bottom-0 -right-40 w-[340px] h-[340px] bg-purple-500/[0.05] rounded-full blur-[110px] pointer-events-none"
+      />
+
+      <div className="relative mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
