@@ -7,6 +7,7 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
+import { useIsDesktop } from "@/hooks/useIsDesktop";
 
 const steps = [
   {
@@ -152,6 +153,64 @@ function ProgressDot({
 }
 
 export default function Process() {
+  const isDesktop = useIsDesktop();
+
+  if (!isDesktop) {
+    return (
+      <section className="relative border-t border-card-border py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-10 max-w-2xl"
+          >
+            <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-pink mb-3">
+              How we work
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
+              <span className="block">From brief to live site,</span>
+              <span className="block gradient-text">in five clear steps.</span>
+            </h2>
+          </motion.div>
+
+          <ol className="space-y-8 sm:space-y-10">
+            {steps.map((step, i) => (
+              <motion.li
+                key={step.number}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="flex gap-4 sm:gap-6 items-start"
+              >
+                <span className="text-4xl sm:text-5xl font-black gradient-text leading-none tabular-nums shrink-0 min-w-[3rem]">
+                  {step.number}
+                </span>
+                <div>
+                  <span className="block text-[10px] font-bold uppercase tracking-widest text-pink mb-2">
+                    {step.label}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold leading-snug mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-muted leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </motion.li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    );
+  }
+
+  return <DesktopProcess />;
+}
+
+function DesktopProcess() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: wrapperRef,

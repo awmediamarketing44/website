@@ -7,6 +7,7 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
+import { useIsDesktop } from "@/hooks/useIsDesktop";
 
 const stats = [
   {
@@ -131,6 +132,43 @@ function ProgressDot({
 }
 
 export default function Stats() {
+  const isDesktop = useIsDesktop();
+
+  // Mobile: simple grid, no pinned scrollytelling, no scroll-tied transforms
+  if (!isDesktop) {
+    return (
+      <section className="relative border-t border-card-border py-16">
+        <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 gap-x-4 gap-y-10">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="text-center"
+            >
+              <p className="text-5xl sm:text-6xl font-black gradient-text leading-none mb-2 tabular-nums">
+                {stat.value}
+                <span className="text-pink">{stat.suffix}</span>
+              </p>
+              <p className="text-xs font-bold uppercase tracking-widest mb-2">
+                {stat.label}
+              </p>
+              <p className="text-xs text-muted leading-relaxed">
+                {stat.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  return <DesktopStats />;
+}
+
+function DesktopStats() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: wrapperRef,

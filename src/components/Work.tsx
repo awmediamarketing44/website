@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { useIsDesktop } from "@/hooks/useIsDesktop";
 
 const work = [
   {
@@ -48,6 +49,83 @@ const work = [
 ];
 
 export default function Work() {
+  const isDesktop = useIsDesktop();
+
+  if (!isDesktop) {
+    return (
+      <section className="relative border-t border-card-border py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-10">
+            <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-pink mb-3">
+              Recent work
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
+              <span className="block">From idea to live.</span>
+              <span className="block gradient-text">Sites that ship.</span>
+            </h2>
+          </div>
+
+          <ul className="space-y-5">
+            {work.map((item, i) => (
+              <motion.li
+                key={item.slug}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.04 }}
+              >
+                <div
+                  className={`relative rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br ${item.gradient} aspect-[16/10] flex flex-col justify-between p-5`}
+                >
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-white/70 font-bold mb-2">
+                      {item.category}
+                    </p>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <div className="flex items-end justify-between gap-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {item.tags.slice(0, 2).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 rounded-full bg-white/10 border border-white/20 text-[9px] font-bold uppercase tracking-widest text-white"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="text-right">
+                      <p className="text-[9px] uppercase tracking-widest text-white/60 font-bold">
+                        Result
+                      </p>
+                      <p className="text-xs font-bold text-white">{item.result}</p>
+                    </div>
+                  </div>
+                  <div className="absolute top-4 right-4 px-2 py-0.5 rounded-full bg-pink text-white text-[9px] font-bold uppercase tracking-widest">
+                    {String(i + 1).padStart(2, "0")} / {String(work.length).padStart(2, "0")}
+                  </div>
+                </div>
+              </motion.li>
+            ))}
+          </ul>
+
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 mt-8 text-sm font-semibold text-pink"
+          >
+            See all projects <span>→</span>
+          </Link>
+        </div>
+      </section>
+    );
+  }
+
+  return <DesktopWork />;
+}
+
+function DesktopWork() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
