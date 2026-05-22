@@ -173,9 +173,9 @@ function DesktopWork() {
             {work.map((item, i) => (
               <div
                 key={item.slug}
-                className="flex-shrink-0 w-screen h-full flex items-center justify-center px-4 sm:px-8 lg:px-12 pb-10"
+                className="flex-shrink-0 w-screen h-full flex items-center justify-center px-4 sm:px-8 lg:px-12 pb-12"
               >
-                <div className="relative w-full h-full max-w-7xl">
+                <div className="relative w-full max-w-6xl aspect-[16/10] max-h-full">
                   {/* Card glow */}
                   <motion.div
                     animate={{
