@@ -78,9 +78,10 @@ function AnimatedStat({
     return Math.floor(value * t);
   });
 
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(() => displayValue.get());
 
   useEffect(() => {
+    setDisplay(displayValue.get());
     return displayValue.on("change", (v) => setDisplay(v));
   }, [displayValue]);
 
