@@ -12,7 +12,7 @@ const team = [
   {
     name: "Alex Whitehead",
     role: "Director, Developer & Award-Winning Web Designer",
-    bio: "The one who builds your website, designs your brand, and probably messages you back at 11pm. Alex founded AW Media in 2019 with one goal: give fitness businesses the same quality digital presence that big brands take for granted.",
+    bio: "The one who builds your website, designs your brand, and probably messages you back at 11pm. Alex founded AW Media in 2016 with one goal: give ambitious businesses the same quality digital presence that big brands take for granted.",
   },
   {
     name: "Beth Rendell",
@@ -51,14 +51,14 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2019", event: "AW Media founded in Sheffield" },
+  { year: "2016", event: "Alex founds AW Media in Sheffield" },
   { year: "2020", event: "Pivoted to fitness industry during lockdown" },
   { year: "2021", event: "100th website delivered" },
   { year: "2022", event: "First award nomination" },
   { year: "2023", event: "4x back-to-back awards" },
-  { year: "2024", event: "300+ websites, expanded team" },
-  { year: "2025", event: "400+ websites, AI-powered workflows" },
-  { year: "2026", event: "Relaunched with next-gen tech stack" },
+  { year: "2024", event: "300+ websites, team expanded" },
+  { year: "2025", event: "400+ websites, AI-accelerated workflow launched" },
+  { year: "2026", event: "Decade milestone. Team of 5. UK-wide AI-accelerated agency." },
 ];
 
 export default function AboutPage() {
@@ -71,7 +71,7 @@ export default function AboutPage() {
           tag="About Us"
           title="We're not your typical"
           titleAccent="web design agency."
-          description="We're a small team in Sheffield that builds websites for fitness professionals. That's it. No fluff, no corporate waffle. Just honest work for people who want results."
+          description="A small team in Sheffield building websites for ambitious UK businesses. Ten years in. Fitness specialists who now serve every industry. No fluff, no corporate waffle. Just honest work for people who want results."
         />
 
         {/* Story */}
@@ -102,19 +102,21 @@ export default function AboutPage() {
                   className="space-y-4 text-muted leading-relaxed"
                 >
                   <p>
-                    AW Media started in 2019 when Alex realised that fitness coaches
+                    AW Media started in 2016 when Alex realised that small businesses
                     were getting absolutely rinsed by agencies charging thousands for
                     template websites that didn&apos;t convert.
                   </p>
                   <p>
                     The pitch was simple: premium web design at a fair price, built
-                    by someone who actually understands the fitness industry. No
-                    middlemen, no account managers, no 6-week wait times.
+                    by someone who actually understood the work. No middlemen, no
+                    account managers, no 6-week wait times.
                   </p>
                   <p>
-                    Fast forward to today and we&apos;ve built over 400 websites, won
-                    multiple awards back to back, and over 90% of our clients are
-                    fitness professionals. We know this space inside out.
+                    Fast forward to today and we&apos;ve built over 400 websites,
+                    won multiple awards back to back, grown into a team of 5, and
+                    on 2 June 2026 we hit a full decade in business. We cut our
+                    teeth in fitness, and now bring that craft to ambitious UK
+                    businesses across every industry.
                   </p>
                 </motion.div>
               </div>

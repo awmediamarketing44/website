@@ -44,7 +44,7 @@ const stats = [
   { number: 400, suffix: "+", label: "websites built, UK-wide" },
   { number: 4, suffix: " times", label: "back to back award winners" },
   { number: 5, suffix: "-star", label: "rated on Trustpilot & Google" },
-  { number: 0, suffix: "", label: "providing work from Sheffield", text: "Sheffield" },
+  { number: 10, suffix: " years", label: "in business since 2016" },
 ];
 
 export default function Stats() {
@@ -97,18 +97,7 @@ export default function Stats() {
 
               <div className="relative z-10">
                 <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-pink mb-3">
-                  {stat.text ? (
-                    <motion.span
-                      initial={{ opacity: 0, filter: "blur(10px)" }}
-                      whileInView={{ opacity: 1, filter: "blur(0px)" }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: 0.3 + i * 0.1 }}
-                    >
-                      {stat.text}
-                    </motion.span>
-                  ) : (
-                    <AnimatedNumber target={stat.number} suffix={stat.suffix} />
-                  )}
+                  <AnimatedNumber target={stat.number} suffix={stat.suffix} />
                 </p>
                 <p className="text-sm text-muted">{stat.label}</p>
               </div>
