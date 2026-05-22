@@ -1,7 +1,7 @@
 import FloatingParticles from "@/components/FloatingParticles";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import LaptopShowcase from "@/components/LaptopShowcase";
+import BrowserShowcase from "@/components/BrowserShowcase";
 import Intro from "@/components/Intro";
 import PainPoint from "@/components/PainPoint";
 import CompareLanes from "@/components/CompareLanes";
@@ -24,7 +24,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <LaptopShowcase />
+        <BrowserShowcase />
         <Intro />
         <PainPoint />
         <CompareLanes />
