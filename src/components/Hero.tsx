@@ -80,34 +80,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Floating code/AI elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {["</>", "{ }", "01", "//", "λ", "⟨⟩"].map((text, i) => (
-          <motion.span
-            key={i}
-            className="absolute text-pink/[0.08] font-mono text-sm font-bold select-none"
-            style={{
-              left: `${8 + i * 14}%`,
-              top: `${18 + (i % 3) * 22}%`,
-            }}
-            animate={{
-              y: [0, -50 - i * 8, 0],
-              x: [0, 18 + i * 4, -12, 0],
-              rotate: [0, 12, -12, 0],
-              opacity: [0.08, 0.2, 0.08],
-            }}
-            transition={{
-              duration: 10 + i * 2,
-              delay: i * 0.7,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            {text}
-          </motion.span>
-        ))}
-      </div>
-
       {/* Main split layout */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">

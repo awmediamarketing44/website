@@ -1,7 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "motion/react";
 
 const steps = [
   {
@@ -41,86 +46,189 @@ const steps = [
   },
 ];
 
+function StepNumber({
+  index,
+  stepIndex,
+  number,
+}: {
+  index: number;
+  stepIndex: MotionValue<number>;
+  number: string;
+}) {
+  const opacity = useTransform(
+    stepIndex,
+    [index - 0.7, index - 0.25, index + 0.25, index + 0.7],
+    [0, 1, 1, 0]
+  );
+  const scale = useTransform(
+    stepIndex,
+    [index - 0.7, index, index + 0.7],
+    [0.7, 1, 1.35]
+  );
+  return (
+    <motion.span
+      style={{ opacity, scale }}
+      className="absolute inset-0 flex items-center justify-center text-[10rem] sm:text-[14rem] lg:text-[20rem] xl:text-[24rem] font-black gradient-text leading-none select-none"
+    >
+      {number}
+    </motion.span>
+  );
+}
+
+function StepContent({
+  index,
+  stepIndex,
+  label,
+  title,
+  description,
+}: {
+  index: number;
+  stepIndex: MotionValue<number>;
+  label: string;
+  title: string;
+  description: string;
+}) {
+  const opacity = useTransform(
+    stepIndex,
+    [index - 0.5, index - 0.2, index + 0.2, index + 0.5],
+    [0, 1, 1, 0]
+  );
+  const y = useTransform(
+    stepIndex,
+    [index - 0.5, index, index + 0.5],
+    [50, 0, -50]
+  );
+  const blur = useTransform(
+    stepIndex,
+    [index - 0.4, index, index + 0.4],
+    [10, 0, 10]
+  );
+  return (
+    <motion.div
+      style={{ opacity, y, filter: useTransform(blur, (v) => `blur(${v}px)`) }}
+      className="absolute inset-0 flex flex-col justify-center"
+    >
+      <span className="text-xs font-bold uppercase tracking-widest text-pink mb-3">
+        {label}
+      </span>
+      <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-5">
+        {title}
+      </h3>
+      <p className="text-base lg:text-lg text-muted leading-relaxed max-w-lg">
+        {description}
+      </p>
+    </motion.div>
+  );
+}
+
+function ProgressDot({
+  index,
+  stepIndex,
+}: {
+  index: number;
+  stepIndex: MotionValue<number>;
+}) {
+  const opacity = useTransform(
+    stepIndex,
+    [index - 0.5, index, index + 0.5],
+    [0.25, 1, 0.25]
+  );
+  const scale = useTransform(
+    stepIndex,
+    [index - 0.5, index, index + 0.5],
+    [1, 1.6, 1]
+  );
+  const width = useTransform(
+    stepIndex,
+    [index - 0.5, index, index + 0.5],
+    ["8px", "32px", "8px"]
+  );
+  return (
+    <motion.div
+      style={{ opacity, scale, width }}
+      className="h-2 rounded-full bg-pink"
+    />
+  );
+}
+
 export default function Process() {
-  const timelineRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ["start 80%", "end 20%"],
+    target: wrapperRef,
+    offset: ["start start", "end end"],
   });
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const stepIndex = useTransform(scrollYProgress, [0, 1], [0, 4]);
+
+  const bgGradient = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.5, 0.75, 1],
+    [
+      "radial-gradient(circle at 25% 30%, rgba(249,38,114,0.18), transparent 60%)",
+      "radial-gradient(circle at 75% 30%, rgba(168,85,247,0.2), transparent 60%)",
+      "radial-gradient(circle at 25% 70%, rgba(6,182,212,0.18), transparent 60%)",
+      "radial-gradient(circle at 75% 70%, rgba(249,38,114,0.2), transparent 60%)",
+      "radial-gradient(circle at 50% 50%, rgba(168,85,247,0.18), transparent 60%)",
+    ]
+  );
 
   return (
-    <section className="py-24 lg:py-32 border-t border-card-border relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-6">
+    <section
+      ref={wrapperRef}
+      className="relative border-t border-card-border"
+      style={{ height: "500vh" }}
+    >
+      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 max-w-3xl"
-        >
-          <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-6">
-            How we work
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-            <span className="block">From brief to live site,</span>
-            <span className="block gradient-text">in five clear steps.</span>
-          </h2>
-          <p className="mt-6 text-lg text-muted leading-relaxed">
-            Same process, two lanes. AI-accelerated when speed matters, fully
-            bespoke when the project demands it.
-          </p>
-        </motion.div>
+          style={{ background: bgGradient }}
+          className="absolute inset-0 pointer-events-none"
+        />
 
-        <div ref={timelineRef} className="relative">
-          <div className="absolute left-[24px] sm:left-[34px] top-2 bottom-2 w-px bg-gradient-to-b from-pink/15 via-pink/5 to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-6 w-full">
           <motion.div
-            style={{ height: lineHeight }}
-            className="absolute left-[24px] sm:left-[34px] top-2 w-px bg-pink shadow-[0_0_15px_rgba(249,38,114,0.5)]"
-          />
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-10 max-w-3xl"
+          >
+            <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-4">
+              How we work
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+              <span className="block">From brief to live site,</span>
+              <span className="block gradient-text">in five clear steps.</span>
+            </h2>
+          </motion.div>
 
-          <div className="space-y-12 lg:space-y-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="relative h-[280px] sm:h-[360px] lg:h-[440px]">
+              {steps.map((step, i) => (
+                <StepNumber
+                  key={step.number}
+                  index={i}
+                  stepIndex={stepIndex}
+                  number={step.number}
+                />
+              ))}
+            </div>
+
+            <div className="relative h-[280px] sm:h-[320px] lg:h-[360px]">
+              {steps.map((step, i) => (
+                <StepContent
+                  key={step.number}
+                  index={i}
+                  stepIndex={stepIndex}
+                  label={step.label}
+                  title={step.title}
+                  description={step.description}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 flex gap-3 justify-center items-center">
             {steps.map((step, i) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  delay: i * 0.08,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="relative pl-16 sm:pl-20"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.4,
-                    delay: 0.2 + i * 0.08,
-                    type: "spring",
-                  }}
-                  className="absolute left-0 top-0 flex items-center justify-center w-[48px] sm:w-[68px] h-[48px] sm:h-[68px] rounded-full border border-pink/40 bg-background"
-                >
-                  <span className="text-sm sm:text-base font-bold text-pink">
-                    {step.number}
-                  </span>
-                </motion.div>
-
-                <div className="pt-3 sm:pt-4">
-                  <span className="text-xs font-bold uppercase tracking-widest text-pink/60">
-                    {step.label}
-                  </span>
-                  <h3 className="mt-2 text-xl sm:text-2xl lg:text-3xl font-bold">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-base text-muted leading-relaxed max-w-2xl">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
+              <ProgressDot key={step.number} index={i} stepIndex={stepIndex} />
             ))}
           </div>
         </div>
