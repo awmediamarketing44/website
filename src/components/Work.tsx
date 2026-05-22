@@ -146,10 +146,10 @@ function DesktopWork() {
     >
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="pt-24 pb-6 lg:pt-32 lg:pb-8 relative z-10">
-          <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+        <div className="pt-20 pb-3 lg:pt-24 lg:pb-4 relative z-10">
+          <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div className="max-w-2xl">
-              <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-4">
+              <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-3">
                 Recent work
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
@@ -168,14 +168,14 @@ function DesktopWork() {
         </div>
 
         {/* Horizontal track */}
-        <div className="flex-1 relative overflow-hidden">
+        <div className="flex-1 relative overflow-hidden min-h-0">
           <motion.div style={{ x }} className="flex h-full">
             {work.map((item, i) => (
               <div
                 key={item.slug}
-                className="flex-shrink-0 w-screen h-full flex items-center justify-center px-6 lg:px-12"
+                className="flex-shrink-0 w-screen h-full flex items-center justify-center px-4 sm:px-8 lg:px-12 pb-10"
               >
-                <div className="relative w-full max-w-5xl aspect-video lg:aspect-[16/10]">
+                <div className="relative w-full h-full max-w-7xl">
                   {/* Card glow */}
                   <motion.div
                     animate={{
@@ -190,7 +190,7 @@ function DesktopWork() {
                   />
 
                   {/* Browser frame */}
-                  <div className="relative h-full rounded-2xl border border-white/15 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-2xl p-5 shadow-[0_30px_120px_-20px_rgba(249,38,114,0.4)] flex flex-col">
+                  <div className="relative h-full rounded-2xl border border-white/15 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-2xl p-3 sm:p-4 lg:p-5 shadow-[0_30px_120px_-20px_rgba(249,38,114,0.4)] flex flex-col">
                     {/* Chrome */}
                     <div className="flex items-center gap-2 mb-4">
                       <span className="w-3 h-3 rounded-full bg-pink/60" />
