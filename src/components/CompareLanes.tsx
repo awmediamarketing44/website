@@ -105,21 +105,18 @@ export default function CompareLanes() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex p-1.5 rounded-full border border-card-border bg-card mb-10 relative"
+          className="inline-grid grid-cols-2 p-1.5 rounded-full border border-card-border bg-card mb-10 relative"
         >
           <motion.div
-            className="absolute top-1.5 bottom-1.5 rounded-full bg-pink"
+            className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-full bg-pink"
             initial={false}
-            animate={{
-              left: lane === "ai" ? "6px" : "50%",
-              right: lane === "ai" ? "50%" : "6px",
-            }}
+            animate={{ left: lane === "ai" ? "6px" : "calc(50% + 0px)" }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           />
           <button
             type="button"
             onClick={() => setLane("ai")}
-            className={`relative z-10 px-6 sm:px-8 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${
+            className={`relative z-10 min-w-[160px] sm:min-w-[180px] py-2.5 text-xs sm:text-sm font-bold uppercase tracking-widest whitespace-nowrap transition-colors duration-300 ${
               lane === "ai" ? "text-white" : "text-muted hover:text-white"
             }`}
           >
@@ -128,7 +125,7 @@ export default function CompareLanes() {
           <button
             type="button"
             onClick={() => setLane("bespoke")}
-            className={`relative z-10 px-6 sm:px-8 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${
+            className={`relative z-10 min-w-[160px] sm:min-w-[180px] py-2.5 text-xs sm:text-sm font-bold uppercase tracking-widest whitespace-nowrap transition-colors duration-300 ${
               lane === "bespoke" ? "text-white" : "text-muted hover:text-white"
             }`}
           >
