@@ -4,9 +4,11 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import MagneticButton from "./MagneticButton";
 import BookCallButton from "./BookCallButton";
+import { useIsDesktop } from "@/hooks/useIsDesktop";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const isDesktop = useIsDesktop();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -22,23 +24,31 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Cinematic background video */}
+      {/* Cinematic background — video on desktop, static poster on mobile */}
       <motion.div
         style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 z-0"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster="/images/hero-cinematic.webp"
-          className="w-full h-full object-cover select-none pointer-events-none"
-        >
-          <source src="/videos/hero-cinematic.webm" type="video/webm" />
-          <source src="/videos/hero-cinematic.mp4" type="video/mp4" />
-        </video>
+        {isDesktop ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/images/hero-cinematic.webp"
+            className="w-full h-full object-cover select-none pointer-events-none"
+          >
+            <source src="/videos/hero-cinematic.webm" type="video/webm" />
+            <source src="/videos/hero-cinematic.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src="/images/hero-cinematic.webp"
+            alt=""
+            className="w-full h-full object-cover select-none pointer-events-none"
+          />
+        )}
       </motion.div>
 
       {/* Tint + vignette for text contrast */}

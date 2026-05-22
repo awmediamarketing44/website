@@ -11,7 +11,7 @@ export default function FloatingOrbs() {
   const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -180]);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden hidden md:block">
       {/* Large pink orb top-right — slow parallax */}
       <motion.div
         style={{ y: y1 }}
