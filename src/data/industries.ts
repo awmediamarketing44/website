@@ -22,7 +22,7 @@ export const industries: IndustryData[] = [
     headerTitle: "Web design built for",
     headerAccent: "fitness professionals.",
     headerDescription:
-      "Over 90% of our clients are in fitness. We know your market, your audience, and exactly what converts visitors into coaching clients.",
+      "Fitness is where we cut our teeth. Hundreds of websites for coaches, PTs, and gym owners. We know your market, your audience, and exactly what converts visitors into coaching clients.",
     intro: [
       "We've built over 400 websites for fitness coaches, personal trainers, gym owners, and online coaching brands. This isn't a sideline for us. It's what we do every single day.",
       "We understand how your clients think, what makes them enquire, and what puts them off. We know the difference between an online coaching brand that charges £50 a month and one that charges £500, and we know how to make your website reflect which one you are.",
@@ -49,7 +49,7 @@ export const industries: IndustryData[] = [
     ],
     stats: [
       { value: "400+", label: "fitness websites built" },
-      { value: "90%", label: "of clients in the fitness industry" },
+      { value: "Specialist", label: "in the fitness market" },
       { value: "2-4", label: "weeks average delivery" },
       { value: "4x", label: "back-to-back award winners" },
     ],

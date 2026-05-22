@@ -59,8 +59,8 @@ export default function PainPoint() {
                 transition={{ duration: 0.5, delay: 0.8 }}
               />
             </motion.span>{" "}
-            whilst you&apos;re stuck in Canva for six hours creating graphics
-            you&apos;ll delete anyway.
+            whilst your competitors are getting found, getting seen, and
+            getting booked.
           </p>
         </motion.div>
 

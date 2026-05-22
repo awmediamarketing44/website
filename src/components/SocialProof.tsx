@@ -26,7 +26,7 @@ export default function SocialProof() {
         transition={{ duration: 1 }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] sm:text-[14rem] lg:text-[20rem] font-black text-white pointer-events-none select-none"
       >
-        90%
+        400+
       </motion.div>
 
       <motion.div
@@ -35,8 +35,8 @@ export default function SocialProof() {
       >
         <p className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-medium leading-snug sm:leading-relaxed">
           {[
-            { text: "Over 90% of our clients are fitness professionals.", className: "text-pink font-bold" },
-            { text: "We know what works in your industry because we've built hundreds of websites for coaches, PTs, and gym owners." },
+            { text: "400+ websites built. UK-wide.", className: "text-pink font-bold" },
+            { text: "Coaches, clinics, trades, services, e-commerce. AI-accelerated when speed matters. Fully bespoke when the project demands it." },
           ].map((line, i) => (
             <motion.span
               key={i}
@@ -62,7 +62,7 @@ export default function SocialProof() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="mt-10 text-2xl font-bold"
         >
-          We speak your language.
+          Two lanes. Both bespoke.
         </motion.p>
       </motion.div>
     </section>

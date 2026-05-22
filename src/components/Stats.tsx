@@ -41,7 +41,7 @@ function AnimatedNumber({ target, suffix = "" }: { target: number; suffix?: stri
 }
 
 const stats = [
-  { number: 400, suffix: "+", label: "websites built for fitness professionals" },
+  { number: 400, suffix: "+", label: "websites built, UK-wide" },
   { number: 4, suffix: " times", label: "back to back award winners" },
   { number: 5, suffix: "-star", label: "rated on Trustpilot & Google" },
   { number: 0, suffix: "", label: "providing work from Sheffield", text: "Sheffield" },

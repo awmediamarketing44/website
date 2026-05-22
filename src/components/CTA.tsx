@@ -77,7 +77,7 @@ export default function CTA() {
           className="mt-8 text-lg text-muted max-w-2xl mx-auto"
         >
           Book a free 15-minute call. No pressure, no jargon. Just an honest
-          conversation about what your fitness business needs to grow online.
+          conversation about what your business actually needs to grow online.
         </motion.p>
 
         <motion.div

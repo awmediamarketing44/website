@@ -23,10 +23,10 @@ export const services: ServiceData[] = [
     headerTitle: "Websites that turn visitors",
     headerAccent: "into paying clients.",
     headerDescription:
-      "Custom-built, conversion-focused websites for fitness professionals. No templates. No page builders. Just websites that actually work.",
+      "Custom-built, conversion-focused websites for ambitious UK businesses. No templates. No page builders. Just websites that actually work.",
     longDescription: [
-      "Your website is the first impression most clients will ever have of your business. And right now? It's probably costing you enquiries. A slow, outdated, template-looking site tells potential clients you're not serious, even if you're the best coach in your area.",
-      "We design and build websites from scratch, specifically for fitness coaches, PTs, and gym owners. Every layout, every section, every call-to-action is designed with one goal: get your visitors to book a call or sign up. Not just look pretty.",
+      "Your website is the first impression most clients will ever have of your business. And right now? It's probably costing you enquiries. A slow, outdated, template-looking site tells potential clients you're not serious, even if you're the best in your area.",
+      "We design and build websites from scratch, tailored to your brand and audience. Every layout, every section, every call-to-action is designed with one goal: get your visitors to book a call or sign up. Not just look pretty.",
       "You get a site that loads in under 2 seconds, looks premium on every device, ranks on Google, and integrates with your booking system and payment provider. Built on modern tech that won't break when you need it most.",
     ],
     features: [
@@ -55,10 +55,10 @@ export const services: ServiceData[] = [
       },
     ],
     whoIsThisFor: [
-      "Fitness coaches who are getting enquiries through DMs but losing them when they share their website",
-      "PTs who've outgrown their Wix or Squarespace site and need something professional",
-      "Gym owners who want a site that actually reflects the quality of their facility",
-      "Online coaches launching a new brand and want to start with something premium",
+      "Businesses getting enquiries through DMs or referrals but losing them when people land on the website",
+      "Operators who've outgrown a Wix or Squarespace site and need something professional",
+      "Service businesses who want a site that actually reflects the quality of their work",
+      "Anyone launching a new brand or rebrand and wanting to start with something premium",
     ],
     faqs: [
       {
@@ -88,11 +88,11 @@ export const services: ServiceData[] = [
     headerTitle: "A brand that makes people",
     headerAccent: "stop scrolling.",
     headerDescription:
-      "Your brand is more than a logo. It's the reason someone chooses you over the other 50 coaches in their feed.",
+      "Your brand is more than a logo. It's the reason someone chooses you over the dozens of competitors in their feed.",
     longDescription: [
-      "Here's the truth: most fitness coaches are using a logo they got off Fiverr for £20 and a colour palette they picked because they liked it. There's no strategy behind it, no consistency across platforms, and no connection to the audience they're trying to attract.",
+      "Here's the truth: most small businesses are using a logo they got off Fiverr for £20 and a colour palette they picked because they liked it. There's no strategy behind it, no consistency across platforms, and no connection to the audience they're trying to attract.",
       "Your brand is every touchpoint a potential client has with your business. Your logo, your colours, your fonts, your social posts, your website, your email signature. When all of those things feel cohesive and premium, you don't have to convince people you're worth the price. They already feel it.",
-      "We build complete brand identities from the ground up. Not just a logo. A full system that works across your website, social media, print materials, and everything in between. Designed specifically for the fitness industry, where standing out in a crowded market is everything.",
+      "We build complete brand identities from the ground up. Not just a logo. A full system that works across your website, social media, print materials, and everything in between. Designed for businesses where standing out in a crowded market is everything.",
     ],
     features: [
       "Primary logo + variations",
@@ -120,9 +120,9 @@ export const services: ServiceData[] = [
       },
     ],
     whoIsThisFor: [
-      "Coaches launching a new brand and want to get it right from day one",
-      "Established PTs who've outgrown their DIY logo and need a professional upgrade",
-      "Gym owners rebranding after a change in direction or new ownership",
+      "Founders launching a new brand and wanting to get it right from day one",
+      "Established businesses who've outgrown their DIY logo and need a professional upgrade",
+      "Operators rebranding after a change in direction, ownership, or repositioning",
       "Anyone who's tired of their brand looking inconsistent across platforms",
     ],
     faqs: [
@@ -155,7 +155,7 @@ export const services: ServiceData[] = [
     headerDescription:
       "Scroll-stopping graphics and templates so your feed looks consistent, branded, and premium without you spending hours in Canva.",
     longDescription: [
-      "You know you need to post consistently. But between coaching clients, writing programmes, and actually living your life, designing social media content falls to the bottom of the list. And when you do get around to it, you're stuck in Canva for three hours making something you'll probably delete anyway.",
+      "You know you need to post consistently. But between running the business, serving clients, and actually living your life, designing social media content falls to the bottom of the list. And when you do get around to it, you're stuck in Canva for three hours making something you'll probably delete anyway.",
       "Your Instagram feed is often the first thing potential clients check before they enquire. If it looks inconsistent, messy, or like every other fitness account, you're losing people before they even read your caption.",
       "We design custom templates and graphics that match your brand, so every post looks like it was made by a design team. Because it was. You get templates you can reuse, custom one-off designs for launches and campaigns, and a feed that finally looks like it belongs to a premium brand.",
     ],
@@ -185,10 +185,10 @@ export const services: ServiceData[] = [
       },
     ],
     whoIsThisFor: [
-      "Coaches who know they need to post but dread the design process",
-      "PTs who are spending more time in Canva than with their clients",
+      "Business owners who know they need to post but dread the design process",
+      "Operators who are spending more time in Canva than with their clients",
       "Brands that want a consistent, premium look across all their social platforms",
-      "Anyone launching a programme or challenge and needs graphics that convert",
+      "Anyone launching a programme, product, or campaign and needing graphics that convert",
     ],
     faqs: [
       {
@@ -236,7 +236,7 @@ export const services: ServiceData[] = [
       {
         title: "Climb the Google rankings.",
         description:
-          "Consistent SEO work means you show up when people in your area search for a PT, coach, or gym. More organic traffic, fewer ad costs.",
+          "Consistent SEO work means you show up when people in your area search for what you offer. More organic traffic, fewer ad costs.",
       },
       {
         title: "Never worry about your site breaking.",
@@ -250,10 +250,10 @@ export const services: ServiceData[] = [
       },
     ],
     whoIsThisFor: [
-      "Coaches who want their website to generate organic leads without paying for ads",
+      "Business owners who want their website to generate organic leads without paying for ads",
       "Anyone who's been burned by an agency that disappeared after launch",
-      "Business owners who don't have time to manage their own site updates",
-      "PTs who want to rank on Google for their local area",
+      "Operators who don't have time to manage their own site updates",
+      "Local businesses who want to rank on Google for their area",
     ],
     faqs: [
       {
@@ -283,10 +283,10 @@ export const services: ServiceData[] = [
     headerTitle: "An online store that",
     headerAccent: "actually sells.",
     headerDescription:
-      "Supplements, merch, digital programmes, subscriptions. We build Shopify stores that look premium and are built to convert.",
+      "Apparel, products, digital programmes, subscriptions. We build Shopify stores that look premium and are built to convert.",
     longDescription: [
-      "Selling online should be straightforward. But if your store looks like a default Shopify template with stock photos and generic descriptions, your customers are bouncing before they even add something to the cart. In fitness, trust is everything, and a cheap-looking store kills it instantly.",
-      "We design and build custom Shopify stores that match the quality of your products. From product photography direction to checkout optimisation, every detail is designed to reduce friction and increase conversions. Whether you're selling supplements, gym apparel, meal plans, or coaching programmes.",
+      "Selling online should be straightforward. But if your store looks like a default Shopify template with stock photos and generic descriptions, your customers are bouncing before they even add something to the cart. Trust is everything in e-commerce, and a cheap-looking store kills it instantly.",
+      "We design and build custom Shopify stores that match the quality of your products. From product photography direction to checkout optimisation, every detail is designed to reduce friction and increase conversions. Whether you're selling apparel, products, digital downloads, or programmes.",
       "And we don't just make it look good. We set up the systems that make your life easier. Automated inventory management, subscription billing, abandoned cart recovery, and analytics that actually tell you what's working.",
     ],
     features: [
@@ -315,10 +315,10 @@ export const services: ServiceData[] = [
       },
     ],
     whoIsThisFor: [
-      "Coaches selling digital programmes, meal plans, or e-books online",
-      "Fitness brands launching a supplement or apparel line",
-      "PTs who want to add a revenue stream beyond 1:1 coaching",
-      "Gym owners selling memberships, merchandise, or class passes online",
+      "Businesses selling digital products, programmes, or downloads online",
+      "Brands launching a product, supplement, or apparel line",
+      "Service providers who want to add a recurring revenue stream",
+      "Owners selling memberships, merchandise, or passes online",
     ],
     faqs: [
       {
@@ -352,7 +352,7 @@ export const services: ServiceData[] = [
     longDescription: [
       "You're spending money on Facebook ads, Instagram ads, maybe Google too. The clicks are coming in. But the conversions? Nowhere near what they should be. The problem isn't your ads. It's where you're sending people.",
       "A homepage is not a landing page. Sending paid traffic to a page with a navigation bar, six different CTAs, and your life story is the fastest way to burn your ad budget. A proper landing page has one goal, one message, and one action, and it's designed to make that action feel like a no-brainer.",
-      "We build landing pages specifically for paid traffic. Clean design, sharp copy, social proof in the right places, and a conversion path that's been tested across hundreds of fitness industry campaigns. Your ads bring the traffic. Our pages close the deal.",
+      "We build landing pages specifically for paid traffic. Clean design, sharp copy, social proof in the right places, and a conversion path that's been tested across hundreds of campaigns. Your ads bring the traffic. Our pages close the deal.",
     ],
     features: [
       "Conversion-optimised design",
@@ -380,10 +380,10 @@ export const services: ServiceData[] = [
       },
     ],
     whoIsThisFor: [
-      "Coaches running Facebook or Instagram ads and not seeing enough conversions",
-      "PTs launching a new programme, challenge, or lead magnet",
+      "Businesses running Facebook or Instagram ads and not seeing enough conversions",
+      "Operators launching a new programme, product, or lead magnet",
       "Anyone currently sending ad traffic to their homepage (stop doing that)",
-      "Businesses who want to test offers quickly without building a full website",
+      "Brands who want to test offers quickly without building a full website",
     ],
     faqs: [
       {
@@ -448,8 +448,8 @@ export const services: ServiceData[] = [
       },
     ],
     whoIsThisFor: [
-      "Fitness brands that want a cutting-edge website without the cutting-edge price tag",
-      "Coaches who need a site fast, whether launching a programme, rebrand, or new business",
+      "Ambitious brands that want a cutting-edge website without the cutting-edge price tag",
+      "Operators who need a site fast, whether launching a programme, rebrand, or new business",
       "Anyone who's been quoted 6+ weeks by traditional agencies and thought 'there has to be a better way'",
       "Forward-thinking businesses that want to work with an agency that's ahead of the curve",
     ],

@@ -58,7 +58,7 @@ export default function WhyUs() {
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-16 max-w-xl">
           {[
             { text: "Why" },
-            { text: "fitness professionals", className: "text-pink" },
+            { text: "ambitious businesses", className: "text-pink" },
             { text: "choose us." },
           ].map((line, i) => (
             <motion.span
