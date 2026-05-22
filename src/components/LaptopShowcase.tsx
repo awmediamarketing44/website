@@ -11,64 +11,48 @@ export default function LaptopShowcase() {
     offset: ["start start", "end end"],
   });
 
-  // Laptop: starts small + low, scales up to dominate, lifts slightly into a settle
-  const scale = useTransform(scrollYProgress, [0, 0.55, 1], [0.6, 1, 1.04]);
-  const laptopOpacity = useTransform(scrollYProgress, [0, 0.12, 0.92, 1], [0, 1, 1, 0.92]);
-  const laptopY = useTransform(scrollYProgress, [0, 1], [40, -40]);
-  const tilt = useTransform(scrollYProgress, [0, 0.5, 1], [4, 0, -2]);
+  // Laptop transform
+  const scale = useTransform(scrollYProgress, [0, 0.55, 1], [0.75, 1, 1.04]);
+  const laptopOpacity = useTransform(scrollYProgress, [0, 0.1, 0.92, 1], [0, 1, 1, 0.95]);
+  const laptopY = useTransform(scrollYProgress, [0, 1], [20, -20]);
+  const tilt = useTransform(scrollYProgress, [0, 0.5, 1], [3, 0, -2]);
 
-  // Pill: reveals first, settles in
-  const tagOpacity = useTransform(scrollYProgress, [0, 0.08, 0.6, 0.75], [0, 1, 1, 0]);
+  // Pill: reveals first
+  const tagOpacity = useTransform(scrollYProgress, [0, 0.08, 0.5, 0.6], [0, 1, 1, 0]);
   const tagY = useTransform(scrollYProgress, [0, 0.08], [16, 0]);
 
-  // Headline: revealed alongside pill, hides as laptop dominates
+  // Headline: revealed alongside pill, fades before laptop dominates
   const headlineOpacity = useTransform(
     scrollYProgress,
-    [0.04, 0.18, 0.6, 0.75],
+    [0.04, 0.18, 0.45, 0.6],
     [0, 1, 1, 0]
   );
   const headlineY = useTransform(scrollYProgress, [0.04, 0.18], [32, 0]);
 
-  // Subhead: reveals as laptop settles
+  // Subhead: reveals as laptop settles, holds to end
   const subOpacity = useTransform(
     scrollYProgress,
-    [0.55, 0.72, 0.92, 1],
-    [0, 1, 1, 0.85]
+    [0.55, 0.72, 0.95, 1],
+    [0, 1, 1, 0.9]
   );
-  const subY = useTransform(scrollYProgress, [0.55, 0.72], [32, 0]);
-
-  // Subtle scroll-tied glow
-  const bgGradient = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    [
-      "radial-gradient(60% 50% at 50% 60%, rgba(249,38,114,0.10), transparent 70%)",
-      "radial-gradient(60% 50% at 50% 50%, rgba(168,85,247,0.14), transparent 65%)",
-      "radial-gradient(60% 50% at 50% 40%, rgba(6,182,212,0.10), transparent 70%)",
-    ]
-  );
+  const subY = useTransform(scrollYProgress, [0.55, 0.72], [24, 0]);
 
   return (
     <section
       ref={wrapperRef}
-      className="relative border-t border-card-border bg-black"
-      style={{ height: "320vh" }}
+      className="relative border-t border-card-border"
+      style={{ height: "300vh" }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <motion.div
-          style={{ background: bgGradient }}
-          className="absolute inset-0 pointer-events-none"
-        />
-
-        <div className="relative h-full w-full flex flex-col items-center justify-between py-10 sm:py-14 lg:py-16">
+        <div className="relative h-full w-full flex flex-col items-center pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 lg:pb-16 gap-6 sm:gap-8">
           {/* TOP — pill + headline */}
           <div className="flex flex-col items-center text-center px-6 gap-3 sm:gap-5 z-20">
             <motion.span
               style={{ opacity: tagOpacity, y: tagY }}
-              className="inline-flex items-center gap-2 rounded-full border border-card-border bg-card/60 backdrop-blur-md px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-muted"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/85"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-pink animate-pulse" />
-              Recent build · The Coach Consultant
+              Recent Build · The Coach Consultant
             </motion.span>
             <motion.h2
               style={{ opacity: headlineOpacity, y: headlineY }}
@@ -78,7 +62,7 @@ export default function LaptopShowcase() {
             </motion.h2>
           </div>
 
-          {/* MIDDLE — laptop */}
+          {/* MIDDLE — laptop (explicit height, not flex-1 so subhead always has room) */}
           <motion.div
             style={{
               scale,
@@ -88,9 +72,9 @@ export default function LaptopShowcase() {
               perspective: 1400,
               transformStyle: "preserve-3d",
             }}
-            className="relative w-full flex-1 flex items-center justify-center px-4 sm:px-8 z-10 min-h-0"
+            className="relative w-full flex items-center justify-center px-4 sm:px-8 z-10 h-[45vh] sm:h-[55vh] lg:h-[60vh]"
           >
-            <div className="relative w-full max-w-[1400px] aspect-[2400/1340]">
+            <div className="relative w-full h-full max-w-[1400px]">
               <Image
                 src="/images/hero-laptop-tcc.webp"
                 alt="A silver MacBook displaying The Coach Consultant — a recent AW Media build."
@@ -105,7 +89,7 @@ export default function LaptopShowcase() {
           {/* BOTTOM — subhead */}
           <motion.div
             style={{ opacity: subOpacity, y: subY }}
-            className="z-20 px-6 text-center"
+            className="z-20 px-6 text-center mt-auto"
           >
             <p className="text-sm sm:text-base lg:text-lg text-muted max-w-2xl mx-auto leading-relaxed">
               Real client work. AI-accelerated build, shipped in weeks not months.

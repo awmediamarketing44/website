@@ -47,7 +47,7 @@ export default function Footer() {
             </span>
             <p className="mt-1 text-xs text-muted">marketing ltd</p>
             <p className="mt-4 text-sm text-muted">
-              Award-winning web design for fitness professionals.
+              Award-winning web design. AI-accelerated when speed matters, bespoke when craft does.
             </p>
 
             {/* Social icons */}

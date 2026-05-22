@@ -68,7 +68,7 @@ function StepNumber({
   return (
     <motion.span
       style={{ opacity, scale }}
-      className="absolute inset-0 flex items-center justify-center text-[10rem] sm:text-[14rem] lg:text-[20rem] xl:text-[24rem] font-black gradient-text leading-none select-none"
+      className="absolute inset-0 flex items-center justify-start text-[8rem] sm:text-[12rem] lg:text-[16rem] xl:text-[18rem] font-black gradient-text leading-none select-none"
     >
       {number}
     </motion.span>

@@ -106,7 +106,7 @@ export default function Hero() {
               </motion.span>
             </motion.div>
 
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[1.05] sm:leading-[1.05] lg:leading-[1.02]">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] leading-[1.05] sm:leading-[1.05] lg:leading-[1.02]">
               <span className="block">
                 {"Designed properly.".split(" ").map((word, i) => (
                   <span key={i} className="inline-block mr-[0.3em]">

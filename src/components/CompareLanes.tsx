@@ -79,7 +79,7 @@ export default function CompareLanes() {
         className="absolute bottom-0 -right-40 w-[340px] h-[340px] bg-purple-500/[0.05] rounded-full blur-[110px] pointer-events-none"
       />
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
