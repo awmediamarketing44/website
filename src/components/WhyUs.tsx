@@ -53,7 +53,7 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="py-24 lg:py-32 relative">
+    <section className="py-14 lg:py-32 relative">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-16 max-w-xl">
           {[

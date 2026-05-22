@@ -21,7 +21,7 @@ export default function Intro() {
   const x = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
-    <section ref={ref} className="relative py-24 lg:py-32 overflow-hidden">
+    <section ref={ref} className="relative py-14 lg:py-32 overflow-hidden">
       {/* Floating background accent */}
       <motion.div
         style={{ x }}

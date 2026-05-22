@@ -15,7 +15,7 @@ export default function PainPoint() {
   const lineWidth = useTransform(scrollYProgress, [0.2, 0.5], ["0%", "60%"]);
 
   return (
-    <section ref={ref} className="py-24 lg:py-40 relative overflow-hidden">
+    <section ref={ref} className="py-14 lg:py-40 relative overflow-hidden">
       {/* Animated line decorations */}
       <motion.div
         style={{ width: lineWidth }}

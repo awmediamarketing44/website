@@ -82,7 +82,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 lg:py-32">
+    <section id="faq" className="py-14 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           <motion.div

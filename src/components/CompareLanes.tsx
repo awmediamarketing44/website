@@ -68,7 +68,7 @@ export default function CompareLanes() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 lg:py-32 border-t border-card-border relative overflow-hidden"
+      className="py-14 lg:py-32 border-t border-card-border relative overflow-hidden"
     >
       <motion.div
         style={{ y: orbAY }}

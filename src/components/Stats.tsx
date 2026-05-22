@@ -148,7 +148,7 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="text-center"
             >
-              <p className="text-5xl sm:text-6xl font-black gradient-text leading-none mb-2 tabular-nums">
+              <p className="text-4xl sm:text-5xl font-black gradient-text leading-tight mb-2 tabular-nums whitespace-nowrap">
                 {stat.value}
                 <span className="text-pink">{stat.suffix}</span>
               </p>

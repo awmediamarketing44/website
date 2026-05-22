@@ -21,7 +21,7 @@ const posts = [
 
 export default function Blog() {
   return (
-    <section id="blog" className="py-24 lg:py-32">
+    <section id="blog" className="py-14 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0 }}

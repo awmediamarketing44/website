@@ -6,7 +6,7 @@ import { SplitText } from "./TextReveal";
 
 export default function CTA() {
   return (
-    <section id="cta" className="relative py-24 lg:py-40 overflow-hidden">
+    <section id="cta" className="relative py-16 lg:py-40 overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 z-0">
         <motion.div
