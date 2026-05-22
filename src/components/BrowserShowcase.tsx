@@ -10,11 +10,11 @@ export default function BrowserShowcase() {
     offset: ["start start", "end end"],
   });
 
-  // Browser: starts smaller, scales up to dominate
-  const scale = useTransform(scrollYProgress, [0, 0.55, 1], [0.78, 1, 1.04]);
+  // Browser: starts smaller, scales up to fill — capped at 1.0 so it never overflows the viewport on laptops
+  const scale = useTransform(scrollYProgress, [0, 0.55, 1], [0.82, 1, 1]);
   const browserOpacity = useTransform(scrollYProgress, [0, 0.1, 0.92, 1], [0, 1, 1, 0.95]);
-  const browserY = useTransform(scrollYProgress, [0, 1], [20, -20]);
-  const tilt = useTransform(scrollYProgress, [0, 0.5, 1], [3, 0, -2]);
+  const browserY = useTransform(scrollYProgress, [0, 1], [16, -16]);
+  const tilt = useTransform(scrollYProgress, [0, 0.5, 1], [2, 0, -1]);
 
   // Pill
   const tagOpacity = useTransform(scrollYProgress, [0, 0.08, 0.5, 0.6], [0, 1, 1, 0]);
@@ -43,7 +43,7 @@ export default function BrowserShowcase() {
       style={{ height: "300vh" }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="relative h-full w-full flex flex-col items-center pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 lg:pb-16 gap-6 sm:gap-8">
+        <div className="relative h-full w-full flex flex-col items-center justify-between pt-24 sm:pt-28 lg:pt-28 pb-8 sm:pb-10 lg:pb-12">
           {/* TOP — pill + headline */}
           <div className="flex flex-col items-center text-center px-6 gap-3 sm:gap-5 z-20">
             <motion.span
@@ -71,9 +71,9 @@ export default function BrowserShowcase() {
               perspective: 1400,
               transformStyle: "preserve-3d",
             }}
-            className="relative w-full flex items-center justify-center px-4 sm:px-8 z-10 h-[45vh] sm:h-[55vh] lg:h-[60vh]"
+            className="relative w-full flex items-center justify-center px-4 sm:px-8 z-10 h-[44vh] sm:h-[56vh] lg:h-[60vh] xl:h-[66vh] 2xl:h-[72vh]"
           >
-            <div className="relative w-full h-full max-w-[1400px] flex items-center justify-center">
+            <div className="relative w-full h-full max-w-[1500px] flex items-center justify-center">
               <div
                 className="relative w-full aspect-[1440/900] max-h-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_30px_120px_-20px_rgba(249,38,114,0.35)] bg-[#0a0a0a]"
               >
@@ -111,7 +111,7 @@ export default function BrowserShowcase() {
           {/* BOTTOM — subhead */}
           <motion.div
             style={{ opacity: subOpacity, y: subY }}
-            className="z-20 px-6 text-center mt-auto"
+            className="z-20 px-6 text-center"
           >
             <p className="text-sm sm:text-base lg:text-lg text-muted max-w-2xl mx-auto leading-relaxed">
               Real client work. AI-accelerated build, shipped in weeks not months.

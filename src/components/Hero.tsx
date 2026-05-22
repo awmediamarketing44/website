@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import MagneticButton from "./MagneticButton";
@@ -23,19 +22,23 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Cinematic background plate */}
+      {/* Cinematic background video */}
       <motion.div
         style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 z-0"
       >
-        <Image
-          src="/images/hero-cinematic.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover select-none pointer-events-none"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/images/hero-cinematic.webp"
+          className="w-full h-full object-cover select-none pointer-events-none"
+        >
+          <source src="/videos/hero-cinematic.webm" type="video/webm" />
+          <source src="/videos/hero-cinematic.mp4" type="video/mp4" />
+        </video>
       </motion.div>
 
       {/* Tint + vignette for text contrast */}
