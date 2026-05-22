@@ -30,7 +30,8 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
-  const bgOpacity = useTransform(scrollY, [0, 100], [0, 0.9]);
+  const bgOpacity = useTransform(scrollY, [0, 100], [0, 0.7]);
+  const glassTint = useTransform(scrollY, [0, 100], [0.04, 0.08]);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { openCalendly } = useCalendly();
 
@@ -57,10 +58,29 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-0 left-0 right-0 z-50"
     >
-      <motion.div
-        style={{ opacity: bgOpacity }}
-        className="absolute inset-0 bg-background/80 backdrop-blur-xl border-b border-card-border"
-      />
+      {/* Glass layers */}
+      <div className="absolute inset-0 backdrop-blur-2xl pointer-events-none">
+        {/* Persistent glass tint (visible at top of page too) */}
+        <motion.div
+          style={{
+            background: useTransform(
+              glassTint,
+              (v) =>
+                `linear-gradient(to bottom, rgba(255,255,255,${v}) 0%, rgba(255,255,255,${v * 0.4}) 60%, transparent 100%)`
+            ),
+          }}
+          className="absolute inset-0"
+        />
+        {/* Scroll-deepened opacity layer for readability */}
+        <motion.div
+          style={{ opacity: bgOpacity }}
+          className="absolute inset-0 bg-background/70"
+        />
+        {/* Top inner highlight (iOS-style glass edge) */}
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+        {/* Bottom edge */}
+        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         {/* Logo */}

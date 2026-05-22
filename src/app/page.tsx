@@ -5,6 +5,7 @@ import Intro from "@/components/Intro";
 import PainPoint from "@/components/PainPoint";
 import CompareLanes from "@/components/CompareLanes";
 import Services from "@/components/Services";
+import Work from "@/components/Work";
 import Process from "@/components/Process";
 import SocialProof from "@/components/SocialProof";
 import TrustTicker from "@/components/TrustTicker";
@@ -26,6 +27,7 @@ export default function Home() {
         <PainPoint />
         <CompareLanes />
         <Services />
+        <Work />
         <Process />
         <SocialProof />
         <TrustTicker />
