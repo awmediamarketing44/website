@@ -6,7 +6,6 @@ import PainPoint from "@/components/PainPoint";
 import CompareLanes from "@/components/CompareLanes";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
-import Stack from "@/components/Stack";
 import SocialProof from "@/components/SocialProof";
 import TrustTicker from "@/components/TrustTicker";
 import WhyUs from "@/components/WhyUs";
@@ -28,7 +27,6 @@ export default function Home() {
         <CompareLanes />
         <Services />
         <Process />
-        <Stack />
         <SocialProof />
         <TrustTicker />
         <WhyUs />

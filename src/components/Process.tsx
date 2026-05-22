@@ -13,17 +13,17 @@ const steps = [
   },
   {
     number: "02",
-    label: "AI Exploration",
-    title: "We generate. You don't wait.",
+    label: "Exploration",
+    title: "We move fast. With more options.",
     description:
-      "Our team uses AI to rapidly explore mood-boards, copy directions, and layout concepts. What used to take a week of solo design work now takes a day, with more options on the table to choose from.",
+      "Mood-boards, copy directions, layout concepts. Modern tooling lets us explore broadly in days, not weeks. More directions on the table means a sharper final result.",
   },
   {
     number: "03",
-    label: "Human Refinement",
-    title: "Designers take it from generated to great.",
+    label: "Refinement",
+    title: "Designers take it from concept to great.",
     description:
-      "AI outputs the raw material. Our designers shape it into something that reflects your brand, hits your audience, and actually converts. The craft never leaves the loop.",
+      "Exploration outputs are the raw material. Our designers shape the work into something that reflects your brand, hits your audience, and actually converts. The craft never leaves the loop.",
   },
   {
     number: "04",

@@ -36,7 +36,7 @@ export default function SocialProof() {
         <p className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-medium leading-snug sm:leading-relaxed">
           {[
             { text: "400+ websites built. UK-wide.", className: "text-pink font-bold" },
-            { text: "Coaches, clinics, trades, services, e-commerce. AI-accelerated when speed matters. Fully bespoke when the project demands it." },
+            { text: "Coaches, clinics, trades, services, e-commerce. Fully bespoke when the project demands it. AI-accelerated when speed matters." },
           ].map((line, i) => (
             <motion.span
               key={i}
