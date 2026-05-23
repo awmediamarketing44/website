@@ -21,9 +21,13 @@ export default function Hero() {
 function MobileHero() {
   return (
     <section className="relative min-h-[calc(100svh-1px)] flex items-center justify-center overflow-hidden">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/hero-cinematic.webp"
         alt=""
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none z-0"
       />
       <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-black/55 via-black/35 to-black/80" />

@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import { Rethink_Sans } from "next/font/google";
 import CalendlyProvider from "@/components/CalendlyProvider";
 import FloatingOrbs from "@/components/FloatingOrbs";
 import CursorSpotlight from "@/components/CursorSpotlight";
 import "./globals.css";
+
+const rethinkSans = Rethink_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-rethink-sans",
+});
 
 const siteUrl = "https://awmedia.marketing";
 
@@ -51,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`${rethinkSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <FloatingOrbs />
         <CursorSpotlight />
