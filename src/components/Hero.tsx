@@ -84,7 +84,7 @@ function DesktopHero({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[92svh] flex items-center justify-center overflow-hidden"
     >
       {/* Cinematic background video */}
       <motion.div

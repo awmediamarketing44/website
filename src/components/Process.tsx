@@ -236,7 +236,7 @@ function DesktopProcess() {
       className="relative border-t border-card-border"
       style={{ height: "500vh" }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
+      <div className="sticky top-0 h-screen overflow-hidden flex items-center pt-24">
         <motion.div
           style={{ background: bgGradient }}
           className="absolute inset-0 pointer-events-none"

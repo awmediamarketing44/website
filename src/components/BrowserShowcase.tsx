@@ -5,7 +5,9 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useIsDesktop } from "@/hooks/useIsDesktop";
 
 export default function BrowserShowcase() {
-  const isDesktop = useIsDesktop();
+  // 1024px breakpoint so iPads/tablets get the clean static layout, not the
+  // scrollytelling collision the QA agent measured at 768px tablet width.
+  const isDesktop = useIsDesktop(1024);
 
   // Lazy-load the video only when the section is near the viewport
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -59,7 +61,7 @@ export default function BrowserShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
-            className="w-full max-w-md mt-2"
+            className="w-full mt-2"
           >
             <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_60px_-15px_rgba(249,38,114,0.35)] bg-[#0a0a0a]">
               <div className="flex items-center gap-1.5 h-8 px-3 border-b border-white/10 bg-white/[0.03]">
@@ -109,10 +111,12 @@ function DesktopBrowserShowcase({
   const browserY = useTransform(scrollYProgress, [0, 1], [16, -16]);
   const tilt = useTransform(scrollYProgress, [0, 0.5, 1], [2, 0, -1]);
 
-  const tagOpacity = useTransform(scrollYProgress, [0, 0.08, 0.5, 0.6], [0, 1, 1, 0]);
+  const tagOpacity = useTransform(scrollYProgress, [0, 0.08, 0.32, 0.42], [0, 1, 1, 0]);
   const tagY = useTransform(scrollYProgress, [0, 0.08], [16, 0]);
-  const headlineOpacity = useTransform(scrollYProgress, [0.04, 0.18, 0.45, 0.6], [0, 1, 1, 0]);
-  const headlineY = useTransform(scrollYProgress, [0.04, 0.18], [32, 0]);
+  // Fade headline fully by 0.42 so it's gone before the browser frame finishes
+  // scaling to ~96% — kills the visual "mockup sits on the title bar" bug.
+  const headlineOpacity = useTransform(scrollYProgress, [0.04, 0.15, 0.32, 0.42], [0, 1, 1, 0]);
+  const headlineY = useTransform(scrollYProgress, [0.04, 0.15], [32, 0]);
   const subOpacity = useTransform(scrollYProgress, [0.55, 0.72, 0.95, 1], [0, 1, 1, 0.9]);
   const subY = useTransform(scrollYProgress, [0.55, 0.72], [24, 0]);
 
@@ -123,7 +127,7 @@ function DesktopBrowserShowcase({
       style={{ height: "300vh" }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="relative h-full w-full flex flex-col items-center justify-center gap-6 sm:gap-8 lg:gap-12 pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-12 lg:pb-16">
+        <div className="relative h-full w-full flex flex-col items-center justify-center gap-6 sm:gap-8 lg:gap-10 pt-24 sm:pt-28 lg:pt-32 2xl:pt-36 pb-10 sm:pb-12 lg:pb-16">
           <div className="flex flex-col items-center text-center px-6 gap-3 sm:gap-5 z-20">
             <motion.span
               style={{ opacity: tagOpacity, y: tagY }}
@@ -149,7 +153,7 @@ function DesktopBrowserShowcase({
               perspective: 1400,
               transformStyle: "preserve-3d",
             }}
-            className="relative w-full flex items-center justify-center px-4 sm:px-8 z-10 h-[42vh] sm:h-[50vh] lg:h-[54vh] xl:h-[60vh] 2xl:h-[66vh]"
+            className="relative w-full flex items-center justify-center px-4 sm:px-8 z-10 h-[42vh] sm:h-[50vh] lg:h-[52vh] xl:h-[58vh] 2xl:h-[64vh]"
           >
             <div className="relative w-full h-full max-w-[1500px] flex items-center justify-center">
               <div className="relative w-full aspect-[1440/900] max-h-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_30px_120px_-20px_rgba(249,38,114,0.35)] bg-[#0a0a0a]">
