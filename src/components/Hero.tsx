@@ -9,6 +9,64 @@ import { useIsDesktop } from "@/hooks/useIsDesktop";
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const isDesktop = useIsDesktop();
+
+  // Mobile path: no scroll listeners, no fancy motion, plain HTML so the SSR
+  // paint is the visible final paint. We get 80% of traffic from phones, the
+  // hero MUST render instantly without waiting for JS to fade things in.
+  if (!isDesktop) return <MobileHero />;
+
+  return <DesktopHero ref={ref} />;
+}
+
+function MobileHero() {
+  return (
+    <section className="relative min-h-[calc(100svh-1px)] flex items-center justify-center overflow-hidden">
+      <img
+        src="/images/hero-cinematic.webp"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none z-0"
+      />
+      <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-black/55 via-black/35 to-black/80" />
+      <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_60%_45%_at_50%_50%,transparent_0%,rgba(0,0,0,0.55)_100%)]" />
+
+      <div className="relative z-10 mx-auto max-w-2xl px-6 py-24 text-center">
+        <span className="inline-block rounded-full border border-pink/40 bg-pink/10 px-5 py-2 text-[10px] font-medium uppercase tracking-widest text-pink mb-6 backdrop-blur-md">
+          UK Web Design Studio · Since 2016
+        </span>
+        <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.02]">
+          <span className="block">Designed properly.</span>
+          <span className="block gradient-text">Built faster.</span>
+        </h1>
+        <p className="mx-auto mt-6 max-w-lg text-base text-white/85 leading-relaxed">
+          An award-winning UK studio shipping bespoke websites at AI-accelerated
+          speed. Two lanes. Both fully custom. Neither templated.
+        </p>
+        <div className="mt-8 flex flex-col items-center justify-center gap-3">
+          <BookCallButton>Book a FREE Call</BookCallButton>
+          <MagneticButton href="/work" variant="secondary">
+            View Recent Work
+          </MagneticButton>
+        </div>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[10px] uppercase tracking-widest text-white/55">
+          <span className="flex items-center gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-pink" />
+            400+ websites shipped
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-pink" />
+            4x award winner
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-pink" />
+            A decade in
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DesktopHero({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) {
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -24,31 +82,23 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Cinematic background — video on desktop, static poster on mobile */}
+      {/* Cinematic background video */}
       <motion.div
         style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 z-0"
       >
-        {isDesktop ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="/images/hero-cinematic.webp"
-            className="w-full h-full object-cover select-none pointer-events-none"
-          >
-            <source src="/videos/hero-cinematic.webm" type="video/webm" />
-            <source src="/videos/hero-cinematic.mp4" type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            src="/images/hero-cinematic.webp"
-            alt=""
-            className="w-full h-full object-cover select-none pointer-events-none"
-          />
-        )}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/images/hero-cinematic.webp"
+          className="w-full h-full object-cover select-none pointer-events-none"
+        >
+          <source src="/videos/hero-cinematic.webm" type="video/webm" />
+          <source src="/videos/hero-cinematic.mp4" type="video/mp4" />
+        </video>
       </motion.div>
 
       {/* Tint + vignette for text contrast */}

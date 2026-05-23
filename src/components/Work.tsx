@@ -175,7 +175,7 @@ function DesktopWork() {
                 key={item.slug}
                 className="flex-shrink-0 w-screen h-full flex items-center justify-center px-4 sm:px-8 lg:px-12 pb-12"
               >
-                <div className="relative w-full max-w-6xl aspect-[16/10] max-h-full">
+                <div className="relative w-full max-w-6xl aspect-[3/2] max-h-[78vh]">
                   {/* Card glow */}
                   <motion.div
                     animate={{
@@ -224,7 +224,7 @@ function DesktopWork() {
                       />
 
                       {/* Project info overlay */}
-                      <div className="absolute inset-0 p-8 lg:p-12 flex flex-col justify-between">
+                      <div className="absolute inset-0 p-8 lg:p-12 flex flex-col justify-center gap-8">
                         <div>
                           <p className="text-xs uppercase tracking-widest text-white/70 font-bold mb-3">
                             {item.category}

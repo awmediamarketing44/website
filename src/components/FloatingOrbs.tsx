@@ -1,8 +1,10 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
+import { useIsDesktop } from "@/hooks/useIsDesktop";
 
 export default function FloatingOrbs() {
+  const isDesktop = useIsDesktop();
   const { scrollYProgress } = useScroll();
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -300]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
@@ -10,8 +12,10 @@ export default function FloatingOrbs() {
   const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 360]);
   const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -180]);
 
+  if (!isDesktop) return null;
+
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden hidden md:block">
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
       {/* Large pink orb top-right — slow parallax */}
       <motion.div
         style={{ y: y1 }}
