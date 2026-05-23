@@ -123,7 +123,7 @@ function DesktopBrowserShowcase({
       style={{ height: "300vh" }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="relative h-full w-full flex flex-col items-center justify-between pt-24 sm:pt-28 lg:pt-28 pb-8 sm:pb-10 lg:pb-12">
+        <div className="relative h-full w-full flex flex-col items-center justify-center gap-6 sm:gap-8 lg:gap-12 pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-12 lg:pb-16">
           <div className="flex flex-col items-center text-center px-6 gap-3 sm:gap-5 z-20">
             <motion.span
               style={{ opacity: tagOpacity, y: tagY }}
@@ -149,7 +149,7 @@ function DesktopBrowserShowcase({
               perspective: 1400,
               transformStyle: "preserve-3d",
             }}
-            className="relative w-full flex items-center justify-center px-4 sm:px-8 z-10 h-[44vh] sm:h-[56vh] lg:h-[60vh] xl:h-[66vh] 2xl:h-[72vh]"
+            className="relative w-full flex items-center justify-center px-4 sm:px-8 z-10 h-[42vh] sm:h-[50vh] lg:h-[54vh] xl:h-[60vh] 2xl:h-[66vh]"
           >
             <div className="relative w-full h-full max-w-[1500px] flex items-center justify-center">
               <div className="relative w-full aspect-[1440/900] max-h-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_30px_120px_-20px_rgba(249,38,114,0.35)] bg-[#0a0a0a]">
