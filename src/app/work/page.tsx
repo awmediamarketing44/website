@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
@@ -35,9 +36,9 @@ export default function WorkPage() {
       <main>
         <PageHeader
           tag="Our Work"
-          title="Websites that convert"
-          titleAccent="visitors into clients."
-          description="Every project is built with one goal: make your fitness business look as good as the results you deliver."
+          title="Bespoke design.  "
+          titleAccent="Real results."
+          description="A decade of building websites, brands, landing pages, and social systems that move the needle. AI-accelerated when speed matters, fully bespoke when the project demands it."
         />
 
         {/* Filters */}
@@ -103,19 +104,30 @@ export default function WorkPage() {
                     <Link href={`/work/${project.slug}`}>
                     <TiltCard>
                       <div className="group relative rounded-2xl border border-card-border bg-card overflow-hidden transition-all duration-500 hover:border-pink/30 cursor-pointer">
-                        {/* Image placeholder */}
-                        <div className="aspect-[16/10] relative overflow-hidden">
-                          <motion.div
-                            className="absolute inset-0 bg-gradient-to-br from-pink/15 via-purple-500/10 to-card"
-                            animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-                            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                            style={{ backgroundSize: "200% 200%" }}
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-2xl font-bold text-white/10 group-hover:text-white/20 transition-colors duration-500">
-                              {project.title}
-                            </span>
-                          </div>
+                        <div className="aspect-[16/10] relative overflow-hidden bg-black">
+                          {project.hasImages ? (
+                            <Image
+                              src={project.thumbnailImage}
+                              alt={`${project.title} thumbnail`}
+                              fill
+                              sizes="(max-width: 1024px) 50vw, 33vw"
+                              className={`${project.category === 'Branding / Logo Design' ? 'object-contain p-4 sm:p-6' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-700`}
+                            />
+                          ) : (
+                            <>
+                              <motion.div
+                                className="absolute inset-0 bg-gradient-to-br from-pink/15 via-purple-500/10 to-card"
+                                animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+                                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                                style={{ backgroundSize: "200% 200%" }}
+                              />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-2xl font-bold text-white/10 group-hover:text-white/20 transition-colors duration-500">
+                                  {project.title}
+                                </span>
+                              </div>
+                            </>
+                          )}
                         </div>
 
                         <div className="p-6">

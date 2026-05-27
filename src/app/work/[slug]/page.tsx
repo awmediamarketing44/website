@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import TiltCard from "@/components/TiltCard";
+import PhoneFrame from "@/components/PhoneFrame";
 import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
 import { getProjectBySlug, projects } from "@/data/projects";
@@ -131,34 +132,122 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        {/* Hero image */}
-        <section className="pb-16 lg:pb-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative rounded-2xl border border-card-border overflow-hidden"
-            >
-              <div className="aspect-[16/9] relative bg-card">
-                {/* Placeholder gradient — replace with real screenshot */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-pink/20 via-purple-500/10 to-card"
-                  animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                  style={{ backgroundSize: "200% 200%" }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="text-4xl sm:text-6xl font-bold text-white/10">{project.title}</span>
-                    <p className="text-sm text-muted/40 mt-2">Hero screenshot goes here</p>
-                  </div>
+        {/* Hero image — 16:9 for web/landing, 1:1 contained for branding (logos), 4:5 portrait for social-only */}
+        {(() => {
+          const isSocialOnly = (!project.gallery || project.gallery.length === 0) && project.graphics && project.graphics.length > 0;
+          const isBranding = project.category === "Branding / Logo Design";
+          if (isBranding) {
+            return (
+              <section className="pb-16 lg:pb-24">
+                <div className="mx-auto max-w-7xl px-6">
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="mx-auto max-w-2xl"
+                  >
+                    <div className="relative aspect-square rounded-2xl border border-card-border overflow-hidden bg-card">
+                      {project.hasImages ? (
+                        <Image
+                          src={project.heroImage}
+                          alt={`${project.title} logo`}
+                          fill
+                          priority
+                          sizes="(max-width: 1024px) 90vw, 640px"
+                          className="object-contain"
+                        />
+                      ) : (
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-br from-pink/20 via-purple-500/10 to-card"
+                          animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+                          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                          style={{ backgroundSize: "200% 200%" }}
+                        />
+                      )}
+                    </div>
+                  </motion.div>
                 </div>
+              </section>
+            );
+          }
+          if (isSocialOnly) {
+            return (
+              <section className="pb-16 lg:pb-24">
+                <div className="mx-auto max-w-7xl px-6">
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="mx-auto max-w-md"
+                  >
+                    <div className="relative rounded-2xl border border-card-border overflow-hidden bg-card" style={{ aspectRatio: "4 / 5" }}>
+                      {project.hasImages ? (
+                        <Image
+                          src={project.heroImage}
+                          alt={`${project.title} hero`}
+                          fill
+                          priority
+                          sizes="(max-width: 768px) 90vw, 480px"
+                          className="object-cover"
+                        />
+                      ) : (
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-br from-pink/20 via-purple-500/10 to-card"
+                          animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+                          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                          style={{ backgroundSize: "200% 200%" }}
+                        />
+                      )}
+                    </div>
+                  </motion.div>
+                </div>
+              </section>
+            );
+          }
+          return (
+            <section className="pb-16 lg:pb-24">
+              <div className="mx-auto max-w-7xl px-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative rounded-2xl border border-card-border overflow-hidden"
+                >
+                  <div className="aspect-[16/9] relative bg-card">
+                    {project.hasImages ? (
+                      <Image
+                        src={project.heroImage}
+                        alt={`${project.title} hero`}
+                        fill
+                        priority
+                        sizes="(max-width: 1280px) 100vw, 1280px"
+                        className="object-cover object-top"
+                      />
+                    ) : (
+                      <>
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-br from-pink/20 via-purple-500/10 to-card"
+                          animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+                          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                          style={{ backgroundSize: "200% 200%" }}
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center">
+                            <span className="text-4xl sm:text-6xl font-bold text-white/10">{project.title}</span>
+                            <p className="text-sm text-muted/40 mt-2">Hero screenshot goes here</p>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-          </div>
-        </section>
+            </section>
+          );
+        })()}
 
         {/* The Challenge */}
         <section className="py-24 border-t border-card-border">
@@ -237,11 +326,12 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        {/* Gallery */}
+        {/* Gallery — only render if project has gallery items */}
+        {project.gallery && project.gallery.length > 0 && (
         <section className="py-24 border-t border-card-border">
           <div className="mx-auto max-w-7xl px-6">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-16">
-              {["The", "results."].map((line, i) => (
+              {["The", "work."].map((line, i) => (
                 <motion.span
                   key={i}
                   className={`block ${i > 0 ? "text-pink" : ""}`}
@@ -255,35 +345,158 @@ export default function ProjectPage() {
               ))}
             </h2>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {project.gallery.map((img, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="rounded-2xl border border-card-border overflow-hidden"
-                >
-                  <div className={`relative bg-card ${i === 0 ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
-                    {/* Placeholder — replace with real images */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-pink/15 via-purple-500/10 to-card"
-                      animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-                      transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                      style={{ backgroundSize: "200% 200%" }}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-sm text-muted/40">
-                        {i === 0 ? "Desktop view" : i === 1 ? "Mobile view" : `Detail ${i}`}
-                      </span>
-                    </div>
+            {project.hasImages ? (
+              (() => {
+                const desktop = project.gallery.find((g) => g.includes('desktop') && !g.includes('full'));
+                const mobile = project.gallery.find((g) => g.includes('mobile'));
+                const full = project.gallery.find((g) => g.includes('full'));
+                return (
+                  <div className="space-y-6">
+                    {/* Desktop hero shot */}
+                    {desktop && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="rounded-2xl border border-card-border overflow-hidden"
+                      >
+                        <div className="aspect-[16/10] relative bg-card">
+                          <Image
+                            src={desktop}
+                            alt={`${project.title} desktop`}
+                            fill
+                            sizes="(max-width: 1280px) 100vw, 1280px"
+                            className="object-cover object-top"
+                          />
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {/* Phone frame + full-page scroll, side by side */}
+                    {(mobile || full) && (
+                      <div className="grid lg:grid-cols-[1fr_1.6fr] gap-6 items-center">
+                        {mobile && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className="flex justify-center"
+                          >
+                            <PhoneFrame src={mobile} alt={`${project.title} mobile`} className="w-full max-w-[280px]" />
+                          </motion.div>
+                        )}
+                        {full && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="rounded-2xl border border-card-border overflow-hidden"
+                          >
+                            <div className="relative bg-card" style={{ aspectRatio: '16 / 22' }}>
+                              <Image
+                                src={full}
+                                alt={`${project.title} full page`}
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 60vw"
+                                className="object-cover object-top"
+                              />
+                            </div>
+                          </motion.div>
+                        )}
+                      </div>
+                    )}
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                );
+              })()
+            ) : (
+              <div className="grid sm:grid-cols-2 gap-6 items-start">
+                {project.gallery.map((img, i) => (
+                  <motion.div
+                    key={img}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                    className={`rounded-2xl border border-card-border overflow-hidden ${i === 0 ? 'sm:col-span-2' : ''}`}
+                  >
+                    <div className={`relative bg-card ${i === 0 ? 'aspect-[16/10]' : 'aspect-[4/3]'}`}>
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-br from-pink/15 via-purple-500/10 to-card"
+                        animate={{ backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'] }}
+                        transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+                        style={{ backgroundSize: '200% 200%' }}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-sm text-muted/40">
+                          {i === 0 ? 'Desktop view' : i === 1 ? 'Mobile view' : `Detail ${i}`}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
+        )}
+
+        {/* Graphics / social deliverables */}
+        {project.graphics && project.graphics.length > 0 && (
+          <section className="py-24 border-t border-card-border">
+            <div className="mx-auto max-w-7xl px-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {["Weekly", "graphics."].map((line, i) => (
+                  <motion.span
+                    key={i}
+                    className={`block ${i > 0 ? "text-pink" : ""}`}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {line}
+                  </motion.span>
+                ))}
+              </h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-muted text-base sm:text-lg max-w-2xl mb-16"
+              >
+                A weekly social pack designed to keep the brand sharp across launches, education, and athlete features.
+              </motion.p>
+
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {project.graphics.map((img, i) => (
+                  <motion.div
+                    key={img}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.08 }}
+                    whileHover={{ y: -6 }}
+                    className="group rounded-xl border border-card-border overflow-hidden bg-card"
+                  >
+                    <div className="relative" style={{ aspectRatio: "4 / 5" }}>
+                      <Image
+                        src={img}
+                        alt={`${project.title} graphic ${i + 1}`}
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 380px"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Features built */}
         <section className="py-24 border-t border-card-border">
@@ -447,18 +660,30 @@ export default function ProjectPage() {
                     <Link href={`/work/${p.slug}`}>
                       <TiltCard>
                         <div className="group relative rounded-2xl border border-card-border bg-card overflow-hidden transition-all duration-500 hover:border-pink/30">
-                          <div className="aspect-[16/10] relative overflow-hidden">
-                            <motion.div
-                              className="absolute inset-0 bg-gradient-to-br from-pink/15 via-purple-500/10 to-card"
-                              animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-                              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                              style={{ backgroundSize: "200% 200%" }}
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-2xl font-bold text-white/10 group-hover:text-white/20 transition-colors duration-500">
-                                {p.title}
-                              </span>
-                            </div>
+                          <div className="aspect-[16/10] relative overflow-hidden bg-black">
+                            {p.hasImages ? (
+                              <Image
+                                src={p.thumbnailImage}
+                                alt={`${p.title} thumbnail`}
+                                fill
+                                sizes="(max-width: 1024px) 50vw, 33vw"
+                                className={`${p.category === 'Branding / Logo Design' ? 'object-contain p-4 sm:p-6' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-700`}
+                              />
+                            ) : (
+                              <>
+                                <motion.div
+                                  className="absolute inset-0 bg-gradient-to-br from-pink/15 via-purple-500/10 to-card"
+                                  animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+                                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                                  style={{ backgroundSize: "200% 200%" }}
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <span className="text-2xl font-bold text-white/10 group-hover:text-white/20 transition-colors duration-500">
+                                    {p.title}
+                                  </span>
+                                </div>
+                              </>
+                            )}
                           </div>
                           <div className="p-6">
                             <span className="text-xs font-medium text-pink uppercase tracking-wider">

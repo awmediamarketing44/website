@@ -1,0 +1,27 @@
+{
+  "websites": [
+    { "slug": "thecoachconsultant", "url": "https://thecoachconsultant.uk/", "full": true },
+    { "slug": "hotchen-construction", "url": "https://hotchenconstruction.com/", "full": true },
+    { "slug": "nick-firth-tiles", "url": "https://nickfirthtiles.com/", "full": true },
+    { "slug": "crown-labels", "url": "https://crownlabels.co.uk/", "full": true },
+    { "slug": "body-lab", "url": "https://thebodylabwiltshire.co.uk/", "full": true },
+    { "slug": "quickfit-ev", "url": "https://quickfitev.co.uk/", "full": true },
+    { "slug": "drug-free-bodybuilding", "url": "https://drugfreebodybuilding.co.uk/", "full": true },
+    { "slug": "complete-dentist-academy", "url": "https://completedentistacademy.com/", "full": true },
+    { "slug": "br-accountancy", "url": "https://braccountancy.co.uk/", "full": true },
+    { "slug": "strength-in-us", "url": "https://joinstrengthinus.com/", "full": true },
+    { "slug": "newgen-coaching", "url": "https://newgencoaching.uk/", "full": true },
+    { "slug": "jic", "url": "https://jicrpl.co.uk/", "full": true },
+    { "slug": "steel-city-car-keys", "url": "https://steelcitycarkeys.co.uk/", "full": true }
+  ],
+  "landingPages": [
+    { "slug": "dan-reeve", "url": "https://reeveconditioninginstitute.com/", "full": true },
+    { "slug": "redefining-shakti", "url": "https://redefiningshakti.com/", "full": true },
+    { "slug": "kensington-scott", "url": "https://bespoke.kensingtonscott.co.uk/", "full": true },
+    { "slug": "altitude", "url": "https://altitude-project.com/", "full": true },
+    { "slug": "dr-rio", "url": "https://drrio.co.uk/", "full": true },
+    { "slug": "weather-fix", "url": "https://weatherfixfrs.co.uk/", "full": true },
+    { "slug": "fortis", "url": "https://fortistransformations.com/", "full": true },
+    { "slug": "noura", "url": "https://go.noura-app.com/", "full": true }
+  ]
+}

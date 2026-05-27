@@ -42,3 +42,9 @@ next-env.d.ts
 
 # local audit captures
 /_audit/
+
+# QA captures and scraped data
+/.qa/
+scripts/_*.json
+public/images/projects/*/graphics/_apify-raw.json
+public/images/projects/*/_*

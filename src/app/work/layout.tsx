@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Work | Fitness Websites That Convert",
+  title: "Our Work | AW Media & Marketing",
   description:
-    "See the websites, brands, and landing pages we've built for fitness coaches, PTs, and gym owners. Every project is built to convert visitors into clients.",
+    "Websites, brands, landing pages, AI builds, and social systems delivered for clients across the UK and beyond. AI-accelerated when speed matters, fully bespoke when craft does.",
   openGraph: {
     title: "Our Work | AW Media & Marketing",
     description:
-      "Portfolio of websites and brands built for the fitness industry. Custom design, real results.",
+      "A decade of bespoke design and real results. See the work.",
   },
 };
 
