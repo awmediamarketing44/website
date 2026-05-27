@@ -2,12 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useScroll } from "motion/react";
 import { useIsDesktop } from "@/hooks/useIsDesktop";
 import { projects } from "@/data/projects";
 
-// Featured homepage projects — picked for visual variety + category mix
 const FEATURED_SLUGS = [
   "team-procoach",
   "thecoachconsultant",
@@ -117,20 +116,19 @@ function DesktopWork() {
     offset: ["start start", "end end"],
   });
 
-  // Snap-hold transitions: each panel holds for ~85% of its scroll range,
-  // quick transition between. Stops the "mid-transition with two cards
-  // bleeding across the viewport" mess at any scroll rest position.
-  const stops: number[] = [];
-  const values: string[] = [];
-  const n = work.length;
-  for (let i = 0; i < n; i++) {
-    const center = i / (n - 1);
-    const holdStart = i === 0 ? 0 : center - 0.5 / (n - 1) + 0.04;
-    const holdEnd = i === n - 1 ? 1 : center + 0.5 / (n - 1) - 0.04;
-    stops.push(holdStart, holdEnd);
-    values.push(`-${i * 100}%`, `-${i * 100}%`);
-  }
-  const x = useTransform(scrollYProgress, stops, values);
+  // scrollYProgress -> active panel index. Crossfade between panels at each
+  // 1/N threshold. No sliding = no bleed.
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (v) => {
+      const idx = Math.min(
+        work.length - 1,
+        Math.max(0, Math.floor(v * work.length))
+      );
+      setActiveIndex(idx);
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress]);
 
   return (
     <section
@@ -140,7 +138,7 @@ function DesktopWork() {
     >
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="pt-20 pb-3 lg:pt-24 lg:pb-4 relative z-10">
+        <div className="pt-20 pb-3 lg:pt-24 lg:pb-4 relative z-10 flex-shrink-0">
           <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div className="max-w-2xl">
               <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-3">
@@ -161,44 +159,47 @@ function DesktopWork() {
           </div>
         </div>
 
-        {/* Horizontal track */}
-        <div className="flex-1 relative overflow-hidden min-h-0">
-          <motion.div style={{ x }} className="flex h-full">
+        {/* Stage — full-width browser-frame card crossfades between projects */}
+        <div className="flex-1 relative min-h-0 flex items-center justify-center px-6 lg:px-12 pb-16">
+          <div className="relative w-full max-w-7xl aspect-[16/9] max-h-[72vh]">
             {work.map((item, i) => (
-              <div
+              <motion.div
                 key={item.slug}
-                className="flex-shrink-0 w-screen h-full flex items-center justify-center px-4 sm:px-8 lg:px-12 pb-12"
+                animate={{
+                  opacity: i === activeIndex ? 1 : 0,
+                  scale: i === activeIndex ? 1 : 0.96,
+                }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0"
+                style={{ pointerEvents: i === activeIndex ? "auto" : "none" }}
               >
-                <Link
-                  href={`/work/${item.slug}`}
-                  className="relative w-full max-w-6xl aspect-[3/2] max-h-[78vh] group"
-                >
-                  {/* Browser frame */}
+                <Link href={`/work/${item.slug}`} className="block w-full h-full group">
                   <div className="relative h-full rounded-2xl border border-white/15 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-2xl p-3 sm:p-4 lg:p-5 shadow-[0_30px_120px_-20px_rgba(249,38,114,0.4)] flex flex-col">
                     {/* Chrome */}
                     <div className="flex items-center gap-2 mb-3">
                       <span className="w-3 h-3 rounded-full bg-pink/60" />
                       <span className="w-3 h-3 rounded-full bg-yellow-400/60" />
                       <span className="w-3 h-3 rounded-full bg-green-500/60" />
-                      <div className="flex-1 mx-3 h-7 rounded-full bg-white/5 border border-white/10 text-[11px] text-muted flex items-center px-4 font-mono">
+                      <div className="flex-1 mx-3 h-7 rounded-full bg-white/5 border border-white/10 text-[11px] text-muted flex items-center px-4 font-mono truncate">
                         {item.domain || `${item.slug}.com`}
+                      </div>
+                      <div className="px-3 py-0.5 rounded-full bg-pink text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">
+                        {String(i + 1).padStart(2, "0")} / {String(work.length).padStart(2, "0")}
                       </div>
                     </div>
 
-                    {/* Viewport — real screenshot + overlay */}
-                    <div className="flex-1 rounded-xl overflow-hidden relative border border-white/5 bg-card">
+                    {/* Viewport */}
+                    <div className="flex-1 relative rounded-xl overflow-hidden border border-white/5 bg-card">
                       <Image
                         src={item.hero}
                         alt={item.title}
                         fill
-                        sizes="(min-width: 1280px) 1200px, 90vw"
+                        sizes="(max-width: 1280px) 90vw, 1200px"
                         className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                        priority={i === 0}
+                        priority={i < 2}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-
-                      {/* Project info overlay */}
-                      <div className="absolute inset-0 p-6 lg:p-10 flex flex-col justify-end gap-4">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                      <div className="absolute inset-0 p-6 lg:p-10 xl:p-12 flex flex-col justify-end gap-4">
                         <div>
                           <p className="text-xs uppercase tracking-widest text-white/70 font-bold mb-2">
                             {item.category}
@@ -219,26 +220,33 @@ function DesktopWork() {
                         </div>
                       </div>
                     </div>
-
-                    {/* Counter pill */}
-                    <div className="absolute top-5 right-5 px-3 py-1 rounded-full bg-pink text-white text-[10px] font-bold uppercase tracking-widest">
-                      {String(i + 1).padStart(2, "0")} / {String(work.length).padStart(2, "0")}
-                    </div>
                   </div>
                 </Link>
-              </div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
+        </div>
+
+        {/* Progress dots */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+          {work.map((_, i) => (
+            <span
+              key={i}
+              className={`block h-1.5 rounded-full transition-all duration-300 ${
+                i === activeIndex ? "w-8 bg-pink" : "w-1.5 bg-white/30"
+              }`}
+            />
+          ))}
         </div>
 
         {/* Scroll hint */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xs uppercase tracking-widest text-muted/60">
+        <div className="absolute bottom-6 right-6 flex items-center gap-2 text-[10px] uppercase tracking-widest text-muted/60 z-10">
           <span>Scroll</span>
           <motion.span
-            animate={{ x: [0, 8, 0] }}
+            animate={{ y: [0, 4, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            →
+            ↓
           </motion.span>
         </div>
       </div>
