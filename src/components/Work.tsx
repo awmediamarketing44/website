@@ -117,11 +117,20 @@ function DesktopWork() {
     offset: ["start start", "end end"],
   });
 
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0%", `-${(work.length - 1) * 100}%`]
-  );
+  // Snap-hold transitions: each panel holds for ~85% of its scroll range,
+  // quick transition between. Stops the "mid-transition with two cards
+  // bleeding across the viewport" mess at any scroll rest position.
+  const stops: number[] = [];
+  const values: string[] = [];
+  const n = work.length;
+  for (let i = 0; i < n; i++) {
+    const center = i / (n - 1);
+    const holdStart = i === 0 ? 0 : center - 0.5 / (n - 1) + 0.04;
+    const holdEnd = i === n - 1 ? 1 : center + 0.5 / (n - 1) - 0.04;
+    stops.push(holdStart, holdEnd);
+    values.push(`-${i * 100}%`, `-${i * 100}%`);
+  }
+  const x = useTransform(scrollYProgress, stops, values);
 
   return (
     <section
