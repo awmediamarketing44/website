@@ -159,9 +159,11 @@ function DesktopWork() {
           </div>
         </div>
 
-        {/* Stage — full-width browser-frame card crossfades between projects */}
-        <div className="flex-1 relative min-h-0 flex items-center justify-center px-6 lg:px-12 pb-16">
-          <div className="relative w-full max-w-7xl aspect-[16/9] max-h-[72vh]">
+        {/* Stage — clean browser-frame screenshot, no overlay text. Project
+            metadata lives in a footer row below the frame, NOT on top of the
+            screenshot, so we never fight the client's own copy. */}
+        <div className="flex-1 relative min-h-0 flex flex-col items-center justify-center px-6 lg:px-12 pb-16 gap-6">
+          <div className="relative w-full max-w-7xl aspect-[16/9] max-h-[62vh]">
             {work.map((item, i) => (
               <motion.div
                 key={item.slug}
@@ -183,12 +185,9 @@ function DesktopWork() {
                       <div className="flex-1 mx-3 h-7 rounded-full bg-white/5 border border-white/10 text-[11px] text-muted flex items-center px-4 font-mono truncate">
                         {item.domain || `${item.slug}.com`}
                       </div>
-                      <div className="px-3 py-0.5 rounded-full bg-pink text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">
-                        {String(i + 1).padStart(2, "0")} / {String(work.length).padStart(2, "0")}
-                      </div>
                     </div>
 
-                    {/* Viewport */}
+                    {/* Clean viewport — screenshot only, no overlay */}
                     <div className="flex-1 relative rounded-xl overflow-hidden border border-white/5 bg-card">
                       <Image
                         src={item.hero}
@@ -198,32 +197,58 @@ function DesktopWork() {
                         className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                         priority={i < 2}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                      <div className="absolute inset-0 p-6 lg:p-10 xl:p-12 flex flex-col justify-end gap-4">
-                        <div>
-                          <p className="text-xs uppercase tracking-widest text-white/70 font-bold mb-2">
-                            {item.category}
-                          </p>
-                          <h3 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-none">
-                            {item.title}
-                          </h3>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {item.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-[11px] font-bold uppercase tracking-widest text-white"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </Link>
               </motion.div>
             ))}
+          </div>
+
+          {/* Metadata row BELOW the frame — title, tags, counter */}
+          <div className="relative w-full max-w-7xl">
+            {work.map((item, i) => (
+              <motion.div
+                key={item.slug}
+                animate={{ opacity: i === activeIndex ? 1 : 0 }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+                style={{ pointerEvents: i === activeIndex ? "auto" : "none" }}
+              >
+                <div className="flex items-baseline gap-4 sm:gap-6">
+                  <span className="text-xs sm:text-sm font-mono text-pink/80">
+                    {String(i + 1).padStart(2, "0")} / {String(work.length).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <p className="text-[10px] sm:text-xs uppercase tracking-widest text-muted font-medium mb-1">
+                      {item.category}
+                    </p>
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 sm:justify-end">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] sm:text-[11px] font-medium uppercase tracking-widest text-white/80"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+            {/* Spacer so the absolutely-positioned rows reserve height */}
+            <div className="invisible flex flex-col sm:flex-row sm:items-center gap-3">
+              <div className="flex items-baseline gap-6">
+                <span className="text-sm">00 / 00</span>
+                <div>
+                  <p className="text-xs mb-1">PLACEHOLDER</p>
+                  <h3 className="text-3xl font-bold">Placeholder Title</h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
