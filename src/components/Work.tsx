@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll } from "motion/react";
-import { useIsDesktop } from "@/hooks/useIsDesktop";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import { projects } from "@/data/projects";
 
 const FEATURED_SLUGS = [
@@ -13,6 +12,9 @@ const FEATURED_SLUGS = [
   "drug-free-bodybuilding",
   "jic",
   "nick-firth-tiles",
+  "warrior-movement",
+  "fortis",
+  "dan-reeve",
 ];
 
 const work = FEATURED_SLUGS.map((slug) => {
@@ -21,258 +23,177 @@ const work = FEATURED_SLUGS.map((slug) => {
   return {
     slug: p.slug,
     title: p.title,
-    category: `${p.client.industry}${p.client.location ? ` · ${p.client.location}` : ""}`,
-    tags: p.tags.slice(0, 3),
+    category: p.client.industry,
+    location: p.client.location,
+    tags: p.tags.slice(0, 2),
     hero: p.heroImage,
-    domain: (p.client.website || "")
-      .replace(/^https?:\/\//, "")
-      .replace(/\/$/, ""),
   };
 });
 
-export default function Work() {
-  const isDesktop = useIsDesktop();
+const N = work.length;
 
-  if (!isDesktop) {
-    return (
-      <section className="relative border-t border-card-border py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-10">
-            <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-pink mb-3">
+export default function Work() {
+  const [index, setIndex] = useState(0);
+  const [perPage, setPerPage] = useState(3);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 640) setPerPage(1);
+      else if (w < 1024) setPerPage(2);
+      else setPerPage(3);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const maxIdx = Math.max(0, N - perPage);
+  const clampedIdx = Math.min(index, maxIdx);
+
+  // Auto-advance, slide 1 at a time, pause on hover/focus
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(() => {
+      setIndex((i) => (i >= maxIdx ? 0 : i + 1));
+    }, 4500);
+    return () => clearInterval(t);
+  }, [maxIdx, paused]);
+
+  const goPrev = () => setIndex((i) => (i <= 0 ? maxIdx : i - 1));
+  const goNext = () => setIndex((i) => (i >= maxIdx ? 0 : i + 1));
+
+  const trackWidthPct = (N / perPage) * 100;
+  const cardWidthPct = 100 / N;
+  const translatePct = -(100 / N) * clampedIdx;
+
+  return (
+    <section className="relative border-t border-card-border py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Header */}
+        <div className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <div className="max-w-2xl">
+            <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-3">
               Recent work
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               <span className="block">From idea to live.</span>
               <span className="block gradient-text">Sites that ship.</span>
             </h2>
           </div>
-
-          <ul className="space-y-5">
-            {work.map((item, i) => (
-              <motion.li
-                key={item.slug}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.04 }}
-              >
-                <Link href={`/work/${item.slug}`}>
-                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-card">
-                    <div className="relative aspect-[16/10]">
-                      <Image
-                        src={item.hero}
-                        alt={item.title}
-                        fill
-                        sizes="(max-width: 768px) 90vw, 800px"
-                        className="object-cover object-top"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                      <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-pink text-white text-[9px] font-bold uppercase tracking-widest">
-                        {String(i + 1).padStart(2, "0")} / {String(work.length).padStart(2, "0")}
-                      </div>
-                      <div className="absolute inset-x-0 bottom-0 p-4">
-                        <p className="text-[10px] uppercase tracking-widest text-white/70 font-bold mb-1">
-                          {item.category}
-                        </p>
-                        <h3 className="text-2xl font-black text-white leading-tight">
-                          {item.title}
-                        </h3>
-                        <div className="mt-2 flex flex-wrap gap-1.5">
-                          {item.tags.slice(0, 2).map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-0.5 rounded-full bg-white/10 border border-white/20 text-[9px] font-bold uppercase tracking-widest text-white"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
-
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-2 mt-8 text-sm font-semibold text-pink"
-          >
-            See all projects <span>→</span>
-          </Link>
-        </div>
-      </section>
-    );
-  }
-
-  return <DesktopWork />;
-}
-
-function DesktopWork() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: wrapperRef,
-    offset: ["start start", "end end"],
-  });
-
-  // scrollYProgress -> active panel index. Crossfade between panels at each
-  // 1/N threshold. No sliding = no bleed.
-  const [activeIndex, setActiveIndex] = useState(0);
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (v) => {
-      const idx = Math.min(
-        work.length - 1,
-        Math.max(0, Math.floor(v * work.length))
-      );
-      setActiveIndex(idx);
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress]);
-
-  return (
-    <section
-      ref={wrapperRef}
-      className="relative border-t border-card-border"
-      style={{ height: `${work.length * 100}vh` }}
-    >
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
-        {/* Header */}
-        <div className="pt-20 pb-3 lg:pt-24 lg:pb-4 relative z-10 flex-shrink-0">
-          <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <div className="max-w-2xl">
-              <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-3">
-                Recent work
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                <span className="block">From idea to live.</span>
-                <span className="block gradient-text">Sites that ship.</span>
-              </h2>
-            </div>
+          <div className="flex items-center gap-3">
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-pink hover:gap-3 transition-all duration-200 whitespace-nowrap"
+              className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-pink hover:gap-3 transition-all duration-200 mr-2"
             >
-              See all projects
-              <span>→</span>
+              See all <span>→</span>
             </Link>
+            <button
+              type="button"
+              onClick={goPrev}
+              aria-label="Previous projects"
+              className="w-11 h-11 rounded-full border border-white/15 bg-white/5 hover:bg-pink/20 hover:border-pink/40 flex items-center justify-center text-white transition-colors"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={goNext}
+              aria-label="Next projects"
+              className="w-11 h-11 rounded-full border border-white/15 bg-white/5 hover:bg-pink/20 hover:border-pink/40 flex items-center justify-center text-white transition-colors"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
         </div>
 
-        {/* Stage — clean browser-frame screenshot, no overlay text. Project
-            metadata lives in a footer row below the frame, NOT on top of the
-            screenshot, so we never fight the client's own copy. */}
-        <div className="flex-1 relative min-h-0 flex flex-col items-center justify-center px-6 lg:px-12 pb-16 gap-6">
-          <div className="relative w-full max-w-7xl aspect-[16/9] max-h-[62vh]">
-            {work.map((item, i) => (
-              <motion.div
+        {/* Carousel viewport */}
+        <div
+          className="overflow-hidden"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
+        >
+          <motion.div
+            className="flex"
+            style={{ width: `${trackWidthPct}%` }}
+            animate={{ x: `${translatePct}%` }}
+            transition={{ type: "spring", stiffness: 110, damping: 22 }}
+          >
+            {work.map((item) => (
+              <div
                 key={item.slug}
-                animate={{
-                  opacity: i === activeIndex ? 1 : 0,
-                  scale: i === activeIndex ? 1 : 0.96,
-                }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0"
-                style={{ pointerEvents: i === activeIndex ? "auto" : "none" }}
+                className="flex-shrink-0 px-2.5"
+                style={{ width: `${cardWidthPct}%` }}
               >
-                <Link href={`/work/${item.slug}`} className="block w-full h-full group">
-                  <div className="relative h-full rounded-2xl border border-white/15 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-2xl p-3 sm:p-4 lg:p-5 shadow-[0_30px_120px_-20px_rgba(249,38,114,0.4)] flex flex-col">
-                    {/* Chrome */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="w-3 h-3 rounded-full bg-pink/60" />
-                      <span className="w-3 h-3 rounded-full bg-yellow-400/60" />
-                      <span className="w-3 h-3 rounded-full bg-green-500/60" />
-                      <div className="flex-1 mx-3 h-7 rounded-full bg-white/5 border border-white/10 text-[11px] text-muted flex items-center px-4 font-mono truncate">
-                        {item.domain || `${item.slug}.com`}
-                      </div>
+                <Link href={`/work/${item.slug}`} className="group block">
+                  <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-card aspect-[4/3] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
+                    <Image
+                      src={item.hero}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 33vw"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] font-bold uppercase tracking-widest text-white">
+                      Live
                     </div>
-
-                    {/* Clean viewport — screenshot only, no overlay */}
-                    <div className="flex-1 relative rounded-xl overflow-hidden border border-white/5 bg-card">
-                      <Image
-                        src={item.hero}
-                        alt={item.title}
-                        fill
-                        sizes="(max-width: 1280px) 90vw, 1200px"
-                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                        priority={i < 2}
-                      />
+                  </div>
+                  <div className="mt-5">
+                    <p className="text-[10px] uppercase tracking-widest text-pink/80 font-bold mb-1.5">
+                      {item.category}
+                      {item.location ? ` · ${item.location}` : ""}
+                    </p>
+                    <h3 className="text-xl lg:text-2xl font-bold leading-tight group-hover:text-pink transition-colors">
+                      {item.title}
+                    </h3>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-medium uppercase tracking-widest text-white/70"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Metadata row BELOW the frame — title, tags, counter */}
-          <div className="relative w-full max-w-7xl">
-            {work.map((item, i) => (
-              <motion.div
-                key={item.slug}
-                animate={{ opacity: i === activeIndex ? 1 : 0 }}
-                transition={{ duration: 0.4 }}
-                className="absolute inset-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
-                style={{ pointerEvents: i === activeIndex ? "auto" : "none" }}
-              >
-                <div className="flex items-baseline gap-4 sm:gap-6">
-                  <span className="text-xs sm:text-sm font-mono text-pink/80">
-                    {String(i + 1).padStart(2, "0")} / {String(work.length).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <p className="text-[10px] sm:text-xs uppercase tracking-widest text-muted font-medium mb-1">
-                      {item.category}
-                    </p>
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 sm:justify-end">
-                  {item.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] sm:text-[11px] font-medium uppercase tracking-widest text-white/80"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-            {/* Spacer so the absolutely-positioned rows reserve height */}
-            <div className="invisible flex flex-col sm:flex-row sm:items-center gap-3">
-              <div className="flex items-baseline gap-6">
-                <span className="text-sm">00 / 00</span>
-                <div>
-                  <p className="text-xs mb-1">PLACEHOLDER</p>
-                  <h3 className="text-3xl font-bold">Placeholder Title</h3>
-                </div>
               </div>
-            </div>
-          </div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Progress dots */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
-          {work.map((_, i) => (
-            <span
+        {/* Dots */}
+        <div className="mt-10 flex items-center justify-center gap-2">
+          {Array.from({ length: maxIdx + 1 }).map((_, i) => (
+            <button
               key={i}
-              className={`block h-1.5 rounded-full transition-all duration-300 ${
-                i === activeIndex ? "w-8 bg-pink" : "w-1.5 bg-white/30"
+              type="button"
+              onClick={() => setIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === clampedIdx ? "w-10 bg-pink" : "w-2 bg-white/25 hover:bg-white/50"
               }`}
             />
           ))}
         </div>
 
-        {/* Scroll hint */}
-        <div className="absolute bottom-6 right-6 flex items-center gap-2 text-[10px] uppercase tracking-widest text-muted/60 z-10">
-          <span>Scroll</span>
-          <motion.span
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+        {/* Mobile "see all" */}
+        <div className="mt-8 flex sm:hidden justify-center">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-pink"
           >
-            ↓
-          </motion.span>
+            See all projects <span>→</span>
+          </Link>
         </div>
       </div>
     </section>
