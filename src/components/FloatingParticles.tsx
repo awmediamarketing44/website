@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { useIsDesktop } from "@/hooks/useIsDesktop";
 
 interface Particle {
   id: number;
@@ -14,9 +15,11 @@ interface Particle {
 }
 
 export default function FloatingParticles({ count = 30 }: { count?: number }) {
+  const isDesktop = useIsDesktop();
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
+    if (!isDesktop) return;
     setParticles(
       Array.from({ length: count }, (_, i) => ({
         id: i,
@@ -28,7 +31,9 @@ export default function FloatingParticles({ count = 30 }: { count?: number }) {
         opacity: Math.random() * 0.3 + 0.05,
       }))
     );
-  }, [count]);
+  }, [count, isDesktop]);
+
+  if (!isDesktop) return null;
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

@@ -32,17 +32,17 @@ const howWeWorkFaqs = [
   {
     question: "Is the AI version templated?",
     answer:
-      "No. Every AW Media site is custom designed. AI helps us build it faster — it doesn't make it generic.",
+      "No. Every AW Media site is custom designed. AI helps us build it faster. It doesn't make it generic.",
   },
   {
     question: "Will my AI website look like everyone else's?",
     answer:
-      "No. Your brand, your colours, your assets, your direction. AI just speeds up production — it doesn't decide what your site looks like.",
+      "No. Your brand, your colours, your assets, your direction. AI just speeds up production. It doesn't decide what your site looks like.",
   },
   {
     question: "What's actually different between AI and Bespoke?",
     answer:
-      "Process and depth. AI gets you a custom-designed site faster, with us doing less hands-on work — quicker turnaround, fewer revision rounds, no full strategy session. Bespoke gets you the deep dive, the strategy, more design exploration, more rounds. Both look great. One's optimised for speed and value, the other for depth.",
+      "Process and depth. AI gets you a custom-designed site faster, with us doing less hands-on work. Quicker turnaround, fewer revision rounds, no full strategy session. Bespoke gets you the deep dive, the strategy, more design exploration, more rounds. Both look great. One's optimised for speed and value, the other for depth.",
   },
   {
     question: "Can I upgrade from AI to Bespoke later?",
@@ -52,12 +52,12 @@ const howWeWorkFaqs = [
   {
     question: "What if I need something between AI and Bespoke?",
     answer:
-      "Talk to us. We can mix elements where it makes sense — for example, a bespoke design with AI-generated copy, or an AI build with a custom strategy session bolted on.",
+      "Talk to us. We can mix elements where it makes sense. For example, a bespoke design with AI-generated copy, or an AI build with a custom strategy session bolted on.",
   },
   {
     question: "Do you do custom enterprise builds?",
     answer:
-      "Yes — memberships, complex integrations, multi-language, anything beyond a standard store. Quoted separately on enquiry.",
+      "Yes. Memberships, complex integrations, multi-language, anything beyond a standard store. Quoted separately on enquiry.",
   },
 ];
 
@@ -219,7 +219,7 @@ export default function HowWeWorkPage() {
           tag="How We Work"
           title="AI-accelerated by default."
           titleAccent="Bespoke when it counts."
-          description="We use AI to build faster, smarter websites — without losing the craft. When a project demands strategy and depth, we go full bespoke. Two lanes. Both fully custom. Neither templated."
+          description="We use AI to build faster, smarter websites without losing the craft. When a project demands strategy and depth, we go full bespoke. Two lanes. Both fully custom. Neither templated."
         />
 
         {/* Two-lane explainer */}
@@ -234,7 +234,7 @@ export default function HowWeWorkPage() {
                 className="rounded-2xl border border-pink/20 bg-gradient-to-br from-pink/[0.04] to-transparent p-8 lg:p-10"
               >
                 <span className="inline-block rounded-full bg-pink/10 border border-pink/30 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-pink mb-5">
-                  Lane 1 — AI
+                  Lane 1 · AI
                 </span>
                 <h3 className="text-2xl lg:text-3xl font-bold mb-4">
                   Speed-led. AI-accelerated.
@@ -254,14 +254,14 @@ export default function HowWeWorkPage() {
                 className="rounded-2xl border border-card-border bg-card p-8 lg:p-10"
               >
                 <span className="inline-block rounded-full bg-white/5 border border-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white mb-5">
-                  Lane 2 — Bespoke
+                  Lane 2 · Bespoke
                 </span>
                 <h3 className="text-2xl lg:text-3xl font-bold mb-4">
                   Strategy-led. Fully custom.
                 </h3>
                 <p className="text-muted leading-relaxed">
                   For brands and businesses who want strategy, custom design,
-                  and a website built around them — not their software. The
+                  and a website built around them, not their software. The
                   full AW Media experience.
                 </p>
               </motion.div>
@@ -298,7 +298,7 @@ export default function HowWeWorkPage() {
                     className="mb-8"
                   >
                     <span className="text-xs font-bold uppercase tracking-widest text-pink">
-                      0{tierIndex + 1} — {tier.name}
+                      0{tierIndex + 1} · {tier.name}
                     </span>
                     <h3 className="mt-2 text-2xl lg:text-3xl font-bold">
                       {tier.name}

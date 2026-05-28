@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog | Tips & Insights for Fitness Professionals",
+  title: "Blog | Tips, Tricks & Honest Advice",
   description:
-    "Practical advice on web design, branding, social media, and digital marketing for fitness coaches, PTs, and gym owners.",
+    "Practical advice on web design, branding, social media, and digital marketing for ambitious UK businesses.",
   openGraph: {
     title: "Blog | AW Media & Marketing",
     description:
-      "Web design and marketing insights for the fitness industry.",
+      "Web design and marketing insights for ambitious UK businesses.",
   },
 };
 

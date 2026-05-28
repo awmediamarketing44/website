@@ -56,9 +56,9 @@ export default function ServicesPage() {
       <main>
         <PageHeader
           tag="What We Do"
-          title="Everything your fitness"
-          titleAccent="business needs online."
-          description="Web design, branding, social media, SEO, all under one roof. No more juggling multiple agencies."
+          title="Everything your business"
+          titleAccent="needs online."
+          description="Web design, branding, social media, SEO, and Shopify stores. All under one roof. Bespoke when it counts. AI-accelerated when speed matters."
         />
 
         {/* Services Grid */}

@@ -16,7 +16,7 @@ export default function FloatingOrbs() {
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-      {/* Large pink orb top-right — slow parallax */}
+      {/* Large pink orb top-right, slow parallax */}
       <motion.div
         style={{ y: y1 }}
         className="absolute -top-20 -right-20 w-[500px] h-[500px]"
@@ -31,7 +31,7 @@ export default function FloatingOrbs() {
         />
       </motion.div>
 
-      {/* Purple orb left — medium parallax */}
+      {/* Purple orb left, medium parallax */}
       <motion.div
         style={{ y: y2 }}
         className="absolute top-[30%] -left-32 w-[400px] h-[400px]"
@@ -47,7 +47,7 @@ export default function FloatingOrbs() {
         />
       </motion.div>
 
-      {/* Small pink accent — fast parallax */}
+      {/* Small pink accent, fast parallax */}
       <motion.div
         style={{ y: y3 }}
         className="absolute top-[65%] right-[20%] w-[250px] h-[250px]"
@@ -62,7 +62,7 @@ export default function FloatingOrbs() {
         />
       </motion.div>
 
-      {/* 3D Rotating rings — tilted to give depth */}
+      {/* 3D Rotating rings, tilted to give depth */}
       <motion.div
         style={{ y: y1, rotate: rotate1 }}
         className="absolute top-[12%] left-[8%] w-[300px] h-[300px]"
@@ -93,7 +93,7 @@ export default function FloatingOrbs() {
         />
       </motion.div>
 
-      {/* Floating dots — scattered depth particles */}
+      {/* Floating dots, scattered depth particles */}
       {[...Array(15)].map((_, i) => (
         <motion.div
           key={`orb-dot-${i}`}
@@ -120,7 +120,7 @@ export default function FloatingOrbs() {
         />
       ))}
 
-      {/* Perspective grid floor — gives 3D depth */}
+      {/* Perspective grid floor, gives 3D depth */}
       <div
         className="absolute inset-x-0 bottom-0 h-[60vh] opacity-[0.04]"
         style={{

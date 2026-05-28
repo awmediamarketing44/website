@@ -200,17 +200,17 @@ export const pricingFaqs = [
   {
     question: "Why is the AI option cheaper?",
     answer:
-      "Because AI lets us move faster on the production side — design exploration, layout, copy drafting. The design quality is still ours. The strategy depth and revision rounds are leaner. That's the trade-off.",
+      "Because AI lets us move faster on the production side: design exploration, layout, copy drafting. The design quality is still ours. The strategy depth and revision rounds are leaner. That's the trade-off.",
   },
   {
     question: "Is the AI version templated?",
     answer:
-      "No. Every AW Media site is custom designed. AI helps us build it faster — it doesn't make it generic.",
+      "No. Every AW Media site is custom designed. AI helps us build it faster. It doesn't make it generic.",
   },
   {
     question: "Will my AI website look like everyone else's?",
     answer:
-      "No. Your brand, your colours, your assets, your direction. AI just speeds up production — it doesn't decide what your site looks like.",
+      "No. Your brand, your colours, your assets, your direction. AI just speeds up production. It doesn't decide what your site looks like.",
   },
   {
     question: "Can I upgrade from AI to Bespoke later?",
@@ -220,11 +220,11 @@ export const pricingFaqs = [
   {
     question: "What if I need something between AI and Bespoke?",
     answer:
-      "Talk to us. We can mix elements where it makes sense — for example, a Bespoke design with AI-generated copy, or an AI build with a custom strategy session bolted on.",
+      "Talk to us. We can mix elements where it makes sense. For example, a Bespoke design with AI-generated copy, or an AI build with a custom strategy session bolted on.",
   },
   {
     question: "Do you do custom enterprise builds?",
     answer:
-      "Yes — anything beyond Bespoke Store (memberships, complex integrations, multi-language, etc.) is quoted separately. Get in touch.",
+      "Yes. Anything beyond Bespoke Store (memberships, complex integrations, multi-language, etc.) is quoted separately. Get in touch.",
   },
 ];

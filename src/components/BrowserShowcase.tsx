@@ -74,7 +74,7 @@ export default function BrowserShowcase() {
               </div>
               <img
                 src="/images/tcc-scroll-poster.jpg"
-                alt="The Coach Consultant — a recent AW Media build."
+                alt="The Coach Consultant, a recent AW Media build."
                 loading="lazy"
                 className="block w-full aspect-[1440/900] object-cover bg-black"
               />
@@ -114,7 +114,7 @@ function DesktopBrowserShowcase({
   const tagOpacity = useTransform(scrollYProgress, [0, 0.08, 0.32, 0.42], [0, 1, 1, 0]);
   const tagY = useTransform(scrollYProgress, [0, 0.08], [16, 0]);
   // Fade headline fully by 0.42 so it's gone before the browser frame finishes
-  // scaling to ~96% — kills the visual "mockup sits on the title bar" bug.
+  // scaling to ~96%, kills the visual "mockup sits on the title bar" bug.
   const headlineOpacity = useTransform(scrollYProgress, [0.04, 0.15, 0.32, 0.42], [0, 1, 1, 0]);
   const headlineY = useTransform(scrollYProgress, [0.04, 0.15], [32, 0]);
   const subOpacity = useTransform(scrollYProgress, [0.55, 0.72, 0.95, 1], [0, 1, 1, 0.9]);
@@ -176,7 +176,7 @@ function DesktopBrowserShowcase({
                     loop
                     muted
                     playsInline
-                    preload="auto"
+                    preload="metadata"
                     poster="/images/tcc-scroll-poster.jpg"
                     className="block w-full h-[calc(100%-2.25rem)] sm:h-[calc(100%-2.75rem)] object-cover bg-black"
                   >

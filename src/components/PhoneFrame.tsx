@@ -25,7 +25,7 @@ export default function PhoneFrame({ src, alt, className = "" }: PhoneFrameProps
       >
         {/* Inner screen wrapper (rounded under the bezel) */}
         <div className="relative w-full h-full overflow-hidden rounded-[11%/5%] bg-black">
-          {/* Screenshot — pushed down to make room for status bar */}
+          {/* Screenshot: pushed down to make room for status bar */}
           <div
             className="absolute left-0 right-0 bottom-0 overflow-hidden"
             style={{ top: "4.5%" }}
@@ -39,7 +39,7 @@ export default function PhoneFrame({ src, alt, className = "" }: PhoneFrameProps
             />
           </div>
 
-          {/* Status bar zone (black) — dynamic island lives here, doesn't overlap content */}
+          {/* Status bar zone (black): dynamic island lives here, doesn't overlap content */}
           <div
             className="absolute top-0 left-0 right-0 flex items-center justify-center bg-black"
             style={{ height: "4.5%" }}

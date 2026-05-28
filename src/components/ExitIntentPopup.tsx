@@ -30,7 +30,7 @@ export default function ExitIntentPopup({ onBookCall }: ExitIntentPopupProps) {
       return;
     }
 
-    // Wait a bit before enabling — don't fire on immediate page load
+    // Wait a bit before enabling. Don't fire on immediate page load
     const timer = setTimeout(() => {
       document.addEventListener("mouseleave", handleMouseLeave);
     }, 5000);
@@ -95,7 +95,7 @@ export default function ExitIntentPopup({ onBookCall }: ExitIntentPopupProps) {
 
             <h3 className="text-2xl font-bold mb-2">Wait, before you go.</h3>
             <p className="text-muted leading-relaxed mb-6">
-              Most fitness businesses lose clients to a website that doesn&apos;t convert.
+              Most ambitious businesses lose clients to a website that doesn&apos;t convert.
               Book a free 15-minute call and we&apos;ll show you exactly what&apos;s holding
               yours back.
             </p>

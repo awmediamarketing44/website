@@ -80,7 +80,7 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-8">
-                  {["Started in a bedroom.", "Now trusted by 500+."].map((line, i) => (
+                  {["Started in a bedroom.", "Now trusted by 400+."].map((line, i) => (
                     <motion.span
                       key={i}
                       className={`block ${i > 0 ? "text-pink" : ""}`}

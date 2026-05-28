@@ -64,7 +64,7 @@ export default function BlogPage() {
           tag="Blog"
           title="Tips, tricks &"
           titleAccent="honest advice."
-          description="Practical guides for fitness professionals who want a better online presence. No fluff. Just stuff that actually works."
+          description="Practical guides for ambitious businesses that want a better online presence. No fluff. Just stuff that actually works."
         />
 
         {/* Featured post */}

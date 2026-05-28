@@ -116,7 +116,7 @@ function DesktopHero({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-pink/10 rounded-full blur-[180px] z-0 pointer-events-none"
       />
 
-      {/* Foreground content — centred */}
+      {/* Foreground content, centred */}
       <motion.div
         style={{ opacity: fgOpacity, scale: fgScale }}
         className="relative z-10 mx-auto max-w-4xl px-6 py-28 sm:py-32 lg:py-40 text-center"

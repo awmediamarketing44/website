@@ -76,7 +76,7 @@ function ContactForm() {
         message:
           prev.message ||
           (laneLabel && pkgLabel
-            ? `Hi — I'd like to start a ${laneLabel} ${pkgLabel} project. `
+            ? `Hi, I'd like to start a ${laneLabel} ${pkgLabel} project. `
             : ""),
       }));
     }

@@ -22,7 +22,7 @@ export default function TrustTicker() {
         viewport={{ once: true }}
         className="text-center text-2xl sm:text-3xl font-bold mb-10"
       >
-        Trusted by <span className="text-pink">500+</span>
+        Trusted by <span className="text-pink">400+</span>
       </motion.p>
 
       <div className="relative">
