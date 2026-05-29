@@ -26,8 +26,9 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-const FORCE = process.argv.includes("--force");
-const TARGET_SLUG = process.argv.find((a) => !a.startsWith("-") && !a.endsWith(".mjs"));
+const ARGS = process.argv.slice(2);
+const FORCE = ARGS.includes("--force");
+const TARGET_SLUG = ARGS.find((a) => !a.startsWith("-"));
 
 const SYSTEM_STYLE = [
   "Editorial abstract illustration for a UK design agency blog cover.",
