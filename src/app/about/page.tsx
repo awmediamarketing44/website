@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
@@ -13,21 +14,25 @@ const team = [
     name: "Alex Whitehead",
     role: "Director, Developer & Award-Winning Web Designer",
     bio: "The one who builds your website, designs your brand, and probably messages you back at 11pm. Alex founded AW Media in 2016 with one goal: give ambitious businesses the same quality digital presence that big brands take for granted.",
+    photo: "/images/team/alex.jpg",
   },
   {
     name: "Beth Rendell",
     role: "Director & Operations",
     bio: "Keeps everything running smoothly behind the scenes. From project timelines to client communication, Beth makes sure nothing falls through the cracks.",
+    photo: null,
   },
   {
     name: "Paul Rendell",
     role: "Web Design & Development",
     bio: "Brings years of development experience to the team. Paul works alongside Alex to build fast, reliable websites that don't just look good. They perform.",
+    photo: "/images/team/paul.jpg",
   },
   {
     name: "Lahcen",
     role: "Graphic Design",
     bio: "The creative eye behind our social media graphics, brand assets, and visual content. Lahcen turns ideas into scroll-stopping designs that make your brand stand out in a crowded feed.",
+    photo: "/images/team/lahcen.jpg",
   },
 ];
 
@@ -217,19 +222,31 @@ export default function AboutPage() {
                 >
                   <TiltCard>
                     <div className="group rounded-2xl border border-card-border bg-card overflow-hidden transition-all duration-500 hover:border-pink/30">
-                      {/* Photo placeholder */}
-                      <div className="aspect-[4/3] relative overflow-hidden">
+                      <div className="aspect-square relative overflow-hidden bg-[#0a0a0a]">
                         <motion.div
                           className="absolute inset-0 bg-gradient-to-br from-pink/15 via-purple-500/10 to-card"
                           animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
                           transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
                           style={{ backgroundSize: "200% 200%" }}
                         />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-4xl font-bold text-white/10">
-                            {member.name.split(" ").map(n => n[0]).join("")}
-                          </span>
-                        </div>
+                        {member.photo ? (
+                          <Image
+                            src={member.photo}
+                            alt={member.name}
+                            fill
+                            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                            className="object-cover relative z-10 grayscale-[0.05] group-hover:grayscale-0 transition-all duration-500"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+                            <span className="text-5xl font-black text-white/15 mb-2">
+                              {member.name.split(" ").map((n) => n[0]).join("")}
+                            </span>
+                            <span className="text-[10px] uppercase tracking-[0.2em] text-pink/70">
+                              Photo coming soon
+                            </span>
+                          </div>
+                        )}
                       </div>
                       <div className="p-6">
                         <h3 className="text-lg font-bold group-hover:text-pink transition-colors duration-300">
