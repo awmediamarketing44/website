@@ -134,7 +134,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-6 flex flex-wrap items-center gap-3 text-sm text-muted"
             >
-              <span>By Alex Wright</span>
+              <span>By Alex Whitehead</span>
               <span>·</span>
               <span>{post.date}</span>
               <span>·</span>
