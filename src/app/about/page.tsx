@@ -20,7 +20,7 @@ const team = [
     name: "Beth Rendell",
     role: "Director & Operations",
     bio: "Keeps everything running smoothly behind the scenes. From project timelines to client communication, Beth makes sure nothing falls through the cracks.",
-    photo: null,
+    photo: "/images/team/beth.jpg",
   },
   {
     name: "Paul Rendell",

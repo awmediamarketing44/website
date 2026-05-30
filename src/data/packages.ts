@@ -27,8 +27,8 @@ export const packages: PackageTier[] = [
     ai: {
       price: "£695",
       priceNumeric: 695,
-      turnaround: "5 days",
-      tagline: "One bespoke landing page, AI-accelerated, live in 5 days.",
+      turnaround: "2 weeks",
+      tagline: "One bespoke landing page, AI-accelerated, live in 2 weeks.",
       features: [
         "1 high-converting landing page, custom designed (not templated)",
         "AI-led design exploration, refined by our team",
@@ -43,8 +43,8 @@ export const packages: PackageTier[] = [
     bespoke: {
       price: "£1,200",
       priceNumeric: 1200,
-      turnaround: "10 days",
-      tagline: "Strategy-led single page, fully custom, 10-day build.",
+      turnaround: "4 weeks",
+      tagline: "Strategy-led single page, fully custom, 4-week build.",
       features: [
         "1 strategically designed landing page, fully custom",
         "Discovery session before design starts",
@@ -66,9 +66,9 @@ export const packages: PackageTier[] = [
     ai: {
       price: "£1,495",
       priceNumeric: 1495,
-      turnaround: "2 weeks",
+      turnaround: "4 weeks",
       tagline:
-        "Up to 5 pages, AI-accelerated design and build, 2-week turnaround.",
+        "Up to 5 pages, AI-accelerated design and build, 4-week turnaround.",
       features: [
         "Up to 5 pages, custom designed (Home, About, Services, Contact + 1)",
         "AI-led design exploration, refined by our team",
@@ -84,9 +84,9 @@ export const packages: PackageTier[] = [
     bespoke: {
       price: "£2,500",
       priceNumeric: 2500,
-      turnaround: "4 weeks",
+      turnaround: "6–8 weeks",
       tagline:
-        "Up to 8 pages, strategy session, custom design system, 4-week build.",
+        "Up to 8 pages, strategy session, custom design system, 6–8 week build.",
       features: [
         "Up to 8 pages, fully bespoke (Home, About, Services, Contact + 4 custom)",
         "Strategy session before design begins",
@@ -108,9 +108,9 @@ export const packages: PackageTier[] = [
     ai: {
       price: "£2,495",
       priceNumeric: 2495,
-      turnaround: "3 weeks",
+      turnaround: "6 weeks",
       tagline:
-        "Online store with up to 15 products, AI-accelerated, 3-week turnaround.",
+        "Online store with up to 15 products, AI-accelerated, 6-week turnaround.",
       features: [
         "Up to 5 site pages + product catalogue",
         "Up to 15 products loaded",
@@ -126,8 +126,8 @@ export const packages: PackageTier[] = [
     bespoke: {
       price: "£3,995",
       priceNumeric: 3995,
-      turnaround: "5–6 weeks",
-      tagline: "Full e-commerce build, conversion-optimised, 5–6 week build.",
+      turnaround: "10 weeks",
+      tagline: "Full e-commerce build, conversion-optimised, 10-week build.",
       features: [
         "Everything in Bespoke Website",
         "Up to 25 products loaded",
@@ -165,29 +165,24 @@ export const comparisonRows: ComparisonRow[] = [
     bespoke: "Full discovery session",
   },
   {
-    label: "Revisions",
-    ai: "1 round",
-    bespoke: "2–3 rounds",
-  },
-  {
     label: "Communication",
     ai: "Email / Loom only",
     bespoke: "Direct access throughout",
   },
   {
     label: "Landing Page turnaround",
-    ai: "5 days",
-    bespoke: "10 days",
-  },
-  {
-    label: "Website turnaround",
     ai: "2 weeks",
     bespoke: "4 weeks",
   },
   {
+    label: "Website turnaround",
+    ai: "4 weeks",
+    bespoke: "6–8 weeks",
+  },
+  {
     label: "Store turnaround",
-    ai: "3 weeks",
-    bespoke: "5–6 weeks",
+    ai: "6 weeks",
+    bespoke: "10 weeks",
   },
   {
     label: "Post-launch support",

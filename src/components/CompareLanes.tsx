@@ -27,10 +27,9 @@ const laneData: Record<
     tagline:
       "Same custom design. Half the timeline. AI handles production, we handle the craft.",
     bullets: [
-      "1 to 3 weeks turnaround",
+      "2 to 6 weeks turnaround",
       "AI-led design exploration, refined by our team",
       "AI-generated copy, lightly edited",
-      "1 round of revisions",
       "14 days post-launch support",
       "Custom-designed. Never templated.",
     ],
@@ -40,12 +39,11 @@ const laneData: Record<
     badge: "Lane 2 · Bespoke",
     title: "Strategy-led. Fully custom.",
     tagline:
-      "The full AW Media experience. Strategy session, human-led design, more rounds, deeper craft.",
+      "The full AW Media experience. Strategy session, human-led design, deeper craft.",
     bullets: [
-      "4 to 6 weeks turnaround",
+      "4 to 10 weeks turnaround",
       "Strategy session before design starts",
       "Human-led design, AI assisting",
-      "2 to 3 rounds of revisions",
       "30 days post-launch support",
       "Custom-designed. Never templated.",
     ],

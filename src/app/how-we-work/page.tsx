@@ -42,7 +42,7 @@ const howWeWorkFaqs = [
   {
     question: "What's actually different between AI and Bespoke?",
     answer:
-      "Process and depth. AI gets you a custom-designed site faster, with us doing less hands-on work. Quicker turnaround, fewer revision rounds, no full strategy session. Bespoke gets you the deep dive, the strategy, more design exploration, more rounds. Both look great. One's optimised for speed and value, the other for depth.",
+      "Process and depth. AI gets you a custom-designed site faster, with us doing less hands-on work. Quicker turnaround and no full strategy session. Bespoke gets you the deep dive, the strategy, and more design exploration. Both look great. One's optimised for speed and value, the other for depth.",
   },
   {
     question: "Can I upgrade from AI to Bespoke later?",
@@ -134,10 +134,6 @@ function VariantCard({
             <span>{feature}</span>
           </li>
         ))}
-        <li className="flex items-start gap-3 text-sm text-muted leading-relaxed">
-          <span className={isAI ? "text-pink" : "text-white"}>{checkIcon}</span>
-          <span>{variant.revisions}</span>
-        </li>
         <li className="flex items-start gap-3 text-sm text-muted leading-relaxed">
           <span className={isAI ? "text-pink" : "text-white"}>{checkIcon}</span>
           <span>{variant.support}</span>

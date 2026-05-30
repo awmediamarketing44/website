@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "How long does a website take to build?",
     answer:
-      "AI-accelerated builds ship in 1 to 3 weeks depending on scope. Fully bespoke builds run 4 to 6 weeks. Complex sites with e-commerce, memberships, or custom integrations sit at the longer end. We'll give you a clear timeline before we start and we stick to it.",
+      "AI-accelerated builds ship in 2 to 6 weeks depending on scope. Fully bespoke builds run 4 to 10 weeks. Complex sites with e-commerce, memberships, or custom integrations sit at the longer end. We'll give you a clear timeline before we start and we stick to it.",
   },
   {
     question: "Do I need to provide all the content?",
