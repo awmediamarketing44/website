@@ -209,10 +209,10 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            href="/contact"
+            href="/free-audit"
             className="text-sm text-muted hover:text-white transition-colors duration-200"
           >
-            Free Review
+            Free Audit
           </motion.a>
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
