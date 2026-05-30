@@ -333,6 +333,29 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
+
+              {/* Extra mobile links not in the main nav */}
+              {[
+                { label: "Free Audit", href: "/free-audit" },
+                { label: "Reviews", href: "/reviews" },
+                { label: "Contact", href: "/contact" },
+              ].map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (navLinks.length + i) * 0.05 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="text-2xl font-semibold text-muted hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+
               <motion.button
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
