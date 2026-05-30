@@ -13,6 +13,15 @@ export interface ServiceData {
   ctaHeadline: string;
   ctaSubtext: string;
   relatedProjects: string[];
+  subscription?: {
+    name: string;
+    tagline: string;
+    intro: string;
+    cadences: { name: string; detail: string }[];
+    whatYouGet: string[];
+    process: { step: string; detail: string }[];
+    flexibility: string;
+  };
 }
 
 export const services: ServiceData[] = [
@@ -210,6 +219,48 @@ export const services: ServiceData[] = [
     ctaHeadline: "Ready to stop dreading content day?",
     ctaSubtext: "Let's build you a set of templates that makes posting easy.",
     relatedProjects: ["The Mind Architect", "Lumina Stone"],
+    subscription: {
+      name: "AW-lways On Time",
+      tagline: "Your dedicated design slot, every week",
+      intro:
+        "Don't want to touch the design at all? Our AW-lways On Time subscription gives you a dedicated spot in our schedule. You tell us what's coming up, we design scroll-stopping, on-brand graphics and deliver them like clockwork. No briefs left in your drafts, no Canva, no missed posts.",
+      cadences: [
+        {
+          name: "Weekly",
+          detail: "A fresh batch of graphics every single week — perfect for content-heavy brands that need to stay front-of-mind.",
+        },
+        {
+          name: "Fortnightly",
+          detail: "On-brand visuals every two weeks. The balance of consistency and flexibility without the overwhelm.",
+        },
+        {
+          name: "Monthly",
+          detail: "A tailored batch delivered in one go each month — ideal for planning ahead and staying organised.",
+        },
+      ],
+      whatYouGet: [
+        "Carousels",
+        "YouTube thumbnails",
+        "Lead-gen designs",
+        "Single posts",
+      ],
+      process: [
+        {
+          step: "Research",
+          detail: "We get to know your brand, audience and content goals so every graphic hits the mark.",
+        },
+        {
+          step: "Design",
+          detail: "Our team creates bespoke, eye-catching visuals built to match your style and drive engagement.",
+        },
+        {
+          step: "Deliver",
+          detail: "Finished graphics land on time, every time — ready for you to post with zero hassle.",
+        },
+      ],
+      flexibility:
+        "Too busy to send your content this week? No problem. Swap your graphics for a professionally designed 10-page PDF lead magnet or website design updates instead — so you keep growing your brand even when time isn't on your side.",
+    },
   },
   {
     slug: "seo-support",

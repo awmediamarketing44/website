@@ -229,6 +229,108 @@ export default function ServicePageClient({ slug }: { slug: string }) {
           </div>
         </section>
 
+        {/* Subscription explainer (optional, e.g. AW-lways On Time) */}
+        {service.subscription && (
+          <section className="py-24 border-t border-card-border relative overflow-hidden">
+            <div className="mx-auto max-w-7xl px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="max-w-3xl mb-14"
+              >
+                <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-6">
+                  Subscription · {service.subscription.name}
+                </span>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-5">
+                  {service.subscription.tagline}
+                </h2>
+                <p className="text-lg text-muted leading-relaxed">
+                  {service.subscription.intro}
+                </p>
+              </motion.div>
+
+              {/* Cadences */}
+              <div className="grid sm:grid-cols-3 gap-6 mb-14">
+                {service.subscription.cadences.map((c, i) => (
+                  <motion.div
+                    key={c.name}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                    className="rounded-2xl border border-card-border bg-card p-7 hover:border-pink/30 transition-colors duration-300"
+                  >
+                    <h3 className="text-lg font-bold text-pink">{c.name}</h3>
+                    <p className="mt-3 text-sm text-muted leading-relaxed">{c.detail}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* What you get */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-14"
+              >
+                <p className="text-xs font-bold uppercase tracking-widest text-muted mb-4">
+                  Choose from
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {service.subscription.whatYouGet.map((item) => (
+                    <span
+                      key={item}
+                      className="inline-flex items-center rounded-full border border-card-border bg-card px-5 py-2.5 text-sm font-medium text-white"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Process */}
+              <div className="grid sm:grid-cols-3 gap-6 mb-14">
+                {service.subscription.process.map((step, i) => (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                    className="relative rounded-2xl border border-card-border bg-card p-7"
+                  >
+                    <span className="absolute top-5 right-6 text-4xl font-black text-white/[0.04]">
+                      0{i + 1}
+                    </span>
+                    <h3 className="text-lg font-bold">{step.step}</h3>
+                    <p className="mt-3 text-sm text-muted leading-relaxed">{step.detail}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Flexibility + CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="rounded-2xl border border-pink/20 bg-gradient-to-br from-pink/[0.05] to-transparent p-8 lg:p-10"
+              >
+                <p className="text-muted leading-relaxed mb-6">
+                  {service.subscription.flexibility}
+                </p>
+                <Link
+                  href="/enquiry/social-media"
+                  className="inline-flex items-center gap-2 rounded-full bg-pink px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_0_40px_rgba(249,38,114,0.4)]"
+                >
+                  Enquire about {service.subscription.name}
+                  <span>→</span>
+                </Link>
+              </motion.div>
+            </div>
+          </section>
+        )}
+
         {/* FAQs */}
         <section className="py-24 border-t border-card-border">
           <div className="mx-auto max-w-7xl px-6">
