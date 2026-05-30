@@ -95,8 +95,8 @@ const webProjects: ProjectData[] = [
   {
     slug: "thecoachconsultant",
     title: "The Coach Consultant",
-    category: "AI-Powered",
-    tags: ["AI-Accelerated", "Website", "Hosting", "SSL"],
+    category: "Web Design & Build",
+    tags: ["Website", "Bespoke Design", "Hosting", "SSL"],
     heroImage: "/images/projects/thecoachconsultant/hero.jpg",
     thumbnailImage: "/images/projects/thecoachconsultant/thumb.jpg",
     hasImages: true,
@@ -108,23 +108,23 @@ const webProjects: ProjectData[] = [
       website: "https://thecoachconsultant.uk/",
     },
     brief:
-      "AI-accelerated website build for a coaching consultancy that needed to launch fast without compromising on design. Hosting, SSL, and a full design system shipped in days, not weeks.",
+      "Bespoke website build for a coaching consultancy that needed a site to set the visual tone for the entire business. A full custom design system, hosting, SSL, and ongoing support shipped together.",
     challenge: [
-      "Tight deadline. The launch was tied to a wider campaign and they couldn't afford a 4-6 week traditional build.",
-      "No existing brand assets to work from. The site had to set the visual tone for the entire business.",
+      "No existing brand assets to work from. The site had to define the visual identity and set the tone for the whole business.",
+      "The launch was tied to a wider campaign, so the build had to stay tight to schedule without cutting corners on design.",
       "Needed full hosting, SSL, and ongoing support baked in. They didn't want to manage tech stacks across multiple providers.",
     ],
     approach: [
-      "This is exactly what the AI-Accelerated lane is built for. We used AI to compress the exploration phase, locked the design direction in a single session, and shipped a custom-designed site that doesn't look like a template.",
+      "We ran a focused discovery, locked the design direction early, and built a fully bespoke, custom-designed site around their brand. No templates, no shortcuts.",
       "We handled hosting, SSL, and domain setup as part of the package. One bill, one point of contact, zero friction.",
-      "The result: a site that feels considered and bespoke, delivered at AI-lane speed and cost.",
+      "The result: a considered, premium site that makes a brand-new consultancy look established and credible from day one.",
     ],
     features: [
-      "AI-accelerated design exploration and build",
-      "Custom on-brand design (no templates)",
+      "Fully bespoke, custom design (no templates)",
+      "Brand-defining visual direction",
       "Hosting and SSL included",
-      "Fast turnaround (days, not weeks)",
       "Conversion-focused structure",
+      "Mobile-first responsive build",
       "Ongoing support baked in",
     ],
     gallery: [

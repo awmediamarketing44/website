@@ -166,7 +166,7 @@ export const comparisonRows: ComparisonRow[] = [
   },
   {
     label: "Communication",
-    ai: "Email / Loom only",
+    ai: "WhatsApp / Loom only",
     bespoke: "Direct access throughout",
   },
   {

@@ -290,6 +290,61 @@ export const industries: IndustryData[] = [
     ctaHeadline: "Ready for a website your clients will trust on sight?",
     ctaSubtext: "Book a free call and let's elevate your online presence.",
   },
+  {
+    slug: "ev-automotive",
+    title: "EV & Automotive",
+    tag: "EV & Automotive",
+    headerTitle: "Websites that charge ahead",
+    headerAccent: "for EV & automotive.",
+    headerDescription:
+      "Websites for EV charge point installers, garages, and automotive specialists that build trust fast and turn enquiries into booked jobs.",
+    intro: [
+      "EV charging is one of the fastest-growing industries in the country, and the competition is heating up just as quickly. Whether you install home chargers, manage commercial charge points, or run an automotive business, your website is where customers decide if you're the safe pair of hands for the job.",
+      "We've built for this space. Most installer and automotive websites are slow, dated, and do nothing to explain grants, OZEV approval, or why a customer should choose them over the firm down the road. We fix that.",
+      "From EV charge point installers to garages, MOT centres, and mobile specialists, we build clean, modern sites that explain what you do, prove you're qualified, and make it dead easy to book.",
+    ],
+    painPoints: [
+      {
+        title: "Customers can't tell if you're legit.",
+        description: "OZEV, NICEIC, grants, warranties. EV buyers do their homework. If your site doesn't show your accreditations and answer their questions, they'll book the installer who does.",
+      },
+      {
+        title: "You're paying for leads instead of generating them.",
+        description: "Relying on directories and lead-gen sites that sell the same enquiry to five competitors. A proper website that ranks locally means the enquiries come straight to you.",
+      },
+      {
+        title: "Your site doesn't explain grants or pricing.",
+        description: "The questions customers actually have (cost, grants, install time, compatibility) aren't answered anywhere. So they call a competitor who makes it clear.",
+      },
+    ],
+    services: [
+      { title: "Installer & EV websites", description: "Custom sites that showcase your accreditations, explain grants and pricing, and turn visitors into booked installs." },
+      { title: "Local SEO", description: "Get found for 'EV charger installer near me' and your service areas. Local visibility is where the jobs are won." },
+      { title: "Lead capture & booking", description: "Quote request forms, survey bookings, and enquiry routing built to convert traffic into qualified leads, not tyre-kickers." },
+    ],
+    stats: [
+      { value: "Growing", label: "fastest-moving green sector" },
+      { value: "Local SEO", label: "built in from day one" },
+      { value: "2-6", label: "weeks average delivery" },
+      { value: "Mobile-first", label: "where your customers search" },
+    ],
+    faqs: [
+      {
+        question: "Can you show our accreditations and approved installer status?",
+        answer: "Yes. OZEV approval, NICEIC, manufacturer certifications, and trade body memberships are exactly the trust signals EV customers look for. We design them in prominently so you win the comparison.",
+      },
+      {
+        question: "Can the site explain government grants?",
+        answer: "Absolutely. We build clear, plain-English sections explaining current grants and eligibility, which answers the number-one question customers have and saves you fielding it on every call.",
+      },
+      {
+        question: "Will it help me rank locally?",
+        answer: "That's the goal. We set up your site for local SEO around your service areas and the searches your customers actually make, so the enquiries come to you instead of a lead-gen middleman.",
+      },
+    ],
+    ctaHeadline: "Ready for a website that wins more installs?",
+    ctaSubtext: "Book a free call. We'll tell you exactly what your EV or automotive business needs online.",
+  },
 ];
 
 export function getIndustryBySlug(slug: string): IndustryData | undefined {

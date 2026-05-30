@@ -40,6 +40,7 @@ const footerLinks = {
     { label: "About", href: "/about" },
     { label: "Work", href: "/work" },
     { label: "Blog", href: "/blog" },
+    { label: "Locations", href: "/locations" },
     { label: "Contact", href: "/contact" },
   ],
   Services: [
@@ -55,6 +56,7 @@ const footerLinks = {
     { label: "Dental", href: "/industries/dental" },
     { label: "Photography", href: "/industries/photography" },
     { label: "Aesthetics", href: "/industries/aesthetics" },
+    { label: "EV & Automotive", href: "/industries/ev-automotive" },
   ],
   Contact: [
     { label: "Book a Call", href: "/contact" },
