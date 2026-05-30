@@ -3,6 +3,7 @@ import { Rethink_Sans } from "next/font/google";
 import CalendlyProvider from "@/components/CalendlyProvider";
 import FloatingOrbs from "@/components/FloatingOrbs";
 import CursorSpotlight from "@/components/CursorSpotlight";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
 const rethinkSans = Rethink_Sans({
@@ -64,6 +65,7 @@ export default function RootLayout({
         <FloatingOrbs />
         <CursorSpotlight />
         <CalendlyProvider>{children}</CalendlyProvider>
+        <WhatsAppButton />
       </body>
     </html>
   );
