@@ -53,6 +53,7 @@ function ContactForm() {
     lane: "",
     service: "",
     message: "",
+    marketingOptIn: false,
   });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -285,6 +286,22 @@ function ContactForm() {
                         placeholder="What's your business? What are you struggling with? What's your budget and timeline?"
                       />
                     </div>
+
+                    <label className="flex items-start gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        checked={formData.marketingOptIn}
+                        onChange={(e) =>
+                          setFormData({ ...formData, marketingOptIn: e.target.checked })
+                        }
+                        className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-card-border bg-background text-pink accent-pink focus:ring-pink/50 cursor-pointer"
+                      />
+                      <span className="text-sm text-muted leading-relaxed group-hover:text-white/80 transition-colors">
+                        Keep me in the loop — send me the occasional web design
+                        tip, offer and update from AW Media. No spam, unsubscribe
+                        anytime.
+                      </span>
+                    </label>
 
                     {error && (
                       <p className="text-sm text-red-400">{error}</p>

@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 // Both audit tools are standalone apps (they capture the visitor's details
 // before running/delivering the audit). Update these URLs once confirmed.
 const WEBSITE_AUDIT_URL = "https://awmedia-production.up.railway.app/";
-const SOCIAL_AUDIT_URL = "https://awmedia-production.up.railway.app/"; // TODO: replace with the live social-media-audit-tool URL
+const SOCIAL_AUDIT_URL = "https://audit.awmedia.marketing/";
 
 const audits = [
   {

@@ -3,9 +3,85 @@ import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
 
+// Push the enquiry into ActiveCampaign (Master Contact List + "new-website" tag).
+// Fully env-driven so no keys/IDs live in the repo. Best-effort: never throws,
+// so an AC issue can't block the enquiry email. (At static launch this same
+// logic is mirrored in the 20i PHP handler.)
+//   AC_API_URL            e.g. https://awmedia46905.api-us1.com
+//   AC_API_KEY            ActiveCampaign API key (server-side only)
+//   AC_LIST_ID            numeric ID of "Master Contact List"
+//   AC_TAG_ID             numeric ID of the "new-website" tag
+//   AC_MARKETING_TAG_ID   numeric ID of the marketing opt-in tag (optional)
+async function syncToActiveCampaign(opts: {
+  name: string;
+  email: string;
+  marketingOptIn?: boolean;
+}) {
+  const base = process.env.AC_API_URL;
+  const token = process.env.AC_API_KEY;
+  if (!base || !token) return; // not configured — skip quietly
+
+  const headers = { "Api-Token": token, "Content-Type": "application/json" };
+  const [firstName, ...rest] = opts.name.trim().split(" ");
+  const lastName = rest.join(" ");
+
+  const syncRes = await fetch(`${base}/api/3/contact/sync`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ contact: { email: opts.email, firstName, lastName } }),
+  });
+  const data = await syncRes.json();
+  const contactId = data?.contact?.id;
+  if (!contactId) return;
+
+  const tasks: Promise<unknown>[] = [];
+  if (process.env.AC_LIST_ID) {
+    tasks.push(
+      fetch(`${base}/api/3/contactLists`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          contactList: {
+            list: Number(process.env.AC_LIST_ID),
+            contact: Number(contactId),
+            status: 1,
+          },
+        }),
+      })
+    );
+  }
+  if (process.env.AC_TAG_ID) {
+    tasks.push(
+      fetch(`${base}/api/3/contactTags`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          contactTag: { contact: Number(contactId), tag: Number(process.env.AC_TAG_ID) },
+        }),
+      })
+    );
+  }
+  if (opts.marketingOptIn && process.env.AC_MARKETING_TAG_ID) {
+    tasks.push(
+      fetch(`${base}/api/3/contactTags`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          contactTag: {
+            contact: Number(contactId),
+            tag: Number(process.env.AC_MARKETING_TAG_ID),
+          },
+        }),
+      })
+    );
+  }
+  await Promise.allSettled(tasks);
+}
+
 export async function POST(request: Request) {
   try {
-    const { name, email, lane, service, message } = await request.json();
+    const { name, email, lane, service, message, marketingOptIn } =
+      await request.json();
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     if (!name || !email) {
@@ -71,6 +147,13 @@ export async function POST(request: Request) {
         </div>
       `,
     });
+
+    // Push to ActiveCampaign (best-effort — never blocks the enquiry).
+    try {
+      await syncToActiveCampaign({ name, email, marketingOptIn });
+    } catch (acError) {
+      console.error("ActiveCampaign sync failed:", acError);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
