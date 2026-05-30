@@ -8,6 +8,8 @@ import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import Footer from "@/components/Footer";
+import Link from "next/link";
+import { enquiries } from "@/data/enquiries";
 
 const contactMethods = [
   {
@@ -348,6 +350,59 @@ function ContactForm() {
                 strategy="lazyOnload"
               />
             </motion.div>
+          </div>
+        </section>
+
+        {/* Quick enquiry (Typeforms) */}
+        <section className="py-24 border-t border-card-border">
+          <div className="mx-auto max-w-5xl px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-10 text-center"
+            >
+              <span className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-6">
+                Quick enquiry
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
+                Know what you need?{" "}
+                <span className="gradient-text">Skip the form.</span>
+              </h2>
+              <p className="mt-4 text-muted">
+                Answer a few quick questions and we&apos;ll come back with a
+                tailored recommendation.
+              </p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              {enquiries.map((enquiry, i) => (
+                <motion.div
+                  key={enquiry.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  <Link href={`/enquiry/${enquiry.slug}`}>
+                    <div className="group rounded-2xl border border-card-border bg-card p-7 h-full transition-all duration-500 hover:border-pink/30 cursor-pointer">
+                      <h3 className="text-lg font-bold group-hover:text-pink transition-colors duration-300">
+                        {enquiry.title} {enquiry.titleAccent}
+                      </h3>
+                      <p className="mt-2 text-sm text-muted leading-relaxed">
+                        {enquiry.description}
+                      </p>
+                      <span className="mt-4 inline-flex items-center gap-1 text-sm text-pink font-medium group-hover:gap-2 transition-all duration-300">
+                        Start enquiry
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
       </main>

@@ -30,6 +30,15 @@ export const enquiries: Enquiry[] = [
       "Looking for a logo or full brand identity? Answer a few quick questions and we'll be in touch.",
     typeformId: "01KSWR4VGP8KBWTRVDW4YWKFVT",
   },
+  {
+    slug: "social-media",
+    title: "Social media",
+    titleAccent: "enquiry.",
+    tag: "Enquiry",
+    description:
+      "Want help with social media graphics or content? Tell us what you're after and we'll be in touch.",
+    typeformId: "01JGY4JA7F8VXCN6AE483NZB6F",
+  },
 ];
 
 export function getEnquiryBySlug(slug: string): Enquiry | undefined {

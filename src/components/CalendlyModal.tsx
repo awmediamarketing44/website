@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
+import Link from "next/link";
 
 interface CalendlyModalProps {
   isOpen: boolean;
@@ -48,7 +49,7 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
             </div>
 
             {/* Calendly iframe */}
-            <div className="relative" style={{ height: "min(630px, calc(90vh - 80px))" }}>
+            <div className="relative" style={{ height: "min(580px, calc(90vh - 138px))" }}>
               <iframe
                 src="https://calendly.com/awmedia-marketing/aw-discovery-call?hide_event_type_details=1&hide_gdpr_banner=1"
                 width="100%"
@@ -56,6 +57,21 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
                 frameBorder="0"
                 title="Book a call with AW Media"
               />
+            </div>
+
+            {/* Quick enquiry alternative */}
+            <div className="flex items-center justify-between gap-4 px-6 py-3.5 border-t border-card-border bg-card/40">
+              <p className="text-sm text-muted">
+                Don&apos;t want to wait for a call?
+              </p>
+              <Link
+                href="/enquiry"
+                onClick={onClose}
+                className="inline-flex items-center gap-1 text-sm font-semibold text-pink hover:gap-2 transition-all duration-200 whitespace-nowrap"
+              >
+                Enquire today
+                <span>→</span>
+              </Link>
             </div>
           </motion.div>
         </motion.div>

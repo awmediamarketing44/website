@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { useCalendly } from "./CalendlyProvider";
 
@@ -84,19 +85,27 @@ export default function Navbar() {
 
       <div className="relative mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" aria-label="AW Media home">
           <motion.span
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2"
+            className="flex items-center"
           >
-            <motion.span
-              animate={scrolled ? { fontSize: "1.125rem" } : { fontSize: "1.25rem" }}
+            <motion.div
+              animate={{ height: scrolled ? 26 : 32 }}
               transition={{ duration: 0.3 }}
-              className="font-bold tracking-tight"
+              className="relative"
+              style={{ aspectRatio: "200 / 79" }}
             >
-              aw<span className="text-pink">media.</span>
-            </motion.span>
+              <Image
+                src="/images/aw-logo-website.png"
+                alt="AW Media"
+                fill
+                priority
+                sizes="120px"
+                className="object-contain"
+              />
+            </motion.div>
           </motion.span>
         </Link>
 
