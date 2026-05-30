@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 export const dynamic = "force-dynamic";
 
@@ -82,7 +82,6 @@ export async function POST(request: Request) {
   try {
     const { name, email, lane, service, message, marketingOptIn } =
       await request.json();
-    const resend = new Resend(process.env.RESEND_API_KEY);
 
     if (!name || !email) {
       return NextResponse.json(
@@ -110,9 +109,30 @@ export async function POST(request: Request) {
     const serviceLabel = service ? serviceLabels[service] || service : "";
     const subjectTail = [laneLabel, serviceLabel].filter(Boolean).join(" ");
 
-    await resend.emails.send({
-      from: "AW Media Website <noreply@awmedia.marketing>",
-      to: ["alex@awmedia.marketing"],
+    // SMTP transport (20i mailbox). All creds come from env — never the repo.
+    //   SMTP_HOST  e.g. smtp.20i hostname / mail.awmedia.marketing
+    //   SMTP_PORT  465 (SSL) or 587 (STARTTLS)
+    //   SMTP_USER  full mailbox address, e.g. alex@awmedia.marketing
+    //   SMTP_PASS  mailbox password
+    //   SMTP_FROM  optional from address (defaults to SMTP_USER)
+    //   CONTACT_TO optional recipient (defaults to alex@awmedia.marketing)
+    const port = Number(process.env.SMTP_PORT) || 465;
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port,
+      secure: port === 465, // true for 465, false for 587
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+
+    const fromAddress = process.env.SMTP_FROM || process.env.SMTP_USER || "noreply@awmedia.marketing";
+    const toAddress = process.env.CONTACT_TO || "alex@awmedia.marketing";
+
+    await transporter.sendMail({
+      from: `AW Media Website <${fromAddress}>`,
+      to: toAddress,
       replyTo: email,
       subject: `New enquiry from ${name}${subjectTail ? ` - ${subjectTail}` : ""}`,
       html: `
@@ -135,6 +155,10 @@ export async function POST(request: Request) {
               <td style="padding: 8px 0; color: #666;">Service</td>
               <td style="padding: 8px 0;">${serviceLabel}</td>
             </tr>` : ""}
+            <tr>
+              <td style="padding: 8px 0; color: #666;">Marketing opt-in</td>
+              <td style="padding: 8px 0; font-weight: 600;">${marketingOptIn ? "Yes ✅" : "No"}</td>
+            </tr>
           </table>
           ${message ? `
           <div style="margin-top: 24px; padding: 16px; background: #f5f5f5; border-radius: 8px;">
