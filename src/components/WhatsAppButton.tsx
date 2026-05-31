@@ -22,7 +22,7 @@ export default function WhatsAppButton() {
       transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 20 }}
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.94 }}
-      className="group fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] py-3 pl-3 pr-3 sm:pr-4 shadow-[0_8px_30px_rgba(37,211,102,0.35)] hover:shadow-[0_8px_40px_rgba(37,211,102,0.5)] transition-shadow duration-300"
+      className="group fixed bottom-5 left-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] py-3 pl-3 pr-3 sm:pr-4 shadow-[0_8px_30px_rgba(37,211,102,0.35)] hover:shadow-[0_8px_40px_rgba(37,211,102,0.5)] transition-shadow duration-300"
     >
       {/* Live pulse ring */}
       <motion.span
