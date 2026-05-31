@@ -1340,6 +1340,120 @@ const brandingProjects: ProjectData[] = [
     ],
     relatedProjects: ["redefining-shakti", "noura"],
   },
+
+  {
+    slug: "delta-brand",
+    title: "Delta Project",
+    category: "Branding / Logo Design",
+    tags: ["Logo Design", "Social Templates", "Brand Icons"],
+    heroImage: "/images/projects/delta-brand/hero.jpg",
+    thumbnailImage: "/images/projects/delta-brand/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Delta Project",
+      industry: "Online Fitness Coaching",
+      location: "UK",
+    },
+    brief:
+      "Full visual set-up for Delta Project, an online fitness coaching brand. Logo design, a custom icon set, and a complete social media template system built to keep the brand consistent across every post.",
+    challenge: [
+      "New coaching brand that needed to look established and premium from day one, in a saturated fitness market.",
+      "Content output is high. The brand needed templates the coach could reuse without the look drifting post-handoff.",
+      "Bold, energetic identity that still reads clean at small sizes on a phone feed.",
+    ],
+    approach: [
+      "Built a strong, confident wordmark with a bronze accent block — distinctive in a sea of generic fitness logos.",
+      "Designed a matching icon set and a full social media template system: posts, stories, and carousels on-brand out of the box.",
+      "Delivered editable templates so Delta can produce consistent content at volume without a designer on every asset.",
+    ],
+    features: [
+      "Primary logo + wordmark",
+      "Custom brand icon set",
+      "Social media template system",
+      "Editable post / story / carousel layouts",
+      "Colour + typography system",
+      "Built for high-volume content",
+    ],
+    gallery: [],
+    relatedProjects: ["vanguard-brand", "wright-coaching-brand"],
+  },
+
+  {
+    slug: "mastery-method",
+    title: "Mastery Method",
+    category: "Branding / Logo Design",
+    tags: ["Logo Design", "Landing Page", "Community Build"],
+    heroImage: "/images/projects/mastery-method/hero.jpg",
+    thumbnailImage: "/images/projects/mastery-method/thumb.jpg",
+    hasImages: true,
+    year: "2025",
+    client: {
+      name: "Mastery Method (ICM)",
+      industry: "Coaching / Education",
+      location: "UK",
+    },
+    brief:
+      "End-to-end set-up for Mastery Method, part of ICM. Logo design, a conversion-focused website landing page, a Circle community build, and an ongoing weekly social media service — one connected brand across every touchpoint.",
+    challenge: [
+      "Sub-brand under ICM that needed its own identity while still feeling part of the wider ecosystem.",
+      "Multiple surfaces — logo, landing page, community platform, weekly socials — all had to stay visually consistent.",
+      "Landing page had to convert cold traffic into the programme, not just look the part.",
+    ],
+    approach: [
+      "Designed a bold, confident 'M' mark and wordmark in electric blue — modern, premium, instantly recognisable.",
+      "Built a conversion-focused landing page and set up the Circle community so members land in a fully branded space.",
+      "Run the weekly social media so the brand stays active and consistent without the team lifting a finger.",
+    ],
+    features: [
+      "Logo + brand mark",
+      "Conversion landing page",
+      "Circle community build",
+      "Weekly social media service",
+      "Consistent cross-platform identity",
+      "Part of the ICM ecosystem",
+    ],
+    gallery: [],
+    relatedProjects: ["delta-brand", "wright-coaching-brand"],
+  },
+
+  {
+    slug: "vantage-brand",
+    title: "Vantage Point",
+    category: "Branding / Logo Design",
+    tags: ["Full Brand Set Up", "Logo", "Welcome Pack"],
+    heroImage: "/images/projects/vantage-brand/hero.jpg",
+    thumbnailImage: "/images/projects/vantage-brand/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Vantage Point Health & Performance",
+      industry: "Health & Performance Coaching",
+      location: "USA",
+    },
+    brief:
+      "Full brand set-up for Vantage Point Health & Performance, a US fitness client. Logo design, editable social templates, pinned and profile assets, and a welcome pack PDF — a complete identity ready to launch.",
+    challenge: [
+      "US health and performance brand that needed a premium, ownable identity to stand out in a crowded coaching market.",
+      "Wide application range: social, profile, pinned posts, and client onboarding documents all had to feel like one brand.",
+      "Mark needed to carry meaning — performance, elevation, the 'vantage point' — without being literal or generic.",
+    ],
+    approach: [
+      "Built a navy-and-gold identity with a custom 'V' mountain-peak mark — premium, confident, and full of meaning.",
+      "Designed editable social templates plus pinned and profile assets so the brand launches consistent across every channel.",
+      "Delivered a branded welcome pack PDF for smooth, professional client onboarding from the first touchpoint.",
+    ],
+    features: [
+      "Logo + custom peak mark",
+      "Navy + gold colour system",
+      "Editable social templates",
+      "Pinned + profile assets",
+      "Welcome pack PDF",
+      "Full launch-ready brand kit",
+    ],
+    gallery: [],
+    relatedProjects: ["vanguard-brand", "primecore-brand"],
+  },
 ];
 
 // ============================================================================

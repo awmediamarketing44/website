@@ -16,6 +16,9 @@ const JOBS = [
   { slug: "wright-coaching-brand", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2026]/0678 - Wright Coaching/Asset 8@196x.png", bg: { r: 8, g: 8, b: 10 } },
   { slug: "her-era-brand", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2026]/0902 - Her Era/Logo Files/RGB Files/logo-oatbg.png" },
   { slug: "ac-visuals-logo", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2025]/0025 - AC Visuals/AC RGB/196ppi/ACV-BLACKBG-RGB.png" },
+  { slug: "delta-brand", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2026]/0026 - Delta Save Out/Delta RGB/144ppi/delta-white-blackbg.png" },
+  { slug: "mastery-method", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2025]/0764 - master method/MASTERY-METHOD-RGB/216ppi/black_bg_emblem.png" },
+  { slug: "vantage-brand", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2026]/0537 - Vantage Logo Files/RGB/144ppi/logo-yellow_1(PNG.png", bg: { r: 1, g: 17, b: 66 } },
 ];
 
 const OUTPUTS = [
