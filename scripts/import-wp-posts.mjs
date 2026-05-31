@@ -30,6 +30,8 @@ const EXISTING_SLUGS = new Set(
 fs.mkdirSync(IMG_DIR, { recursive: true });
 
 const clean = (s) => he.decode((s || "").replace(/\s+/g, " ")).trim();
+// Strip HTML tags then decode entities — for excerpt/meta which arrive wrapped in <p>…</p>.
+const stripHtml = (s) => he.decode((s || "").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
 
 function htmlToBlocks(html) {
   const root = parse(html, { blockTextElements: { script: false, style: false } });
@@ -174,7 +176,7 @@ for (const p of posts) {
   }
   const d = new Date(p.date);
   const dateStr = `${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
-  const excerpt = clean(p.excerpt?.rendered).replace(/\s*\[?…\]?\s*$/, "").slice(0, 200);
+  const excerpt = stripHtml(p.excerpt?.rendered).replace(/\s*\[?(\[?…\]?|\.\.\.)\]?\s*$/, "").slice(0, 200);
   const tag = categoryTag(p.categories || [], body.length);
   const minutes = Math.max(2, Math.round(wordCount(body) / 200));
 
