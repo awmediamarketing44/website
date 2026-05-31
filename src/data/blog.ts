@@ -53,8 +53,13 @@ const ALL: BlogPost[] = [
   agencyWebsitesWorse,
   realReasonNotConverting,
   sevenDayBuild,
-  ...importedWpPosts,
+  // NOTE: 156 migrated WordPress posts are TEMPORARILY DISABLED — the raw
+  // content is old/freelance-era and off-brand (contradictory claims, example
+  // testimonials, first-person voice). Data + redirect map are kept; re-enable
+  // by restoring the spread once posts are curated/rewritten.
+  // ...importedWpPosts,
 ];
+void importedWpPosts;
 
 export const blogPosts: BlogPost[] = ALL.slice().sort(
   (a, b) => dateSortKey(b.date) - dateSortKey(a.date)
