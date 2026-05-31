@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 // Get the Business Unit ID from Trustpilot → Integrate (or the TrustBox snippet).
 // Template IDs: carousel "53aa8912dec7e10d38f59f36", grid "539ad60defb9600b94d7df2c",
 // mini "53aa8807dec7e10d38f59f32".
-export const TRUSTPILOT_BUSINESS_UNIT_ID = "REPLACE_WITH_BUSINESS_UNIT_ID";
+export const TRUSTPILOT_BUSINESS_UNIT_ID = "5c6d512b2fef9c002b17e4a1";
 export const TRUSTPILOT_PROFILE_URL =
   "https://uk.trustpilot.com/review/awmedia.marketing";
 
