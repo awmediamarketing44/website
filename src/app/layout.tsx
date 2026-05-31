@@ -4,6 +4,7 @@ import CalendlyProvider from "@/components/CalendlyProvider";
 import FloatingOrbs from "@/components/FloatingOrbs";
 import CursorSpotlight from "@/components/CursorSpotlight";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Analytics, { AnalyticsNoscript } from "@/components/Analytics";
 import "./globals.css";
 
 const rethinkSans = Rethink_Sans({
@@ -62,6 +63,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${rethinkSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <Analytics />
+        <AnalyticsNoscript />
         <FloatingOrbs />
         <CursorSpotlight />
         <CalendlyProvider>{children}</CalendlyProvider>
