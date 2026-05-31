@@ -20,6 +20,7 @@ import speedTax from "./blog-posts/speed-tax-slow-website-costs";
 import agencyWebsitesWorse from "./blog-posts/agency-websites-worse-than-clients";
 import realReasonNotConverting from "./blog-posts/real-reason-website-isnt-converting";
 import sevenDayBuild from "./blog-posts/website-in-7-days-without-cutting-corners";
+import importedWpPosts from "./blog-posts/_imported-wp";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -52,6 +53,7 @@ const ALL: BlogPost[] = [
   agencyWebsitesWorse,
   realReasonNotConverting,
   sevenDayBuild,
+  ...importedWpPosts,
 ];
 
 export const blogPosts: BlogPost[] = ALL.slice().sort(
