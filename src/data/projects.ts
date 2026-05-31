@@ -36,6 +36,104 @@ export interface ProjectData {
 
 const webProjects: ProjectData[] = [
   {
+    slug: "wlwt-coaching",
+    title: "Weight Loss With Tarn",
+    category: "Web Design & Build",
+    tags: ["Website", "Custom Build", "Hosting", "SSL"],
+    heroImage: "/images/projects/wlwt-coaching/hero.jpg",
+    thumbnailImage: "/images/projects/wlwt-coaching/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Tarn Kaur / Weight Loss With Tarn",
+      industry: "Online Weight Loss Coaching",
+      location: "UK",
+      website: "https://wlwtcoaching.com/",
+    },
+    brief:
+      "Tarn Kaur went from corporate lawyer to fat-loss coach — 127k followers, 1,500+ transformations, helping busy women lose 10–40kg and keep it off. She came to us for a landing page, but the business was scaling fast and one page was never going to be enough.",
+    challenge: [
+      "A single landing page wouldn't keep up with a business growing this quickly — it needed room to scale.",
+      "High-profile coach with a huge audience: the site had to convert enquiries while matching the brand's energy.",
+      "Foundations had to be built properly so future pages could be added without a rebuild.",
+    ],
+    approach: [
+      "Started with the landing page, but architected it as the first page of a full multi-page website from day one.",
+      "Custom designed and custom built — bold, on-brand, conversion-focused, with hosting, SSL and security all sorted.",
+      "Because the foundation was right, scaling from one page to a full site was straightforward. No starting over, no rebuild — just building on what was already there.",
+    ],
+    features: [
+      "Custom multi-page website",
+      "Conversion-focused landing page",
+      "Bespoke design + build",
+      "Hosting, SSL + security",
+      "Built to scale with the business",
+      "Mobile-first responsive",
+    ],
+    testimonial: {
+      quote:
+        "Just wanted to say a huge thank you to you and the whole AW Media team for absolutely smashing the design and development of my website. Honestly from start to finish you've all been incredible to work with. Professional, patient, creative and genuinely invested in bringing my vision to life properly. It never felt like “just another project” and that really shows in the final result. The attention to detail, communication, speed and overall experience has been unreal. Nothing was ever too much and you made the whole process feel easy, even when I had a million ideas and changes flying around. I'm genuinely so happy with how everything has come together. Couldn't recommend AW Media enough!",
+      name: "Tarn Kaur",
+      role: "Weight Loss With Tarn",
+    },
+    gallery: [
+      "/images/projects/wlwt-coaching/desktop.jpg",
+      "/images/projects/wlwt-coaching/mobile.jpg",
+      "/images/projects/wlwt-coaching/desktop-full.jpg",
+    ],
+    relatedProjects: ["sensory-emergency", "thecoachconsultant"],
+  },
+
+  {
+    slug: "sensory-emergency",
+    title: "Sensory Emergency",
+    category: "Web Design & Build",
+    tags: ["Website", "Custom Build", "Hosting", "Good Cause"],
+    heroImage: "/images/projects/sensory-emergency/hero.jpg",
+    thumbnailImage: "/images/projects/sensory-emergency/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Wade / Sensory Emergency",
+      industry: "Mobile Sensory Support (SEND)",
+      location: "Sheffield, UK",
+      website: "https://sensoryemergency.co.uk/",
+    },
+    brief:
+      "Wade runs Sensory Emergency — a mobile sensory support service bringing calm to Sheffield's SEND children at events, parties and big days out. The Sensory Ambulance is a converted medical vehicle turned into a safe, controlled space where children can re-centre when the world gets overwhelming.",
+    challenge: [
+      "A genuinely good cause that needed a website to grow the business and reach more families who need it.",
+      "The site had to communicate a sensitive, specialist service with warmth and clarity.",
+      "Bookings needed to be easy to find and act on, with room to scale as demand grows.",
+    ],
+    approach: [
+      "Custom website design and build, shaped around the mission and the families it serves.",
+      "Hosting, security and SSL all handled, plus support on how to use bookings effectively.",
+      "A site built for growth — reaching more families and growing the service sustainably.",
+    ],
+    features: [
+      "Custom website design + build",
+      "Hosting, security + SSL",
+      "Booking-focused structure",
+      "Built for growth",
+      "Mobile-first responsive",
+      "Cause-led design",
+    ],
+    testimonial: {
+      quote:
+        "Alex and his team are absolutely wizards of the game. Not only do they bring the vision to life through your website, they are really supportive, honest and reliable. They are happy to discuss your ideas and give advice from their experience and expertise to make sure you don't spend unnecessarily and get the best from your site. Alex and Paul who helped me with mine also did so off their own back to help us in our mission to help children with additional needs. I can't thank them enough or give the praise they truly deserve. I will always send people this way. Here's to a long working relationship.",
+      name: "Wade",
+      role: "Sensory Emergency",
+    },
+    gallery: [
+      "/images/projects/sensory-emergency/desktop.jpg",
+      "/images/projects/sensory-emergency/mobile.jpg",
+      "/images/projects/sensory-emergency/desktop-full.jpg",
+    ],
+    relatedProjects: ["wlwt-coaching", "thecoachconsultant"],
+  },
+
+  {
     slug: "team-procoach",
     title: "Team Procoach",
     category: "Web Design & Build",
@@ -106,6 +204,11 @@ const webProjects: ProjectData[] = [
       industry: "Coaching Consultancy",
       location: "UK",
       website: "https://thecoachconsultant.uk/",
+    },
+    testimonial: {
+      quote: "I've worked with Alex for 10 years now. Why would I work with the same guy for 10 years? You run it on performance, reliability, deliverability. Websites, funnels, graphic designs, socials - never missed. He does not care about you going back 25 times as long as it's done right. You'll have the same type of reliability, consistency, and performance that I've had for the last decade of my career and the next decade to come.",
+      name: "The Coach Consultant",
+      role: "Client of 10 years",
     },
     brief:
       "Bespoke website build for a coaching consultancy that needed a site to set the visual tone for the entire business. A full custom design system, hosting, SSL, and ongoing support shipped together.",
@@ -332,6 +435,11 @@ const webProjects: ProjectData[] = [
       location: "UK",
       website: "https://quickfitev.co.uk/",
     },
+    testimonial: {
+      quote: "I've worked with Alex and AW Media on a few different businesses and can't recommend them enough. Nothing's too much trouble and everything gets sorted. This project was an online shop to make the EV charger journey as simple as possible and Alex and the team have gone above and beyond.",
+      name: "Ollie",
+      role: "QuickFit EV",
+    },
     brief:
       "Bespoke WordPress build for an EV charger installation company entering a fast-growing market that needed a website to match the moment.",
     challenge: [
@@ -466,6 +574,11 @@ const webProjects: ProjectData[] = [
       location: "UK",
       website: "https://braccountancy.co.uk/",
     },
+    testimonial: {
+      quote: "I used AW for a new logo and brand pack a couple of years ago and was really happy with it. My website was due a refresh, so I went back to them for their same service and style recently, and they didn't disappoint. My new site went live today and I love it! The team have been really helpful from start to finish, really clear on the timelines, and provided easy to use google docs for me to upload everything they need. I basically told them my vision and they made it happen. Thank you!",
+      name: "BR Accountancy",
+      role: "Sheffield Accountants",
+    },
     brief:
       "Full brand-and-build for an accountancy firm: logo design, bespoke website, and WordPress implementation, all developed end to end.",
     challenge: [
@@ -508,6 +621,11 @@ const webProjects: ProjectData[] = [
       industry: "Coaching App",
       location: "USA",
       website: "https://joinstrengthinus.com/",
+    },
+    testimonial: {
+      quote: "To begin Alex is nothing short of a legend - he may not advertise it but he drops everything to fix, create and build my last minute ideas that come to mind! His content is professional but his own - it never looks like anyone else's which is what makes me feel like my content is above and at the top due to it being so unique. Couldn't recommend Alex enough for all he's done for StrengthinUs and his works of art!",
+      name: "Strength In Us",
+      role: "Coaching",
     },
     brief:
       "Bespoke website build plus an ongoing weekly social graphics retainer for a US-based coaching app brand. One unified visual system across product, web, and social.",
@@ -1142,6 +1260,11 @@ const brandingProjects: ProjectData[] = [
       industry: "Coaching / Performance",
       location: "UK",
     },
+    testimonial: {
+      quote: "AW doesn't just “design” he actually understands you. Who you are. What you stand for. The tone you carry. The standard you operate at. When I explained the new brand name, why I was pivoting, and the direction I wanted to build towards, he nailed it in one attempt. The entire process was completely painless. Quick turnaround, and any minor amendments were handled immediately, not just changed, but understood. He gets the rationale behind decisions, which means you never feel like you're compromising on your vision just to get something finished. When you're working with a graphic designer, trust is everything. They're shaping the first impression people have of your brand, and that matters. That's exactly why I won't go anywhere else.",
+      name: "Pete",
+      role: "PrimeCore",
+    },
     brief:
       "Full brand set-up for PrimeCore. Identity built to scale across digital, content, and merchandise from day one.",
     challenge: [
@@ -1431,6 +1554,11 @@ const brandingProjects: ProjectData[] = [
       industry: "Health & Performance Coaching",
       location: "USA",
     },
+    testimonial: {
+      quote: "A creative genius. Got everything I wanted and then some. Took the jumbled ideas in my head and put them into exactly what I wanted. Couldn't recommend him more.",
+      name: "Justin Fordham",
+      role: "Vantage Point Performance",
+    },
     brief:
       "Full brand set-up for Vantage Point Health & Performance, a US fitness client. Logo design, editable social templates, pinned and profile assets, and a welcome pack PDF — a complete identity ready to launch.",
     challenge: [
@@ -1475,6 +1603,11 @@ const socialProjects: ProjectData[] = [
       industry: "UK Bodybuilding Coach",
       location: "UK",
       website: "https://www.instagram.com/michael_trainedbyfox/",
+    },
+    testimonial: {
+      quote: "I was very reluctant to initially enquire with Alex and his team. Having previously worked with graphic designers who I rated highly, it got to a point where the creativity across the industry just felt repetitive. Then I started seeing more and more of Alex's work and the coaches he was working with, and I could see a clear differentiation. My partner was actually the first person to work with Alex. The attention to detail he put into what he created for her Molly Rose Studios was great. That gave me the confidence to jump on a consultation call, and I immediately signed up for the fortnightly plan. Within the first three weeks, I upgraded straight to the weekly plan. Alex is not going to just design whatever you hand him. He will give honest feedback, and he will still do what you have asked, but he will tell you straight if he thinks something is not working. Overall, if you are a coach looking to level up your content, give this a try.",
+      name: "Michael Fox",
+      role: "Trained By Fox",
     },
     brief:
       "Ongoing IG carousel pack design for a UK bodybuilding coach. Editorial-grade graphics that match the seriousness of the coaching.",
@@ -1522,6 +1655,11 @@ const socialProjects: ProjectData[] = [
       industry: "Education / Coaching",
       location: "UK",
       website: "https://www.instagram.com/theicmeducation/",
+    },
+    testimonial: {
+      quote: "AW is the best to work with! He creates all our social media content, website, branding & lead magnets to a high standard every time. He's efficient and delivers all content on time consistently each week. His response times are excellent and the whole graphic process is smooth making it 10x easier to keep up with posting consistently on socials.",
+      name: "ICM Education",
+      role: "Online Coaching & Education",
     },
     brief:
       "Ongoing IG carousel design for a UK education brand. Editorial-style graphics that turn complex ideas into scrollable, shareable visuals.",
