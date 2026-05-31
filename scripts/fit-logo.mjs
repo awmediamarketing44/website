@@ -19,6 +19,7 @@ const JOBS = [
   { slug: "delta-brand", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2026]/0026 - Delta Save Out/Delta RGB/144ppi/delta-white-blackbg.png" },
   { slug: "mastery-method", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2025]/0764 - master method/MASTERY-METHOD-RGB/216ppi/black_bg_emblem.png" },
   { slug: "vantage-brand", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2026]/0537 - Vantage Logo Files/RGB/144ppi/logo-yellow_1(PNG.png", bg: { r: 1, g: 17, b: 66 } },
+  { slug: "primecore-brand", src: "C:/Users/mraiw/Awmedia Dropbox/AWMedia [Projects]/AWProjects [2026]/0213 - PrimeCore Week 01/PrimeCore - Logo Files/RGB Logo Files/144ppi/blackbg-logo(png).png" },
 ];
 
 const OUTPUTS = [

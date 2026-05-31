@@ -21,7 +21,7 @@ const redirects = [];
 const add = (source, destination) => {
   if (seen.has(source)) return;
   seen.add(source);
-  redirects.push({ source, destination, permanent: true });
+  redirects.push({ source, destination, statusCode: 301 });
 };
 
 // 1) Migrated blog posts: old root URL -> /blog/<slug>

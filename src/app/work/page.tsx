@@ -111,7 +111,7 @@ export default function WorkPage() {
                               alt={`${project.title} thumbnail`}
                               fill
                               sizes="(max-width: 1024px) 50vw, 33vw"
-                              className={`${project.category === 'Branding / Logo Design' ? 'object-contain p-4 sm:p-6' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-700`}
+                              className={`${project.category === 'Branding / Logo Design' ? 'object-cover object-center' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-700`}
                             />
                           ) : (
                             <>
