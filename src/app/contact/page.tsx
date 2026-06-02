@@ -54,6 +54,7 @@ function ContactForm() {
     service: "",
     message: "",
     marketingOptIn: false,
+    company: "", // honeypot — must stay empty; bots fill it, humans never see it
   });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -199,6 +200,17 @@ function ContactForm() {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="rounded-2xl border border-card-border bg-card p-8 lg:p-10 space-y-6">
+                    {/* Honeypot: hidden from humans, catches bots. Not a real field. */}
+                    <input
+                      type="text"
+                      name="company"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      className="absolute left-[-9999px] h-0 w-0 opacity-0"
+                    />
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium mb-2">Name</label>
@@ -297,7 +309,7 @@ function ContactForm() {
                         className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-card-border bg-background text-pink accent-pink focus:ring-pink/50 cursor-pointer"
                       />
                       <span className="text-sm text-muted leading-relaxed group-hover:text-white/80 transition-colors">
-                        Keep me in the loop — send me the occasional web design
+                        Keep me in the loop: send me the occasional web design
                         tip, offer and update from AW Media. No spam, unsubscribe
                         anytime.
                       </span>

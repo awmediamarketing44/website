@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import BookCallButton from "./BookCallButton";
-import { SplitText } from "./TextReveal";
 
 export default function CTA() {
   return (
@@ -62,11 +61,10 @@ export default function CTA() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] sm:leading-[1.05] lg:leading-[1.05]"
+          className="text-balance text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] sm:leading-[1.05] lg:leading-[1.05]"
         >
-          <SplitText>Ready to stop losing clients to</SplitText>
-          <br />
-          <SplitText delay={0.3} className="gradient-text">better websites?</SplitText>
+          Ready to stop losing clients to{" "}
+          <span className="gradient-text">better websites?</span>
         </motion.h2>
 
         <motion.p

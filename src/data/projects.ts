@@ -36,6 +36,49 @@ export interface ProjectData {
 
 const webProjects: ProjectData[] = [
   {
+    slug: "b3x-graphics",
+    title: "B3x Graphics",
+    category: "Web Design & Build",
+    tags: ["Website", "E-Commerce", "Design + Dev", "Custom Build"],
+    heroImage: "/images/projects/b3x-graphics/hero.jpg",
+    thumbnailImage: "/images/projects/b3x-graphics/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "B3x Graphics",
+      industry: "Graphic Design & Art Direction",
+      location: "UK",
+      website: "https://b3xgraphics.com/",
+    },
+    brief:
+      "B3x Graphics is a freelance art director and designer with a serious body of work for big-name brands. He needed a site that did the work justice: part portfolio, part shop, all built to win new projects.",
+    challenge: [
+      "A designer's own site has to clear a high bar. The work is the product, so the site had to look as sharp as the portfolio it carries.",
+      "It needed to sell, not just show, with an e-commerce layer alongside the portfolio.",
+      "Fast, smooth and bold, with the design-led feel a creative's clients expect.",
+    ],
+    approach: [
+      "Full custom design and development, built around the work and the brand's electric-blue identity.",
+      "E-commerce baked in so products and services can be sold directly from the site.",
+      "Hosting, security and SSL handled, with a build that's quick to update as the portfolio grows.",
+    ],
+    features: [
+      "Custom design + development",
+      "E-commerce store",
+      "Portfolio-led layout",
+      "Bold, design-forward UI",
+      "Hosting, SSL + security",
+      "Mobile-first responsive",
+    ],
+    gallery: [
+      "/images/projects/b3x-graphics/desktop.jpg",
+      "/images/projects/b3x-graphics/mobile.jpg",
+      "/images/projects/b3x-graphics/desktop-full.jpg",
+    ],
+    relatedProjects: ["wlwt-coaching", "sensory-emergency"],
+  },
+
+  {
     slug: "wlwt-coaching",
     title: "Weight Loss With Tarn",
     category: "Web Design & Build",
@@ -51,16 +94,16 @@ const webProjects: ProjectData[] = [
       website: "https://wlwtcoaching.com/",
     },
     brief:
-      "Tarn Kaur went from corporate lawyer to fat-loss coach — 127k followers, 1,500+ transformations, helping busy women lose 10–40kg and keep it off. She came to us for a landing page, but the business was scaling fast and one page was never going to be enough.",
+      "Tarn Kaur went from corporate lawyer to fat-loss coach: 127k followers, 1,500+ transformations, helping busy women lose 10-40kg and keep it off. She came to us for a landing page, but the business was scaling fast and one page was never going to be enough.",
     challenge: [
-      "A single landing page wouldn't keep up with a business growing this quickly — it needed room to scale.",
+      "A single landing page wouldn't keep up with a business growing this quickly. It needed room to scale.",
       "High-profile coach with a huge audience: the site had to convert enquiries while matching the brand's energy.",
       "Foundations had to be built properly so future pages could be added without a rebuild.",
     ],
     approach: [
       "Started with the landing page, but architected it as the first page of a full multi-page website from day one.",
-      "Custom designed and custom built — bold, on-brand, conversion-focused, with hosting, SSL and security all sorted.",
-      "Because the foundation was right, scaling from one page to a full site was straightforward. No starting over, no rebuild — just building on what was already there.",
+      "Custom designed and custom built: bold, on-brand, conversion-focused, with hosting, SSL and security all sorted.",
+      "Because the foundation was right, scaling from one page to a full site was straightforward. No starting over, no rebuild, just building on what was already there.",
     ],
     features: [
       "Custom multi-page website",
@@ -100,7 +143,7 @@ const webProjects: ProjectData[] = [
       website: "https://sensoryemergency.co.uk/",
     },
     brief:
-      "Wade runs Sensory Emergency — a mobile sensory support service bringing calm to Sheffield's SEND children at events, parties and big days out. The Sensory Ambulance is a converted medical vehicle turned into a safe, controlled space where children can re-centre when the world gets overwhelming.",
+      "Wade runs Sensory Emergency, a mobile sensory support service bringing calm to Sheffield's SEND children at events, parties and big days out. The Sensory Ambulance is a converted medical vehicle turned into a safe, controlled space where children can re-centre when the world gets overwhelming.",
     challenge: [
       "A genuinely good cause that needed a website to grow the business and reach more families who need it.",
       "The site had to communicate a sensitive, specialist service with warmth and clarity.",
@@ -109,7 +152,7 @@ const webProjects: ProjectData[] = [
     approach: [
       "Custom website design and build, shaped around the mission and the families it serves.",
       "Hosting, security and SSL all handled, plus support on how to use bookings effectively.",
-      "A site built for growth — reaching more families and growing the service sustainably.",
+      "A site built for growth, reaching more families and growing the service sustainably.",
     ],
     features: [
       "Custom website design + build",
@@ -1486,7 +1529,7 @@ const brandingProjects: ProjectData[] = [
       "Bold, energetic identity that still reads clean at small sizes on a phone feed.",
     ],
     approach: [
-      "Built a strong, confident wordmark with a bronze accent block — distinctive in a sea of generic fitness logos.",
+      "Built a strong, confident wordmark with a bronze accent block, distinctive in a sea of generic fitness logos.",
       "Designed a matching icon set and a full social media template system: posts, stories, and carousels on-brand out of the box.",
       "Delivered editable templates so Delta can produce consistent content at volume without a designer on every asset.",
     ],
@@ -1517,14 +1560,14 @@ const brandingProjects: ProjectData[] = [
       location: "UK",
     },
     brief:
-      "End-to-end set-up for Mastery Method, part of ICM. Logo design, a conversion-focused website landing page, a Circle community build, and an ongoing weekly social media service — one connected brand across every touchpoint.",
+      "End-to-end set-up for Mastery Method, part of ICM. Logo design, a conversion-focused website landing page, a Circle community build, and an ongoing weekly social media service: one connected brand across every touchpoint.",
     challenge: [
       "Sub-brand under ICM that needed its own identity while still feeling part of the wider ecosystem.",
-      "Multiple surfaces — logo, landing page, community platform, weekly socials — all had to stay visually consistent.",
+      "Multiple surfaces (logo, landing page, community platform, weekly socials) all had to stay visually consistent.",
       "Landing page had to convert cold traffic into the programme, not just look the part.",
     ],
     approach: [
-      "Designed a bold, confident 'M' mark and wordmark in electric blue — modern, premium, instantly recognisable.",
+      "Designed a bold, confident 'M' mark and wordmark in electric blue: modern, premium, instantly recognisable.",
       "Built a conversion-focused landing page and set up the Circle community so members land in a fully branded space.",
       "Run the weekly social media so the brand stays active and consistent without the team lifting a finger.",
     ],
@@ -1560,14 +1603,14 @@ const brandingProjects: ProjectData[] = [
       role: "Vantage Point Performance",
     },
     brief:
-      "Full brand set-up for Vantage Point Health & Performance, a US fitness client. Logo design, editable social templates, pinned and profile assets, and a welcome pack PDF — a complete identity ready to launch.",
+      "Full brand set-up for Vantage Point Health & Performance, a US fitness client. Logo design, editable social templates, pinned and profile assets, and a welcome pack PDF: a complete identity ready to launch.",
     challenge: [
       "US health and performance brand that needed a premium, ownable identity to stand out in a crowded coaching market.",
       "Wide application range: social, profile, pinned posts, and client onboarding documents all had to feel like one brand.",
-      "Mark needed to carry meaning — performance, elevation, the 'vantage point' — without being literal or generic.",
+      "Mark needed to carry meaning (performance, elevation, the 'vantage point') without being literal or generic.",
     ],
     approach: [
-      "Built a navy-and-gold identity with a custom 'V' mountain-peak mark — premium, confident, and full of meaning.",
+      "Built a navy-and-gold identity with a custom 'V' mountain-peak mark: premium, confident, and full of meaning.",
       "Designed editable social templates plus pinned and profile assets so the brand launches consistent across every channel.",
       "Delivered a branded welcome pack PDF for smooth, professional client onboarding from the first touchpoint.",
     ],

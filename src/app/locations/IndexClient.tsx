@@ -19,7 +19,7 @@ export default function LocationsIndexClient() {
           tag="Locations"
           title="Sheffield-based."
           titleAccent="Working UK-wide."
-          description="We're proud to call Sheffield home, but we work with ambitious businesses all over the country. Find your area below — or just get in touch wherever you are."
+          description="We're proud to call Sheffield home, but we work with ambitious businesses all over the country. Find your area below, or just get in touch wherever you are."
         />
 
         <section className="py-12 pb-24">
@@ -74,8 +74,8 @@ export default function LocationsIndexClient() {
               className="mt-16 text-center"
             >
               <p className="text-muted mb-6">
-                Don&apos;t see your area? It doesn&apos;t matter where you are —
-                we work with clients all over the UK.
+                Don&apos;t see your area? It doesn&apos;t matter where you are.
+                We work with clients all over the UK.
               </p>
               <BookCallButton>Book a FREE Call</BookCallButton>
             </motion.div>

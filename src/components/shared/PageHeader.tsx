@@ -19,7 +19,7 @@ export default function PageHeader({ tag, title, titleAccent, description }: Pag
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-pink/10 rounded-full blur-[120px]"
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export default function PageHeader({ tag, title, titleAccent, description }: Pag
           {[title, ...(titleAccent ? [titleAccent] : [])].map((line, i, arr) => (
             <motion.span
               key={i}
-              className={`block ${i > 0 ? "gradient-text" : ""}`}
+              className={`block text-balance ${i > 0 ? "gradient-text" : ""}`}
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
@@ -48,7 +48,7 @@ export default function PageHeader({ tag, title, titleAccent, description }: Pag
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 max-w-2xl text-lg text-muted leading-relaxed"
+            className="mt-6 max-w-2xl mx-auto text-lg text-muted leading-relaxed"
           >
             {description}
           </motion.p>

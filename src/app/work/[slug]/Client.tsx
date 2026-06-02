@@ -351,30 +351,64 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
                 const full = project.gallery.find((g) => g.includes('full'));
                 return (
                   <div className="space-y-6">
-                    {/* Desktop hero shot */}
-                    {desktop && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="rounded-2xl border border-card-border overflow-hidden"
-                      >
-                        <div className="aspect-[16/10] relative bg-card">
-                          <Image
-                            src={desktop}
-                            alt={`${project.title} desktop`}
-                            fill
-                            sizes="(max-width: 1280px) 100vw, 1280px"
-                            className="object-cover object-top"
-                          />
-                        </div>
-                      </motion.div>
-                    )}
-
-                    {/* Phone frame + full-page scroll, side by side */}
-                    {(mobile || full) && (
-                      <div className="grid lg:grid-cols-[1fr_1.6fr] gap-6 items-center">
+                    {full ? (
+                      /* Varied section shots sliced from the full-page grab —
+                         different parts of the site, not one repeated hero. */
+                      <>
+                        {[1, 2, 3].map((n, i) => (
+                          <motion.div
+                            key={n}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: i * 0.08 }}
+                            className="rounded-2xl border border-card-border overflow-hidden"
+                          >
+                            <div className="aspect-[16/9] relative bg-card">
+                              <Image
+                                src={full.replace("desktop-full.jpg", `section-${n}.jpg`)}
+                                alt={`${project.title} — section ${n}`}
+                                fill
+                                sizes="(max-width: 1280px) 100vw, 1280px"
+                                className="object-cover object-top"
+                              />
+                            </div>
+                          </motion.div>
+                        ))}
+                        {mobile && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className="flex justify-center pt-2"
+                          >
+                            <PhoneFrame src={mobile} alt={`${project.title} mobile`} className="w-full max-w-[300px]" />
+                          </motion.div>
+                        )}
+                      </>
+                    ) : (
+                      /* Fallback: projects without a full-page grab (no slices) */
+                      <>
+                        {desktop && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="rounded-2xl border border-card-border overflow-hidden"
+                          >
+                            <div className="aspect-[16/10] relative bg-card">
+                              <Image
+                                src={desktop}
+                                alt={`${project.title} desktop`}
+                                fill
+                                sizes="(max-width: 1280px) 100vw, 1280px"
+                                className="object-cover object-top"
+                              />
+                            </div>
+                          </motion.div>
+                        )}
                         {mobile && (
                           <motion.div
                             initial={{ opacity: 0, y: 40 }}
@@ -386,26 +420,7 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
                             <PhoneFrame src={mobile} alt={`${project.title} mobile`} className="w-full max-w-[280px]" />
                           </motion.div>
                         )}
-                        {full && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="rounded-2xl border border-card-border overflow-hidden"
-                          >
-                            <div className="relative bg-card" style={{ aspectRatio: '16 / 22' }}>
-                              <Image
-                                src={full}
-                                alt={`${project.title} full page`}
-                                fill
-                                sizes="(max-width: 1024px) 100vw, 60vw"
-                                className="object-cover object-top"
-                              />
-                            </div>
-                          </motion.div>
-                        )}
-                      </div>
+                      </>
                     )}
                   </div>
                 );

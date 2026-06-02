@@ -68,7 +68,7 @@ export const locations: LocationData[] = [
   {
     slug: "web-design-birmingham",
     city: "Birmingham",
-    region: "the West Midlands",
+    region: "West Midlands",
     nearby: ["Solihull", "Wolverhampton", "Dudley"],
     blurb: "Custom web design for Birmingham businesses.",
   },
@@ -103,7 +103,7 @@ export const locations: LocationData[] = [
   {
     slug: "web-design-devon",
     city: "Devon",
-    region: "the South West",
+    region: "South West",
     nearby: ["Exeter", "Plymouth", "Torquay"],
     blurb: "Websites that stand out across Devon.",
   },
@@ -126,8 +126,8 @@ export function metaDescription(loc: LocationData): string {
 export function headerDescription(loc: LocationData): string {
   const isHome = loc.city === HOME_CITY;
   return isHome
-    ? `${loc.region}-based and proud of it. We've built hundreds of websites for businesses across ${loc.city} and beyond — designed to look sharp and turn visitors into customers.`
-    : `Web design, branding and SEO for businesses in ${loc.city} and across ${loc.region}. We're a ${HOME_CITY}-based studio that works with clients all over the UK — and we'd love to work with you.`;
+    ? `${loc.region}-based and proud of it. We've built hundreds of websites for businesses across ${loc.city} and beyond, all designed to look sharp and turn visitors into customers.`
+    : `Web design, branding and SEO for businesses in ${loc.city} and across ${loc.region}. We're a ${HOME_CITY}-based studio that works with clients all over the UK, and we'd love to work with you.`;
 }
 
 export function intro(loc: LocationData): string[] {
@@ -136,14 +136,14 @@ export function intro(loc: LocationData): string[] {
 
   if (isHome) {
     return [
-      `AW Media is a ${loc.region} web design and branding studio, born and based in ${loc.city}. For nearly a decade we've built websites for ${loc.city} businesses that don't just look the part — they bring in the enquiries.`,
+      `AW Media is a ${loc.region} web design and branding studio, born and based in ${loc.city}. For nearly a decade we've built websites for ${loc.city} businesses that don't just look the part. They bring in the enquiries.`,
       `We started out in fitness and have since worked with trades, clinics, e-commerce brands, photographers and professional services right across ${loc.city}, ${nearbyList} and the wider region. Local enough to meet for a coffee, good enough to compete with any agency in the country.`,
       `Whether you need a fast AI-accelerated build or a fully bespoke website with the full strategy treatment, you get the same thing: custom design, never a template, built to convert.`,
     ];
   }
 
   return [
-    `Looking for a web designer in ${loc.city}? AW Media builds modern, conversion-focused websites for businesses across ${loc.city} and ${loc.region}. We're based in ${HOME_CITY}, but distance has never mattered — we work with clients all over the UK and most of the process happens online anyway.`,
+    `Looking for a web designer in ${loc.city}? AW Media builds modern, conversion-focused websites for businesses across ${loc.city} and ${loc.region}. We're based in ${HOME_CITY}, but distance has never mattered. We work with clients all over the UK and most of the process happens online anyway.`,
     `From sole traders to established companies, we help ${loc.city} businesses look more professional online than their competitors and turn more of their visitors into paying customers. No templates, no jargon, no agency waffle. Just a website that does its job.`,
     `We also cover ${nearbyList} and the surrounding ${loc.region} area. Two ways to work with us: AI-accelerated for speed and value, or fully bespoke when strategy and depth matter.`,
   ];
@@ -160,7 +160,7 @@ export function whyChoose(loc: LocationData): { title: string; description: stri
   return [
     {
       title: "Local understanding, national standard.",
-      description: `We know what works for ${loc.city} businesses, and we build to a standard that competes with any agency in the country — without the agency price tag.`,
+      description: `We know what works for ${loc.city} businesses, and we build to a standard that competes with any agency in the country, without the agency price tag.`,
     },
     {
       title: "Custom design, never templated.",
@@ -186,7 +186,7 @@ export function faqs(loc: LocationData): { question: string; answer: string }[] 
   return [
     {
       question: `Do you work with businesses in ${loc.city}?`,
-      answer: `Absolutely. We work with businesses across ${loc.city}, ${formatList(loc.nearby)} and the wider ${loc.region} area — as well as clients all over the UK. Most of the design process happens online, so wherever you are, it's easy to work together.`,
+      answer: `Absolutely. We work with businesses across ${loc.city}, ${formatList(loc.nearby)} and the wider ${loc.region} area, as well as clients all over the UK. Most of the design process happens online, so wherever you are, it's easy to work together.`,
     },
     {
       question: "Do we need to meet in person?",

@@ -1,17 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
+import { projects } from "@/data/projects";
 
-const logos = [
-  "Hard to Kill",
-  "Newgen Coaching",
-  "Lumina Stone",
-  "Glean App",
-  "Bridge2Fitness",
-  "Pyper Fitness",
-  "Myles Sheridan",
-  "PlugMeIn",
-];
+// Real clients, pulled straight from the Work page so the ticker stays in sync
+// as new projects are added. (Logos can replace these names later.)
+const logos = projects.map((p) => p.title);
 
 export default function TrustTicker() {
   return (

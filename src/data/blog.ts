@@ -73,6 +73,10 @@ export function getNonFeaturedPosts(): BlogPost[] {
   return blogPosts.filter((p) => p.slug !== featured.slug);
 }
 
+export function getLatestPosts(limit = 3): BlogPost[] {
+  return blogPosts.slice(0, limit);
+}
+
 export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
   const current = getPostBySlug(slug);
   if (!current) return [];

@@ -30,8 +30,15 @@ export default function TrustpilotWidget({
   useEffect(() => {
     const SRC = "https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js";
     const render = () => {
-      if (ref.current && window.Trustpilot) {
-        window.Trustpilot.loadFromElement(ref.current, true);
+      // Guard: only call into the bootstrap if it's actually present and the
+      // expected method is a function, and never let a bad businessUnitId /
+      // template ID (the live widget currently 400s) surface as a pageerror.
+      try {
+        if (ref.current && typeof window.Trustpilot?.loadFromElement === "function") {
+          window.Trustpilot.loadFromElement(ref.current, true);
+        }
+      } catch {
+        /* Trustpilot bootstrap failed (e.g. invalid businessUnitId / templateId) — fail silently. */
       }
     };
     if (window.Trustpilot) {

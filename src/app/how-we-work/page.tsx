@@ -345,6 +345,8 @@ export default function HowWeWorkPage() {
               viewport={{ once: true }}
               className="rounded-2xl border border-card-border bg-card overflow-hidden"
             >
+              <div className="overflow-x-auto">
+                <div className="min-w-[600px]">
               <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b border-card-border bg-background/50">
                 <div className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-muted">
                   What you get
@@ -376,6 +378,8 @@ export default function HowWeWorkPage() {
                   </div>
                 </div>
               ))}
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>

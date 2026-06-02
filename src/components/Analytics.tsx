@@ -33,10 +33,26 @@ export default function Analytics() {
       `}</Script>
 
       {/* Microsoft Clarity */}
+      {/*
+        Guarded loader. The GTM container (GTM-WKKHR3V) already ships a
+        Microsoft Clarity tag, which initialises window.clarity as an object.
+        The stock Clarity snippet's `c[a]=c[a]||function(){}` guard then
+        short-circuits to that object, leaving window.clarity a non-function.
+        The remote clarity.ms/tag script later calls window.clarity(...) and
+        throws "a[c] is not a function" on every page load.
+
+        Fix: only inject the Clarity tag (and install the queue stub) when
+        window.clarity is NOT already a function. This prevents the double
+        load + the runtime TypeError while preserving Clarity tracking
+        (it still loads — via GTM if present, or via this snippet if not).
+      */}
       <Script id="clarity" strategy="afterInteractive">{`
-        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function(c,l,a,r,i){
+          if (typeof c[a] === "function") return;        // already installed (stub or real)
+          if (c[a] && typeof c[a] !== "function") return; // GTM (or other) loaded Clarity already
+          c[a]=function(){(c[a].q=c[a].q||[]).push(arguments)};
+          var t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          var y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "uk9ecutvw0");
       `}</Script>
 

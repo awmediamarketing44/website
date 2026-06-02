@@ -8,7 +8,7 @@ import { projects } from "@/data/projects";
 
 const FEATURED_SLUGS = [
   "team-procoach",
-  "thecoachconsultant",
+  "newgen-coaching",
   "drug-free-bodybuilding",
   "jic",
   "nick-firth-tiles",

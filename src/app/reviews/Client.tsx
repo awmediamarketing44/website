@@ -6,7 +6,7 @@ import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
-import TrustpilotWidget, { TRUSTPILOT_PROFILE_URL } from "@/components/TrustpilotWidget";
+import { TRUSTPILOT_PROFILE_URL } from "@/components/TrustpilotWidget";
 import { testimonials } from "@/data/reviews";
 
 function Stars({ count = 5 }: { count?: number }) {
@@ -39,17 +39,22 @@ export default function ReviewsClient() {
           description="A decade of work, hundreds of websites, and clients across every industry. Here's what they actually say about working with AW Media."
         />
 
-        {/* Live Trustpilot */}
-        <section className="pb-16">
-          <div className="mx-auto max-w-5xl px-6">
-            <motion.div
+        {/* Trustpilot link strip (static badge — full profile lives on Trustpilot) */}
+        <section className="pb-8">
+          <div className="mx-auto max-w-5xl px-6 flex justify-center">
+            <motion.a
+              href={TRUSTPILOT_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="rounded-2xl border border-card-border bg-card p-6 lg:p-8"
+              className="flex items-center gap-3 rounded-full border border-card-border bg-card px-5 py-2.5 hover:border-pink/30 transition-colors duration-200"
             >
-              <TrustpilotWidget templateId="53aa8912dec7e10d38f59f36" height="260px" />
-            </motion.div>
+              <Stars count={5} />
+              <span className="text-sm font-semibold">Reviewed on Trustpilot</span>
+              <span className="text-xs text-muted">Read them all &rarr;</span>
+            </motion.a>
           </div>
         </section>
 

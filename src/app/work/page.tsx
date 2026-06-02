@@ -3,11 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
-import TiltCard from "@/components/TiltCard";
 import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
 import { projects } from "@/data/projects";
@@ -91,19 +90,16 @@ export default function WorkPage() {
             )}
 
             <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <AnimatePresence mode="popLayout">
                 {filtered.map((project) => (
                   <motion.div
-                    key={project.title}
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.4 }}
+                    key={project.slug}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ duration: 0.3 }}
                   >
                     <Link href={`/work/${project.slug}`}>
-                    <TiltCard>
-                      <div className="group relative rounded-2xl border border-card-border bg-card overflow-hidden transition-all duration-500 hover:border-pink/30 cursor-pointer">
+                      <div className="group relative rounded-2xl border border-card-border bg-card overflow-hidden transition-all duration-300 hover:border-pink/30 cursor-pointer">
                         <div className="aspect-[16/10] relative overflow-hidden bg-black">
                           {project.hasImages ? (
                             <Image
@@ -152,11 +148,9 @@ export default function WorkPage() {
                           </div>
                         </div>
                       </div>
-                    </TiltCard>
                     </Link>
                   </motion.div>
                 ))}
-              </AnimatePresence>
             </motion.div>
           </div>
         </section>

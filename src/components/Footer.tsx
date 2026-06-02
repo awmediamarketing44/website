@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 
 const iconClass = "h-4 w-4 fill-current";
 
@@ -18,7 +19,7 @@ const FacebookIcon = (
 
 const ThreadsIcon = (
   <svg viewBox="0 0 24 24" className={iconClass} aria-hidden>
-    <path d="M17.55 11.13c-.09-.04-.18-.08-.27-.12-.16-2.92-1.74-4.59-4.4-4.61h-.04c-1.59 0-2.91.68-3.73 1.92l1.46.99c.61-.92 1.57-1.12 2.27-1.12h.03c.88.01 1.54.27 1.97.76.31.36.52.86.62 1.49-.78-.13-1.62-.17-2.52-.12-2.54.14-4.17 1.62-4.06 3.68.06 1.04.58 1.94 1.46 2.53.75.5 1.71.74 2.71.68 1.33-.07 2.37-.58 3.1-1.51.55-.7.9-1.62 1.06-2.78.65.4 1.13.91 1.4 1.53.45 1.06.48 2.81-.95 4.23-1.25 1.25-2.75 1.79-5.01 1.81-2.51-.02-4.41-.82-5.65-2.39-1.16-1.47-1.76-3.6-1.78-6.32.02-2.72.62-4.84 1.78-6.31C5.99 4 7.89 3.2 10.4 3.18c2.53.02 4.46.83 5.74 2.4.63.77 1.1 1.74 1.41 2.87l1.71-.46c-.38-1.4-.97-2.6-1.78-3.59C15.86 2.4 13.5 1.4 10.41 1.38h-.01c-3.08.02-5.41 1.02-6.92 2.97C2.04 6.13 1.34 8.6 1.32 11.7v.02c.02 3.1.72 5.57 2.16 7.35 1.51 1.95 3.84 2.95 6.92 2.97h.01c2.73-.02 4.66-.74 6.25-2.32 2.08-2.08 2.02-4.69 1.33-6.29-.49-1.16-1.43-2.1-2.71-2.7-.21.59-.55 1.05-1 1.36-.45.32-.99.4-1.62.25-.49-.11-.93-.39-1.21-.78-.43-.6-.39-1.4.09-1.93.37-.42.9-.65 1.51-.65.2 0 .42.02.64.07.4.09.74.31 1.06.59-.04-.6-.14-1.13-.32-1.55-.27-.62-.71-1.06-1.26-1.34l-.01-.01.01.01z"/>
+    <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 4.379 3.616 6.499 3.535 9.95l.011 2.099c.081 3.45.772 5.57 2.119 7.117 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.36-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Z"/>
   </svg>
 );
 
@@ -65,7 +66,19 @@ const footerLinks = {
   ],
 };
 
+// Build-time baseline year. Both the server-rendered HTML and the first client
+// render use this constant, so hydration text matches (no React #418). After
+// mount we swap in the live year — only ever a no-op or a +1 once a year rolls
+// over while the tab is open, which the user won't notice.
+const BASE_YEAR = 2026;
+
 export default function Footer() {
+  const [year, setYear] = useState(BASE_YEAR);
+  useEffect(() => {
+    const current = new Date().getFullYear();
+    if (current !== BASE_YEAR) setYear(current);
+  }, []);
+
   return (
     <motion.footer
       initial={{ opacity: 0 }}
@@ -75,9 +88,9 @@ export default function Footer() {
       className="border-t border-card-border py-16"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
           {/* Logo column */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <span className="text-xl font-bold tracking-tight">
               aw<span className="text-pink">media</span>
             </span>
@@ -125,15 +138,15 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-card-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} AW Media & Marketing Ltd. All
+            &copy; {year} AW Media & Marketing Ltd. All
             rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-xs text-muted hover:text-white transition-colors">
+            <a href="/privacy-policy" className="text-xs text-muted hover:text-white transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-xs text-muted hover:text-white transition-colors">
-              Terms
+            <a href="/cookie-policy" className="text-xs text-muted hover:text-white transition-colors">
+              Cookie Policy
             </a>
           </div>
         </div>

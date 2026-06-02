@@ -30,67 +30,45 @@ export default function BrowserShowcase() {
 
   // ---- Mobile path: simple static layout, no pinned scrollytelling, no video ----
   if (!isDesktop) {
+    // Compact, fully static mobile layout — no scroll animations, fixed size.
     return (
-      <section
-        ref={sectionRef}
-        className="relative border-t border-card-border py-16 sm:py-20"
-      >
-        <div className="mx-auto max-w-7xl px-6 flex flex-col items-center gap-6 text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/85"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-pink animate-pulse" />
-            Recent Build · The Coach Consultant
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-5xl font-black leading-[0.95] tracking-tight"
-          >
+      <section className="relative border-t border-card-border py-10">
+        <div className="mx-auto flex max-w-md flex-col items-center gap-4 px-6 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/85">
+            <span className="h-1.5 w-1.5 rounded-full bg-pink" />
+            Recent Build · Newgen Coaching
+          </span>
+          <h2 className="text-3xl font-black leading-[0.95] tracking-tight">
             Built <span className="gradient-text">like this.</span>
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7 }}
-            className="w-full mt-2"
-          >
-            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_60px_-15px_rgba(249,38,114,0.35)] bg-[#0a0a0a]">
-              <div className="flex items-center gap-1.5 h-8 px-3 border-b border-white/10 bg-white/[0.03]">
-                <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-                <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
-                <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-                <div className="flex-1 mx-2 h-4 rounded bg-white/5 border border-white/10 flex items-center px-2 text-[9px] text-muted font-mono">
-                  thecoachconsultant.uk
-                </div>
+          <div className="w-full max-w-[300px] overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0a] shadow-[0_12px_40px_-15px_rgba(249,38,114,0.4)]">
+            <div className="flex h-7 items-center gap-1.5 border-b border-white/10 bg-white/[0.03] px-3">
+              <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+              <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+              <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+              <div className="mx-2 flex h-3.5 flex-1 items-center rounded border border-white/10 bg-white/5 px-2 font-mono text-[9px] text-muted">
+                newgencoaching.uk
               </div>
-              <img
-                src="/images/tcc-scroll-poster.jpg"
-                alt="The Coach Consultant, a recent AW Media build."
-                loading="lazy"
-                className="block w-full aspect-[1440/900] object-cover bg-black"
-              />
             </div>
-          </motion.div>
+            <img
+              src="/images/newgen-hero-v3.jpg"
+              alt="Newgen Coaching, a recent AW Media build."
+              width={1280}
+              height={800}
+              className="block aspect-[16/10] w-full bg-black object-cover object-top"
+            />
+          </div>
 
-          <p className="text-sm text-muted max-w-md leading-relaxed mt-2">
-            Real client work. AI-accelerated build, shipped in weeks not months.
-            Same craft as a six-month bespoke.
+          <p className="text-sm leading-relaxed text-muted">
+            Real client work. AI-accelerated, shipped in weeks not months.
           </p>
         </div>
       </section>
     );
   }
 
-  // ---- Desktop path: full pinned scrollytelling with the recorded TCC scroll loop ----
+  // ---- Desktop path: full pinned scrollytelling with the Newgen scroll loop ----
   return <DesktopBrowserShowcase wrapperRef={sectionRef} videoReady={videoReady} />;
 }
 
@@ -134,7 +112,7 @@ function DesktopBrowserShowcase({
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/85"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-pink animate-pulse" />
-              Recent Build · The Coach Consultant
+              Recent Build · Newgen Coaching
             </motion.span>
             <motion.h2
               style={{ opacity: headlineOpacity, y: headlineY }}
@@ -163,7 +141,7 @@ function DesktopBrowserShowcase({
                   <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#28c840]" />
                   <div className="flex-1 mx-2 sm:mx-3 h-5 sm:h-6 rounded-md bg-white/5 border border-white/10 flex items-center px-3 text-[10px] sm:text-xs text-muted font-mono">
                     <span className="hidden sm:inline text-pink/70 mr-1">https://</span>
-                    thecoachconsultant.uk
+                    newgencoaching.uk
                   </div>
                   <div className="hidden sm:flex items-center gap-1.5 opacity-50">
                     <span className="w-3 h-3 rounded-sm border border-white/20" />
@@ -177,15 +155,15 @@ function DesktopBrowserShowcase({
                     muted
                     playsInline
                     preload="metadata"
-                    poster="/images/tcc-scroll-poster.jpg"
+                    poster="/images/newgen-hero-v3.jpg"
                     className="block w-full h-[calc(100%-2.25rem)] sm:h-[calc(100%-2.75rem)] object-cover bg-black"
                   >
-                    <source src="/videos/tcc-scroll-loop.webm" type="video/webm" />
-                    <source src="/videos/tcc-scroll-loop.mp4" type="video/mp4" />
+                    <source src="/videos/newgen-scroll-loop-v2.webm" type="video/webm" />
+                    <source src="/videos/newgen-scroll-loop-v2.mp4" type="video/mp4" />
                   </video>
                 ) : (
                   <img
-                    src="/images/tcc-scroll-poster.jpg"
+                    src="/images/newgen-hero-v3.jpg"
                     alt=""
                     className="block w-full h-[calc(100%-2.25rem)] sm:h-[calc(100%-2.75rem)] object-cover bg-black"
                   />

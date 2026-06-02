@@ -943,7 +943,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Compare that to: “Lost 3 stone in 5 months, went from avoiding mirrors to confident in a bikini, can’t thank Alex enough – Sarah, Sheffield”"
+        "text": "Compare that to: “Lost 3 stone in 5 months, went from avoiding mirrors to confident in a bikini, can’t thank Alex enough - Sarah, Sheffield”"
       },
       {
         "type": "p",
@@ -4324,7 +4324,7 @@ const importedWpPosts: BlogPost[] = [
       {
         "type": "ol",
         "items": [
-          "Lead with credibility: Years of experience, quality of clients, investment in equipment – these matter in B2B.",
+          "Lead with credibility: Years of experience, quality of clients, investment in equipment - these matter in B2B.",
           "Address the practical concerns: Turnaround times, quality standards, range of applications. Businesses need to know you can deliver.",
           "Show, don’t just tell: Customer reviews and logos carry more weight than any amount of marketing copy."
         ]
@@ -4739,8 +4739,8 @@ const importedWpPosts: BlogPost[] = [
     "slug": "why-the-gym-helps-me-run-my-web-design-agency",
     "title": "Why the gym helps me run my web design agency",
     "tag": "Insights",
-    "excerpt": "Running a design agency’s a mad mix of deadlines, feedback loops, and early morning & evening designs. Staying in shape keeps me sane — and sharp. Here’s why I graft in the gym as much as I do behind ",
-    "metaDescription": "Running a design agency’s a mad mix of deadlines, feedback loops, and early morning & evening designs. Staying in shape keeps me sane — and sharp. Here’s why ",
+    "excerpt": "Running a design agency’s a mad mix of deadlines, feedback loops, and early morning & evening designs. Staying in shape keeps me sane, and sharp. Here’s why I graft in the gym as much as I do behind ",
+    "metaDescription": "Running a design agency’s a mad mix of deadlines, feedback loops, and early morning & evening designs. Staying in shape keeps me sane, and sharp. Here’s why ",
     "date": "June 2025",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/why-the-gym-helps-me-run-my-web-design-agency.jpg",
@@ -4751,7 +4751,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Staying in shape keeps me sane — and sharp."
+        "text": "Staying in shape keeps me sane, and sharp."
       },
       {
         "type": "p",
@@ -4759,11 +4759,11 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "💥 Discipline carries over — if I can smash leg day, I can handle a last-minute brief."
+        "text": "💥 Discipline carries over, if I can smash leg day, I can handle a last-minute brief."
       },
       {
         "type": "p",
-        "text": "🧠 Clears my head — good for ideas, better for not losing my sh*t over feedback."
+        "text": "🧠 Clears my head, good for ideas, better for not losing my sh*t over feedback."
       },
       {
         "type": "p",
@@ -4775,7 +4775,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "🛠 Same mindset builds muscle and a business — show up, do the work, no shortcuts."
+        "text": "🛠 Same mindset builds muscle and a business, show up, do the work, no shortcuts."
       },
       {
         "type": "p",
@@ -4783,11 +4783,11 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "It’s not just about looking good — it’s about showing up better in everything else."
+        "text": "It’s not just about looking good, it’s about showing up better in everything else."
       },
       {
         "type": "p",
-        "text": "Energy, mood, routine, mindset – all on point right now."
+        "text": "Energy, mood, routine, mindset - all on point right now."
       },
       {
         "type": "p",
@@ -4803,8 +4803,8 @@ const importedWpPosts: BlogPost[] = [
     "slug": "what-your-website-is-saying-behind-your-back",
     "title": "What Your Website Is Saying Behind Your Back",
     "tag": "Insights",
-    "excerpt": "Imagine someone clicks on your site and immediately thinks: “Nope.” It happens more than you’d think – and often, it’s not your fault. 1. “This Business Is Old-School or Out of Touch” If your design l",
-    "metaDescription": "Imagine someone clicks on your site and immediately thinks: “Nope.” It happens more than you’d think – and often, it’s not your fault. 1. “This Business Is Ol",
+    "excerpt": "Imagine someone clicks on your site and immediately thinks: “Nope.” It happens more than you’d think - and often, it’s not your fault. 1. “This Business Is Old-School or Out of Touch” If your design l",
+    "metaDescription": "Imagine someone clicks on your site and immediately thinks: “Nope.” It happens more than you’d think - and often, it’s not your fault. 1. “This Business Is Ol",
     "date": "June 2025",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/what-your-website-is-saying-behind-your-back.jpg",
@@ -4815,7 +4815,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "It happens more than you’d think – and often, it’s not your fault."
+        "text": "It happens more than you’d think - and often, it’s not your fault."
       },
       {
         "type": "h2",
@@ -4823,7 +4823,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "If your design looks dated, people assume everything about you is. Fonts, colours, spacing – it all says something."
+        "text": "If your design looks dated, people assume everything about you is. Fonts, colours, spacing - it all says something."
       },
       {
         "type": "h2",
@@ -4857,7 +4857,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "googles-watching-you-and-youre-invisible",
-    "title": "Google’s Watching You – And You’re Invisible",
+    "title": "Google’s Watching You - And You’re Invisible",
     "tag": "Insights",
     "excerpt": "Think your website’s doing alright just because it exists? Think again. Google processes over 8.5 billion searches a day. If your site isn’t optimised, listed properly, and loading fast, you’re not ju",
     "metaDescription": "Think your website’s doing alright just because it exists? Think again. Google processes over 8.5 billion searches a day. If your site isn’t optimised, listed",
@@ -4871,7 +4871,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Google processes over 8.5 billion searches a day. If your site isn’t optimised, listed properly, and loading fast, you’re not just low on the list – you’re not even in the room."
+        "text": "Google processes over 8.5 billion searches a day. If your site isn’t optimised, listed properly, and loading fast, you’re not just low on the list - you’re not even in the room."
       },
       {
         "type": "h2",
@@ -4887,7 +4887,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Small businesses often ignore SEO thinking it’s too techy or expensive. But basic optimisation – like speed, keywords, metadata, and backlinks – is the minimum standard in 2025."
+        "text": "Small businesses often ignore SEO thinking it’s too techy or expensive. But basic optimisation - like speed, keywords, metadata, and backlinks - is the minimum standard in 2025."
       },
       {
         "type": "h2",
@@ -4895,7 +4895,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Your rivals are trying to rank. Most of them are getting it wrong. Which means it’s actually easier than you think to outrank them – if you know what you’re doing."
+        "text": "Your rivals are trying to rank. Most of them are getting it wrong. Which means it’s actually easier than you think to outrank them - if you know what you’re doing."
       },
       {
         "type": "h2",
@@ -4911,7 +4911,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Want to Know Where You Stand? 👉 [Request a free SEO audit] Let us show you where you’re smashing it – and where you’re ghosting your customers."
+        "text": "Want to Know Where You Stand? 👉 [Request a free SEO audit] Let us show you where you’re smashing it - and where you’re ghosting your customers."
       }
     ]
   },
@@ -4919,15 +4919,15 @@ const importedWpPosts: BlogPost[] = [
     "slug": "is-your-website-just-a-pretty-face",
     "title": "Is Your Website Just a Pretty Face?",
     "tag": "Insights",
-    "excerpt": "We’ve all seen those websites — sleek fonts, stunning images, beautiful colours…But here’s the real question: Is your website just a pretty face, or is it actually doing its job? Because while good de",
-    "metaDescription": "We’ve all seen those websites — sleek fonts, stunning images, beautiful colours…But here’s the real question: Is your website just a pretty face, or is it act",
+    "excerpt": "We’ve all seen those websites, sleek fonts, stunning images, beautiful colours…But here’s the real question: Is your website just a pretty face, or is it actually doing its job? Because while good de",
+    "metaDescription": "We’ve all seen those websites, sleek fonts, stunning images, beautiful colours…But here’s the real question: Is your website just a pretty face, or is it act",
     "date": "April 2025",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/is-your-website-just-a-pretty-face.jpg",
     "body": [
       {
         "type": "p",
-        "text": "We’ve all seen those websites — sleek fonts, stunning images, beautiful colours… But here’s the real question:"
+        "text": "We’ve all seen those websites, sleek fonts, stunning images, beautiful colours… But here’s the real question:"
       },
       {
         "type": "p",
@@ -4947,7 +4947,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "If your website takes too long to load, your visitors won’t wait around. They’ll click off, make a cuppa, and probably not come back. Speed isn’t just a bonus — it’s essential."
+        "text": "If your website takes too long to load, your visitors won’t wait around. They’ll click off, make a cuppa, and probably not come back. Speed isn’t just a bonus, it’s essential."
       },
       {
         "type": "h3",
@@ -4955,7 +4955,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Can your visitors easily find what they’re looking for? If they’re hunting for your booking page like it’s hidden treasure, that’s a problem. Good navigation should be effortless — think sat nav, not maze."
+        "text": "Can your visitors easily find what they’re looking for? If they’re hunting for your booking page like it’s hidden treasure, that’s a problem. Good navigation should be effortless, think sat nav, not maze."
       },
       {
         "type": "h3",
@@ -4963,7 +4963,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Over 80% of people browse websites on their phones. If your site’s only designed for desktop, you’re likely losing a huge chunk of your audience. Mobile-first isn’t optional anymore — it’s a must."
+        "text": "Over 80% of people browse websites on their phones. If your site’s only designed for desktop, you’re likely losing a huge chunk of your audience. Mobile-first isn’t optional anymore, it’s a must."
       },
       {
         "type": "h3",
@@ -4971,7 +4971,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "If your visitors don’t know what to do next, they probably won’t do anything at all. A clear CTA (call to action) is like putting a front door on your business — don’t make people guess how to work with you."
+        "text": "If your visitors don’t know what to do next, they probably won’t do anything at all. A clear CTA (call to action) is like putting a front door on your business, don’t make people guess how to work with you."
       },
       {
         "type": "h3",
@@ -4979,7 +4979,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "A beautiful design with no clear message, no purpose, and no structure? That’s just showing off. Design should support your content and make your services shine — not get in the way."
+        "text": "A beautiful design with no clear message, no purpose, and no structure? That’s just showing off. Design should support your content and make your services shine, not get in the way."
       },
       {
         "type": "h3",
@@ -4987,11 +4987,11 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "If any of the above sounds familiar, don’t worry — you’re not alone. The good news? It’s 100% fixable."
+        "text": "If any of the above sounds familiar, don’t worry, you’re not alone. The good news? It’s 100% fixable."
       },
       {
         "type": "p",
-        "text": "I design websites that don’t just look good — they actually work. If you’re ready for a site that’s got beauty and brains, you know where I am."
+        "text": "I design websites that don’t just look good, they actually work. If you’re ready for a site that’s got beauty and brains, you know where I am."
       },
       {
         "type": "p",
@@ -5003,7 +5003,7 @@ const importedWpPosts: BlogPost[] = [
     "slug": "how-instagram-carousels-can-boost-your-engagement",
     "title": "How Instagram Carousels Can Boost Your Engagement",
     "tag": "Insights",
-    "excerpt": "If you’re looking to grow your Instagram without constantly posting more content, there’s one format you need to be using: carousels. These multi-image or multi-slide posts are more than just a trend—",
+    "excerpt": "If you’re looking to grow your Instagram without constantly posting more content, there’s one format you need to be using: carousels. These multi-image or multi-slide posts are more than just a trend, ",
     "metaDescription": "If you’re looking to grow your Instagram without constantly posting more content, there’s one format you need to be using: carousels. These multi-image or mul",
     "date": "April 2025",
     "readingMinutes": 2,
@@ -5015,7 +5015,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "These multi-image or multi-slide posts are more than just a trend—they’re a powerful tool for increasing engagement, reach, and the time people spend on your content. Here’s why they work so well, and how you can start using them effectively."
+        "text": "These multi-image or multi-slide posts are more than just a trend, they’re a powerful tool for increasing engagement, reach, and the time people spend on your content. Here’s why they work so well, and how you can start using them effectively."
       },
       {
         "type": "h3",
@@ -5060,7 +5060,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Think of the first slide like a headline—it needs to grab attention straight away. If your opener isn’t compelling, your audience will just keep scrolling."
+        "text": "Think of the first slide like a headline, it needs to grab attention straight away. If your opener isn’t compelling, your audience will just keep scrolling."
       },
       {
         "type": "p",
@@ -5072,7 +5072,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "One of the best things about carousels is how reusable they are. You can re-share the same post to your stories several times, each time focusing on a different slide. It keeps the content fresh and gives it more chances to be seen—without creating anything new."
+        "text": "One of the best things about carousels is how reusable they are. You can re-share the same post to your stories several times, each time focusing on a different slide. It keeps the content fresh and gives it more chances to be seen, without creating anything new."
       },
       {
         "type": "h3",
@@ -5080,7 +5080,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "If you haven’t used carousels much yet, now’s the time to start. With a bit of planning and a strong hook, they can seriously level up your engagement—without the burnout of daily posting."
+        "text": "If you haven’t used carousels much yet, now’s the time to start. With a bit of planning and a strong hook, they can seriously level up your engagement, without the burnout of daily posting."
       },
       {
         "type": "p",
@@ -5094,17 +5094,17 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "logo-design-sheffield-strong-with-sophie",
-    "title": "Logo Design Sheffield – Strong with Sophie",
+    "title": "Logo Design Sheffield - Strong with Sophie",
     "tag": "Insights",
-    "excerpt": "Client Showcase – @strong_withsophie 🚨 Delighted to share with you the REBRAND for Sophie. Over the moon with the outcome. The fonts, the styling, the colours all just work! ✅ Logo Design✅ Brand Guid",
-    "metaDescription": "Client Showcase – @strong_withsophie 🚨 Delighted to share with you the REBRAND for Sophie. Over the moon with the outcome. The fonts, the styling, the colour",
+    "excerpt": "Client Showcase - @strong_withsophie 🚨 Delighted to share with you the REBRAND for Sophie. Over the moon with the outcome. The fonts, the styling, the colours all just work! ✅ Logo Design✅ Brand Guid",
+    "metaDescription": "Client Showcase - @strong_withsophie 🚨 Delighted to share with you the REBRAND for Sophie. Over the moon with the outcome. The fonts, the styling, the colour",
     "date": "March 2025",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/logo-design-sheffield-strong-with-sophie.jpg",
     "body": [
       {
         "type": "p",
-        "text": "Client Showcase – @strong_withsophie 🚨"
+        "text": "Client Showcase - @strong_withsophie 🚨"
       },
       {
         "type": "p",
@@ -5288,7 +5288,7 @@ const importedWpPosts: BlogPost[] = [
     "body": [
       {
         "type": "p",
-        "text": "As the calendar flips to a new year, many of us embrace the opportunity to start fresh, set goals, and create plans for improvement. Your website deserves the same attention. In today’s fast-paced digital landscape, keeping your website updated isn’t just a nice-to-have—it’s a necessity. Here’s why giving your website a refresh for the new year should be at the top of your to-do list."
+        "text": "As the calendar flips to a new year, many of us embrace the opportunity to start fresh, set goals, and create plans for improvement. Your website deserves the same attention. In today’s fast-paced digital landscape, keeping your website updated isn’t just a nice-to-have, it’s a necessity. Here’s why giving your website a refresh for the new year should be at the top of your to-do list."
       },
       {
         "type": "h2",
@@ -5304,7 +5304,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "First impressions matter. If your website looks outdated or is difficult to navigate, you risk losing potential customers before they’ve had a chance to explore what you offer. Modern web design trends prioritise speed, accessibility, and intuitive navigation—all key elements of a positive user experience. Updating your website allows you to implement these features, ensuring visitors stay engaged and convert into loyal customers."
+        "text": "First impressions matter. If your website looks outdated or is difficult to navigate, you risk losing potential customers before they’ve had a chance to explore what you offer. Modern web design trends prioritise speed, accessibility, and intuitive navigation, all key elements of a positive user experience. Updating your website allows you to implement these features, ensuring visitors stay engaged and convert into loyal customers."
       },
       {
         "type": "h2",
@@ -5344,7 +5344,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Updating your website doesn’t have to mean a complete overhaul. Sometimes small changes—like updating imagery, tweaking colour schemes, or refining your copy—can make a big difference. For more comprehensive updates, consider partnering with experts who understand how to balance aesthetics with functionality."
+        "text": "Updating your website doesn’t have to mean a complete overhaul. Sometimes small changes, like updating imagery, tweaking colour schemes, or refining your copy, can make a big difference. For more comprehensive updates, consider partnering with experts who understand how to balance aesthetics with functionality."
       },
       {
         "type": "p",
@@ -5352,7 +5352,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Let’s make this year your best yet—starting with your website."
+        "text": "Let’s make this year your best yet, starting with your website."
       }
     ]
   },
@@ -5416,7 +5416,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Small, intuitive animations—like a button changing colour when hovered over or a subtle bounce effect when scrolling—are becoming standard. These micro-interactions help guide users, reward engagement, and make the overall experience feel more polished."
+        "text": "Small, intuitive animations, like a button changing colour when hovered over or a subtle bounce effect when scrolling, are becoming standard. These micro-interactions help guide users, reward engagement, and make the overall experience feel more polished."
       },
       {
         "type": "h2",
@@ -5468,13 +5468,13 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Looking to update your website with the latest trends? Our team at [Your Agency Name] specialises in crafting cutting-edge designs tailored to your business. Let’s make your vision a reality—get in touch today!"
+        "text": "Looking to update your website with the latest trends? Our team at [Your Agency Name] specialises in crafting cutting-edge designs tailored to your business. Let’s make your vision a reality, get in touch today!"
       }
     ]
   },
   {
     "slug": "website-launch-high-tech-greens",
-    "title": "Website Launch – High Tech Greens",
+    "title": "Website Launch - High Tech Greens",
     "tag": "Insights",
     "excerpt": "The Project We was approached by Kerryann from High Tech Greens as they knew the current website wasn’t up to scratch and was affecting potential new custom. We went back and forth with a design to co",
     "metaDescription": "The Project We was approached by Kerryann from High Tech Greens as they knew the current website wasn’t up to scratch and was affecting potential new custom. ",
@@ -5584,7 +5584,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "If budget is a concern, consider launching with a smaller website that can grow with your business. This approach, known as a Minimum Viable Product (MVP) website, allows you to go live quickly with a basic site that can be scaled as your needs (and budget) expand. You can start with the essentials—a home page, a contact page, and a service or product overview—then add more advanced features as your business grows."
+        "text": "If budget is a concern, consider launching with a smaller website that can grow with your business. This approach, known as a Minimum Viable Product (MVP) website, allows you to go live quickly with a basic site that can be scaled as your needs (and budget) expand. You can start with the essentials, a home page, a contact page, and a service or product overview, then add more advanced features as your business grows."
       },
       {
         "type": "h2",
@@ -5632,7 +5632,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Not all web design agencies are created equal—especially when it comes to understanding the unique needs and budget constraints of startups. Partnering with an agency experienced in affordable web design for new businesses can make a huge difference. Look for an agency that prioritises communication, values your vision, and is willing to work within your budget."
+        "text": "Not all web design agencies are created equal, especially when it comes to understanding the unique needs and budget constraints of startups. Partnering with an agency experienced in affordable web design for new businesses can make a huge difference. Look for an agency that prioritises communication, values your vision, and is willing to work within your budget."
       },
       {
         "type": "p",
@@ -5694,7 +5694,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "landing-page-launch-km-fitness",
-    "title": "Landing Page Launch – KM Fitness",
+    "title": "Landing Page Launch - KM Fitness",
     "tag": "Insights",
     "excerpt": "8 Week Challenge landing page created for @km_fitness_uk 💪 After to previously working with KM Fitness along side @thecoachconsultant to create graphics for socials, a calorie calculator lead gen, Ke",
     "metaDescription": "8 Week Challenge landing page created for @km_fitness_uk 💪 After to previously working with KM Fitness along side @thecoachconsultant to create graphics for ",
@@ -5802,7 +5802,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "new-website-launch-harvey-morton-digital",
-    "title": "New Website Launch – Harvey Morton Digital",
+    "title": "New Website Launch - Harvey Morton Digital",
     "tag": "Insights",
     "excerpt": "About Harvey Morton’s Project Harvey approached me not long back now wanting to level up his website. After previously building his own in Wix, he knew it was time to find a web design agency to make ",
     "metaDescription": "About Harvey Morton’s Project Harvey approached me not long back now wanting to level up his website. After previously building his own in Wix, he knew it was",
@@ -5838,7 +5838,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "website-launch-wombwell-foot-clinic",
-    "title": "Website Launch – Wombwell Foot Clinic",
+    "title": "Website Launch - Wombwell Foot Clinic",
     "tag": "Insights",
     "excerpt": "New website launch for @wombwellfootclinic 🚀 Lucy approached me wanting to level her up her 2 websites that she had for two clinics Wombell & Brinsworth Foot Clinic that was previously built on Wix. ",
     "metaDescription": "New website launch for @wombwellfootclinic 🚀 Lucy approached me wanting to level her up her 2 websites that she had for two clinics Wombell & Brinsworth Foot",
@@ -5852,7 +5852,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Lucy approached me wanting to level her up her 2 websites that she had for two clinics Wombell & Brinsworth Foot Clinic that was previously built on Wix. The content was great, but the design and UX wasn’t – so it was time we make it stand out from all her competitors 👣"
+        "text": "Lucy approached me wanting to level her up her 2 websites that she had for two clinics Wombell & Brinsworth Foot Clinic that was previously built on Wix. The content was great, but the design and UX wasn’t - so it was time we make it stand out from all her competitors 👣"
       },
       {
         "type": "p",
@@ -5874,7 +5874,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "8-week-challenge-fitness-landing-page",
-    "title": "8 Week Challenge – Fitness Landing Page",
+    "title": "8 Week Challenge - Fitness Landing Page",
     "tag": "Insights",
     "excerpt": "8 Week Challenge Launch for @padraigmcparland 🚀 Padraig (PMP Fitness) is currently on fire on @thecoachconsultant PROPEL PROGRAM but it was time to level up his online presence with a fitness landing",
     "metaDescription": "8 Week Challenge Launch for @padraigmcparland 🚀 Padraig (PMP Fitness) is currently on fire on @thecoachconsultant PROPEL PROGRAM but it was time to level up ",
@@ -5990,7 +5990,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "website-launch-thrive-online-coaching",
-    "title": "Website Launch – Thrive Online Coaching",
+    "title": "Website Launch - Thrive Online Coaching",
     "tag": "Insights",
     "excerpt": "Fitness Professional Website launch for Tara @taragfit | and her business Thrive Online Coaching💻 Tara is currently on @thecoachconsultant agency program and was looking to level up and get a new web",
     "metaDescription": "Fitness Professional Website launch for Tara @taragfit | and her business Thrive Online Coaching💻 Tara is currently on @thecoachconsultant agency program and",
@@ -6076,7 +6076,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "While it’s essential to target broad, high-volume keywords, long-tail keywords — longer, more specific phrases — can be equally valuable. These are often less competitive but highly relevant to your niche. Blogging provides the perfect platform to explore these long-tail keywords."
+        "text": "While it’s essential to target broad, high-volume keywords, long-tail keywords, longer, more specific phrases, can be equally valuable. These are often less competitive but highly relevant to your niche. Blogging provides the perfect platform to explore these long-tail keywords."
       },
       {
         "type": "p",
@@ -6112,7 +6112,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Search engines are increasingly prioritising user experience (UX) as a ranking factor. When visitors find your blog content useful, they’re more likely to engage with it — by spending more time on your page, sharing it on social media, or exploring other parts of your website."
+        "text": "Search engines are increasingly prioritising user experience (UX) as a ranking factor. When visitors find your blog content useful, they’re more likely to engage with it, by spending more time on your page, sharing it on social media, or exploring other parts of your website."
       },
       {
         "type": "p",
@@ -6870,23 +6870,23 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Refreshing your website can be a daunting task, but the benefits far outweigh the effort. A modern, user-friendly site can enhance your brand’s online presence, improve user engagement, and ultimately drive more conversions. If you recognise any of these signs, it may be time to start planning your website’s next chapter. Remember, a great website is never truly finished – it evolves with your business and the ever-changing digital landscape."
+        "text": "Refreshing your website can be a daunting task, but the benefits far outweigh the effort. A modern, user-friendly site can enhance your brand’s online presence, improve user engagement, and ultimately drive more conversions. If you recognise any of these signs, it may be time to start planning your website’s next chapter. Remember, a great website is never truly finished - it evolves with your business and the ever-changing digital landscape."
       }
     ]
   },
   {
     "slug": "shopify-website-bebe-cosmetics",
-    "title": "Shopify Website – Bebe Cosmetics",
+    "title": "Shopify Website - Bebe Cosmetics",
     "tag": "News",
-    "excerpt": "Website Launch Part 8 – @bebecosmeticsofficial 🧑🏽‍💻 New Shopify website for the Brow Queen herself, Katie and her baby Bebe Cosmetics 🖥️ It was time for a website refresh, and due the amount of or",
-    "metaDescription": "Website Launch Part 8 – @bebecosmeticsofficial 🧑🏽‍💻 New Shopify website for the Brow Queen herself, Katie and her baby Bebe Cosmetics 🖥️ It was time for a",
+    "excerpt": "Website Launch Part 8 - @bebecosmeticsofficial 🧑🏽‍💻 New Shopify website for the Brow Queen herself, Katie and her baby Bebe Cosmetics 🖥️ It was time for a website refresh, and due the amount of or",
+    "metaDescription": "Website Launch Part 8 - @bebecosmeticsofficial 🧑🏽‍💻 New Shopify website for the Brow Queen herself, Katie and her baby Bebe Cosmetics 🖥️ It was time for a",
     "date": "July 2024",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/shopify-website-bebe-cosmetics.jpg",
     "body": [
       {
         "type": "p",
-        "text": "Website Launch Part 8 – @bebecosmeticsofficial 🧑🏽‍💻"
+        "text": "Website Launch Part 8 - @bebecosmeticsofficial 🧑🏽‍💻"
       },
       {
         "type": "p",
@@ -6946,15 +6946,15 @@ const importedWpPosts: BlogPost[] = [
     "slug": "elevate-your-small-business-with-a-website",
     "title": "Elevate Your Small Business with a Website!",
     "tag": "Insights",
-    "excerpt": "In today’s digital age, having a website is no longer just a luxury—it’s a necessity for small businesses! Here’s why taking your business online can make all the difference: 1️⃣ Enhanced Visibility: ",
-    "metaDescription": "In today’s digital age, having a website is no longer just a luxury—it’s a necessity for small businesses! Here’s why taking your business online can make all",
+    "excerpt": "In today’s digital age, having a website is no longer just a luxury, it’s a necessity for small businesses! Here’s why taking your business online can make all the difference: 1️⃣ Enhanced Visibility: ",
+    "metaDescription": "In today’s digital age, having a website is no longer just a luxury, it’s a necessity for small businesses! Here’s why taking your business online can make all",
     "date": "June 2024",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/elevate-your-small-business-with-a-website.jpg",
     "body": [
       {
         "type": "p",
-        "text": "In today’s digital age, having a website is no longer just a luxury—it’s a necessity for small businesses! Here’s why taking your business online can make all the difference:"
+        "text": "In today’s digital age, having a website is no longer just a luxury, it’s a necessity for small businesses! Here’s why taking your business online can make all the difference:"
       },
       {
         "type": "p",
@@ -7178,7 +7178,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Shopify’s intuitive design is one of its most celebrated features. Setting up your online store is a breeze, even if you have no prior technical expertise. The platform provides a step-by-step guide to help you through the setup process, allowing you to focus more on what you do best—running your business."
+        "text": "Shopify’s intuitive design is one of its most celebrated features. Setting up your online store is a breeze, even if you have no prior technical expertise. The platform provides a step-by-step guide to help you through the setup process, allowing you to focus more on what you do best, running your business."
       },
       {
         "type": "h3",
@@ -7258,23 +7258,23 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Choosing the right platform for your eCommerce website can make all the difference between struggle and success. With its user-friendly interface, robust security, powerful SEO tools, and comprehensive app store, Shopify empowers you to build and grow a thriving online business. Don’t settle for less—unlock your store’s full potential with Shopify today!"
+        "text": "Choosing the right platform for your eCommerce website can make all the difference between struggle and success. With its user-friendly interface, robust security, powerful SEO tools, and comprehensive app store, Shopify empowers you to build and grow a thriving online business. Don’t settle for less, unlock your store’s full potential with Shopify today!"
       }
     ]
   },
   {
     "slug": "new-website-launch-elms-dental-clinic-essex",
-    "title": "New Website Launch – Elms Dental Clinic, Essex",
+    "title": "New Website Launch - Elms Dental Clinic, Essex",
     "tag": "Insights",
-    "excerpt": "Website Launch Part 6 – The Elms Dentist Maldon 🧑🏽‍💻 After previously working with @b3x_graphics on her own personal website, Bex approached me to help her family with their private practice websit",
-    "metaDescription": "Website Launch Part 6 – The Elms Dentist Maldon 🧑🏽‍💻 After previously working with @b3x_graphics on her own personal website, Bex approached me to help her",
+    "excerpt": "Website Launch Part 6 - The Elms Dentist Maldon 🧑🏽‍💻 After previously working with @b3x_graphics on her own personal website, Bex approached me to help her family with their private practice websit",
+    "metaDescription": "Website Launch Part 6 - The Elms Dentist Maldon 🧑🏽‍💻 After previously working with @b3x_graphics on her own personal website, Bex approached me to help her",
     "date": "June 2024",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/new-website-launch-elms-dental-clinic-essex.jpg",
     "body": [
       {
         "type": "h2",
-        "text": "Website Launch Part 6 – The Elms Dentist Maldon 🧑🏽‍💻"
+        "text": "Website Launch Part 6 - The Elms Dentist Maldon 🧑🏽‍💻"
       },
       {
         "type": "p",
@@ -7286,7 +7286,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "If you saw what they previously had, then it was a site for sore eyes – so this is defo a step in the right direction! 📈"
+        "text": "If you saw what they previously had, then it was a site for sore eyes - so this is defo a step in the right direction! 📈"
       },
       {
         "type": "h2",
@@ -7306,7 +7306,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "At awmedia.marketing, we’re a design agency that dares to defy norms and redefine the conventional. Our goal is to offer an unparallelled service in our industry through expertise, insight, and unwavering energy – always ready to take on any challenge."
+        "text": "At awmedia.marketing, we’re a design agency that dares to defy norms and redefine the conventional. Our goal is to offer an unparallelled service in our industry through expertise, insight, and unwavering energy - always ready to take on any challenge."
       },
       {
         "type": "p",
@@ -7316,17 +7316,17 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "web-design-launch-hard-to-kill-marc-rhodes",
-    "title": "Web Design Launch – Hard to Kill (Marc Rhodes)",
+    "title": "Web Design Launch - Hard to Kill (Marc Rhodes)",
     "tag": "Insights",
-    "excerpt": "Welcome to another web design launch – and this time it is for Marc Rhodes and his business Hard to Kill. Web Design Outcome ✅ Custom website design✅ Custom website build✅ Website Hosting, SSL & Email",
-    "metaDescription": "Welcome to another web design launch – and this time it is for Marc Rhodes and his business Hard to Kill. Web Design Outcome ✅ Custom website design✅ Custom w",
+    "excerpt": "Welcome to another web design launch - and this time it is for Marc Rhodes and his business Hard to Kill. Web Design Outcome ✅ Custom website design✅ Custom website build✅ Website Hosting, SSL & Email",
+    "metaDescription": "Welcome to another web design launch - and this time it is for Marc Rhodes and his business Hard to Kill. Web Design Outcome ✅ Custom website design✅ Custom w",
     "date": "May 2024",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/web-design-launch-hard-to-kill-marc-rhodes.jpg",
     "body": [
       {
         "type": "p",
-        "text": "Welcome to another web design launch – and this time it is for Marc Rhodes and his business Hard to Kill."
+        "text": "Welcome to another web design launch - and this time it is for Marc Rhodes and his business Hard to Kill."
       },
       {
         "type": "h2",
@@ -7342,7 +7342,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "At awmedia.marketing, we believe your website should both look great and embody your brand online. We’re not tied to any framework – we’ll choose the best solution for you."
+        "text": "At awmedia.marketing, we believe your website should both look great and embody your brand online. We’re not tied to any framework - we’ll choose the best solution for you."
       },
       {
         "type": "h2",
@@ -7350,7 +7350,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Beyond standard website design, we specialise in custom development of online solutions – meeting specific client needs with talent and enthusiasm. If you don’t know how to achieve what you need online, talk to us."
+        "text": "Beyond standard website design, we specialise in custom development of online solutions - meeting specific client needs with talent and enthusiasm. If you don’t know how to achieve what you need online, talk to us."
       },
       {
         "type": "h2",
@@ -7454,7 +7454,7 @@ const importedWpPosts: BlogPost[] = [
     "body": [
       {
         "type": "p",
-        "text": "n the ever-evolving landscape of digital marketing, the battle for attention has never been fiercer. With countless brands vying for consumer engagement, standing out from the crowd is not just desirable—it’s essential. In this fast-paced world, where attention spans are fleeting and competition is relentless, the significance of eye-catching ad graphics cannot be overstated."
+        "text": "n the ever-evolving landscape of digital marketing, the battle for attention has never been fiercer. With countless brands vying for consumer engagement, standing out from the crowd is not just desirable, it’s essential. In this fast-paced world, where attention spans are fleeting and competition is relentless, the significance of eye-catching ad graphics cannot be overstated."
       },
       {
         "type": "p",
@@ -7650,10 +7650,10 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "website-launch-konk-electrical",
-    "title": "Website Launch – Konk Electrical",
+    "title": "Website Launch - Konk Electrical",
     "tag": "Insights",
-    "excerpt": "Website Launch for @konk.electrical 💡 Background of Alex Whitehead & Jonny Smith Known Jonny since reception at primary school – and since know we’ve both go our own business it was only right to hel",
-    "metaDescription": "Website Launch for @konk.electrical 💡 Background of Alex Whitehead & Jonny Smith Known Jonny since reception at primary school – and since know we’ve both go",
+    "excerpt": "Website Launch for @konk.electrical 💡 Background of Alex Whitehead & Jonny Smith Known Jonny since reception at primary school - and since know we’ve both go our own business it was only right to hel",
+    "metaDescription": "Website Launch for @konk.electrical 💡 Background of Alex Whitehead & Jonny Smith Known Jonny since reception at primary school - and since know we’ve both go",
     "date": "May 2024",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/website-launch-konk-electrical.jpg",
@@ -7668,7 +7668,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Known Jonny since reception at primary school – and since know we’ve both go our own business it was only right to help him develop his brand online 🖥️"
+        "text": "Known Jonny since reception at primary school - and since know we’ve both go our own business it was only right to help him develop his brand online 🖥️"
       },
       {
         "type": "p",
@@ -7892,7 +7892,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "At awmedia.marketing, we’re a design agency that dares to defy norms and redefine the conventional. Our goal is to offer an unparallelled service in our industry through expertise, insight, and unwavering energy – always ready to take on any challenge."
+        "text": "At awmedia.marketing, we’re a design agency that dares to defy norms and redefine the conventional. Our goal is to offer an unparallelled service in our industry through expertise, insight, and unwavering energy - always ready to take on any challenge."
       },
       {
         "type": "h2",
@@ -7900,7 +7900,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "We specialise in crafting more than websites – we craft digital encounters. Our skilled team of creative and technical professionals designs and develops websites that reshape perspectives and elevate organisations."
+        "text": "We specialise in crafting more than websites - we craft digital encounters. Our skilled team of creative and technical professionals designs and develops websites that reshape perspectives and elevate organisations."
       },
       {
         "type": "h2",
@@ -7916,7 +7916,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "At awmedia.marketing, we’re a design agency breaking boundaries and reshaping the standard. Our goal is to deliver unparallelled service in our industry, fuelled by expertise, insights, and boundless enthusiasm—we thrive on challenges."
+        "text": "At awmedia.marketing, we’re a design agency breaking boundaries and reshaping the standard. Our goal is to deliver unparallelled service in our industry, fuelled by expertise, insights, and boundless enthusiasm, we thrive on challenges."
       },
       {
         "type": "h2",
@@ -7998,7 +7998,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "website-launch-ukt-turnstiles",
-    "title": "Website Launch – UKT Turnstiles",
+    "title": "Website Launch - UKT Turnstiles",
     "tag": "Insights",
     "excerpt": "After a previous bad experience with a web design agency, it was time to level up with a new website for the guys at UKT. The outcome ✅ Tailored template design✅ Product listings with enquiry forms✅ W",
     "metaDescription": "After a previous bad experience with a web design agency, it was time to level up with a new website for the guys at UKT. The outcome ✅ Tailored template desi",
@@ -8156,17 +8156,17 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "online-fitness-coach-website-landing-page",
-    "title": "Online Fitness Coach – Website landing Page",
+    "title": "Online Fitness Coach - Website landing Page",
     "tag": "Insights",
-    "excerpt": "Online Coach – Website Landing Pages 🧙🏼‍♂️ @lewismcfarlanecoaching x @thecoachconsultant 🚀 Recent landing page & lead generation page for The Peak Performance Project 🖥️ Also created his new pinne",
-    "metaDescription": "Online Coach – Website Landing Pages 🧙🏼‍♂️ @lewismcfarlanecoaching x @thecoachconsultant 🚀 Recent landing page & lead generation page for The Peak Performa",
+    "excerpt": "Online Coach - Website Landing Pages 🧙🏼‍♂️ @lewismcfarlanecoaching x @thecoachconsultant 🚀 Recent landing page & lead generation page for The Peak Performance Project 🖥️ Also created his new pinne",
+    "metaDescription": "Online Coach - Website Landing Pages 🧙🏼‍♂️ @lewismcfarlanecoaching x @thecoachconsultant 🚀 Recent landing page & lead generation page for The Peak Performa",
     "date": "March 2024",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/online-fitness-coach-website-landing-page.jpg",
     "body": [
       {
         "type": "p",
-        "text": "Online Coach – Website Landing Pages 🧙🏼‍♂️"
+        "text": "Online Coach - Website Landing Pages 🧙🏼‍♂️"
       },
       {
         "type": "p",
@@ -8186,7 +8186,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Stabilise, Build, and Thrive – The three stage formula to Unleash Your truest potential with Mindset and Physique."
+        "text": "Stabilise, Build, and Thrive - The three stage formula to Unleash Your truest potential with Mindset and Physique."
       },
       {
         "type": "p",
@@ -8402,7 +8402,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Make this plugin a lead-in before offering a nutritionist consultation. Use it to increase screentime. Fatten up your customer email database. WP Calorie Calculator Pro V4 serves multiple purposes – all for your WordPress site to bring even more profit."
+        "text": "Make this plugin a lead-in before offering a nutritionist consultation. Use it to increase screentime. Fatten up your customer email database. WP Calorie Calculator Pro V4 serves multiple purposes - all for your WordPress site to bring even more profit."
       },
       {
         "type": "h2",
@@ -8426,7 +8426,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Change the email text you send to your visitors. This message is what users will first associate with your company – let it represent you from the best perspective."
+        "text": "Change the email text you send to your visitors. This message is what users will first associate with your company - let it represent you from the best perspective."
       },
       {
         "type": "p",
@@ -8438,7 +8438,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "There are three options provided for selection: the Mifflin – St. Jeor, the Harris – Benedict and the WHO calorie rate formulas. All of the equations take into account every physical parameter that influences the daily calorie need."
+        "text": "There are three options provided for selection: the Mifflin - St. Jeor, the Harris - Benedict and the WHO calorie rate formulas. All of the equations take into account every physical parameter that influences the daily calorie need."
       },
       {
         "type": "p",
@@ -8586,7 +8586,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "a. Font Choice: Opt for a font that aligns with your brand’s personality – whether it’s modern, traditional, playful, or sophisticated. b. Readability: Ensure that the text is easy to read, even when scaled down. Avoid overly complex or decorative fonts that may hinder legibility. c. Consistency: Maintain consistency in font usage across different applications and marketing materials to strengthen brand recognition."
+        "text": "a. Font Choice: Opt for a font that aligns with your brand’s personality - whether it’s modern, traditional, playful, or sophisticated. b. Readability: Ensure that the text is easy to read, even when scaled down. Avoid overly complex or decorative fonts that may hinder legibility. c. Consistency: Maintain consistency in font usage across different applications and marketing materials to strengthen brand recognition."
       },
       {
         "type": "h2",
@@ -8644,10 +8644,10 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "web-design-sheffield-connected-search-group",
-    "title": "Web Design Sheffield – Connected Search Group",
+    "title": "Web Design Sheffield - Connected Search Group",
     "tag": "Insights",
-    "excerpt": "Website Launch for Connected Search Group Thrilled to showcase a website launch for Matt and Rob and their new business – Connected Search Group 🔍 Who are Connected Search Group? – “We are passionate",
-    "metaDescription": "Website Launch for Connected Search Group Thrilled to showcase a website launch for Matt and Rob and their new business – Connected Search Group 🔍 Who are Co",
+    "excerpt": "Website Launch for Connected Search Group Thrilled to showcase a website launch for Matt and Rob and their new business - Connected Search Group 🔍 Who are Connected Search Group? - “We are passionate",
+    "metaDescription": "Website Launch for Connected Search Group Thrilled to showcase a website launch for Matt and Rob and their new business - Connected Search Group 🔍 Who are Co",
     "date": "January 2024",
     "readingMinutes": 2,
     "coverImage": "/images/blog/imported/web-design-sheffield-connected-search-group.jpg",
@@ -8658,7 +8658,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Thrilled to showcase a website launch for Matt and Rob and their new business – Connected Search Group 🔍"
+        "text": "Thrilled to showcase a website launch for Matt and Rob and their new business - Connected Search Group 🔍"
       },
       {
         "type": "h3",
@@ -8666,7 +8666,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "– “We are passionate about understanding the needs of our clients and candidates and using that information to make successful connections. Connected is a partnership-oriented consultancy, offering a personal approach to recruitment and offering significant added value across Accountancy & Finance and Professional Services opportunities.” 🌍"
+        "text": " - “We are passionate about understanding the needs of our clients and candidates and using that information to make successful connections. Connected is a partnership-oriented consultancy, offering a personal approach to recruitment and offering significant added value across Accountancy & Finance and Professional Services opportunities.” 🌍"
       },
       {
         "type": "h3",
@@ -8722,8 +8722,8 @@ const importedWpPosts: BlogPost[] = [
     "slug": "fitness-landing-page-website-job-launch-for-daire-crossan-coaching",
     "title": "Fitness Landing Page: Website Job Launch for Daire Crossan Coaching",
     "tag": "Insights",
-    "excerpt": "Introduction Fitness landing page created for @dairecrossancoaching 🖥 Fitness landing page showcase for Daire Crossan Coaching – leveling up his enquiry process in 2024 🏆 ✅ Tailored template design✅",
-    "metaDescription": "Introduction Fitness landing page created for @dairecrossancoaching 🖥 Fitness landing page showcase for Daire Crossan Coaching – leveling up his enquiry proc",
+    "excerpt": "Introduction Fitness landing page created for @dairecrossancoaching 🖥 Fitness landing page showcase for Daire Crossan Coaching - leveling up his enquiry process in 2024 🏆 ✅ Tailored template design✅",
+    "metaDescription": "Introduction Fitness landing page created for @dairecrossancoaching 🖥 Fitness landing page showcase for Daire Crossan Coaching - leveling up his enquiry proc",
     "date": "January 2024",
     "readingMinutes": 3,
     "coverImage": "/images/blog/imported/fitness-landing-page-website-job-launch-for-daire-crossan-coaching.jpg",
@@ -8738,7 +8738,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Fitness landing page showcase for Daire Crossan Coaching – leveling up his enquiry process in 2024 🏆"
+        "text": "Fitness landing page showcase for Daire Crossan Coaching - leveling up his enquiry process in 2024 🏆"
       },
       {
         "type": "p",
@@ -8810,7 +8810,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "We specialise in crafting more than websites – we craft digital encounters. Our skilled team of creative and technical professionals designs and develops websites that reshape perspectives and elevate organisations."
+        "text": "We specialise in crafting more than websites - we craft digital encounters. Our skilled team of creative and technical professionals designs and develops websites that reshape perspectives and elevate organisations."
       },
       {
         "type": "p",
@@ -8820,7 +8820,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "shopify-website-design-website-launch-for-amadora-arts",
-    "title": "Shopify Website Design – Website Launch for Amadora Arts",
+    "title": "Shopify Website Design - Website Launch for Amadora Arts",
     "tag": "Insights",
     "excerpt": "Website Launch for Amadora Arts Shopify Website Design & Build for Amadora Arts 🖥 Delighted to showcase this full project for Amdora Arts, a sheffield based artists specialising in fine art, original",
     "metaDescription": "Website Launch for Amadora Arts Shopify Website Design & Build for Amadora Arts 🖥 Delighted to showcase this full project for Amdora Arts, a sheffield based ",
@@ -9002,7 +9002,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "All of our sites come built Mobile Ready and are Fully Responsive to accommodate not only phones but tablets too. Not only that – our sites also work with all web browsers."
+        "text": "All of our sites come built Mobile Ready and are Fully Responsive to accommodate not only phones but tablets too. Not only that - our sites also work with all web browsers."
       },
       {
         "type": "h2",
@@ -9258,7 +9258,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "We specialise in crafting more than websites – we craft digital encounters. Our skilled team of creative and technical professionals designs and develops websites that reshape perspectives and elevate organisations."
+        "text": "We specialise in crafting more than websites - we craft digital encounters. Our skilled team of creative and technical professionals designs and develops websites that reshape perspectives and elevate organisations."
       },
       {
         "type": "p",
@@ -9442,7 +9442,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Alex Whitehead – AWMEDIA.MARKETING"
+        "text": "Alex Whitehead - AWMEDIA.MARKETING"
       }
     ]
   },
@@ -9466,7 +9466,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Picture this – a user clicks on an ad or a search result, and they’re directed to your website’s landing page. This initial interaction sets the tone for their entire journey. A captivating landing page not only grabs attention but also instills trust and confidence in your brand. Its visually appealing design and concise, compelling content create a lasting positive impression."
+        "text": "Picture this - a user clicks on an ad or a search result, and they’re directed to your website’s landing page. This initial interaction sets the tone for their entire journey. A captivating landing page not only grabs attention but also instills trust and confidence in your brand. Its visually appealing design and concise, compelling content create a lasting positive impression."
       },
       {
         "type": "h2",
@@ -9678,7 +9678,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "So, fellow designers, consider the impact of sharing editable Canva documents—it might just be the catalyst that amplifies your creative potential and transforms the way you collaborate and create masterpieces."
+        "text": "So, fellow designers, consider the impact of sharing editable Canva documents, it might just be the catalyst that amplifies your creative potential and transforms the way you collaborate and create masterpieces."
       }
     ]
   },
@@ -9962,7 +9962,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "So, don’t just build a website—nurture and sustain it with ongoing support, and watch it become a dynamic asset that drives your business forward."
+        "text": "So, don’t just build a website, nurture and sustain it with ongoing support, and watch it become a dynamic asset that drives your business forward."
       },
       {
         "type": "p",
@@ -10034,7 +10034,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "h2",
-        "text": "4. Engage in Conversation – Leave a Comment"
+        "text": "4. Engage in Conversation - Leave a Comment"
       },
       {
         "type": "p",
@@ -10478,7 +10478,7 @@ const importedWpPosts: BlogPost[] = [
     "slug": "logo-design-gone-wrong-5-examples-of-bad-design",
     "title": "Logo Design Gone Wrong: 5 Examples of Bad Design",
     "tag": "Insights",
-    "excerpt": "Logos serve as the visual embodiment of a brand, creating a lasting impression in people’s minds and establishing strong associations. Consider iconic logos like Coca-Cola, Nike, or McDonald’s – they ",
+    "excerpt": "Logos serve as the visual embodiment of a brand, creating a lasting impression in people’s minds and establishing strong associations. Consider iconic logos like Coca-Cola, Nike, or McDonald’s - they ",
     "metaDescription": "Logos serve as the visual embodiment of a brand, creating a lasting impression in people’s minds and establishing strong associations. Consider iconic logos l",
     "date": "September 2023",
     "readingMinutes": 2,
@@ -10486,7 +10486,7 @@ const importedWpPosts: BlogPost[] = [
     "body": [
       {
         "type": "p",
-        "text": "Logos serve as the visual embodiment of a brand, creating a lasting impression in people’s minds and establishing strong associations. Consider iconic logos like Coca-Cola, Nike, or McDonald’s – they instantly conjure a specific image. This vivid recall is a testament to the enduring impact of great logos. They ensure that consumers never forget about a brand, influencing their product choices by tapping into the comfort of familiarity and positive associations."
+        "text": "Logos serve as the visual embodiment of a brand, creating a lasting impression in people’s minds and establishing strong associations. Consider iconic logos like Coca-Cola, Nike, or McDonald’s - they instantly conjure a specific image. This vivid recall is a testament to the enduring impact of great logos. They ensure that consumers never forget about a brand, influencing their product choices by tapping into the comfort of familiarity and positive associations."
       },
       {
         "type": "h2",
@@ -10542,11 +10542,11 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Your company logo is your stake in the ground, your flag. It says who you are and what values your business stands for. As such, it should be powerful without being over complicated and most importantly, it should make an immediate, lasting impression. It’s hard to pin down exactly what makes a good logo, but by working closely with you I’ll come up with a logo you – and your customers – will instantly recognise and fall in love with."
+        "text": "Your company logo is your stake in the ground, your flag. It says who you are and what values your business stands for. As such, it should be powerful without being over complicated and most importantly, it should make an immediate, lasting impression. It’s hard to pin down exactly what makes a good logo, but by working closely with you I’ll come up with a logo you - and your customers - will instantly recognise and fall in love with."
       },
       {
         "type": "p",
-        "text": "Get a quote today – https://www.awmedia.marketing/logo-design-enquiry/"
+        "text": "Get a quote today - https://www.awmedia.marketing/logo-design-enquiry/"
       }
     ]
   },
@@ -10830,7 +10830,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "While AI is transforming the way web design is approached, the notion of it completely replacing human designers remains more of a myth than a reality. The unique qualities and skills that human designers bring to the table—such as creativity, empathy, and adaptability—set them apart and ensure the longevity of their profession. The future of web design is likely to be a harmonious blend of AI-powered tools and human ingenuity, resulting in innovative, user-centric, and emotionally resonant digital experiences."
+        "text": "While AI is transforming the way web design is approached, the notion of it completely replacing human designers remains more of a myth than a reality. The unique qualities and skills that human designers bring to the table, such as creativity, empathy, and adaptability, set them apart and ensure the longevity of their profession. The future of web design is likely to be a harmonious blend of AI-powered tools and human ingenuity, resulting in innovative, user-centric, and emotionally resonant digital experiences."
       }
     ]
   },
@@ -10950,7 +10950,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Crafting effective CTAs is an art that combines psychology, design, and strategy. By implementing these top five tips – clarity, strategic placement, contrasting colours, compelling value propositions, and mobile optimisation – you can significantly enhance engagement and conversion rates on your website. Keep refining your CTAs based on user feedback and performance metrics to continuously improve their impact."
+        "text": "Crafting effective CTAs is an art that combines psychology, design, and strategy. By implementing these top five tips - clarity, strategic placement, contrasting colours, compelling value propositions, and mobile optimisation - you can significantly enhance engagement and conversion rates on your website. Keep refining your CTAs based on user feedback and performance metrics to continuously improve their impact."
       }
     ]
   },
@@ -11194,7 +11194,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Canva is a versatile and user-friendly platform that empowers both designers and non-designers to create stunning graphics. By following these five essential tips – mastering simplicity, choosing the right colours, optimising image selection, embracing typography techniques, and using grids and guides – you’ll be well on your way to creating professional and eye-catching designs that leave a lasting impact on your audience. Whether you’re designing social media posts, marketing materials, or personal projects, let Canva’s tools work for you and turn your ideas into visual masterpieces. Happy designing!"
+        "text": "Canva is a versatile and user-friendly platform that empowers both designers and non-designers to create stunning graphics. By following these five essential tips - mastering simplicity, choosing the right colours, optimising image selection, embracing typography techniques, and using grids and guides - you’ll be well on your way to creating professional and eye-catching designs that leave a lasting impact on your audience. Whether you’re designing social media posts, marketing materials, or personal projects, let Canva’s tools work for you and turn your ideas into visual masterpieces. Happy designing!"
       }
     ]
   },
@@ -11336,7 +11336,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Improving website loading speed and performance is essential for delivering a seamless user experience and ensuring the success of your online presence. By following these five tips—optimising image size and format, minifying CSS and JavaScript, enabling browser caching, using CDNs, and optimising server response time—you can significantly enhance your website’s speed and performance. Remember, a faster website leads to increased user engagement, improved search engine rankings, and higher conversion rates."
+        "text": "Improving website loading speed and performance is essential for delivering a seamless user experience and ensuring the success of your online presence. By following these five tips, optimising image size and format, minifying CSS and JavaScript, enabling browser caching, using CDNs, and optimising server response time, you can significantly enhance your website’s speed and performance. Remember, a faster website leads to increased user engagement, improved search engine rankings, and higher conversion rates."
       }
     ]
   },
@@ -11444,7 +11444,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Colours evoke emotions and have a significant impact on how people perceive a brand. Understand the psychology behind colours and select a palette that aligns with the brand’s personality and target audience. Different colours evoke different emotions—for example, blue conveys trust and reliability, while red signifies energy and passion. Use colour strategically to create a logo that elicits the desired emotional response from viewers."
+        "text": "Colours evoke emotions and have a significant impact on how people perceive a brand. Understand the psychology behind colours and select a palette that aligns with the brand’s personality and target audience. Different colours evoke different emotions, for example, blue conveys trust and reliability, while red signifies energy and passion. Use colour strategically to create a logo that elicits the desired emotional response from viewers."
       },
       {
         "type": "h2",
@@ -11616,7 +11616,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "A distinctive and well-designed logo contributes significantly to brand recognition and recall. Think about the world’s most successful brands—Nike, Apple, or Coca-Cola—whose logos are instantly recognizable. A logo acts as a visual symbol that triggers associations with a brand’s products, services, or values. Consistency in logo usage across various marketing channels helps reinforce brand recognition and ensures that customers can easily identify and recall a brand amidst a sea of competitors."
+        "text": "A distinctive and well-designed logo contributes significantly to brand recognition and recall. Think about the world’s most successful brands, Nike, Apple, or Coca-Cola, whose logos are instantly recognizable. A logo acts as a visual symbol that triggers associations with a brand’s products, services, or values. Consistency in logo usage across various marketing channels helps reinforce brand recognition and ensures that customers can easily identify and recall a brand amidst a sea of competitors."
       },
       {
         "type": "h2",
@@ -12832,7 +12832,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "website-vs-social-media-which-is-better-for-your-company",
-    "title": "Website vs Social Media – Which Is Better For Your Company?",
+    "title": "Website vs Social Media - Which Is Better For Your Company?",
     "tag": "Insights",
     "excerpt": "As a business owner, you have probably encountered the dilemma of choosing between having a website or relying on social media to represent your brand online. While both have their pros and cons, it’s",
     "metaDescription": "As a business owner, you have probably encountered the dilemma of choosing between having a website or relying on social media to represent your brand online.",
@@ -13068,7 +13068,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "There is literally nothing worse than clicking a link in Google thinking you are landing on a page that contains what you’re looking for…….then being faced with endless content and irrelevant ‘padding’. Whilst you want to do your best to generate organic traffic with great SEO, filling up your pages for the sake of it can overload your audience, at that point – you’ve lost them because they have lost interest."
+        "text": "There is literally nothing worse than clicking a link in Google thinking you are landing on a page that contains what you’re looking for…….then being faced with endless content and irrelevant ‘padding’. Whilst you want to do your best to generate organic traffic with great SEO, filling up your pages for the sake of it can overload your audience, at that point - you’ve lost them because they have lost interest."
       },
       {
         "type": "p",
@@ -13108,7 +13108,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Whether you want your users to book a call with you, send an enquiry, buy a product, sign up for your newsletter etc, whatever the purpose of your website is – if you don’t have a clear ‘call to action’ you’re essentially turning your customers away."
+        "text": "Whether you want your users to book a call with you, send an enquiry, buy a product, sign up for your newsletter etc, whatever the purpose of your website is - if you don’t have a clear ‘call to action’ you’re essentially turning your customers away."
       },
       {
         "type": "p",
@@ -13144,7 +13144,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "These are just a few of the things you need to take into account if you are rebranding or building a new website in 2023. Whether your website is built on WordPress, Squarespace or Shopify – the basics are all essentially the same."
+        "text": "These are just a few of the things you need to take into account if you are rebranding or building a new website in 2023. Whether your website is built on WordPress, Squarespace or Shopify - the basics are all essentially the same."
       },
       {
         "type": "p",
@@ -13512,7 +13512,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Feedback: “The judges were impressed with your personal touch, community feel and passion for what you do” – which is something I am over the moon about. The hard work I’ve put in over the last 6 years and the relationships and clients I’ve build up really comes to light when other people recognise this."
+        "text": "Feedback: “The judges were impressed with your personal touch, community feel and passion for what you do” - which is something I am over the moon about. The hard work I’ve put in over the last 6 years and the relationships and clients I’ve build up really comes to light when other people recognise this."
       },
       {
         "type": "p",
@@ -13588,7 +13588,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Your company logo is your stake in the ground, your flag. It says who you are and what values your business stands for. As such, it should be powerful without being over complicated and most importantly, it should make an immediate, lasting impression. It’s hard to pin down exactly what makes a good logo, but by working closely with you I’ll come up with a logo you – and your customers – will instantly recognise and fall in love with."
+        "text": "Your company logo is your stake in the ground, your flag. It says who you are and what values your business stands for. As such, it should be powerful without being over complicated and most importantly, it should make an immediate, lasting impression. It’s hard to pin down exactly what makes a good logo, but by working closely with you I’ll come up with a logo you - and your customers - will instantly recognise and fall in love with."
       },
       {
         "type": "p",
@@ -13784,7 +13784,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "I understand when looking for a new web designer, they’ll throw some big words at you and different platforms like WordPress, Magento, Javascript – the list goes on. Your chosen web designer should also design your website within a content management system such as WordPress, Drupal, or Magento. (We are strictly a WordPress designer/developer for many reasons.)"
+        "text": "I understand when looking for a new web designer, they’ll throw some big words at you and different platforms like WordPress, Magento, Javascript - the list goes on. Your chosen web designer should also design your website within a content management system such as WordPress, Drupal, or Magento. (We are strictly a WordPress designer/developer for many reasons.)"
       },
       {
         "type": "p",
@@ -13884,7 +13884,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Hugely important – whatever device a visitor uses to view your website – they should have the same experience. If they don’t and your page doesn’t resize properly for example, then it isn’t responsive."
+        "text": "Hugely important - whatever device a visitor uses to view your website - they should have the same experience. If they don’t and your page doesn’t resize properly for example, then it isn’t responsive."
       },
       {
         "type": "p",
@@ -13936,7 +13936,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Visitors to your site will decide literally in seconds whether they’re going to commit their time to navigating your site. If there’s too much content, pixelated pictures, text where it shouldn’t be – is your potential new customer going to stay on your website? Simple answer, NO."
+        "text": "Visitors to your site will decide literally in seconds whether they’re going to commit their time to navigating your site. If there’s too much content, pixelated pictures, text where it shouldn’t be - is your potential new customer going to stay on your website? Simple answer, NO."
       },
       {
         "type": "p",
@@ -13990,7 +13990,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "website-launched-accountants-sheffield-mgrw",
-    "title": "Website Launched: Accountants Sheffield – MGRW",
+    "title": "Website Launched: Accountants Sheffield - MGRW",
     "tag": "Projects",
     "excerpt": "I know it’s hard for brands to setup an online experience, and budgets can be tight. I like to help new brands grow and work in a long term relationship. The Project I was approached by Tina at MGRW a",
     "metaDescription": "I know it’s hard for brands to setup an online experience, and budgets can be tight. I like to help new brands grow and work in a long term relationship. The ",
@@ -14244,15 +14244,15 @@ const importedWpPosts: BlogPost[] = [
     "slug": "the-importance-of-having-a-website-maintenance-package",
     "title": "The Importance of Having a Website Maintenance Package",
     "tag": "Insights",
-    "excerpt": "Owning a website is just like owning a house – it needs regular attention and maintenance – and that’s where a website maintenance package comes in. Depending on the size of your business, your websit",
-    "metaDescription": "Owning a website is just like owning a house – it needs regular attention and maintenance – and that’s where a website maintenance package comes in. Depending",
+    "excerpt": "Owning a website is just like owning a house - it needs regular attention and maintenance - and that’s where a website maintenance package comes in. Depending on the size of your business, your websit",
+    "metaDescription": "Owning a website is just like owning a house - it needs regular attention and maintenance - and that’s where a website maintenance package comes in. Depending",
     "date": "January 2022",
     "readingMinutes": 3,
     "coverImage": "/images/blog/imported/the-importance-of-having-a-website-maintenance-package.jpg",
     "body": [
       {
         "type": "p",
-        "text": "Owning a website is just like owning a house – it needs regular attention and maintenance – and that’s where a website maintenance package comes in."
+        "text": "Owning a website is just like owning a house - it needs regular attention and maintenance - and that’s where a website maintenance package comes in."
       },
       {
         "type": "p",
@@ -14376,7 +14376,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Yes, that’s right, quality time the little one. You stand a far higher chance of seeing that first smile, step and yes, glamorously, poo in the potty – than a parent who is traditionally employed. And (possibly) a better chance of getting to the bottom of what’s causing that resting bitch face. If you work from home and they want your attention, you’re there to give it."
+        "text": "Yes, that’s right, quality time the little one. You stand a far higher chance of seeing that first smile, step and yes, glamorously, poo in the potty - than a parent who is traditionally employed. And (possibly) a better chance of getting to the bottom of what’s causing that resting bitch face. If you work from home and they want your attention, you’re there to give it."
       },
       {
         "type": "p",
@@ -14404,7 +14404,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Now, this could be seen as a pro or a con. I hate running errands and doing paperwork. It’s boring. But it’s necessary. Working from home means it’s easy to pop to the Post Office office – if you’ve missed a delivery – during less busy periods in the day."
+        "text": "Now, this could be seen as a pro or a con. I hate running errands and doing paperwork. It’s boring. But it’s necessary. Working from home means it’s easy to pop to the Post Office office - if you’ve missed a delivery - during less busy periods in the day."
       },
       {
         "type": "p",
@@ -14436,7 +14436,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "This is one of the best things about freelancing – the ability to say no! You don’t have to work on every single project that comes your way. Although the general advice is to seldom turn offers down. When you add a baby into the equation though, the hard choices have to be made."
+        "text": "This is one of the best things about freelancing - the ability to say no! You don’t have to work on every single project that comes your way. Although the general advice is to seldom turn offers down. When you add a baby into the equation though, the hard choices have to be made."
       },
       {
         "type": "h3",
@@ -14444,7 +14444,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "You won’t have to deal with your boss voicing in on how you should balance your work and personal life – enough said."
+        "text": "You won’t have to deal with your boss voicing in on how you should balance your work and personal life - enough said."
       },
       {
         "type": "h3",
@@ -14456,7 +14456,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "My business is still growing at the speed of light. But I am managing to manage this as well as being a parent. I love my job. But I love my daughter and family more – not missing out on the smiles, cuddles and weaning. It’s been such a blessing being able to just nip downstairs and just get that interaction with her!"
+        "text": "My business is still growing at the speed of light. But I am managing to manage this as well as being a parent. I love my job. But I love my daughter and family more - not missing out on the smiles, cuddles and weaning. It’s been such a blessing being able to just nip downstairs and just get that interaction with her!"
       },
       {
         "type": "p",
@@ -14466,7 +14466,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "website-launched-laser-hair-removal-808-laser-clinic",
-    "title": "Website Launched: Laser Hair Removal – 808 Laser Clinic",
+    "title": "Website Launched: Laser Hair Removal - 808 Laser Clinic",
     "tag": "Projects",
     "excerpt": "I am an expert in creating attractive, user-friendly and responsive websites, which look great and perform perfectly whether your visitors are browsing on a computer, mobile or tablet. All of my websi",
     "metaDescription": "I am an expert in creating attractive, user-friendly and responsive websites, which look great and perform perfectly whether your visitors are browsing on a c",
@@ -14476,7 +14476,7 @@ const importedWpPosts: BlogPost[] = [
     "body": [
       {
         "type": "p",
-        "text": "I am an expert in creating attractive, user-friendly and responsive websites, which look great and perform perfectly whether your visitors are browsing on a computer, mobile or tablet. All of my websites are designed with accessibility in mind, giving you the best chance of attracting visitors, keeping them on your website, and tempting them back time and again The Project Saffron already had a website on Wix, and it wasn’t doing the job that she wanted. So after doing some artwork bits and branding for Saffron, it was time to revamp her current website and give her something to be proud of. The Outcome I wanted the site to feel as up market as possible. I used white and negative space to give the impression of a Saffron’s salon. With elegant typography and the clients amazing photography we created a layout that really nailed the brief. The homepage video really gives an feel of what 808 Laser Clinic is about and why the business is doing so well! Who are 808 Laser Clinic? 808 Laser Clinic is an independent laser hair removal clinic based in Leeds. We are primarily focused on delivering exceptional results and personal customer care before, during and after your treatment. It’s our aim to ensure that each client leaves 808 100% happy with their laser hair removal experience – we promise it’s not as daunting as it may seem.. Trust Pilot Review “I use Alex for all of my graphic design/web developer needs. He always understands the assignment and goes above and beyond to make sure everything is perfect. My website went live today and it’s everything I could have dreamed of and more. The aesthetic and functionality could not be better – an ordinarily long and drawn out process made easy by the commitment and knowledge of a fabulous developer. I will, of course, continue to use Alex for the rest of time :-)” The Website VIEW WEBSITE"
+        "text": "I am an expert in creating attractive, user-friendly and responsive websites, which look great and perform perfectly whether your visitors are browsing on a computer, mobile or tablet. All of my websites are designed with accessibility in mind, giving you the best chance of attracting visitors, keeping them on your website, and tempting them back time and again The Project Saffron already had a website on Wix, and it wasn’t doing the job that she wanted. So after doing some artwork bits and branding for Saffron, it was time to revamp her current website and give her something to be proud of. The Outcome I wanted the site to feel as up market as possible. I used white and negative space to give the impression of a Saffron’s salon. With elegant typography and the clients amazing photography we created a layout that really nailed the brief. The homepage video really gives an feel of what 808 Laser Clinic is about and why the business is doing so well! Who are 808 Laser Clinic? 808 Laser Clinic is an independent laser hair removal clinic based in Leeds. We are primarily focused on delivering exceptional results and personal customer care before, during and after your treatment. It’s our aim to ensure that each client leaves 808 100% happy with their laser hair removal experience - we promise it’s not as daunting as it may seem.. Trust Pilot Review “I use Alex for all of my graphic design/web developer needs. He always understands the assignment and goes above and beyond to make sure everything is perfect. My website went live today and it’s everything I could have dreamed of and more. The aesthetic and functionality could not be better - an ordinarily long and drawn out process made easy by the commitment and knowledge of a fabulous developer. I will, of course, continue to use Alex for the rest of time :-)” The Website VIEW WEBSITE"
       }
     ]
   },
@@ -14512,7 +14512,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "However, having any website just won’t do. That’s why I came up with a quick and easy solution – a professional and modern website focused on user experience created for microblading businesses and the permanent makeup industry."
+        "text": "However, having any website just won’t do. That’s why I came up with a quick and easy solution - a professional and modern website focused on user experience created for microblading businesses and the permanent makeup industry."
       },
       {
         "type": "h2",
@@ -14532,7 +14532,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "First things first, how the heck does one even build a website from scratch? Well, you don’t – this is where I do all the work for you."
+        "text": "First things first, how the heck does one even build a website from scratch? Well, you don’t - this is where I do all the work for you."
       },
       {
         "type": "p",
@@ -14628,7 +14628,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "h2",
-        "text": "PMU Artist Website Design Case Study – Gemma Henderson PMA"
+        "text": "PMU Artist Website Design Case Study - Gemma Henderson PMA"
       },
       {
         "type": "p",
@@ -14654,7 +14654,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "lip-fillers-chesterfield-lauren-barker-aesthetics",
-    "title": "Website Launched: Lip Fillers Chesterfield – Lauren Barker Aesthetics",
+    "title": "Website Launched: Lip Fillers Chesterfield - Lauren Barker Aesthetics",
     "tag": "Projects",
     "excerpt": "Stunning memorable aesthetic websites designed and built to stand out and attract the right customers. The Project Lauren approached me after waiting for a web design from an agency for over 2 years a",
     "metaDescription": "Stunning memorable aesthetic websites designed and built to stand out and attract the right customers. The Project Lauren approached me after waiting for a we",
@@ -14664,7 +14664,7 @@ const importedWpPosts: BlogPost[] = [
     "body": [
       {
         "type": "p",
-        "text": "Stunning memorable aesthetic websites designed and built to stand out and attract the right customers. The Project Lauren approached me after waiting for a web design from an agency for over 2 years and her brief was to simply get her online and make customers stay on the website. The Outcome Built in WordPress from scratch, the new website showcases Lauren’s skills and expertise with a luxurious, modern design and contemporary build elements, such as animations and lots of scrolling functionality. Fully mobile-optimised and responsive and finally, our clean, smart navigation categorises treatments by area of the body, making the customer journey quick and seamless. Who are Lauren Barker Aesthetics? Lauren is an Aesthetic Nurse and is trained to an advanced level in a wide range of aesthetic treatments including Toxins and Dermal Filler. Laurens treatments include Non Surgical Rhinoplasty, Tear Trough Filler, Lip Enhancements, Profhilo, Advanced Wrinkle Relaxing (Botox) and Morpheus8. Lauren is passionate about achieving your goals and will always ensure you feel comfortable during your visit. Trust Pilot Review “Alex is simply the best in the business. Alex put so much hard work into getting exactly what I wanted. Thanks to your focus, determination and going the extra mile. Alex responds fast and is easy to talk to. It’s true — at the heart of every success is great communication. I’ll look forward to working with Alex again in the near future and I couldn’t recommend him enough. Thank you so much Alex.” The Website VIEW WEBSITE"
+        "text": "Stunning memorable aesthetic websites designed and built to stand out and attract the right customers. The Project Lauren approached me after waiting for a web design from an agency for over 2 years and her brief was to simply get her online and make customers stay on the website. The Outcome Built in WordPress from scratch, the new website showcases Lauren’s skills and expertise with a luxurious, modern design and contemporary build elements, such as animations and lots of scrolling functionality. Fully mobile-optimised and responsive and finally, our clean, smart navigation categorises treatments by area of the body, making the customer journey quick and seamless. Who are Lauren Barker Aesthetics? Lauren is an Aesthetic Nurse and is trained to an advanced level in a wide range of aesthetic treatments including Toxins and Dermal Filler. Laurens treatments include Non Surgical Rhinoplasty, Tear Trough Filler, Lip Enhancements, Profhilo, Advanced Wrinkle Relaxing (Botox) and Morpheus8. Lauren is passionate about achieving your goals and will always ensure you feel comfortable during your visit. Trust Pilot Review “Alex is simply the best in the business. Alex put so much hard work into getting exactly what I wanted. Thanks to your focus, determination and going the extra mile. Alex responds fast and is easy to talk to. It’s true, at the heart of every success is great communication. I’ll look forward to working with Alex again in the near future and I couldn’t recommend him enough. Thank you so much Alex.” The Website VIEW WEBSITE"
       }
     ]
   },
@@ -14680,7 +14680,7 @@ const importedWpPosts: BlogPost[] = [
     "body": [
       {
         "type": "p",
-        "text": "In this digital world, surviving without a digital presence will be challenging for any business. Most people make decisions via information available on the internet. And as a PT, you should be aware that your business without a personal training website may lose many opportunities. The Benefits of a Personal Training Website Improving Your Online Presence Creating a personal training website will improve your online presence by providing a chance for new customers to spot you and find you on Google, as well as improving your business’ brand to existing customers. It allows your customers to connect with you 24/7 even when you are not working (other than business hours). A well-designed professional training website will provide all the required information for your potential clients at any time. The clients can even access your website from various devices of their choice which is a plus point. Rank in Search Engines Personal trainers must rank highly in Google to create trust with the audience. As training is different from selling products you cannot sell it by offering low prices. You must improve your search engine ranking. This can be made possible by optimising page titles, meta descriptions, optimising page content for highly-searched keywords – as well as some other SEO tricks. Educate People Online People would like to know about trainers before making a choice. Educating is the best way to project your skills to people. This wins the trust of people, and they will love to hire you as a trainer. There are several ways like blogging, infographics, e-books, and more to educate people via websites. Stay Ahead Of the competition Create your website in a better way than your competitors and share useful information regularly. Optimise your website using some SEO strategies and cope up with other competitors to improve your online presence. Showcase Your Reviews People will only believe when other people talk about you. Websites are the best place to showcase your reviews and testimonials to the online world. Adding testimonials to your website will increase the trust among people. Ask your website visitors to leave a short review and display the reviews of your current clients. Personal Training Website Designer in Sheffield Instead of managing multiple service providers, third-party apps and clunky software, a Managed Website helps you to streamline everything into one simple solution. Personal trainers save at least 4 hours per month with a personal training website from awmedia.marketing. I am one of the leading fitness website designers but and the only freelance fully managed solution. Case Study – Coaching Practice Ltd “I’ve had bad experiences with web developers in the past and has been problematic for my businesses. Alex created a website, sales funnels, and integrations that I never thought would have been possible. He has blown me away with his professionalism, response times and quality of service from start to finish. I will continue using Alex for all web development and future projects and can’t recommend him enough. Ben Hawksworth Owner/Director: Coaching Practice Ltd / CP Education Ltd/ Nutri-Fast Ltd”"
+        "text": "In this digital world, surviving without a digital presence will be challenging for any business. Most people make decisions via information available on the internet. And as a PT, you should be aware that your business without a personal training website may lose many opportunities. The Benefits of a Personal Training Website Improving Your Online Presence Creating a personal training website will improve your online presence by providing a chance for new customers to spot you and find you on Google, as well as improving your business’ brand to existing customers. It allows your customers to connect with you 24/7 even when you are not working (other than business hours). A well-designed professional training website will provide all the required information for your potential clients at any time. The clients can even access your website from various devices of their choice which is a plus point. Rank in Search Engines Personal trainers must rank highly in Google to create trust with the audience. As training is different from selling products you cannot sell it by offering low prices. You must improve your search engine ranking. This can be made possible by optimising page titles, meta descriptions, optimising page content for highly-searched keywords - as well as some other SEO tricks. Educate People Online People would like to know about trainers before making a choice. Educating is the best way to project your skills to people. This wins the trust of people, and they will love to hire you as a trainer. There are several ways like blogging, infographics, e-books, and more to educate people via websites. Stay Ahead Of the competition Create your website in a better way than your competitors and share useful information regularly. Optimise your website using some SEO strategies and cope up with other competitors to improve your online presence. Showcase Your Reviews People will only believe when other people talk about you. Websites are the best place to showcase your reviews and testimonials to the online world. Adding testimonials to your website will increase the trust among people. Ask your website visitors to leave a short review and display the reviews of your current clients. Personal Training Website Designer in Sheffield Instead of managing multiple service providers, third-party apps and clunky software, a Managed Website helps you to streamline everything into one simple solution. Personal trainers save at least 4 hours per month with a personal training website from awmedia.marketing. I am one of the leading fitness website designers but and the only freelance fully managed solution. Case Study - Coaching Practice Ltd “I’ve had bad experiences with web developers in the past and has been problematic for my businesses. Alex created a website, sales funnels, and integrations that I never thought would have been possible. He has blown me away with his professionalism, response times and quality of service from start to finish. I will continue using Alex for all web development and future projects and can’t recommend him enough. Ben Hawksworth Owner/Director: Coaching Practice Ltd / CP Education Ltd/ Nutri-Fast Ltd”"
       }
     ]
   },
@@ -14688,7 +14688,7 @@ const importedWpPosts: BlogPost[] = [
     "slug": "thompson-thomas-dental",
     "title": "Website Launched: NHS Dentist Sheffield- Thompson & Thomas Dental",
     "tag": "Projects",
-    "excerpt": "Be proud of your dental practice’s website! Your website is your shop window to the world The Project I was approached by Sarah from Thompson and Thomas Dental after I rebranded her friend – The Fitne",
+    "excerpt": "Be proud of your dental practice’s website! Your website is your shop window to the world The Project I was approached by Sarah from Thompson and Thomas Dental after I rebranded her friend - The Fitne",
     "metaDescription": "Be proud of your dental practice’s website! Your website is your shop window to the world The Project I was approached by Sarah from Thompson and Thomas Denta",
     "date": "November 2021",
     "readingMinutes": 2,
@@ -14696,7 +14696,7 @@ const importedWpPosts: BlogPost[] = [
     "body": [
       {
         "type": "p",
-        "text": "Be proud of your dental practice’s website! Your website is your shop window to the world The Project I was approached by Sarah from Thompson and Thomas Dental after I rebranded her friend – The Fitness Academy. The brief was to create a timeless modern website the company is proud to show off. The Outcome The modern looking website over took their old website at the end of October giving potential and existing customers a better view of what Thompson and Thomas do. You can now see up to date reviews, the full team with pictures of all the staff and a detailed listing of all the services they provide. I really like the modern layout I’ve created, it makes it easy for the customers to navigate and find their end goal. Who are Thompson and Thomas Dental? Thompson and Thomas have a team of highly experienced dentists and dental nurses that are here to offer patient centred care in order to help you improve and maintain your oral health. They strive to provide a friendly and relaxing environment to help patients feel at ease. Thompson and Thomas have a long-standing reputation due to their commitment to both undergraduate and postgraduate education. Our team of dentist’s endeavour to keep up to date with changes and advancements in the field in order to provide the best education to the dentists of the future. Many of the team of dental nurses have additional qualifications, such as radiography, fluoride application and oral health education, to assist in providing the best care possible. Review “I found Alex through a friend who had recently had their business re-branded with him. The website for our dental practice was in desperate need of a re-vamp, and we couldn’t be more delighted with the result. Alex’s workmanship is impeccable. His attention to detail and ability to really tap into a businesses requirements is faultless. I would most definitely recommend Alex moving forward. He is prompt, dedicated and you can really tell he thrives from job satisfaction! Thanks again Alex! You’re a master at what you do!” The Website VIEW WEBSITE"
+        "text": "Be proud of your dental practice’s website! Your website is your shop window to the world The Project I was approached by Sarah from Thompson and Thomas Dental after I rebranded her friend - The Fitness Academy. The brief was to create a timeless modern website the company is proud to show off. The Outcome The modern looking website over took their old website at the end of October giving potential and existing customers a better view of what Thompson and Thomas do. You can now see up to date reviews, the full team with pictures of all the staff and a detailed listing of all the services they provide. I really like the modern layout I’ve created, it makes it easy for the customers to navigate and find their end goal. Who are Thompson and Thomas Dental? Thompson and Thomas have a team of highly experienced dentists and dental nurses that are here to offer patient centred care in order to help you improve and maintain your oral health. They strive to provide a friendly and relaxing environment to help patients feel at ease. Thompson and Thomas have a long-standing reputation due to their commitment to both undergraduate and postgraduate education. Our team of dentist’s endeavour to keep up to date with changes and advancements in the field in order to provide the best education to the dentists of the future. Many of the team of dental nurses have additional qualifications, such as radiography, fluoride application and oral health education, to assist in providing the best care possible. Review “I found Alex through a friend who had recently had their business re-branded with him. The website for our dental practice was in desperate need of a re-vamp, and we couldn’t be more delighted with the result. Alex’s workmanship is impeccable. His attention to detail and ability to really tap into a businesses requirements is faultless. I would most definitely recommend Alex moving forward. He is prompt, dedicated and you can really tell he thrives from job satisfaction! Thanks again Alex! You’re a master at what you do!” The Website VIEW WEBSITE"
       }
     ]
   },
@@ -14800,7 +14800,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "I specialise in creating professional and user-friendly websites that put my clients above their competition. And ensure that they not only look nice – but also provide a seamless user experience across all devices to help generate those all-important leads."
+        "text": "I specialise in creating professional and user-friendly websites that put my clients above their competition. And ensure that they not only look nice - but also provide a seamless user experience across all devices to help generate those all-important leads."
       },
       {
         "type": "p",
@@ -14814,7 +14814,7 @@ const importedWpPosts: BlogPost[] = [
   },
   {
     "slug": "nationwide-skip-hire-kcm-waste",
-    "title": "Website Launched: Nationwide Skip Hire – KCM Waste",
+    "title": "Website Launched: Nationwide Skip Hire - KCM Waste",
     "tag": "Projects",
     "excerpt": "We live in an online world, where having a web presence is key. Your website is your shop front, it needs to entice your target customers and then give them a wonderful user experience. The Project I ",
     "metaDescription": "We live in an online world, where having a web presence is key. Your website is your shop front, it needs to entice your target customers and then give them a",
@@ -14844,11 +14844,11 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "I believe that attention to detail when designing websites and striking the perfect balance between user experience and aesthetics means that your website will not only look beautiful – but it will also convert users."
+        "text": "I believe that attention to detail when designing websites and striking the perfect balance between user experience and aesthetics means that your website will not only look beautiful - but it will also convert users."
       },
       {
         "type": "p",
-        "text": "Whether you’re looking for a website designer in Sheffield for a brand-new website – or maybe just an update of your current website – I’m here to help."
+        "text": "Whether you’re looking for a website designer in Sheffield for a brand-new website - or maybe just an update of your current website - I’m here to help."
       },
       {
         "type": "p",
@@ -14868,7 +14868,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Partnering with AW Media & Marketing is about more than just finding a website design company in Sheffield. I work closely with you from the offset – and even after your website goes live."
+        "text": "Partnering with AW Media & Marketing is about more than just finding a website design company in Sheffield. I work closely with you from the offset - and even after your website goes live."
       },
       {
         "type": "p",
@@ -14896,7 +14896,7 @@ const importedWpPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Being a freelancer means I’m able to keep my costs down to a minimum – which is great news for both of us! Choosing a freelancer also means you get a reliable, highly skilled professional who is able to provide you with a more personal touch."
+        "text": "Being a freelancer means I’m able to keep my costs down to a minimum - which is great news for both of us! Choosing a freelancer also means you get a reliable, highly skilled professional who is able to provide you with a more personal touch."
       },
       {
         "type": "p",

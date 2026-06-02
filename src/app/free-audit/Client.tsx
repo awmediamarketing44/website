@@ -8,17 +8,17 @@ import PageHeader from "@/components/shared/PageHeader";
 import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
 
-// Both audit tools are standalone apps (they capture the visitor's details
-// before running/delivering the audit). Update these URLs once confirmed.
-const WEBSITE_AUDIT_URL = "https://awmedia-production.up.railway.app/";
-const SOCIAL_AUDIT_URL = "https://audit.awmedia.marketing/";
+// Both audit tools now live natively on the site (ported from the old
+// standalone Railway / subdomain apps).
+const WEBSITE_AUDIT_URL = "/website-audit";
+const SOCIAL_AUDIT_URL = "/social-audit";
 
 const audits = [
   {
     title: "Website Audit",
     tagline: "Google-powered, in 30 seconds.",
     description:
-      "We run your site through Google's own analysis engine — performance, mobile, SEO, accessibility and best practices — and show you exactly what's costing you customers, plus what to fix first.",
+      "We run your site through Google's own analysis engine, covering performance, mobile, SEO, accessibility and best practices, and show you exactly what's costing you customers, plus what to fix first.",
     points: [
       "Mobile + desktop scores",
       "Performance & speed",
@@ -32,7 +32,7 @@ const audits = [
     title: "Social Media Audit",
     tagline: "Your profiles, professionally reviewed.",
     description:
-      "We review your social presence — profile setup, content, consistency and engagement — and hand you a clear, prioritised list of what to improve to grow and convert more followers.",
+      "We review your social presence, covering profile setup, content, consistency and engagement, and hand you a clear, prioritised list of what to improve to grow and convert more followers.",
     points: [
       "Profile optimisation",
       "Content & consistency",
@@ -100,14 +100,12 @@ export default function FreeAuditClient() {
                     ))}
                   </ul>
 
-                  <a
+                  <Link
                     href={audit.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="mt-8 block rounded-full bg-pink px-6 py-3 text-sm font-semibold text-center text-white transition-all duration-300 hover:shadow-[0_0_40px_rgba(249,38,114,0.4)]"
                   >
                     {audit.cta}
-                  </a>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -123,14 +121,18 @@ export default function FreeAuditClient() {
                 Prefer to talk it through? We&apos;ll happily walk you through
                 the results.
               </p>
-              <BookCallButton>Book a FREE Call</BookCallButton>
-              <span className="mx-3 text-muted">or</span>
-              <Link
-                href="/enquiry"
-                className="text-sm text-pink font-medium hover:underline underline-offset-4"
-              >
-                send a quick enquiry →
-              </Link>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <BookCallButton>Book a FREE Call</BookCallButton>
+                <span className="text-sm text-muted">
+                  or{" "}
+                  <Link
+                    href="/enquiry"
+                    className="whitespace-nowrap text-pink font-medium hover:underline underline-offset-4"
+                  >
+                    send a quick enquiry →
+                  </Link>
+                </span>
+              </div>
             </motion.div>
           </div>
         </section>

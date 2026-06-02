@@ -125,7 +125,7 @@ export const services: ServiceData[] = [
       {
         title: "Stand out in a saturated market.",
         description:
-          "The fitness industry is packed. A distinctive brand identity means people remember you and come back when they're ready to buy.",
+          "Most markets are crowded. A distinctive brand identity means people remember you and come back when they're ready to buy.",
       },
     ],
     whoIsThisFor: [
@@ -165,7 +165,7 @@ export const services: ServiceData[] = [
       "Scroll-stopping graphics and templates so your feed looks consistent, branded, and premium without you spending hours in Canva.",
     longDescription: [
       "You know you need to post consistently. But between running the business, serving clients, and actually living your life, designing social media content falls to the bottom of the list. And when you do get around to it, you're stuck in Canva for three hours making something you'll probably delete anyway.",
-      "Your Instagram feed is often the first thing potential clients check before they enquire. If it looks inconsistent, messy, or like every other fitness account, you're losing people before they even read your caption.",
+      "Your Instagram feed is often the first thing potential clients check before they enquire. If it looks inconsistent, messy, or like every other account in your space, you're losing people before they even read your caption.",
       "We design custom templates and graphics that match your brand, so every post looks like it was made by a design team. Because it was. You get templates you can reuse, custom one-off designs for launches and campaigns, and a feed that finally looks like it belongs to a premium brand.",
     ],
     features: [
@@ -227,7 +227,7 @@ export const services: ServiceData[] = [
       cadences: [
         {
           name: "Weekly",
-          detail: "A fresh batch of graphics every single week — perfect for content-heavy brands that need to stay front-of-mind.",
+          detail: "A fresh batch of graphics every single week, perfect for content-heavy brands that need to stay front-of-mind.",
         },
         {
           name: "Fortnightly",
@@ -235,7 +235,7 @@ export const services: ServiceData[] = [
         },
         {
           name: "Monthly",
-          detail: "A tailored batch delivered in one go each month — ideal for planning ahead and staying organised.",
+          detail: "A tailored batch delivered in one go each month, ideal for planning ahead and staying organised.",
         },
       ],
       whatYouGet: [
@@ -255,11 +255,11 @@ export const services: ServiceData[] = [
         },
         {
           step: "Deliver",
-          detail: "Finished graphics land on time, every time — ready for you to post with zero hassle.",
+          detail: "Finished graphics land on time, every time, ready for you to post with zero hassle.",
         },
       ],
       flexibility:
-        "Too busy to send your content this week? No problem. Swap your graphics for a professionally designed 10-page PDF lead magnet or website design updates instead — so you keep growing your brand even when time isn't on your side.",
+        "Too busy to send your content this week? No problem. Swap your graphics for a professionally designed 10-page PDF lead magnet or website design updates instead, so you keep growing your brand even when time isn't on your side.",
     },
   },
   {
@@ -324,7 +324,7 @@ export const services: ServiceData[] = [
       },
     ],
     ctaHeadline: "Ready to stop worrying about your website?",
-    ctaSubtext: "Let us handle the tech so you can focus on coaching.",
+    ctaSubtext: "Let us handle the tech so you can focus on running your business.",
     relatedProjects: ["Hard to Kill", "Bridge2Fitness", "Newgen Coaching"],
   },
   {
@@ -357,7 +357,7 @@ export const services: ServiceData[] = [
       {
         title: "Passive income on autopilot.",
         description:
-          "Digital products, subscriptions, and automated fulfilment mean you can earn money while you're coaching, sleeping, or on holiday.",
+          "Digital products, subscriptions, and automated fulfilment mean you can earn money while you're working, sleeping, or on holiday.",
       },
       {
         title: "A store that grows with you.",

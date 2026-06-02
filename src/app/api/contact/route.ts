@@ -80,8 +80,14 @@ async function syncToActiveCampaign(opts: {
 
 export async function POST(request: Request) {
   try {
-    const { name, email, lane, service, message, marketingOptIn } =
+    const { name, email, lane, service, message, marketingOptIn, company } =
       await request.json();
+
+    // Honeypot: real users never fill "company" (it's visually hidden).
+    // If it's populated, it's a bot — pretend success, send nothing.
+    if (company) {
+      return NextResponse.json({ success: true });
+    }
 
     if (!name || !email) {
       return NextResponse.json(
