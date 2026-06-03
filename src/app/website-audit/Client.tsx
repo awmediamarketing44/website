@@ -16,6 +16,36 @@ interface DeviceScores {
   seo: number;
 }
 
+interface CoreWebVital {
+  id: string;
+  label: string;
+  displayValue: string | null;
+  score: number | null;
+}
+
+interface FieldMetric {
+  id: string;
+  label: string;
+  displayValue: string;
+  category: string | null;
+}
+
+interface Opportunity {
+  id: string;
+  title: string;
+  displayValue: string | null;
+  savingsMs: number;
+}
+
+type SeoStatus = "pass" | "warn" | "fail";
+
+interface SeoCheck {
+  id: string;
+  label: string;
+  status: SeoStatus;
+  note: string;
+}
+
 interface AuditResult {
   url: string;
   mobile: DeviceScores;
@@ -23,6 +53,9 @@ interface AuditResult {
   issues: string[];
   quickWins: string[];
   agencyInsights: string[];
+  coreWebVitals?: { lab: CoreWebVital[]; field: FieldMetric[] };
+  opportunities?: Opportunity[];
+  seo?: { available: boolean; checks: SeoCheck[] };
 }
 
 /* ── How it works (ported from source) ── */
@@ -165,6 +198,80 @@ function DeviceRows({ data }: { data: DeviceScores }) {
         );
       })}
     </div>
+  );
+}
+
+/* ── Core Web Vitals: colour from 0-1 Lighthouse score ── */
+function vitalColor(score: number | null): string {
+  if (score === null || score === undefined) return "#febc2e";
+  if (score >= 0.9) return "#28c840";
+  if (score >= 0.5) return "#febc2e";
+  return "#ff5c7a";
+}
+
+function VitalCard({ vital }: { vital: CoreWebVital }) {
+  const color = vitalColor(vital.score);
+  return (
+    <div className="rounded-2xl border border-card-border bg-card p-5 text-center">
+      <span className="block text-xs font-semibold uppercase tracking-widest text-muted">
+        {vital.label}
+      </span>
+      <div className="mt-3 text-2xl font-extrabold" style={{ color }}>
+        {vital.displayValue ?? "—"}
+      </div>
+    </div>
+  );
+}
+
+/* ── Format opportunity savings (ms) into a friendly string ── */
+function formatSavings(ms: number): string {
+  if (ms >= 1000) return `${(ms / 1000).toFixed(1)}s faster`;
+  return `${Math.round(ms)}ms faster`;
+}
+
+/* ── SEO status icon ── */
+function SeoIcon({ status }: { status: SeoStatus }) {
+  if (status === "pass") {
+    return (
+      <svg
+        className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-400"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2.5}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    );
+  }
+  if (status === "warn") {
+    return (
+      <svg
+        className="mt-0.5 h-4 w-4 flex-shrink-0"
+        style={{ color: "#febc2e" }}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2.2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg
+      className="mt-0.5 h-4 w-4 flex-shrink-0 text-red-400"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2.5}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
   );
 }
 
@@ -721,6 +828,148 @@ export default function WebsiteAuditClient() {
                     </ul>
                   </div>
                 </div>
+
+                {/* Core Web Vitals */}
+                {result.coreWebVitals && result.coreWebVitals.lab.length > 0 && (
+                  <div className="mt-8 rounded-2xl border border-card-border bg-card p-6 sm:p-7">
+                    <h3 className="flex flex-wrap items-center gap-2 text-base font-bold">
+                      Core Web Vitals
+                      <span className="rounded-full bg-pink/10 px-2.5 py-0.5 text-xs font-semibold text-pink">
+                        Mobile
+                      </span>
+                    </h3>
+                    <p className="mt-2 text-sm text-muted">
+                      Google&apos;s key loading and stability metrics — the numbers
+                      that influence both user experience and search ranking.
+                    </p>
+                    <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                      {result.coreWebVitals.lab.map((v) => (
+                        <VitalCard key={v.id} vital={v} />
+                      ))}
+                    </div>
+
+                    {result.coreWebVitals.field.length > 0 && (
+                      <div className="mt-6 border-t border-card-border pt-5">
+                        <p className="text-xs font-semibold uppercase tracking-widest text-muted">
+                          Real-user data (last 28 days)
+                        </p>
+                        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                          {result.coreWebVitals.field.map((f) => (
+                            <div
+                              key={f.id}
+                              className="flex items-center justify-between rounded-xl border border-card-border bg-background px-4 py-3"
+                            >
+                              <span className="text-sm text-muted">{f.label}</span>
+                              <span
+                                className="text-sm font-bold"
+                                style={{
+                                  color:
+                                    f.category === "FAST"
+                                      ? "#28c840"
+                                      : f.category === "AVERAGE"
+                                      ? "#febc2e"
+                                      : f.category === "SLOW"
+                                      ? "#ff5c7a"
+                                      : "#ffffff",
+                                }}
+                              >
+                                {f.displayValue}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Quick wins to speed it up — opportunities */}
+                {result.opportunities && result.opportunities.length > 0 && (
+                  <div className="mt-8 rounded-2xl border border-card-border bg-card p-6 sm:p-7">
+                    <h3 className="flex flex-wrap items-center gap-2 text-base font-bold">
+                      Quick Wins to Speed It Up
+                      <span className="rounded-full bg-green-500/10 px-2.5 py-0.5 text-xs font-semibold text-green-400">
+                        Biggest Impact First
+                      </span>
+                    </h3>
+                    <p className="mt-2 text-sm text-muted">
+                      The highest-impact changes for load speed, with the estimated
+                      time saved on each.
+                    </p>
+                    <ul className="mt-5 space-y-3">
+                      {result.opportunities.map((opp) => (
+                        <li
+                          key={opp.id}
+                          className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-card-border bg-background px-4 py-3"
+                        >
+                          <div className="flex items-start gap-3">
+                            <svg
+                              className="mt-0.5 h-4 w-4 flex-shrink-0 text-pink"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"
+                              />
+                            </svg>
+                            <span className="text-sm text-white">{opp.title}</span>
+                          </div>
+                          <span className="ml-7 rounded-full bg-pink/10 px-2.5 py-0.5 text-xs font-semibold text-pink whitespace-nowrap sm:ml-0">
+                            {opp.displayValue || formatSavings(opp.savingsMs)}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* On-page SEO checklist */}
+                {result.seo && (
+                  <div className="mt-8 rounded-2xl border border-card-border bg-card p-6 sm:p-7">
+                    <h3 className="flex flex-wrap items-center gap-2 text-base font-bold">
+                      On-Page SEO
+                      <span className="rounded-full bg-pink/10 px-2.5 py-0.5 text-xs font-semibold text-pink">
+                        Foundations
+                      </span>
+                    </h3>
+                    {result.seo.available && result.seo.checks.length > 0 ? (
+                      <>
+                        <p className="mt-2 text-sm text-muted">
+                          The on-page basics search engines look for — checked live
+                          against your page.
+                        </p>
+                        <ul className="mt-5 space-y-3">
+                          {result.seo.checks.map((check) => (
+                            <li
+                              key={check.id}
+                              className="flex items-start gap-3 border-b border-card-border pb-3 last:border-0 last:pb-0"
+                            >
+                              <SeoIcon status={check.status} />
+                              <div>
+                                <span className="block text-sm font-medium text-white">
+                                  {check.label}
+                                </span>
+                                <span className="block text-sm text-muted">
+                                  {check.note}
+                                </span>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    ) : (
+                      <p className="mt-3 text-sm text-muted">
+                        We couldn&apos;t read this page&apos;s HTML directly, so the
+                        on-page SEO checklist isn&apos;t available. Your scores above
+                        are unaffected.
+                      </p>
+                    )}
+                  </div>
+                )}
 
                 {/* Agency insights */}
                 {result.agencyInsights.length > 0 && (

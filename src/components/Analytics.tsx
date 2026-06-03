@@ -12,7 +12,7 @@ export default function Analytics() {
   return (
     <>
       {/* Google Tag Manager */}
-      <Script id="gtm" strategy="afterInteractive">{`
+      <Script id="gtm" strategy="lazyOnload">{`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -23,9 +23,9 @@ export default function Analytics() {
       {/* Google Tag (gtag.js) */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=GT-NSKKQTV"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="gtag-init" strategy="afterInteractive">{`
+      <Script id="gtag-init" strategy="lazyOnload">{`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -46,7 +46,7 @@ export default function Analytics() {
         load + the runtime TypeError while preserving Clarity tracking
         (it still loads — via GTM if present, or via this snippet if not).
       */}
-      <Script id="clarity" strategy="afterInteractive">{`
+      <Script id="clarity" strategy="lazyOnload">{`
         (function(c,l,a,r,i){
           if (typeof c[a] === "function") return;        // already installed (stub or real)
           if (c[a] && typeof c[a] !== "function") return; // GTM (or other) loaded Clarity already
@@ -57,7 +57,7 @@ export default function Analytics() {
       `}</Script>
 
       {/* Meta Pixel */}
-      <Script id="fb-pixel" strategy="afterInteractive">{`
+      <Script id="fb-pixel" strategy="lazyOnload">{`
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};

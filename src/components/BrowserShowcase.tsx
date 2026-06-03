@@ -52,7 +52,7 @@ export default function BrowserShowcase() {
               </div>
             </div>
             <img
-              src="/images/newgen-hero-v3.jpg"
+              src="/images/newgen-hero-v4.jpg"
               alt="Newgen Coaching, a recent AW Media build."
               width={1280}
               height={800}
@@ -155,7 +155,7 @@ function DesktopBrowserShowcase({
                     muted
                     playsInline
                     preload="metadata"
-                    poster="/images/newgen-hero-v3.jpg"
+                    poster="/images/newgen-hero-v4.jpg"
                     className="block w-full h-[calc(100%-2.25rem)] sm:h-[calc(100%-2.75rem)] object-cover bg-black"
                   >
                     <source src="/videos/newgen-scroll-loop-v2.webm" type="video/webm" />
@@ -163,7 +163,7 @@ function DesktopBrowserShowcase({
                   </video>
                 ) : (
                   <img
-                    src="/images/newgen-hero-v3.jpg"
+                    src="/images/newgen-hero-v4.jpg"
                     alt=""
                     className="block w-full h-[calc(100%-2.25rem)] sm:h-[calc(100%-2.75rem)] object-cover bg-black"
                   />

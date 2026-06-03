@@ -1,4 +1,10 @@
 import { NextResponse } from "next/server";
+import {
+  parseCoreWebVitals,
+  parseOpportunities,
+  runSeoChecks,
+  type PSIFull,
+} from "./analysis";
 
 export const dynamic = "force-dynamic";
 
@@ -241,6 +247,31 @@ export async function POST(request: Request) {
 
     const agencyInsights = generateInsights(mobile, desktop);
 
+    // ── New detail sections — each guarded so a failure never breaks scores ──
+    let coreWebVitals: ReturnType<typeof parseCoreWebVitals> = { lab: [], field: [] };
+    try {
+      // Mobile run is primary for Core Web Vitals (+ CrUX field data).
+      coreWebVitals = parseCoreWebVitals(mobileData as PSIFull);
+    } catch (e) {
+      console.error("Core Web Vitals parse error:", e);
+    }
+
+    let opportunities: ReturnType<typeof parseOpportunities> = [];
+    try {
+      opportunities = parseOpportunities(mobileData as PSIFull);
+    } catch (e) {
+      console.error("Opportunities parse error:", e);
+    }
+
+    // On-page SEO: separate HTML fetch, fully isolated.
+    let seo: Awaited<ReturnType<typeof runSeoChecks>> = { available: false, checks: [] };
+    try {
+      seo = await runSeoChecks(url, mobileData as PSIFull);
+    } catch (e) {
+      console.error("SEO checks error:", e);
+      seo = { available: false, checks: [] };
+    }
+
     return NextResponse.json({
       url,
       mobile,
@@ -248,6 +279,9 @@ export async function POST(request: Request) {
       issues,
       quickWins,
       agencyInsights,
+      coreWebVitals,
+      opportunities,
+      seo,
     });
   } catch (err) {
     console.error("Audit error:", err);
