@@ -320,7 +320,7 @@ export default function ServicePageClient({ slug }: { slug: string }) {
                   {service.subscription.flexibility}
                 </p>
                 <Link
-                  href="/enquiry/social-media"
+                  href={service.subscription.ctaHref ?? "/enquiry/social-media"}
                   className="inline-flex items-center gap-2 rounded-full bg-pink px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_0_40px_rgba(249,38,114,0.4)]"
                 >
                   Enquire about {service.subscription.name}

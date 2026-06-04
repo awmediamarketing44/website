@@ -21,6 +21,7 @@ export interface ServiceData {
     whatYouGet: string[];
     process: { step: string; detail: string }[];
     flexibility: string;
+    ctaHref?: string;
   };
 }
 
@@ -529,6 +530,129 @@ export const services: ServiceData[] = [
     ctaHeadline: "Ready to see what AI-powered design can do for your business?",
     ctaSubtext: "Book a free call. We'll show you exactly how our process works and what it could look like for you.",
     relatedProjects: ["Hard to Kill", "Glean App", "Newgen Coaching"],
+  },
+  {
+    slug: "ai-business-support",
+    title: "AI for Your Business",
+    tag: "AI Support",
+    headerTitle: "Put AI to work",
+    headerAccent: "inside your business.",
+    headerDescription:
+      "We set up the right AI tools and automations for how your business actually runs, then support you month to month so they keep saving you time and making you money.",
+    longDescription: [
+      "Every business owner has heard that AI will change everything. Far fewer know where to start. The tools change every week, half of them are hype, and it is hard to tell what would genuinely help your business from what is just noise. So most people do nothing, or sign up to a tool, get nothing out of it, and quietly give up.",
+      "That is the gap we close. We sit down with your business, work out where the repetitive, time-draining jobs really are, and build AI into the places it actually pays off. Lead follow-up that happens instantly. Admin and reporting that runs itself. A chatbot or assistant trained on your business, not a generic bot. Content and proposal workflows that turn a day's work into ten minutes. All set up properly, with your team shown how to use it.",
+      "Then we stay with you. AI is not a set-and-forget job. New tools land constantly, prompts need tuning, and what works this quarter gets better the next. Our monthly support keeps your setup sharp, rolls out the tools worth having, and quietly ignores the ones that are not. You get the upside of moving early without having to track any of it yourself.",
+      "This is not about replacing your people. It is about taking the boring, repetitive work off their plate so they can do the work that actually grows the business. AI-accelerated where it earns its place, human judgement steering the whole way.",
+    ],
+    features: [
+      "AI opportunity audit of your business",
+      "Custom automations for admin, follow-up, leads and reporting",
+      "AI chatbot or assistant trained on your business",
+      "Content and copy workflows (email, social, proposals)",
+      "Tool selection and setup, no wasted subscriptions",
+      "Team training so your staff actually use it",
+      "Ongoing monitoring, tuning and new-tool rollouts",
+    ],
+    benefits: [
+      {
+        title: "Get hours back, every week.",
+        description:
+          "The repetitive jobs that eat your week (chasing leads, copying data, writing the same emails) get handled automatically. You and your team get that time back for the work that actually pays.",
+      },
+      {
+        title: "Move faster than your competition.",
+        description:
+          "Most businesses in your space are still doing everything by hand. Set AI up properly and you respond quicker, publish more, and serve clients better, all without hiring.",
+      },
+      {
+        title: "AI that fits you, not a generic bot.",
+        description:
+          "We build around how your business actually works, trained on your services, your tone, your process. It feels like an extension of your team, because that is exactly how we set it up.",
+      },
+    ],
+    whoIsThisFor: [
+      "Owners who keep hearing AI could help but have no idea where to start",
+      "Teams buried in repetitive admin, follow-ups, reporting and copy-paste work",
+      "Businesses that tried an AI tool, got nothing useful from it, and gave up",
+      "Operators who want a partner to keep them ahead as the tools keep changing",
+    ],
+    faqs: [
+      {
+        question: "Do I need to be technical to do this?",
+        answer:
+          "Not at all. That is the whole point of us. We handle the setup, the tools, and the fiddly bits, then show you and your team how to use what we have built in plain English. If you can send an email, you can use what we set up.",
+      },
+      {
+        question: "Will AI replace my staff?",
+        answer:
+          "No. We are not here to cut your team, we are here to free them up. AI takes the repetitive, low-value tasks so your people spend their time on the work that actually grows the business and that machines cannot do.",
+      },
+      {
+        question: "What kind of things can actually be automated?",
+        answer:
+          "More than most people expect. Instant lead follow-up, booking and reminder flows, first-draft emails and proposals, social content, data entry and reporting, customer FAQs through a trained chatbot, and internal admin. On the audit we map the jobs in your business worth automating first.",
+      },
+      {
+        question: "Why do I need monthly support after setup?",
+        answer:
+          "Because AI moves fast. New tools and models land every few weeks, and what we set up gets noticeably better with tuning over time. Monthly support keeps your setup current, rolls out the upgrades worth having, and means you always have someone to call when you want to do more. You can also work with us on setup only if you prefer.",
+      },
+    ],
+    ctaHeadline: "Ready to make AI actually work for your business?",
+    ctaSubtext:
+      "Book a free call. We'll show you exactly where AI could save you time and money, no jargon.",
+    relatedProjects: [],
+    subscription: {
+      name: "AI On Tap",
+      tagline: "Your AI team, on tap every month.",
+      intro:
+        "Setting it up is the start, not the finish. AI On Tap keeps your automations sharp, your tools current, and your team supported month after month. New tools worth having get rolled in, prompts get tuned, and you always have someone to call when you want to do more. No tracking the hype yourself, no falling behind.",
+      cadences: [
+        {
+          name: "Kickstart",
+          detail:
+            "A monthly check-in, ongoing tuning of what we have built, and one new automation or workflow each month. Ideal once your core setup is live.",
+        },
+        {
+          name: "Growth",
+          detail:
+            "Priority support, a rolling pipeline of new automations, and a monthly strategy call to plan where AI moves the needle next.",
+        },
+        {
+          name: "Partner",
+          detail:
+            "We are embedded in your business. Unlimited tweaks, proactive rollout of new tools as they land, and full team support whenever you need it.",
+        },
+      ],
+      whatYouGet: [
+        "Automations",
+        "AI chatbots",
+        "Content workflows",
+        "Team training",
+        "Tool audits",
+      ],
+      process: [
+        {
+          step: "Audit",
+          detail:
+            "We map where your time really goes and pinpoint the jobs in your business where AI pays off fastest.",
+        },
+        {
+          step: "Build",
+          detail:
+            "We set up the tools, automations and assistants around how you actually work, then train your team to run them.",
+        },
+        {
+          step: "Optimise",
+          detail:
+            "Every month we tune what is live, roll out new tools worth having, and keep you a step ahead.",
+        },
+      ],
+      flexibility:
+        "Quiet month and nothing new to build? No problem. Swap your support hours for a deeper team training session, a one-off workflow build, or a fresh AI audit of a different part of your business, so you keep moving even when priorities shift.",
+      ctaHref: "/contact",
+    },
   },
 ];
 

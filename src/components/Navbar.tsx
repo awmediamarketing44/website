@@ -14,6 +14,7 @@ const serviceLinks = [
   { label: "Shopify & E-Commerce", href: "/services/ecommerce" },
   { label: "Landing Pages & Ads", href: "/services/landing-pages" },
   { label: "AI-Powered Web Design", href: "/services/ai-design" },
+  { label: "AI for Your Business", href: "/services/ai-business-support" },
 ];
 
 const navLinks = [
