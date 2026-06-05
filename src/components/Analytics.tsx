@@ -7,7 +7,8 @@ import Script from "next/script";
 //   Google Tag Manager  GTM-WKKHR3V
 //   Google Tag (gtag)   GT-NSKKQTV
 //   Microsoft Clarity   uk9ecutvw0
-//   Meta Pixel          1113693993052577
+//   Meta Pixel          1113693993052577 (legacy, from old WP site)
+//   Meta Pixel          2742460306123259 (current, for ad campaigns)
 export default function Analytics() {
   return (
     <>
@@ -67,6 +68,7 @@ export default function Analytics() {
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '1113693993052577');
+        fbq('init', '2742460306123259');
         fbq('track', 'PageView');
       `}</Script>
     </>
@@ -94,6 +96,16 @@ export function AnalyticsNoscript() {
           style={{ display: "none" }}
           alt=""
           src="https://www.facebook.com/tr?id=1113693993052577&ev=PageView&noscript=1"
+        />
+      </noscript>
+      <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          height="1"
+          width="1"
+          style={{ display: "none" }}
+          alt=""
+          src="https://www.facebook.com/tr?id=2742460306123259&ev=PageView&noscript=1"
         />
       </noscript>
     </>
