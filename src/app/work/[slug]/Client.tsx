@@ -32,56 +32,33 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
 
           <div className="relative z-10 mx-auto max-w-7xl px-6">
             {/* Breadcrumb */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2 text-sm text-muted mb-8"
-            >
+            <div className="anim-fade-up flex items-center gap-2 text-sm text-muted mb-8">
               <Link href="/work" className="hover:text-white transition-colors">Work</Link>
               <span>/</span>
               <span className="text-pink">{project.title}</span>
-            </motion.div>
+            </div>
 
             <div className="grid lg:grid-cols-[1.5fr_1fr] gap-12 items-end">
               <div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex flex-wrap gap-2 mb-6"
-                >
+                <div className="anim-fade-up flex flex-wrap gap-2 mb-6" style={{ animationDelay: "0.05s" }}>
                   <span className="rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink">
                     {project.category}
                   </span>
                   <span className="rounded-full border border-card-border bg-card px-4 py-1.5 text-xs font-medium text-muted">
                     {project.year}
                   </span>
-                </motion.div>
+                </div>
 
-                <motion.h1
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight"
-                >
+                <h1 className="anim-fade-up text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight" style={{ animationDelay: "0.1s" }}>
                   {project.title}
-                </motion.h1>
+                </h1>
 
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="mt-6 text-lg text-muted leading-relaxed max-w-xl"
-                >
+                <p className="anim-fade-up mt-6 text-lg text-muted leading-relaxed max-w-xl" style={{ animationDelay: "0.2s" }}>
                   {project.brief}
-                </motion.p>
+                </p>
 
                 {/* Tags */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="mt-6 flex flex-wrap gap-2"
-                >
+                <div className="anim-fade-up mt-6 flex flex-wrap gap-2" style={{ animationDelay: "0.3s" }}>
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -90,15 +67,13 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
                       {tag}
                     </span>
                   ))}
-                </motion.div>
+                </div>
               </div>
 
               {/* Client info card */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="rounded-2xl border border-card-border bg-card p-6 lg:p-8"
+              <div
+                className="anim-fade-up rounded-2xl border border-card-border bg-card p-6 lg:p-8"
+                style={{ animationDelay: "0.3s" }}
               >
                 <p className="text-xs uppercase tracking-widest text-pink mb-5 font-medium">Client</p>
                 <div className="space-y-4">
@@ -126,7 +101,7 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>

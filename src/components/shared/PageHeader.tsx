@@ -20,38 +20,29 @@ export default function PageHeader({ tag, title, titleAccent, description }: Pag
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-6"
-        >
+        <span className="anim-fade-up inline-block rounded-full border border-pink/30 bg-pink/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-pink mb-6">
           {tag}
-        </motion.span>
+        </span>
 
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.1] sm:leading-[1.05] lg:leading-none tracking-tight">
-          {[title, ...(titleAccent ? [titleAccent] : [])].map((line, i, arr) => (
-            <motion.span
+          {[title, ...(titleAccent ? [titleAccent] : [])].map((line, i) => (
+            <span
               key={i}
-              className={`block text-balance ${i > 0 ? "gradient-text" : ""}`}
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className={`anim-fade-up block text-balance ${i > 0 ? "gradient-text" : ""}`}
+              style={{ animationDelay: `${i * 0.12}s` }}
             >
               {line}
-            </motion.span>
+            </span>
           ))}
         </h1>
 
         {description && (
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 max-w-2xl mx-auto text-lg text-muted leading-relaxed"
+          <p
+            className="anim-fade-up mt-6 max-w-2xl mx-auto text-lg text-muted leading-relaxed"
+            style={{ animationDelay: "0.3s" }}
           >
             {description}
-          </motion.p>
+          </p>
         )}
       </div>
     </section>
