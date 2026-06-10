@@ -42,6 +42,7 @@ const footerLinks = {
     { label: "Work", href: "/work" },
     { label: "Blog", href: "/blog" },
     { label: "Reviews", href: "/reviews" },
+    { label: "AI Portal", href: "/portal" },
     { label: "Locations", href: "/locations" },
     { label: "Contact", href: "/contact" },
   ],

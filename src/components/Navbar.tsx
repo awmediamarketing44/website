@@ -209,6 +209,15 @@ export default function Navbar() {
           <motion.a
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.5 }}
+            href="/portal"
+            className="text-sm text-muted hover:text-white transition-colors duration-200"
+          >
+            AI Portal
+          </motion.a>
+          <motion.a
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
             href="/free-audit"
             className="text-sm text-muted hover:text-white transition-colors duration-200"
@@ -337,6 +346,7 @@ export default function Navbar() {
 
               {/* Extra mobile links not in the main nav */}
               {[
+                { label: "AI Portal", href: "/portal" },
                 { label: "Free Audit", href: "/free-audit" },
                 { label: "Reviews", href: "/reviews" },
                 { label: "Contact", href: "/contact" },
