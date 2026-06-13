@@ -784,6 +784,12 @@ const webProjects: ProjectData[] = [
       "Sector-by-sector targeting",
       "Engineer-buyer-led structure",
     ],
+    testimonial: {
+      quote:
+        "AW Media designed a fantastic new website for my company. From start to finish, communication was excellent, and they went above and beyond to deliver a top-class result. The quality of the design exceeded our expectations… highly recommend",
+      name: "JIC Refractory",
+      role: "Industrial Refractory Services, UK",
+    },
     gallery: [
       "/images/projects/jic/desktop.jpg",
       "/images/projects/jic/mobile.jpg",
