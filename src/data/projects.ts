@@ -1183,49 +1183,6 @@ const landingProjects: ProjectData[] = [
   },
 
   {
-    slug: "dr-rio",
-    title: "Dr Rio",
-    category: "Landing Pages",
-    tags: ["Landing Page", "Medical", "Bespoke Design"],
-    heroImage: "/images/projects/dr-rio/hero.jpg",
-    thumbnailImage: "/images/projects/dr-rio/thumb.jpg",
-    hasImages: true,
-    year: "2026",
-    client: {
-      name: "Dr Rio",
-      industry: "Medical / Health",
-      location: "UK",
-      website: "https://drrio.co.uk/",
-    },
-    brief:
-      "Bespoke landing page for Dr Rio. Clinical credibility, considered design, conversion-focused structure.",
-    challenge: [
-      "Medical practitioners need to look established and trustworthy from the first impression. Visual signals matter as much as the copy.",
-      "Patient journey is information-heavy. The page had to inform without overwhelming.",
-      "Booking is the conversion. Everything else is in service of that.",
-    ],
-    approach: [
-      "Clinical-modern visual language. Clean, considered, with editorial typography that signals expertise.",
-      "Layered information architecture: top of page sells the credibility, deeper sections answer the practical questions.",
-      "Booking integration so patients can convert in a single session.",
-    ],
-    features: [
-      "Bespoke landing page design",
-      "Clinical-modern visual system",
-      "Booking integration",
-      "Layered information structure",
-      "Mobile-first responsive",
-      "Accessibility-conscious",
-    ],
-    gallery: [
-      "/images/projects/dr-rio/desktop.jpg",
-      "/images/projects/dr-rio/mobile.jpg",
-      "/images/projects/dr-rio/desktop-full.jpg",
-    ],
-    relatedProjects: ["complete-dentist-academy", "weather-fix"],
-  },
-
-  {
     slug: "weather-fix",
     title: "Weather Fix FRS",
     category: "Landing Pages",

@@ -81,6 +81,15 @@ const PER_POST_PROMPT = {
     "A 3D clay single-page brochure standing upright with a clay camera lens projecting a pink CTA button.",
   "ecommerce-for-print-on-demand-artists":
     "A 3D clay framed art print on a small clay easel, a checkout button glowing pink in the foreground.",
+
+  "my-website-isnt-showing-up-on-google":
+    "A 3D clay search bar with a tiny clay website card sinking far below the visible results, a pink magnifying glass hovering above. Sense of being buried and unfound.",
+  "every-change-takes-weeks-with-your-developer":
+    "A 3D clay desk calendar with pages piling up beside a pink clay hourglass with sand drained to the bottom. A small blank pink sticky note (no writing) on the calendar. Sense of stalled, waiting time. Absolutely no text, no letters, no words, no numbers anywhere in the image.",
+  "embarrassed-to-send-people-to-your-website":
+    "A 3D clay smartphone face-down on a surface, a pink share arrow turning away from it. Sense of hiding a link. Restrained, editorial.",
+  "your-diy-brand-looks-like-everyone-else":
+    "A grid of identical grey 3D clay logo blocks with one single pink hand-shaped unique mark standing out among them. Top-down, sameness versus distinction.",
 };
 
 async function loadPosts() {
