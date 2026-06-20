@@ -36,6 +36,153 @@ export interface ProjectData {
 
 const webProjects: ProjectData[] = [
   {
+    slug: "mind-muscle-movement",
+    title: "The Mind and Muscle Movement",
+    category: "Web Design & Build",
+    tags: ["Website", "Landing Page", "Custom Build", "Hosting", "SSL"],
+    heroImage: "/images/projects/mind-muscle-movement/hero.jpg",
+    thumbnailImage: "/images/projects/mind-muscle-movement/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Darren Cusack / The Mind and Muscle Movement",
+      industry: "1:1 Online Coaching",
+      location: "UK",
+      website: "https://themindandmusclemovement.com/",
+    },
+    brief:
+      "Custom-designed, custom-built landing page for an online coach. No templates, no shortcuts. A site that matches the level of coaching Darren delivers and gives potential clients the confidence to enquire.",
+    challenge: [
+      "Darren needed an online presence that matched the standard of his coaching, not a templated stopgap.",
+      "The page had to build instant trust and move visitors to enquire.",
+      "It needed room to grow with the business, without a rebuild every time it took a step forward.",
+    ],
+    approach: [
+      "Custom designed and custom built around his brand. No templates.",
+      "Full hosting, SSL and security handled end to end.",
+      "Built so he can update and scale the site as the business develops.",
+    ],
+    features: [
+      "Custom design + development",
+      "Conversion-focused landing page",
+      "Hosting, SSL + security",
+      "Built to update + scale",
+      "Mobile-first responsive",
+      "Fast, considered build",
+    ],
+    testimonial: {
+      quote:
+        "Alex and Paul have been phenomenal to work with. Their attention to detail, quick turnaround times, and expert level knowledge made what could have been a stressful process genuinely enjoyable. They went above and beyond at every stage, and the finished product speaks for itself. Clean, professional, and exactly what I had in mind, only better. Cannot recommend them highly enough. If you're looking for a team that actually cares about getting it right, look no further.",
+      name: "Darren Cusack",
+      role: "The Mind and Muscle Movement",
+    },
+    gallery: [
+      "/images/projects/mind-muscle-movement/desktop.jpg",
+      "/images/projects/mind-muscle-movement/mobile.jpg",
+      "/images/projects/mind-muscle-movement/desktop-full.jpg",
+    ],
+    relatedProjects: ["lifefit-physique", "wlwt-coaching"],
+  },
+
+  {
+    slug: "lifefit-physique",
+    title: "LifeFit Physique",
+    category: "Web Design & Build",
+    tags: ["Website", "Custom Build", "WordPress", "SEO", "Hosting"],
+    heroImage: "/images/projects/lifefit-physique/hero.jpg",
+    thumbnailImage: "/images/projects/lifefit-physique/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "George Mead / LifeFit Physique",
+      industry: "Online Coaching",
+      location: "UK",
+      website: "https://lifefitphysique.co.uk/",
+    },
+    brief:
+      "A proper online home for LifeFit Physique. Not a template, not a half-finished side project. A custom WordPress build that matches the level of coaching George delivers and gives clients the confidence to get in touch.",
+    challenge: [
+      "George needed a website that worked as hard as he does, turning visitors into enquiries rather than letting them leave.",
+      "It had to be found, which meant proper Google and SEO setup, not just a pretty page.",
+      "Every page needed one job: move people from landing to getting in touch.",
+    ],
+    approach: [
+      "Custom design and custom WordPress build from scratch.",
+      "Full website security, reliable hosting, and Google setup with SEO so he can actually be found.",
+      "Every page designed to convert. No fluff, no filler.",
+    ],
+    features: [
+      "Custom design + WordPress build",
+      "Conversion-focused pages",
+      "Google + SEO setup",
+      "Website security",
+      "Reliable, fast hosting",
+      "Mobile-first responsive",
+    ],
+    testimonial: {
+      quote:
+        "Just had my brand brought to life by Alex and the team and I couldn't be happier with how it's turned out and how professional it all looks. Really does stand out to what we're all about and offer. Any updates and changes was no issue to get it how I wanted and I'm coming back for more graphics design.",
+      name: "George Mead",
+      role: "LifeFit Physique",
+    },
+    gallery: [
+      "/images/projects/lifefit-physique/desktop.jpg",
+      "/images/projects/lifefit-physique/mobile.jpg",
+      "/images/projects/lifefit-physique/desktop-full.jpg",
+    ],
+    relatedProjects: ["mind-muscle-movement", "dr-rio"],
+  },
+
+  {
+    slug: "dr-rio",
+    title: "Dr Rio",
+    category: "Web Design & Build",
+    tags: ["Website", "Landing Page", "Logo", "SEO", "Hosting"],
+    heroImage: "/images/projects/dr-rio/hero.jpg",
+    thumbnailImage: "/images/projects/dr-rio/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Dr Rio Harrison",
+      industry: "Doctor-Led Aesthetics",
+      location: "Sheffield, UK",
+      website: "https://drrio.co.uk/",
+    },
+    brief:
+      "Dr Rio specialises in doctor-led aesthetic treatments that enhance natural beauty. She needed a professional online presence that reflected the quality of her work and converted visitors into bookings.",
+    challenge: [
+      "Aesthetics is a trust-led purchase. The site had to communicate professionalism and medical credibility from the first scroll.",
+      "It needed to convert visitors into actual bookings, not just look good.",
+      "Local discovery mattered, so it had to be found by the right people nearby.",
+    ],
+    approach: [
+      "Custom website design and development with a clean, modern, premium feel.",
+      "Logo design plus hosting, SSL and security handled end to end.",
+      "SEO setup for local search visibility so she ranks where it counts.",
+    ],
+    features: [
+      "Custom design + development",
+      "Logo design",
+      "Conversion-focused landing page",
+      "Local SEO setup",
+      "Hosting, SSL + security",
+      "Mobile-first responsive",
+    ],
+    testimonial: {
+      quote:
+        "I was genuinely so impressed with the service from AW Media. From our very first Zoom meeting, the team really took the time to understand exactly what I wanted for my website and logo, as well as the time frame I was working with. The whole process was seamless, professional, friendly, and efficient from start to finish. They gave me constructive feedback and worked collaboratively with me to bring my vision to life, capturing exactly what I had in mind and more. Nothing was ever too much trouble, and communication was always clear and prompt. I'm absolutely over the moon with the final website and logo. They look fantastic and perfectly reflect my brand. I can't recommend AW Media highly enough and will definitely be using them again for future projects.",
+      name: "Dr Rio Harrison",
+      role: "Dr Rio Aesthetics",
+    },
+    gallery: [
+      "/images/projects/dr-rio/desktop.jpg",
+      "/images/projects/dr-rio/mobile.jpg",
+      "/images/projects/dr-rio/desktop-full.jpg",
+    ],
+    relatedProjects: ["lifefit-physique", "kensington-scott"],
+  },
+
+  {
     slug: "b3x-graphics",
     title: "B3x Graphics",
     category: "Web Design & Build",
@@ -973,6 +1120,12 @@ const landingProjects: ProjectData[] = [
       "Mobile-first responsive",
       "Fast turnaround at premium quality",
     ],
+    results: {
+      stats: [
+        { value: "8 leads", label: "In the first 48 hours of going live" },
+        { value: "Pre-qualified", label: "On budget, location + timeline" },
+      ],
+    },
     gallery: [
       "/images/projects/kensington-scott/desktop.jpg",
       "/images/projects/kensington-scott/mobile.jpg",
@@ -1248,6 +1401,156 @@ const landingProjects: ProjectData[] = [
 
 const brandingProjects: ProjectData[] = [
   {
+    slug: "casey-lifestyle",
+    title: "Casey Lifestyle Coaching",
+    category: "Branding / Logo Design",
+    tags: ["Full Brand Set Up", "Logo", "Social Set Up"],
+    heroImage: "/images/projects/casey-lifestyle/hero.jpg",
+    thumbnailImage: "/images/projects/casey-lifestyle/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Casey / Lifestyle Coaching",
+      industry: "Lifestyle Coaching",
+      location: "UK",
+      website: "https://www.instagram.com/casey_lifestyle/",
+    },
+    brief:
+      "Casey came to us launching his lifestyle coaching business and wanted to look the part from day one. Not next month. Not after a few clients. Day one. So we built the brand to match.",
+    challenge: [
+      "Great coaching with a bad brand is just a well kept secret. Casey had the coaching but no visual identity to back it.",
+      "The mark had to communicate reach, direction and purpose without saying a word.",
+      "He needed to create on-brand content himself going forward, without relying on anyone else.",
+    ],
+    approach: [
+      "Custom logo designed around a globe and four-point star. Bold, modern, and built to work across every format.",
+      "Rolled out across his full social presence: pinned posts, profile picture, and highlight covers.",
+      "Delivered fully editable Canva templates so Casey can keep everything consistent and on brand.",
+    ],
+    features: [
+      "Custom logo + brand mark",
+      "Full social media asset pack",
+      "Pinned posts + profile setup",
+      "Editable Canva templates",
+      "Consistent brand system",
+      "Built for self-serve content",
+    ],
+    testimonial: {
+      quote:
+        "Fantastic service start to finish from Alex. Great communication and delivered exactly what I was looking for.",
+      name: "Casey",
+      role: "Lifestyle Coaching",
+    },
+    gallery: [
+      "/images/projects/casey-lifestyle/mockup-2.jpg",
+      "/images/projects/casey-lifestyle/mockup-3.jpg",
+      "/images/projects/casey-lifestyle/mockup-4.jpg",
+      "/images/projects/casey-lifestyle/mockup-5.jpg",
+    ],
+    relatedProjects: ["alexis-gosset", "sculpt-society"],
+  },
+
+  {
+    slug: "alexis-gosset",
+    title: "Alexis Gosset",
+    category: "Branding / Logo Design",
+    tags: ["Full Brand Set Up", "Logo", "Welcome Pack"],
+    heroImage: "/images/projects/alexis-gosset/hero.jpg",
+    thumbnailImage: "/images/projects/alexis-gosset/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Alexis Gosset",
+      industry: "Online Coaching",
+      location: "France",
+      website: "https://www.instagram.com/alexis.g.coach/",
+    },
+    brief:
+      "Professional. Premium. Simple and strong. That was the brief from Alexis, building his online coaching business from scratch and wanting the brand to match from day one. Not a Canva logo and mismatched graphics. A proper identity that tells people what level he operates at before they read a word.",
+    challenge: [
+      "Alexis knew the image he wanted to project, but knowing what you want and having the brand to match are two different things.",
+      "Every touchpoint had to look like one system. Clean, consistent, professional.",
+      "New clients needed that premium feel from the moment they signed up.",
+    ],
+    approach: [
+      "Custom logo and a full social media asset pack: pinned posts, profile picture, and Canva templates.",
+      "A branded PDF welcome pack so every new client gets the premium experience from day one.",
+      "Built to work as one system, one look across every touchpoint.",
+    ],
+    features: [
+      "Custom logo + identity",
+      "Full social media asset pack",
+      "Editable Canva templates",
+      "Branded PDF welcome pack",
+      "Pinned posts + profile setup",
+      "One consistent brand system",
+    ],
+    testimonial: {
+      quote:
+        "Great experience working with AW Media and Marketing. He really took the time to understand what I wanted for my personal branding, my visual identity and the image I wanted to give through my coaching business. The communication was easy, the work was clean, and the final result looks exactly like what I had in mind: professional, premium, simple and strong. I'm really happy with the result and I would definitely recommend him to anyone who wants to build a serious and high quality brand image.",
+      name: "Alexis Gosset",
+      role: "Online Coach",
+    },
+    gallery: [
+      "/images/projects/alexis-gosset/mockup-2.jpg",
+      "/images/projects/alexis-gosset/mockup-3.jpg",
+      "/images/projects/alexis-gosset/mockup-4.jpg",
+      "/images/projects/alexis-gosset/mockup-5.jpg",
+    ],
+    relatedProjects: ["casey-lifestyle", "sculpt-society"],
+  },
+
+  {
+    slug: "sculpt-society",
+    title: "The Sculpt Society",
+    category: "Branding / Logo Design",
+    tags: ["Full Brand Set Up", "Logo", "Social Set Up"],
+    heroImage: "/images/projects/sculpt-society/hero.jpg",
+    thumbnailImage: "/images/projects/sculpt-society/thumb.jpg",
+    hasImages: true,
+    year: "2025",
+    client: {
+      name: "Lauren / The Sculpt Society",
+      industry: "Online Fitness Coaching",
+      location: "UK",
+      website: "https://www.instagram.com/thesculptsociety/",
+    },
+    brief:
+      "New business, new brand, nailed in one. Lauren came to us at the start of her journey as an online fitness coach. She had a vision, a colour palette and a name, but couldn't quite put the rest into words. That's the brief we work best with.",
+    challenge: [
+      "Lauren was launching from scratch with a clear feel in mind but no identity to express it.",
+      "She needed a brand that launched the business with clarity and confidence from day one.",
+      "It had to be something she could run with herself for ongoing content.",
+    ],
+    approach: [
+      "Built a full brand identity from the ground up: custom logo with all file formats.",
+      "Editable Canva templates, pinned posts and highlight covers for ongoing content.",
+      "Social carousel templates ready to go, so the brand stays cohesive as she posts.",
+    ],
+    features: [
+      "Full brand identity",
+      "Custom logo, all formats",
+      "Editable Canva templates",
+      "Pinned posts + highlight covers",
+      "Social carousel templates",
+      "Cohesive, launch-ready system",
+    ],
+    testimonial: {
+      quote:
+        "Absolute best! I came to Alex with very little ideas but a vision, told him the colours and just the name and let him run with any ideas he wanted from my very little information. First thing he sent over to me was nailed. Couldn't be happier with my logos and the branding of my page. Exactly what I wanted even when I didn't fully know myself, he just took what I thought and created my vision.",
+      name: "Lauren",
+      role: "The Sculpt Society",
+    },
+    gallery: [
+      "/images/projects/sculpt-society/mockup-2.jpg",
+      "/images/projects/sculpt-society/mockup-3.jpg",
+      "/images/projects/sculpt-society/mockup-4.jpg",
+      "/images/projects/sculpt-society/mockup-5.jpg",
+    ],
+    relatedProjects: ["casey-lifestyle", "alexis-gosset"],
+  },
+
+  {
     slug: "vanguard-brand",
     title: "Vanguard",
     category: "Branding / Logo Design",
@@ -1335,10 +1638,10 @@ const brandingProjects: ProjectData[] = [
       "Print + digital application pack",
     ],
     gallery: [
-      "/images/projects/primecore-brand/mockup-1.jpg",
       "/images/projects/primecore-brand/mockup-2.jpg",
       "/images/projects/primecore-brand/mockup-3.jpg",
       "/images/projects/primecore-brand/mockup-4.jpg",
+      "/images/projects/primecore-brand/mockup-5.jpg",
     ],
     relatedProjects: ["vanguard-brand", "noura"],
   },
@@ -1638,6 +1941,65 @@ const brandingProjects: ProjectData[] = [
 // ============================================================================
 
 const socialProjects: ProjectData[] = [
+  {
+    slug: "mattmc-socials",
+    title: "Matt McCullough",
+    category: "Graphic Subscriptions",
+    tags: ["IG Carousels", "Social Graphics", "AI-Accelerated", "Ongoing"],
+    heroImage: "/images/projects/mattmc-socials/graphics/post-1-slide-01.jpg",
+    thumbnailImage: "/images/projects/mattmc-socials/graphics/post-1-slide-01.jpg",
+    hasImages: true,
+    year: "2026 / Ongoing",
+    client: {
+      name: "Matt McCullough / NXT LVL",
+      industry: "IFBB Pro Coach / Physique Development",
+      location: "UK",
+      website: "https://www.instagram.com/mattmccullough_ifbbpro/",
+    },
+    testimonial: {
+      quote:
+        "These graphics are very good for traction. I'm bringing a lot of clients onboard because of these.",
+      name: "Matt McCullough",
+      role: "IFBB Pro / NXT LVL Physique Development",
+    },
+    brief:
+      "Fortnightly IG carousel design for an IFBB Pro coach. Editorial fitness graphics, AI-accelerated and hand-finished, that turn his coaching knowledge into scroll-stopping posts.",
+    challenge: [
+      "Coaching content on IG is saturated. Matt needed graphics that read as pro-level authority, not generic gym posts.",
+      "A fortnightly cadence demanded a system that ships fast without ever looking template-spammed.",
+      "The output had to actually drive enquiries, not just look good.",
+    ],
+    approach: [
+      "Built a NXT LVL carousel system: cover, hook, body and CTA on locked typography with the black, white and electric-yellow identity.",
+      "AI-accelerated production keeps the fortnightly turnaround fast, with every pack hand-finished and bespoke within the system.",
+      "Direct, technical tone in the copy, backed by sharp editorial design.",
+    ],
+    features: [
+      "Custom IG carousel template system",
+      "Recurring fortnightly packs",
+      "Cover + body + CTA design",
+      "AI-accelerated, hand-finished",
+      "Locked brand identity in visuals",
+      "Ongoing creative direction",
+    ],
+    results: {
+      stats: [
+        { value: "Fortnightly", label: "Delivery cadence" },
+        { value: "New clients", label: "Onboarded off the back of the content" },
+      ],
+    },
+    gallery: [],
+    graphics: [
+      "/images/projects/mattmc-socials/graphics/post-1-slide-01.jpg",
+      "/images/projects/mattmc-socials/graphics/post-2-slide-01.jpg",
+      "/images/projects/mattmc-socials/graphics/post-3-slide-01.jpg",
+      "/images/projects/mattmc-socials/graphics/post-1-slide-03.jpg",
+      "/images/projects/mattmc-socials/graphics/post-2-slide-03.jpg",
+      "/images/projects/mattmc-socials/graphics/post-3-slide-03.jpg",
+    ],
+    relatedProjects: ["fox-socials", "icm-socials"],
+  },
+
   {
     slug: "fox-socials",
     title: "Trained By Fox",
