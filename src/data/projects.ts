@@ -27,6 +27,11 @@ export interface ProjectData {
   };
   gallery: string[];            // Additional screenshots (desktop, mobile, details)
   graphics?: string[];          // Optional social/graphic deliverables (IG carousel covers, ads, etc.)
+  graphicsTitle?: [string, string]; // Optional heading for the graphics section (default ["Weekly","graphics."])
+  graphicsSubtitle?: string;    // Optional subtitle for the graphics section
+  documents?: string[];         // Optional document page images (rendered welcome pack / PDF pages)
+  documentsTitle?: [string, string]; // Optional heading for the documents section (default ["The welcome","pack."])
+  documentsSubtitle?: string;   // Optional subtitle for the documents section
   relatedProjects: string[];    // Slugs of related projects
 }
 
@@ -1441,12 +1446,15 @@ const brandingProjects: ProjectData[] = [
       name: "Casey",
       role: "Lifestyle Coaching",
     },
-    gallery: [
+    gallery: [],
+    graphics: [
       "/images/projects/casey-lifestyle/mockup-2.jpg",
       "/images/projects/casey-lifestyle/mockup-3.jpg",
       "/images/projects/casey-lifestyle/mockup-4.jpg",
       "/images/projects/casey-lifestyle/mockup-5.jpg",
     ],
+    graphicsTitle: ["Brand", "showcase."],
+    graphicsSubtitle: "The full identity, rolled out across his social presence with editable templates to keep every post on brand.",
     relatedProjects: ["alexis-gosset", "sculpt-society"],
   },
 
@@ -1491,12 +1499,25 @@ const brandingProjects: ProjectData[] = [
       name: "Alexis Gosset",
       role: "Online Coach",
     },
-    gallery: [
+    gallery: [],
+    graphics: [
       "/images/projects/alexis-gosset/mockup-2.jpg",
       "/images/projects/alexis-gosset/mockup-3.jpg",
       "/images/projects/alexis-gosset/mockup-4.jpg",
       "/images/projects/alexis-gosset/mockup-5.jpg",
     ],
+    graphicsTitle: ["Brand", "showcase."],
+    graphicsSubtitle: "One identity across every touchpoint. Clean, consistent, professional, from profile to content templates.",
+    documents: [
+      "/images/projects/alexis-gosset/doc-1.jpg",
+      "/images/projects/alexis-gosset/doc-2.jpg",
+      "/images/projects/alexis-gosset/doc-3.jpg",
+      "/images/projects/alexis-gosset/doc-4.jpg",
+      "/images/projects/alexis-gosset/doc-5.jpg",
+      "/images/projects/alexis-gosset/doc-6.jpg",
+    ],
+    documentsTitle: ["The welcome", "pack."],
+    documentsSubtitle: "A branded PDF welcome pack so every new client gets the premium experience from the moment they sign up.",
     relatedProjects: ["casey-lifestyle", "sculpt-society"],
   },
 
@@ -1541,12 +1562,15 @@ const brandingProjects: ProjectData[] = [
       name: "Lauren",
       role: "The Sculpt Society",
     },
-    gallery: [
+    gallery: [],
+    graphics: [
       "/images/projects/sculpt-society/mockup-2.jpg",
       "/images/projects/sculpt-society/mockup-3.jpg",
       "/images/projects/sculpt-society/mockup-4.jpg",
       "/images/projects/sculpt-society/mockup-5.jpg",
     ],
+    graphicsTitle: ["Brand", "showcase."],
+    graphicsSubtitle: "A full identity from the ground up, with editable templates and carousel sets ready to launch with.",
     relatedProjects: ["casey-lifestyle", "alexis-gosset"],
   },
 
@@ -1637,12 +1661,15 @@ const brandingProjects: ProjectData[] = [
       "Sub-brand-ready architecture",
       "Print + digital application pack",
     ],
-    gallery: [
+    gallery: [],
+    graphics: [
       "/images/projects/primecore-brand/mockup-2.jpg",
       "/images/projects/primecore-brand/mockup-3.jpg",
       "/images/projects/primecore-brand/mockup-4.jpg",
       "/images/projects/primecore-brand/mockup-5.jpg",
     ],
+    graphicsTitle: ["Rebrand", "showcase."],
+    graphicsSubtitle: "From Big Pete to PrimeCore. New logo, new identity, and a relaunch-ready social system.",
     relatedProjects: ["vanguard-brand", "noura"],
   },
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
@@ -20,13 +20,28 @@ const filters = [
   "Landing Pages",
 ];
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export default function WorkPage() {
   const [activeFilter, setActiveFilter] = useState("All");
+  // Start with the stable source order for SSR, then reshuffle on the client
+  // after mount so each visit shows a different order without a hydration mismatch.
+  const [ordered, setOrdered] = useState(projects);
+  useEffect(() => {
+    setOrdered(shuffle(projects));
+  }, []);
 
   const filtered =
     activeFilter === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
+      ? ordered
+      : ordered.filter((p) => p.category === activeFilter);
 
   return (
     <>

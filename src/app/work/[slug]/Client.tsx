@@ -437,7 +437,7 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
           <section className="py-24 border-t border-card-border">
             <div className="mx-auto max-w-7xl px-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                {["Weekly", "graphics."].map((line, i) => (
+                {(project.graphicsTitle ?? ["Weekly", "graphics."]).map((line, i) => (
                   <motion.span
                     key={i}
                     className={`block ${i > 0 ? "text-pink" : ""}`}
@@ -457,7 +457,7 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
                 transition={{ delay: 0.2 }}
                 className="text-muted text-base sm:text-lg max-w-2xl mb-16"
               >
-                A weekly social pack designed to keep the brand sharp across launches, education, and athlete features.
+                {project.graphicsSubtitle ?? "A weekly social pack designed to keep the brand sharp across launches, education, and athlete features."}
               </motion.p>
 
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -478,6 +478,61 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
                         fill
                         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 380px"
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Documents / welcome pack PDFs */}
+        {project.documents && project.documents.length > 0 && (
+          <section className="py-24 border-t border-card-border">
+            <div className="mx-auto max-w-7xl px-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {(project.documentsTitle ?? ["The welcome", "pack."]).map((line, i) => (
+                  <motion.span
+                    key={i}
+                    className={`block ${i > 0 ? "text-pink" : ""}`}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {line}
+                  </motion.span>
+                ))}
+              </h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-muted text-base sm:text-lg max-w-2xl mb-16"
+              >
+                {project.documentsSubtitle ?? "A branded PDF pack so every new client gets a premium experience from day one."}
+              </motion.p>
+
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {project.documents.map((img, i) => (
+                  <motion.div
+                    key={img}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.08 }}
+                    whileHover={{ y: -6 }}
+                    className="group rounded-xl border border-card-border overflow-hidden bg-card"
+                  >
+                    <div className="relative" style={{ aspectRatio: "1 / 1.414" }}>
+                      <Image
+                        src={img}
+                        alt={`${project.title} document page ${i + 1}`}
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 380px"
+                        className="object-contain group-hover:scale-[1.03] transition-transform duration-700"
                       />
                     </div>
                   </motion.div>

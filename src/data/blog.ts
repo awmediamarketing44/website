@@ -20,6 +20,10 @@ import speedTax from "./blog-posts/speed-tax-slow-website-costs";
 import agencyWebsitesWorse from "./blog-posts/agency-websites-worse-than-clients";
 import realReasonNotConverting from "./blog-posts/real-reason-website-isnt-converting";
 import sevenDayBuild from "./blog-posts/website-in-7-days-without-cutting-corners";
+import notShowingOnGoogle from "./blog-posts/my-website-isnt-showing-up-on-google";
+import changesTakeWeeks from "./blog-posts/every-change-takes-weeks-with-your-developer";
+import embarrassedToSend from "./blog-posts/embarrassed-to-send-people-to-your-website";
+import diyBrandSameness from "./blog-posts/your-diy-brand-looks-like-everyone-else";
 import importedWpPosts from "./blog-posts/_imported-wp";
 
 const MONTHS = [
@@ -53,6 +57,10 @@ const ALL: BlogPost[] = [
   agencyWebsitesWorse,
   realReasonNotConverting,
   sevenDayBuild,
+  notShowingOnGoogle,
+  changesTakeWeeks,
+  embarrassedToSend,
+  diyBrandSameness,
   ...importedWpPosts,
 ];
 
