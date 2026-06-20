@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Script from "next/script";
 import { motion } from "motion/react";
 import Navbar from "@/components/Navbar";
@@ -47,6 +47,7 @@ const contactMethods = [
 
 function ContactForm() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -100,6 +101,7 @@ function ContactForm() {
 
       if (!res.ok) throw new Error("Failed to send");
       setSubmitted(true);
+      router.push("/thank-you?form=contact");
     } catch {
       setError("Something went wrong. Please try again or email us directly.");
     } finally {

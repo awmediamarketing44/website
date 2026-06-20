@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import BookCallButton from "@/components/BookCallButton";
+import { trackLead } from "@/lib/track";
 import Footer from "@/components/Footer";
 
 // ============================================================
@@ -231,6 +232,7 @@ export default function SocialAuditClient() {
       const initial: Record<string, PlatformStatus> = {};
       active.forEach(([k]) => (initial[k] = "pending"));
       setStatuses(initial);
+      trackLead("social-audit");
       setAuditId(result.auditId);
       setView("loading");
       window.scrollTo({ top: 0, behavior: "smooth" });

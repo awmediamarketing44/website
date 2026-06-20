@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import BookCallButton from "@/components/BookCallButton";
+import { trackLead } from "@/lib/track";
 import Footer from "@/components/Footer";
 
 /* ── Types matching the API response ── */
@@ -380,6 +381,9 @@ export default function WebsiteAuditClient() {
         const data = await res.json().catch(() => ({}));
         throw new Error(data.error || "Something went wrong.");
       }
+
+      // Lead captured — fire the conversion event (results stay in place).
+      trackLead("website-audit", { url: pending.url });
 
       // Reveal the full results in place (no page navigation).
       setResult(pending);
