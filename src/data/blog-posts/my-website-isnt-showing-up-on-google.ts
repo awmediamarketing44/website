@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Why your website doesn't rank on Google, the common reasons it stays invisible, and how AW Media sets sites up to be found in local search.",
   date: "June 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/my-website-isnt-showing-up-on-google.jpg",
+  coverImage: "/images/blog/my-website-isnt-showing-up-on-google-v2.jpg",
   body: [
     {
       type: "p",
