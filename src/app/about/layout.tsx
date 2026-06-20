@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | AW Media UK Web Design Agency",
+  title: "About Us | UK Web Design Agency",
   description:
-    "Meet the team behind AW Media. Founded in 2016 in Sheffield, we've built 400+ websites for ambitious UK businesses. Now a team of 5. No corporate waffle, just honest work for people who want results.",
+    "Meet the team behind AW Media. Founded in Sheffield in 2016, we've built 400+ websites for ambitious UK businesses. Honest work, real results.",
+  alternates: { canonical: "/about" },
   openGraph: {
     title: "About AW Media & Marketing",
     description:

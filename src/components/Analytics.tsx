@@ -88,7 +88,7 @@ export function AnalyticsNoscript() {
           height="1"
           width="1"
           style={{ display: "none" }}
-          alt=""
+          alt="Meta Pixel"
           src="https://www.facebook.com/tr?id=1113693993052577&ev=PageView&noscript=1"
         />
       </noscript>
@@ -98,7 +98,7 @@ export function AnalyticsNoscript() {
           height="1"
           width="1"
           style={{ display: "none" }}
-          alt=""
+          alt="Meta Pixel"
           src="https://www.facebook.com/tr?id=2742460306123259&ev=PageView&noscript=1"
         />
       </noscript>

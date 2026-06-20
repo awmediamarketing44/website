@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services | Web Design, Branding, SEO & More",
+  title: "Services | Web Design, Branding & SEO",
   description:
     "Web design, branding, social media graphics, SEO, Shopify stores, and landing pages. All under one roof. Bespoke or AI-accelerated.",
+  alternates: { canonical: "/services" },
   openGraph: {
     title: "Our Services | AW Media & Marketing",
     description:

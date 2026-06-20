@@ -16,14 +16,47 @@ const rethinkSans = Rethink_Sans({
 
 const siteUrl = "https://awmedia.marketing";
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "AW Media & Marketing",
+  url: siteUrl,
+  logo: `${siteUrl}/images/aw-logo-website.png`,
+  description:
+    "UK web design studio. Bespoke design when the project demands it, AI-accelerated when speed matters. Building websites, brands and landing pages since 2016.",
+  foundingDate: "2016",
+  email: "alex@awmedia.marketing",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Sheffield",
+    addressCountry: "GB",
+  },
+  areaServed: "GB",
+  sameAs: [
+    "https://www.instagram.com/awmedia.marketing/",
+    "https://www.facebook.com/awmedianmarketing",
+    "https://www.threads.net/@awmedia.marketing",
+    "https://www.linkedin.com/in/alex-whitehead-193549109/",
+    "https://www.youtube.com/@awmedia.marketing/",
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "AW Media & Marketing",
+  url: siteUrl,
+  publisher: { "@type": "Organization", name: "AW Media & Marketing" },
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "AW Media & Marketing | UK Web Design Studio",
-    template: "%s | AW Media & Marketing",
+    template: "%s | AW Media",
   },
   description:
-    "Award-winning web design and digital services for ambitious UK businesses. Sheffield-based, UK-wide. Bespoke design when the project demands it, AI-accelerated when speed matters.",
+    "Award-winning web design for ambitious UK businesses. Sheffield-based, UK-wide. Bespoke when the project demands it, AI-accelerated when speed matters.",
   keywords: [
     "web design agency UK",
     "Sheffield web design agency",
@@ -66,6 +99,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${rethinkSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Analytics />
         <AnalyticsNoscript />
         <FloatingOrbs />

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How We Work | AI-Accelerated & Bespoke Web Design",
+  title: "How We Work | AI-Accelerated & Bespoke",
   description:
     "Two ways to build your website. Both bespoke. Neither templated. AI-accelerated for speed, fully bespoke when the project demands strategy and depth.",
+  alternates: { canonical: "/how-we-work" },
   openGraph: {
     title: "How We Work · AW Media & Marketing",
     description:

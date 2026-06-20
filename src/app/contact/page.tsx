@@ -444,7 +444,23 @@ function ContactForm() {
 
 export default function ContactPage() {
   return (
-    <Suspense fallback={null}>
+    <Suspense
+      fallback={
+        <>
+          <FloatingParticles count={20} />
+          <Navbar />
+          <main>
+            <PageHeader
+              tag="Get In Touch"
+              title="Let's build something"
+              titleAccent="that actually works."
+              description="Book a free 15-minute call or send us a message. No pressure, no jargon. Just an honest conversation about what your business needs."
+            />
+          </main>
+          <Footer />
+        </>
+      }
+    >
       <ContactForm />
     </Suspense>
   );

@@ -24,7 +24,7 @@ function MobileHero() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/hero-cinematic.webp"
-        alt=""
+        alt="AW Media UK web design studio"
         loading="eager"
         fetchPriority="high"
         decoding="async"

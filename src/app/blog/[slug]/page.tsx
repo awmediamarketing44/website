@@ -19,7 +19,7 @@ export async function generateMetadata({
   if (!post) return { title: "Post not found" };
 
   return {
-    title: `${post.title} | AW Media Blog`,
+    title: { absolute: `${post.title} | AW Media` },
     description: post.metaDescription,
     openGraph: {
       title: post.title,

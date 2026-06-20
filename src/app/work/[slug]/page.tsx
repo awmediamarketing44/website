@@ -22,7 +22,7 @@ export async function generateMetadata({
   const ogImage = project.heroImage;
 
   return {
-    title: `${project.title} | Case Study`,
+    title: { absolute: `${project.title} | Case Study | AW Media` },
     description,
     openGraph: {
       title: `${project.title} | AW Media Case Study`,

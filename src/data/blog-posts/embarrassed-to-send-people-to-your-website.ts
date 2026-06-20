@@ -2,7 +2,7 @@ import type { BlogPost } from "../blog-types";
 
 const post: BlogPost = {
   slug: "embarrassed-to-send-people-to-your-website",
-  title: "You're Quietly Embarrassed To Send People To Your Website",
+  title: "Embarrassed To Send People Your Website?",
   tag: "Web Design",
   excerpt:
     "Your business has grown up. Your website has not. When you would rather send a WhatsApp than your own link, that gap is costing you more than you think.",

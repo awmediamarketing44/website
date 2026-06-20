@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Contact Us | Book a Free Discovery Call",
   description:
     "Book a free 15-minute call or send us a message. No pressure, no jargon. Just an honest conversation about what your business needs.",
+  alternates: { canonical: "/contact" },
   openGraph: {
     title: "Get In Touch | AW Media & Marketing",
     description:

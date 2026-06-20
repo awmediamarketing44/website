@@ -2,7 +2,7 @@ import type { BlogPost } from "../blog-types";
 
 const post: BlogPost = {
   slug: "every-change-takes-weeks-with-your-developer",
-  title: "Every Small Change Takes Weeks (And Your Developer Has Gone Quiet)",
+  title: "Why Every Website Change Takes Weeks",
   tag: "Strategy",
   excerpt:
     "You asked for one small change three weeks ago. You are still waiting. If your website is held hostage by a developer who never replies, this one is for you.",

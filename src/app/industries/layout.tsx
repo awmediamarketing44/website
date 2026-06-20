@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Industries We Work With",
   description:
-    "We build websites for fitness coaches, construction companies, dental practices, photographers, aesthetics clinics, and EV & automotive businesses. Industry-specific design that converts.",
+    "Websites for fitness coaches, construction, dental, photographers, aesthetics and automotive businesses. Industry-specific design that converts.",
+  alternates: { canonical: "/industries" },
 };
 
 export default function IndustriesLayout({ children }: { children: React.ReactNode }) {
