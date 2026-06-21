@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Why simple website changes take weeks, what a healthy support relationship looks like, and how AW Media keeps sites quick to update and fully supported.",
   date: "June 2026",
   readingMinutes: 5,
-  coverImage: "/images/blog/every-change-takes-weeks-with-your-developer.jpg",
+  coverImage: "/images/blog/every-change-takes-weeks-with-your-developer-v2.jpg",
   body: [
     {
       type: "p",

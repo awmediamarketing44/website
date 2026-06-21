@@ -10,7 +10,7 @@ const post: BlogPost = {
     "When your website no longer matches the standard of your business, it costs you trust and clients. Why it happens and how AW Media closes the gap fast.",
   date: "June 2026",
   readingMinutes: 5,
-  coverImage: "/images/blog/embarrassed-to-send-people-to-your-website.jpg",
+  coverImage: "/images/blog/embarrassed-to-send-people-to-your-website-v2.jpg",
   body: [
     {
       type: "p",

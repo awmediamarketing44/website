@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Why DIY and template branding blends into the crowd, what proper brand identity does instead, and how AW Media builds a brand that stands out from day one.",
   date: "June 2026",
   readingMinutes: 5,
-  coverImage: "/images/blog/your-diy-brand-looks-like-everyone-else.jpg",
+  coverImage: "/images/blog/your-diy-brand-looks-like-everyone-else-v2.jpg",
   body: [
     {
       type: "p",
