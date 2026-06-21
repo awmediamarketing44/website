@@ -8,6 +8,7 @@ import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import TiltCard from "@/components/TiltCard";
 import BookCallButton from "@/components/BookCallButton";
+import Work from "@/components/Work";
 import Footer from "@/components/Footer";
 import { landingStats, type LandingPageData, type LandingFAQ } from "@/data/landing-pages";
 
@@ -239,6 +240,9 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
             </div>
           </div>
         </section>
+
+        {/* Recent work (auto-scrolling showcase) */}
+        <Work />
 
         {/* FAQs */}
         <section className="py-24 border-t border-card-border">

@@ -4,10 +4,9 @@
 // its own top-level URL (e.g. /web-design-agency-sheffield), NOT under
 // /locations.
 //
-// "Hidden" = not linked from the nav or footer, and kept OUT of sitemap.ts by
-// default. They are still fully indexable (no noindex) so they can rank and be
-// submitted manually in Search Console. To push one for ranking, add its path
-// to sitemap.ts.
+// "Hidden" = not linked from the nav or footer anywhere on the site. They ARE
+// indexable (no noindex) and listed in sitemap.ts so Google discovers and ranks
+// them for their target terms. Reachable only by direct URL or via search.
 //
 // Pages are generated per (city × keyword variant) so copy stays consistent and
 // new cities are a one-line addition to the CITIES array below.
@@ -85,6 +84,12 @@ const CITIES: City[] = [
     slug: "rotherham",
     region: "South Yorkshire",
     based: "based right on Rotherham's doorstep in South Yorkshire",
+  },
+  {
+    name: "Barnsley",
+    slug: "barnsley",
+    region: "South Yorkshire",
+    based: "based in South Yorkshire, a short hop from Barnsley",
   },
 ];
 
