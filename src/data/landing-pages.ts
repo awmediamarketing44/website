@@ -324,9 +324,104 @@ const VARIANTS: ((c: City) => LandingPageData)[] = [
   cityWebDesign,
 ];
 
-export const landingPages: LandingPageData[] = CITIES.flatMap((city) =>
-  VARIANTS.map((build) => build(city)),
-);
+// One-off pages that don't fit the city × variant matrix (city-specific niche
+// keywords, or national service keywords with no city).
+const extraPages: LandingPageData[] = [
+  // graphic designer sheffield
+  {
+    slug: "graphic-designer-sheffield",
+    metaTitle: "Graphic Designer Sheffield | Logos, Brand & Social | AW Media",
+    metaDescription:
+      "Looking for a graphic designer in Sheffield? AW Media designs logos, branding, social graphics and print that make Sheffield businesses look premium. Since 2016. Book a free call.",
+    tag: "Graphic Designer · Sheffield",
+    title: "The graphic designer",
+    titleAccent: "Sheffield businesses rely on.",
+    headerDescription:
+      "A Sheffield graphic designer for logos, branding, social media graphics and print. We make ambitious local businesses look like the premium choice, on every platform they show up.",
+    introHeading: ["Graphic design that makes you", "look like the premium choice."],
+    introParas: [
+      "AW Media is a graphic design studio born and based in Sheffield. Whether you need a single logo, a full brand identity or a steady stream of social and marketing graphics, we make sure everything you put out looks sharp, consistent and unmistakably yours.",
+      "Most Sheffield businesses are let down by inconsistent, DIY-looking graphics that quietly make them look smaller than they are. We fix that with design that's built around your brand and your goals, not pulled from a free template pack.",
+      "From logos and brand identities to Instagram carousels, ads, flyers and presentation decks, we cover the lot. You can hire us for a one-off project or design on subscription for an always-on creative team without the in-house salary.",
+    ],
+    servicesHeading: ["What our Sheffield", "graphic designer covers."],
+    services: [
+      { title: "Logo Design & Brand Identity", description: "Logos, colour, typography and the full identity that makes you instantly recognisable and premium." },
+      { title: "Social Media Graphics", description: "On-brand carousels, posts and story templates that make your feed look as professional as your business." },
+      { title: "Print & Marketing Collateral", description: "Flyers, brochures, business cards, banners and signage, designed and print-ready." },
+      { title: "Ad Creative", description: "Scroll-stopping graphics for Meta and Google ads, built to convert paid traffic, not just look nice." },
+      { title: "Presentations & Decks", description: "Pitch decks, sales decks and proposals that make you look like the serious, credible option in the room." },
+      { title: "Design on Subscription", description: "An always-on design team for a flat monthly fee. Unlimited requests, fast turnaround, no in-house salary." },
+    ],
+    whyHeading: ["Why Sheffield businesses", "choose us for graphic design."],
+    why: [
+      { title: "Brand-consistent, every time.", description: "Everything we design follows one coherent brand system, so you look joined-up across your website, socials, ads and print." },
+      { title: "Fast turnaround, no drama.", description: "Whether it's a one-off or a subscription, you get sharp work back quickly, with a simple process and clear communication." },
+      { title: "Designed to do a job.", description: "Pretty isn't enough. Every graphic is built around the action you want, whether that's a booking, a sale or a follow." },
+    ],
+    faqHeading: "Sheffield graphic design",
+    faqs: [
+      { question: "What does a graphic designer actually do for my business?", answer: "We create the visual side of your brand: your logo, brand identity, social media graphics, ads, print and presentations. Done well, it makes you look more professional and premium, so you win more of the customers you want." },
+      { question: "Can I hire you for just one project?", answer: "Absolutely. Plenty of clients come to us for a single logo, a one-off brand identity or a specific print job. You can also move onto a design subscription later if you find you need graphics regularly." },
+      { question: "What is design on subscription?", answer: "For a flat monthly fee you get an always-on design team handling your graphics: social posts, ads, print, brand assets and more, with fast turnaround and no recruitment, no salary, no software costs. It's ideal for businesses that need design every week." },
+      { question: "Do you only work with Sheffield businesses?", answer: "We're Sheffield-based and love working with local businesses, but most of the work happens online, so we design for clients all over the UK. Wherever you are, it's easy to work together." },
+    ],
+    ctaHeadline: "Need a graphic designer in Sheffield?",
+    ctaSubtext: "Book a free 15-minute call. We'll tell you exactly how to make your business look more premium, no obligation.",
+    serviceName: "Graphic Designer Sheffield",
+    serviceType: "Graphic design",
+  },
+
+  // bespoke wordpress website (national, no city)
+  {
+    slug: "bespoke-wordpress-website",
+    metaTitle: "Bespoke WordPress Website Design | Custom, Not Templated | AW Media",
+    metaDescription:
+      "Bespoke WordPress websites designed and built from scratch, never templates. Fast, secure, easy to edit and built to convert. UK web studio since 2016. Book a free call.",
+    tag: "Bespoke WordPress · UK",
+    title: "Bespoke WordPress websites",
+    titleAccent: "built to convert, built to last.",
+    headerDescription:
+      "Custom WordPress websites designed from scratch around your brand, never a template. Fast, secure, easy for you to manage, and built to turn visitors into customers.",
+    introHeading: ["Bespoke WordPress, not", "another off-the-shelf theme."],
+    introParas: [
+      "Most WordPress websites are a stock theme stretched to fit, bolted together with a dozen plugins, slow to load and a nightmare to edit. A bespoke WordPress website is the opposite: designed from scratch around your brand and built clean, so it's fast, secure and genuinely yours.",
+      "We design and build every site to order. You get the flexibility and familiarity of WordPress, the polish of a custom design, and a back end that's actually simple for you or your team to update, without breaking the layout every time you touch it.",
+      "Whether you need a smart brochure site, a content-heavy platform or a full WooCommerce store, we build it bespoke, optimised for speed and Google, and back it with ongoing care so it keeps performing long after launch.",
+    ],
+    servicesHeading: ["What a bespoke WordPress", "build gets you."],
+    services: [
+      { title: "Custom Design, Built to Order", description: "Designed from scratch around your brand. No stock themes, no two clients with the same site." },
+      { title: "Clean, Lightweight Build", description: "No plugin bloat or bolted-on page builders dragging it down. Fast-loading, stable and built to last." },
+      { title: "Easy-to-Edit Back End", description: "A tidy WordPress dashboard set up so you can update content confidently without breaking the design." },
+      { title: "WooCommerce & Online Stores", description: "Bespoke WordPress e-commerce with payment, shipping and tax fully configured, built to sell." },
+      { title: "Speed, Security & SEO", description: "Optimised hosting, hardened security and on-page SEO baked in so you rank and stay safe." },
+      { title: "Care Plans & Support", description: "Ongoing updates, backups, monitoring and support from the people who built it." },
+    ],
+    whyHeading: ["Why choose a bespoke", "WordPress website."],
+    why: [
+      { title: "Yours, not a template.", description: "Every bespoke build is designed specifically for your business, so you don't look like every other site running the same theme." },
+      { title: "Fast and built to last.", description: "Clean code and a lean plugin stack mean a site that loads quickly, ranks better and doesn't fall over when WordPress updates." },
+      { title: "Easy to run yourself.", description: "We set the dashboard up around how you actually work, so updating your site is simple and safe, not stressful." },
+    ],
+    faqHeading: "Bespoke WordPress",
+    faqs: [
+      { question: "What's the difference between a bespoke WordPress site and a template?", answer: "A template is a pre-made theme thousands of other sites also use, stretched to fit your content. A bespoke WordPress website is designed and built from scratch around your brand, your content and your goals, so it's faster, more flexible and unmistakably yours." },
+      { question: "Will I be able to edit it myself?", answer: "Yes. We build on WordPress precisely because it's familiar and editable, and we set the dashboard up so you can update text, images and pages confidently without breaking the design. We're on hand if you'd rather we handled changes too." },
+      { question: "Isn't WordPress slow and insecure?", answer: "Off-the-shelf themes crammed with plugins can be. A bespoke build is the opposite: clean, lightweight code, a minimal plugin stack, hardened security and optimised hosting, so it loads fast and stays safe." },
+      { question: "How much does a bespoke WordPress website cost?", answer: "It depends on scope and how many pages and features you need. Builds are priced per project after a quick call to understand what you're after. Book a free call and we'll give you a straight number with no pressure." },
+    ],
+    ctaHeadline: "Want a bespoke WordPress website?",
+    ctaSubtext: "Book a free 15-minute call. We'll tell you exactly what your project needs and what it'll cost, no obligation.",
+    serviceName: "Bespoke WordPress Website Design",
+    serviceType: "Web design",
+  },
+];
+
+export const landingPages: LandingPageData[] = [
+  ...CITIES.flatMap((city) => VARIANTS.map((build) => build(city))),
+  ...extraPages,
+];
 
 export function getLandingPageBySlug(slug: string): LandingPageData | undefined {
   return landingPages.find((p) => p.slug === slug);
