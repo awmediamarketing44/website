@@ -7,6 +7,7 @@ import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import Footer from "@/components/Footer";
 import TypeformEmbed from "@/components/TypeformEmbed";
+import CrmEmbed from "@/components/CrmEmbed";
 import { getEnquiryBySlug } from "@/data/enquiries";
 
 export default function EnquiryPageClient({ slug }: { slug: string }) {
@@ -33,7 +34,14 @@ export default function EnquiryPageClient({ slug }: { slug: string }) {
               transition={{ duration: 0.6 }}
               className="rounded-2xl border border-card-border bg-card p-2 sm:p-4"
             >
-              <TypeformEmbed id={enquiry.typeformId} />
+              {enquiry.crmUrl ? (
+                <CrmEmbed
+                  src={enquiry.crmUrl}
+                  title={`${enquiry.title} enquiry`}
+                />
+              ) : enquiry.typeformId ? (
+                <TypeformEmbed id={enquiry.typeformId} />
+              ) : null}
             </motion.div>
           </div>
         </section>

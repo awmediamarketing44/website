@@ -90,6 +90,17 @@ const PER_POST_PROMPT = {
     "A 3D clay smartphone face-down on a surface, a pink share arrow turning away from it. Sense of hiding a link. Restrained, editorial.",
   "your-diy-brand-looks-like-everyone-else":
     "A grid of identical grey 3D clay logo blocks with one single pink hand-shaped unique mark standing out among them. Top-down, sameness versus distinction.",
+
+  "how-much-does-a-website-cost-uk":
+    "Three 3D clay website cards on a balance scale against a single clay pound-coin stack, the scale tipping toward value. Pink highlight on the coins. Absolutely no text, no letters, no words, no numbers anywhere in the image.",
+  "how-long-does-it-take-to-build-a-website":
+    "A 3D clay hourglass beside a clay website card being assembled from floating panels, sand flowing as the panels lock in. Pink glow on the final panel. Sense of fast, controlled progress. No text, no numbers.",
+  "how-to-rank-on-chatgpt-and-ai-search":
+    "A 3D clay speech-bubble shaped like an AI chat reply, with a small clay business card rising up inside it on a pink beam, as if being recommended. Editorial, futuristic but warm. No text, no letters.",
+  "how-to-choose-a-web-designer":
+    "A 3D clay hand choosing one glowing pink website card from a fan of plain grey ones. Sense of a careful pick. Top-down, restrained. No text.",
+  "do-i-need-a-website":
+    "A 3D clay house-shaped home base with small clay social-media icons (a heart, a play triangle, a chat bubble) all pointing arrows back toward it on pink threads. Sense of a central hub. No text, no letters.",
 };
 
 async function loadPosts() {

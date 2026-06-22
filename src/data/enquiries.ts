@@ -1,6 +1,7 @@
-// Typeform enquiry forms. Each entry becomes a page at /enquiry/[slug] with the
-// Typeform embedded. To add a new form, paste the data-tf-live ID from the
-// Typeform embed snippet into a new entry — that's it.
+// Enquiry forms. Each entry becomes a page at /enquiry/[slug] with the form
+// embedded. Forms now live in our own CRM (crm.awmedia.marketing) — set
+// `crmUrl` to embed that. Legacy forms still on Typeform fall back to
+// `typeformId` until they're rebuilt in the CRM.
 
 export interface Enquiry {
   slug: string;
@@ -8,7 +9,10 @@ export interface Enquiry {
   titleAccent: string;
   tag: string;
   description: string;
-  typeformId: string;
+  // CRM-hosted form URL (preferred). When set, embedded as an iframe.
+  crmUrl?: string;
+  // Legacy Typeform live ID — used only when crmUrl is not set.
+  typeformId?: string;
 }
 
 export const enquiries: Enquiry[] = [
@@ -19,7 +23,7 @@ export const enquiries: Enquiry[] = [
     tag: "Enquiry",
     description:
       "Tell us about your project and we'll come back to you with a tailored recommendation. Takes a couple of minutes.",
-    typeformId: "01J1QV55CK4Y7KEVDK75P6ZTVH",
+    crmUrl: "https://crm.awmedia.marketing/web-design",
   },
   {
     slug: "logo-design",
@@ -28,7 +32,7 @@ export const enquiries: Enquiry[] = [
     tag: "Enquiry",
     description:
       "Looking for a logo or full brand identity? Answer a few quick questions and we'll be in touch.",
-    typeformId: "01KSWR4VGP8KBWTRVDW4YWKFVT",
+    crmUrl: "https://crm.awmedia.marketing/branding",
   },
   {
     slug: "social-media",
@@ -37,7 +41,7 @@ export const enquiries: Enquiry[] = [
     tag: "Enquiry",
     description:
       "Want help with social media graphics or content? Tell us what you're after and we'll be in touch.",
-    typeformId: "01JGY4JA7F8VXCN6AE483NZB6F",
+    crmUrl: "https://crm.awmedia.marketing/aw-lwaysontime",
   },
 ];
 

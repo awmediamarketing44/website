@@ -3,16 +3,31 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import TiltCard from "@/components/TiltCard";
 import Footer from "@/components/Footer";
-import { getFeaturedPost, getNonFeaturedPosts } from "@/data/blog";
+import { blogPosts, getFeaturedPost, getNonFeaturedPosts } from "@/data/blog";
 
 export default function BlogPage() {
   const featured = getFeaturedPost();
-  const posts = getNonFeaturedPosts();
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+
+  // Topic chips, ordered by how many posts each topic has (most first).
+  const tags = useMemo(() => {
+    const counts = new Map<string, number>();
+    blogPosts.forEach((p) => counts.set(p.tag, (counts.get(p.tag) ?? 0) + 1));
+    return [...counts.entries()].sort((a, b) => b[1] - a[1]);
+  }, []);
+
+  // "All" shows the featured hero + the rest of the posts (original layout).
+  // A selected topic hides the hero and shows every post in that topic.
+  const showFeatured = activeTag === null;
+  const posts = showFeatured
+    ? getNonFeaturedPosts()
+    : blogPosts.filter((p) => p.tag === activeTag);
 
   return (
     <>
@@ -26,7 +41,48 @@ export default function BlogPage() {
           description="Practical guides for ambitious businesses that want a better online presence. No fluff. Just stuff that actually works."
         />
 
+        {/* Topic filter chips */}
+        <section className="pb-10">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="flex flex-wrap gap-2.5">
+              <button
+                type="button"
+                onClick={() => setActiveTag(null)}
+                aria-pressed={activeTag === null}
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                  activeTag === null
+                    ? "border-pink/40 bg-pink/15 text-pink"
+                    : "border-card-border bg-card text-muted hover:border-pink/30 hover:text-white"
+                }`}
+              >
+                All
+                <span className="ml-1.5 text-xs opacity-60">{blogPosts.length}</span>
+              </button>
+              {tags.map(([tag, count]) => {
+                const active = activeTag === tag;
+                return (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={() => setActiveTag(tag)}
+                    aria-pressed={active}
+                    className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                      active
+                        ? "border-pink/40 bg-pink/15 text-pink"
+                        : "border-card-border bg-card text-muted hover:border-pink/30 hover:text-white"
+                    }`}
+                  >
+                    {tag}
+                    <span className="ml-1.5 text-xs opacity-60">{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* Featured post */}
+        {showFeatured && (
         <section className="pb-16">
           <div className="mx-auto max-w-7xl px-6">
             <motion.div
@@ -89,6 +145,7 @@ export default function BlogPage() {
             </motion.div>
           </div>
         </section>
+        )}
 
         {/* All posts */}
         <section className="py-12 pb-24">

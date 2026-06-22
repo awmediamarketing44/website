@@ -24,6 +24,11 @@ import notShowingOnGoogle from "./blog-posts/my-website-isnt-showing-up-on-googl
 import changesTakeWeeks from "./blog-posts/every-change-takes-weeks-with-your-developer";
 import embarrassedToSend from "./blog-posts/embarrassed-to-send-people-to-your-website";
 import diyBrandSameness from "./blog-posts/your-diy-brand-looks-like-everyone-else";
+import howMuchWebsiteCost from "./blog-posts/how-much-does-a-website-cost-uk";
+import howLongToBuild from "./blog-posts/how-long-does-it-take-to-build-a-website";
+import rankOnChatgpt from "./blog-posts/how-to-rank-on-chatgpt-and-ai-search";
+import howToChooseDesigner from "./blog-posts/how-to-choose-a-web-designer";
+import doINeedWebsite from "./blog-posts/do-i-need-a-website";
 import importedWpPosts from "./blog-posts/_imported-wp";
 
 const MONTHS = [
@@ -37,6 +42,11 @@ function dateSortKey(dateStr: string): number {
 }
 
 const ALL: BlogPost[] = [
+  howMuchWebsiteCost,
+  howLongToBuild,
+  rankOnChatgpt,
+  howToChooseDesigner,
+  doINeedWebsite,
   aiBuiltScam,
   what695Buys,
   webDesignForFitnessCoaches,
