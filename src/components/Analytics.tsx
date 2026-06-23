@@ -51,6 +51,23 @@ export default function Analytics() {
         })(window, document, "clarity", "script", "uk9ecutvw0");
       `}</Script>
 
+      {/* CRM form-submit bridge. The enquiry forms are embedded as iframes from
+          crm.awmedia.marketing; on submit they postMessage { awcrm: 'submit' }
+          up to the parent. Forward that to GA4 (generate_lead) + GTM dataLayer.
+          Origin-checked so only the CRM can fire these events. */}
+      <Script id="aw-crm-lead" strategy="afterInteractive">{`
+        window.addEventListener('message', function(e){
+          if (e.origin !== 'https://crm.awmedia.marketing') return;
+          if (e.data && e.data.awcrm === 'submit') {
+            if (typeof gtag === 'function') {
+              gtag('event','generate_lead',{form_slug:e.data.form_slug, form_name:e.data.form_name});
+            }
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({event:'aw_form_submit', form_slug:e.data.form_slug, form_name:e.data.form_name});
+          }
+        });
+      `}</Script>
+
       {/* Meta Pixel */}
       <Script id="fb-pixel" strategy="lazyOnload">{`
         !function(f,b,e,v,n,t,s)
