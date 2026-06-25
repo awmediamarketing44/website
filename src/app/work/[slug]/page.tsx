@@ -21,8 +21,14 @@ export async function generateMetadata({
   const description = project.brief?.slice(0, 160) || `${project.title} case study by AW Media`;
   const ogImage = project.heroImage;
 
+  // Short project names (e.g. "Noura", "HVME") fall below the 30-char SEO
+  // minimum with the plain suffix, so widen the brand tail only for those.
+  const shortBrand = `${project.title} | Case Study | AW Media`;
+  const titleAbsolute =
+    shortBrand.length < 32 ? `${project.title} | Case Study | AW Media & Marketing` : shortBrand;
+
   return {
-    title: { absolute: `${project.title} | Case Study | AW Media` },
+    title: { absolute: titleAbsolute },
     description,
     openGraph: {
       title: `${project.title} | AW Media Case Study`,

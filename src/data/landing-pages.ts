@@ -100,7 +100,7 @@ function webDesignAgency(c: City): LandingPageData {
   return {
     slug: `web-design-agency-${c.slug}`,
     metaTitle: `Web Design Agency ${c.name} | AW Media`,
-    metaDescription: `AW Media is an award-winning web design agency in ${c.name}. Custom, conversion-focused websites for ${c.name} businesses. AI-accelerated or fully bespoke. Book a free call.`,
+    metaDescription: `Award-winning web design agency in ${c.name}. Custom, conversion-focused websites built to convert, AI-accelerated or fully bespoke. Book a free call.`,
     tag: `Web Design Agency · ${c.name}`,
     title: "The web design agency",
     titleAccent: `${c.name} businesses trust.`,
@@ -144,7 +144,7 @@ function webDesignCompanies(c: City): LandingPageData {
   return {
     slug: `web-design-companies-${c.slug}`,
     metaTitle: `Web Design Companies ${c.name} | AW Media`,
-    metaDescription: `Comparing web design companies in ${c.name}? AW Media builds custom, conversion-focused websites for ${c.name} businesses. Award-winning, since 2016. Book a free call.`,
+    metaDescription: `Comparing web design companies in ${c.name}? AW Media builds custom, conversion-focused websites that win work. Award-winning, since 2016. Book a free call.`,
     tag: `Web Design Companies · ${c.name}`,
     title: `One of ${c.name}'s leading`,
     titleAccent: "web design companies.",
@@ -188,7 +188,7 @@ function brandingAgency(c: City): LandingPageData {
   return {
     slug: `branding-agency-${c.slug}`,
     metaTitle: `Branding Agency ${c.name} | Logo & Brand Design | AW Media`,
-    metaDescription: `AW Media is a branding agency in ${c.name}. Logos, brand identities and guidelines that make you the obvious premium choice. Award-winning since 2016. Book a free call.`,
+    metaDescription: `Branding agency in ${c.name}. Logos, brand identities and guidelines that make you the obvious premium choice. Award-winning since 2016. Book a free call.`,
     tag: `Branding Agency · ${c.name}`,
     title: "The branding agency",
     titleAccent: `${c.name} brands grow with.`,
@@ -232,7 +232,7 @@ function smallBusiness(c: City): LandingPageData {
   return {
     slug: `small-business-web-design-${c.slug}`,
     metaTitle: `Small Business Web Design ${c.name} | AW Media`,
-    metaDescription: `Affordable, professional small business web design in ${c.name}. Custom websites that make small businesses look bigger and win more work. Since 2016. Book a free call.`,
+    metaDescription: `Affordable small business web design in ${c.name}. Custom websites that make small businesses look bigger and win more work. Since 2016. Book a free call.`,
     tag: `Small Business Web Design · ${c.name}`,
     title: "Small business web design",
     titleAccent: "that punches above its weight.",
@@ -275,8 +275,8 @@ function smallBusiness(c: City): LandingPageData {
 function cityWebDesign(c: City): LandingPageData {
   return {
     slug: `${c.slug}-web-design`,
-    metaTitle: `${c.name} Web Design | Custom Websites That Convert | AW Media`,
-    metaDescription: `${c.name} web design done properly. AW Media builds custom, conversion-focused websites for ${c.name} businesses. AI-accelerated or fully bespoke, since 2016. Book a free call.`,
+    metaTitle: `${c.name} Web Design | Custom Sites That Convert | AW Media`,
+    metaDescription: `${c.name} web design done properly. Custom, conversion-focused websites built to win work. AI-accelerated or fully bespoke, since 2016. Book a free call.`,
     tag: `${c.name} Web Design`,
     title: `${c.name} web design`,
     titleAccent: "that actually wins work.",
@@ -330,9 +330,9 @@ const extraPages: LandingPageData[] = [
   // graphic designer sheffield
   {
     slug: "graphic-designer-sheffield",
-    metaTitle: "Graphic Designer Sheffield | Logos, Brand & Social | AW Media",
+    metaTitle: "Graphic Designer Sheffield | Logos & Branding | AW Media",
     metaDescription:
-      "Looking for a graphic designer in Sheffield? AW Media designs logos, branding, social graphics and print that make Sheffield businesses look premium. Since 2016. Book a free call.",
+      "Graphic designer in Sheffield for logos, branding, social graphics and print that make local businesses look premium. Since 2016. Book a free call.",
     tag: "Graphic Designer · Sheffield",
     title: "The graphic designer",
     titleAccent: "Sheffield businesses rely on.",
@@ -375,9 +375,9 @@ const extraPages: LandingPageData[] = [
   // bespoke wordpress website (national, no city)
   {
     slug: "bespoke-wordpress-website",
-    metaTitle: "Bespoke WordPress Website Design | Custom, Not Templated | AW Media",
+    metaTitle: "Bespoke WordPress Website Design | AW Media",
     metaDescription:
-      "Bespoke WordPress websites designed and built from scratch, never templates. Fast, secure, easy to edit and built to convert. UK web studio since 2016. Book a free call.",
+      "Bespoke WordPress websites designed and built from scratch, never templates. Fast, secure and built to convert. UK studio since 2016. Book a free call.",
     tag: "Bespoke WordPress · UK",
     title: "Bespoke WordPress websites",
     titleAccent: "built to convert, built to last.",

@@ -116,11 +116,11 @@ export function getLocationBySlug(slug: string): LocationData | undefined {
 // ---- Shared content, with the city interpolated for local relevance ----
 
 export function metaTitle(loc: LocationData): string {
-  return `Web Designer ${loc.city} | Web Design Agency | AW Media`;
+  return `Web Designer in ${loc.city} | AW Media`;
 }
 
 export function metaDescription(loc: LocationData): string {
-  return `Award-winning web design, branding and SEO for ${loc.city} businesses. AI-accelerated or fully bespoke websites built to convert. Book a free call with AW Media.`;
+  return `Web design, branding and SEO for ${loc.city} businesses. AI-accelerated or fully bespoke sites built to convert. Book a free call with AW Media.`;
 }
 
 export function headerDescription(loc: LocationData): string {

@@ -27,7 +27,9 @@ export async function generateMetadata({
   const description = metaDescription(loc);
 
   return {
-    title,
+    // metaTitle already carries the brand, so bypass the layout's "%s | AW Media"
+    // template (it was double-appending) with an absolute title.
+    title: { absolute: title },
     description,
     openGraph: { title, description, type: "website" },
     twitter: { card: "summary_large_image", title, description },

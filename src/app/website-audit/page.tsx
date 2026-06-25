@@ -4,7 +4,7 @@ import WebsiteAuditClient from "./Client";
 export const metadata: Metadata = {
   title: "Free Website Audit | Instant Results",
   description:
-    "Run a free, instant website audit. Get scored on performance, mobile experience, SEO, accessibility and best practices, with plain-English recommendations for your business.",
+    "Run a free, instant website audit. Get scored on performance, mobile, SEO, accessibility and best practices, with plain-English fixes for your business.",
   alternates: { canonical: "/website-audit" },
   openGraph: {
     title: "Free Instant Website Audit",

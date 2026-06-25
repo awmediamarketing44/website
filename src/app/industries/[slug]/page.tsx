@@ -23,7 +23,7 @@ export async function generateMetadata({
     `Web design for ${industry.title} businesses across the UK`;
 
   return {
-    title: `${industry.title} Web Design`,
+    title: { absolute: `${industry.title} Web Design | AW Media` },
     description,
     openGraph: {
       title: `${industry.title} Web Design | AW Media`,
