@@ -56,14 +56,14 @@ const webProjects: ProjectData[] = [
       website: "https://themindandmusclemovement.com/",
     },
     brief:
-      "Custom-designed, custom-built landing page for an online coach. No templates, no shortcuts. A site that matches the level of coaching Darren delivers and gives potential clients the confidence to enquire.",
+      "Darren's coaching is premium, but his online presence wasn't telling that story, so good-fit clients were landing and leaving without enquiring. We gave him a site that finally matches the level he delivers and gives people the confidence to get in touch. Custom designed and built around his brand, not a template.",
     challenge: [
       "Darren needed an online presence that matched the standard of his coaching, not a templated stopgap.",
       "The page had to build instant trust and move visitors to enquire.",
       "It needed room to grow with the business, without a rebuild every time it took a step forward.",
     ],
     approach: [
-      "Custom designed and custom built around his brand. No templates.",
+      "Custom designed and built around his brand, so it looks like him and nobody else.",
       "Full hosting, SSL and security handled end to end.",
       "Built so he can update and scale the site as the business develops.",
     ],
@@ -105,7 +105,7 @@ const webProjects: ProjectData[] = [
       website: "https://lifefitphysique.co.uk/",
     },
     brief:
-      "A proper online home for LifeFit Physique. Not a template, not a half-finished side project. A custom WordPress build that matches the level of coaching George delivers and gives clients the confidence to get in touch.",
+      "George's coaching deserved an online home that worked as hard as he does. We built him a site that turns visitors into enquiries and matches the level he delivers, so clients feel confident getting in touch. A proper custom build, not a half-finished side project.",
     challenge: [
       "George needed a website that worked as hard as he does, turning visitors into enquiries rather than letting them leave.",
       "It had to be found, which meant proper Google and SEO setup, not just a pretty page.",
@@ -406,19 +406,19 @@ const webProjects: ProjectData[] = [
       role: "Client of 10 years",
     },
     brief:
-      "Bespoke website build for a coaching consultancy that needed a site to set the visual tone for the entire business. A full custom design system, hosting, SSL, and ongoing support shipped together.",
+      "A brand-new consultancy needs to look established from day one. We gave them a site that makes them credible the moment someone lands and sets the visual tone for the whole business. Full design, hosting, SSL and ongoing support handled together, so they manage none of it.",
     challenge: [
       "No existing brand assets to work from. The site had to define the visual identity and set the tone for the whole business.",
       "The launch was tied to a wider campaign, so the build had to stay tight to schedule without cutting corners on design.",
       "Needed full hosting, SSL, and ongoing support baked in. They didn't want to manage tech stacks across multiple providers.",
     ],
     approach: [
-      "We ran a focused discovery, locked the design direction early, and built a fully bespoke, custom-designed site around their brand. No templates, no shortcuts.",
+      "We ran a focused discovery, locked the design direction early, and built a fully bespoke site around their brand, designed from scratch to feel like them.",
       "We handled hosting, SSL, and domain setup as part of the package. One bill, one point of contact, zero friction.",
       "The result: a considered, premium site that makes a brand-new consultancy look established and credible from day one.",
     ],
     features: [
-      "Fully bespoke, custom design (no templates)",
+      "Fully bespoke, custom design",
       "Brand-defining visual direction",
       "Hosting and SSL included",
       "Conversion-focused structure",
@@ -449,7 +449,7 @@ const webProjects: ProjectData[] = [
       website: "https://hotchenconstruction.com/",
     },
     brief:
-      "Full website rebuild plus email and hosting migration for a construction firm that needed their digital presence to match the quality of their builds.",
+      "Hotchen's builds are high quality; their old site didn't say so. We rebuilt it to read like a portfolio of that build quality, so it earns trust from bigger-job enquiries, and moved their email and hosting across with zero downtime.",
     challenge: [
       "Existing site was hosted elsewhere with email tied to it. Any rebuild had to handle a clean transfer with zero downtime on mail.",
       "Construction marketing tends to fall into two camps: generic stock photos, or DIY photos that look amateur. They needed something better.",
@@ -492,7 +492,7 @@ const webProjects: ProjectData[] = [
       website: "https://nickfirthtiles.com/",
     },
     brief:
-      "Bespoke design and WordPress build for a UK tile specialist, structured from day one to scale into a full online store.",
+      "Nick Firth's tiles are a beautiful product a weak old site wasn't doing justice. We gave them a gallery-led site that shows the range off properly and is ready to grow into a full online store when they are. It started generating sales in its first week live.",
     challenge: [
       "Highly visual product, weak existing presentation. The tiles deserved a site that could do them justice.",
       "Customers shop for tiles by colour, finish, and use case. The architecture had to support discovery, not bury products in menus.",
@@ -540,7 +540,7 @@ const webProjects: ProjectData[] = [
       website: "https://crownlabels.co.uk/",
     },
     brief:
-      "Hosting transfer plus a full bespoke WordPress rebuild for a UK label printer that needed a B2B presence as sharp as the work they produce.",
+      "Crown Labels' work is sharp, but a slow, dated site was undercutting it in front of procurement buyers. We gave them a fast, modern B2B presence that sells their capability before the sales call, and moved them onto hosting that actually keeps up.",
     challenge: [
       "Old site was hosted with a provider that couldn't keep up. Slow load, frequent issues, no flexibility.",
       "Industrial B2B sites often look dated by default. They wanted something modern that still felt credible to procurement buyers.",
@@ -583,7 +583,7 @@ const webProjects: ProjectData[] = [
       website: "https://thebodylabwiltshire.co.uk/",
     },
     brief:
-      "Hosting transfer plus a bespoke WordPress build for a Wiltshire PT studio that needed to stand out from the cookie-cutter gym website crowd.",
+      "In a crowded Wiltshire fitness market where every gym site looks the same, The Body Lab needed to instantly read 'this one's different'. We gave them a premium site that matches the experience inside the studio and turns local searches into booked sessions.",
     challenge: [
       "Existing setup was on hosting that didn't scale. They needed reliability and speed before any redesign would land properly.",
       "Local fitness market is crowded. Most gym sites look the same. Theirs had to instantly read 'this is different'.",
@@ -636,7 +636,7 @@ const webProjects: ProjectData[] = [
       role: "QuickFit EV",
     },
     brief:
-      "Bespoke WordPress build for an EV charger installation company entering a fast-growing market that needed a website to match the moment.",
+      "EV charging is booming, and half the competition still looks stuck in 2018. We gave QuickFit EV a modern site that pre-qualifies enquiries before they hit the inbox, so they spend less time chasing tyre-kickers and more time installing.",
     challenge: [
       "EV charging is exploding. Half the competition still has 2018-era websites. They needed to look like the modern operator they are.",
       "Lead quality matters more than volume. The site had to qualify enquiries upfront: domestic vs. commercial, charger type, install location.",
@@ -679,7 +679,7 @@ const webProjects: ProjectData[] = [
       website: "https://drugfreebodybuilding.co.uk/",
     },
     brief:
-      "Bespoke design plus a full WordPress + WooCommerce build for a UK natural bodybuilding federation running events, memberships, and a merchandise store.",
+      "The federation was running events, memberships and merch across three separate platforms, three logins, no single source of truth. We pulled the lot into one site so they sell tickets, memberships and merch through a single checkout, and look championship-grade doing it.",
     challenge: [
       "Old site was hard to update, slow, and split across multiple platforms for events, memberships, and the shop. Three separate logins, three sources of truth.",
       "Visual identity needed a step up. For a federation building serious credibility against PED-tested rivals, the site had to look the part.",
@@ -727,7 +727,7 @@ const webProjects: ProjectData[] = [
       website: "https://completedentistacademy.com/",
     },
     brief:
-      "Bespoke WordPress build for a premium dental education academy that needed a site as polished as the courses it delivers.",
+      "In high-trust, high-ticket dental education, the website has to signal authority before anyone enrols. We gave the academy a polished, editorial-led site that makes each course easy to choose and backs up every credibility claim.",
     challenge: [
       "Dental education is a high-trust, high-ticket space. The site had to communicate authority instantly.",
       "Multiple course tiers and CPD paths that needed clear structure without overwhelming the visitor.",
@@ -775,7 +775,7 @@ const webProjects: ProjectData[] = [
       role: "Sheffield Accountants",
     },
     brief:
-      "Full brand-and-build for an accountancy firm: logo design, bespoke website, and WordPress implementation, all developed end to end.",
+      "Accountancy is a trust business, and this firm was starting with no logo, no brand and no site. We built the whole identity from scratch, then the website to carry it, so visitors feel reassured before they ever pick up the phone.",
     challenge: [
       "Starting from scratch. No logo, no brand assets, no website. The brand needed to be designed before the site could even start.",
       "Accountancy is a trust business. Visitors need to feel reassured before they pick up the phone. The visual language had to do heavy lifting.",
@@ -823,7 +823,7 @@ const webProjects: ProjectData[] = [
       role: "Coaching",
     },
     brief:
-      "Bespoke website build plus an ongoing weekly social graphics retainer for a US-based coaching app brand. One unified visual system across product, web, and social.",
+      "A growing coaching app needs to look like one brand everywhere, app, web and social, while never missing a week of content. We built the site to mirror the app, then took weekly graphics off their plate entirely so growth never stalls for want of content.",
     challenge: [
       "Brand had to translate from app UI into web and social without losing identity. Three different surfaces, one consistent feel.",
       "High content velocity. Weekly social output is non-negotiable for app growth, and quality couldn't slip with the cadence.",
@@ -874,7 +874,7 @@ const webProjects: ProjectData[] = [
       website: "https://newgencoaching.uk/",
     },
     brief:
-      "Started with logo design in 2024, returning in 2026 to deliver a full bespoke website rebuild. A two-stage relationship that compounds over time.",
+      "Newgen's Instagram and their old website looked like two different brands, and it was costing them conversions. Having built their logo back in 2024, they came back so we could finally bring that brand to life on the site, with clear programmes and booking built in.",
     challenge: [
       "First engagement was logo only. They came back because the brand work landed and the website was the next bottleneck.",
       "Existing site didn't reflect the brand we'd built. Visual whiplash between Instagram and the website hurt conversion.",
@@ -917,7 +917,7 @@ const webProjects: ProjectData[] = [
       website: "https://jicrpl.co.uk/",
     },
     brief:
-      "Bespoke design and custom WordPress build for a UK refractory specialist. Industrial credibility without the dated industrial aesthetic.",
+      "Specialist industrial firms rarely get a site that matches their competence, and most rivals still look like 2010. We gave JIC a fast, modern site that proves capability to procurement and engineering buyers in seconds, without the dated industrial look.",
     challenge: [
       "Specialist industrial services don't get the design treatment they deserve. The site had to compete in a sector where most sites look like 2010.",
       "Decision makers are procurement and engineering buyers. Pretty isn't enough. The site had to load fast, communicate fast, and prove competence fast.",
@@ -966,7 +966,7 @@ const webProjects: ProjectData[] = [
       website: "https://steelcitycarkeys.co.uk/",
     },
     brief:
-      "Bespoke WordPress build for a Sheffield-based auto locksmith specialist. Trade-led, fast, and built to convert local search traffic into emergency callouts.",
+      "Most auto locksmiths only show up buried in directories. We gave Steel City Car Keys a fast, phone-first site that owns the Sheffield local search and turns someone standing next to a locked car into a callout in seconds.",
     challenge: [
       "Most auto locksmiths show up only in directories with weak websites. They needed to own the local space directly.",
       "Emergency service buyers don't read. They scan, decide, and call. Site had to communicate trust and capability in under five seconds.",
