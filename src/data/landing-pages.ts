@@ -193,7 +193,7 @@ function webDesignCompanies(c: City): LandingPageData {
 function brandingAgency(c: City): LandingPageData {
   return {
     slug: `branding-agency-${c.slug}`,
-    metaTitle: `Branding Agency ${c.name} | Logo & Brand Design | AW Media`,
+    metaTitle: `Branding Agency ${c.name} | Logo & Brand | AW Media`,
     metaDescription: `Branding agency in ${c.name}. Logos, brand identities and guidelines that make you the obvious premium choice. Award-winning since 2016. Book a free call.`,
     tag: `Branding Agency · ${c.name}`,
     title: "The branding agency",
@@ -281,7 +281,7 @@ function smallBusiness(c: City): LandingPageData {
 function cityWebDesign(c: City): LandingPageData {
   return {
     slug: `${c.slug}-web-design`,
-    metaTitle: `${c.name} Web Design | Custom Sites That Convert | AW Media`,
+    metaTitle: `${c.name} Web Design | Sites That Convert | AW Media`,
     metaDescription: `${c.name} web design done properly. Custom, conversion-focused websites built to win work. AI-accelerated or fully bespoke, since 2016. Book a free call.`,
     tag: `${c.name} Web Design`,
     title: `${c.name} web design`,
@@ -325,8 +325,8 @@ function cityWebDesign(c: City): LandingPageData {
 function aiWebDesign(c: City): LandingPageData {
   return {
     slug: `ai-web-design-${c.slug}`,
-    metaTitle: `AI Web Design ${c.name} | Premium Sites, Faster | AW Media`,
-    metaDescription: `AI web design in ${c.name}: premium, custom websites built in weeks not months, for less than a traditional agency. Award-winning since 2016. Book a free call.`,
+    metaTitle: `AI Web Design ${c.name} | Premium, Faster | AW Media`,
+    metaDescription: `AI web design in ${c.name}: premium, custom websites built in weeks not months, for less than a traditional agency. Since 2016. Book a free call.`,
     tag: `AI Web Design · ${c.name}`,
     title: `AI web design in ${c.name},`,
     titleAccent: "live in weeks not months.",
@@ -370,7 +370,7 @@ function seoAgency(c: City): LandingPageData {
   return {
     slug: `seo-agency-${c.slug}`,
     metaTitle: `SEO Agency ${c.name} | Get Found on Google | AW Media`,
-    metaDescription: `SEO agency and consultant in ${c.name}. Get found on Google for the searches that bring customers. On-page, technical and local SEO. Since 2016. Book a free call.`,
+    metaDescription: `SEO agency and consultant in ${c.name}. Get found on Google for the searches that bring customers. On-page, technical and local SEO. Book a free call.`,
     tag: `SEO Agency · ${c.name}`,
     title: "The SEO agency",
     titleAccent: `${c.name} businesses get found with.`,
@@ -563,7 +563,7 @@ const extraPages: LandingPageData[] = [
     slug: "wordpress-web-design-sheffield",
     metaTitle: "WordPress Web Design Sheffield | AW Media",
     metaDescription:
-      "WordPress web design in Sheffield, built bespoke not from a template. Fast, secure, easy to edit and built to convert. Sheffield studio since 2016. Book a free call.",
+      "WordPress web design in Sheffield, built bespoke not from a template. Fast, secure, easy to edit and built to convert. Book a free call.",
     tag: "WordPress Web Design · Sheffield",
     title: "WordPress web design",
     titleAccent: "Sheffield, done properly.",
@@ -606,7 +606,7 @@ const extraPages: LandingPageData[] = [
   // ecommerce web design sheffield
   {
     slug: "ecommerce-web-design-sheffield",
-    metaTitle: "Ecommerce Web Design Sheffield | Online Stores That Sell | AW Media",
+    metaTitle: "Ecommerce Web Design Sheffield | AW Media",
     metaDescription:
       "Ecommerce web design in Sheffield. Custom Shopify and WooCommerce stores built to convert browsers into buyers. Sheffield studio since 2016. Book a free call.",
     tag: "Ecommerce Web Design · Sheffield",
@@ -651,9 +651,9 @@ const extraPages: LandingPageData[] = [
   // web design for coaches (national niche)
   {
     slug: "web-design-for-coaches",
-    metaTitle: "Web Design for Coaches | Websites That Win Clients | AW Media",
+    metaTitle: "Web Design for Coaches | Win More Clients | AW Media",
     metaDescription:
-      "Web design for coaches and online trainers. Custom, conversion-focused websites that turn followers into paying clients. We work with coaches daily. Book a free call.",
+      "Web design for coaches and online trainers. Custom websites that turn followers into paying clients. We work with coaches daily. Book a free call.",
     tag: "Web Design · For Coaches",
     title: "Web design for coaches",
     titleAccent: "that turns followers into clients.",

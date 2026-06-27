@@ -2,15 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import TiltCard from "@/components/TiltCard";
 import BookCallButton from "@/components/BookCallButton";
-import Work from "@/components/Work";
 import Footer from "@/components/Footer";
 import { landingStats, type LandingPageData, type LandingFAQ } from "@/data/landing-pages";
+
+// Heaviest below-the-fold block (carousel + 8 project hero images). Deferred off
+// the initial mobile critical path; loads after hydration. Placeholder reserves
+// height to avoid layout shift.
+const Work = dynamic(() => import("@/components/Work"), {
+  ssr: false,
+  loading: () => <div aria-hidden className="min-h-[600px]" />,
+});
 
 function FAQItem({
   faq,
@@ -280,10 +288,9 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
 
         {/* CTA */}
         <section className="py-24 border-t border-card-border relative overflow-hidden">
-          <motion.div
-            animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-            transition={{ duration: 8, repeat: Infinity }}
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-pink/10 rounded-full blur-[120px]"
+          <div
+            aria-hidden
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-pink/10 rounded-full blur-[100px] opacity-20"
           />
           <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
             <motion.h2
