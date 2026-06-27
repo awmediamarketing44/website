@@ -462,73 +462,73 @@ export const services: ServiceData[] = [
     slug: "ai-design",
     title: "AI-Powered Web Design",
     tag: "AI Design",
-    headerTitle: "The future of web design",
-    headerAccent: "is already here.",
+    headerTitle: "A premium website,",
+    headerAccent: "live in weeks not months.",
     headerDescription:
-      "We use cutting-edge AI tools alongside human creativity to design faster, iterate smarter, and deliver websites that would have taken twice as long just two years ago.",
+      "AI-powered web design that gets you a premium, enquiry-winning website live in weeks, not months, and for less than a traditional agency charges.",
     longDescription: [
-      "AI isn't replacing designers. It's making the good ones dangerous. At AW Media, we've integrated AI into every stage of our design process: from rapid moodboarding and concept generation to layout prototyping and content creation. The result? Faster turnarounds, bolder creative, and more options at every stage.",
-      "While other agencies are still dragging elements around in Figma for weeks, we're generating multiple high-fidelity concepts in days. AI handles the heavy lifting: research, initial layouts, image generation, copy drafts, so our designers can focus on what actually matters: making your brand look incredible and your website convert.",
-      "This isn't about cutting corners. It's about working smarter. You get more concepts, more iterations, and a higher-quality end product, all delivered faster and at a fraction of the traditional cost. We're not just using AI as a gimmick. We've built our entire workflow around it because we've seen the results.",
-      "From AI-assisted wireframing to intelligent content structuring, every website we build benefits from tools that didn't exist two years ago. And because we've been early adopters, we know which tools actually deliver and which ones are just hype.",
+      "Most business owners put off sorting their website because they assume it means six weeks of back-and-forth and an agency-sized invoice at the end of it. So they limp along with a site that's quietly costing them enquiries every week it stays up. It doesn't have to work that way anymore.",
+      "We use AI through every stage of how we design and build, so the work that used to take a month takes a couple of weeks. For you, that means a premium, custom website that brings in enquiries, without the long wait or the traditional agency price tag. The speed and the saving are yours. The quality is exactly the same, because a designer is steering every decision the whole way through.",
+      "What you actually get is more of your time back and a site that's working for you sooner: a website that loads fast, looks like the best business in your market, ranks on Google, and turns visitors into people booking calls. The AI just means it lands quicker, and costs you less to get there.",
+      "And no, it won't look like everyone else's. Every site is built from scratch around your brand. AI helps us reach great ideas faster, it never decides what your business looks like. That's a human call, every time, signed off before anything reaches you.",
     ],
     features: [
-      "AI-accelerated design concepts & moodboards",
-      "Rapid prototyping with multiple directions",
-      "AI-assisted copywriting & content structure",
-      "Intelligent layout optimisation",
-      "AI image generation & enhancement",
-      "Human-led creative direction throughout",
-      "Faster delivery without compromising quality",
-      "Modern tech stack (Next.js, React, Tailwind)",
+      "A premium, custom website built around your brand",
+      "Live in weeks, not the usual month-plus wait",
+      "Lower cost than a traditional agency build",
+      "Loads fast and ranks on Google from day one",
+      "Several design directions to choose from, not one take-it-or-leave-it concept",
+      "Built to turn visitors into enquiries",
+      "AI-accelerated process, human-led creative throughout",
+      "Booking and payment integrations included",
     ],
     benefits: [
       {
-        title: "Faster ideation. Bolder creative.",
+        title: "Your site, working for you sooner.",
         description:
-          "AI lets us explore more concepts in less time. Instead of 2-3 directions, you see 5-6, all high quality, all tailored to your brand. More options, better outcomes.",
+          "Every week an underperforming site stays up, it's costing you enquiries. We get your new one live in weeks instead of months, so you stop leaving money on the table that much faster.",
       },
       {
-        title: "Half the time. Same premium quality.",
+        title: "Agency quality, without the agency price.",
         description:
-          "What used to take 4-6 weeks now takes 2-3. AI handles the grunt work so our designers focus on the creative decisions that actually move the needle for your business.",
+          "Because AI handles the slow, repetitive parts of the build, you're not paying for weeks of manual work. You get the same premium, bespoke result for noticeably less.",
       },
       {
-        title: "Built on tech that's years ahead.",
+        title: "A site you actually love, not settle for.",
         description:
-          "Your website isn't just designed with AI. It's built on a modern tech stack that loads faster, ranks higher, and scales better than anything WordPress can offer.",
+          "Instead of one concept you have to take or leave, you see several directions early on. You end up with a website that genuinely fits your brand, because you helped choose it.",
       },
     ],
     whoIsThisFor: [
-      "Ambitious brands that want a cutting-edge website without the cutting-edge price tag",
-      "Operators who need a site fast, whether launching a programme, rebrand, or new business",
-      "Anyone who's been quoted 6+ weeks by traditional agencies and thought 'there has to be a better way'",
-      "Forward-thinking businesses that want to work with an agency that's ahead of the curve",
+      "Business owners who need a professional website sooner rather than later",
+      "Anyone who's been quoted six-plus weeks and a big number by a traditional agency",
+      "Operators launching a programme, rebrand, or new business who can't wait around",
+      "Businesses that want a premium site without paying premium-agency prices",
     ],
     faqs: [
       {
-        question: "Does AI design mean my website will look generic?",
+        question: "What does AI-powered web design actually mean for me?",
         answer:
-          "The opposite. AI gives us more creative options to explore, not fewer. Every concept is guided by our designers who understand your brand, your audience, and your goals. AI is the tool. We're the ones making the creative decisions.",
+          "It means we use AI tools through the design and build, generating concepts, drafting layouts, structuring content, and creating images, so the whole thing is faster and cheaper for you. A designer leads the creative the entire way. You get the speed and the saving; we handle the tools.",
       },
       {
-        question: "What AI tools do you actually use?",
+        question: "Does using AI mean my website will look generic?",
         answer:
-          "We use a combination of tools depending on the project: AI for concept generation and moodboarding, GPT-based tools for content structuring, and custom workflows for layout prototyping. We also build on modern frameworks like Next.js and React, the same tech used by the biggest brands in the world.",
+          "No, the opposite. Every site we build is custom to your brand. AI just lets us explore more ideas and reach the best one faster. A designer makes every creative call and signs everything off, so what you end up with is unique to you, never a template.",
       },
       {
-        question: "Is AI design cheaper than traditional web design?",
+        question: "Will it be cheaper than going to a traditional agency?",
         answer:
-          "It can be. Because we're more efficient, we can offer competitive pricing without cutting quality. You're not paying for wasted hours of a designer staring at a blank screen. You're paying for focused, high-quality creative work enhanced by the best tools available.",
+          "Usually, yes. Because AI takes care of the slow, repetitive parts of the process, we're not billing you for weeks of manual work. You get the same premium result for less, and you get it sooner.",
       },
       {
-        question: "Will my website still be unique?",
+        question: "Is the quality as good as a fully hand-built site?",
         answer:
-          "100%. Every site we build is custom. AI helps us get to great ideas faster, but the final product is entirely bespoke to your brand. No templates, no cookie-cutter layouts.",
+          "Identical. AI speeds the process up, it doesn't lower the bar. A human designer steers every decision and checks everything before it reaches you. You're getting a premium, bespoke website, just without the long wait.",
       },
     ],
-    ctaHeadline: "Ready to see what AI-powered design can do for your business?",
-    ctaSubtext: "Book a free call. We'll show you exactly how our process works and what it could look like for you.",
+    ctaHeadline: "Want a premium website live in weeks, not months?",
+    ctaSubtext: "Book a free call and we'll show you what we'd build, and how fast you could have it live.",
     relatedProjects: ["Hard to Kill", "Glean App", "Newgen Coaching"],
   },
   {
