@@ -14,7 +14,7 @@ import { landingStats, type LandingPageData } from "@/data/landing-pages";
 
 function Heading({ lines }: { lines: [string, string] }) {
   return (
-    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-16">
+    <h2 className="aw-reveal-left text-3xl sm:text-4xl lg:text-5xl font-bold mb-16">
       <span className="block">{lines[0]}</span>
       <span className="block text-pink">{lines[1]}</span>
     </h2>
@@ -38,7 +38,7 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
         <section className="py-12 pb-24">
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid lg:grid-cols-[1.3fr_1fr] gap-16 items-start">
-              <div className="space-y-6 text-muted leading-relaxed">
+              <div className="aw-reveal space-y-6 text-muted leading-relaxed">
                 <h2 className="sr-only">
                   {data.introHeading[0]} {data.introHeading[1]}
                 </h2>
@@ -64,7 +64,7 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
                 {landingStats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-2xl border border-card-border bg-card p-6 text-center hover:border-pink/30 transition-colors duration-300"
+                    className="aw-reveal rounded-2xl border border-card-border bg-card p-6 text-center hover:border-pink/30 transition-colors duration-300"
                   >
                     <p className="text-2xl lg:text-3xl font-extrabold text-pink mb-1">
                       {stat.value}
@@ -86,7 +86,7 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
               {data.services.map((service) => (
                 <div
                   key={service.title}
-                  className="rounded-2xl border border-card-border bg-card p-8 relative overflow-hidden group hover:-translate-y-1.5 transition-transform duration-300"
+                  className="aw-reveal rounded-2xl border border-card-border bg-card p-8 relative overflow-hidden group hover:-translate-y-1.5 transition-transform duration-300"
                 >
                   <h3 className="text-lg font-bold mb-3 group-hover:text-pink transition-colors duration-300">
                     {service.title}
@@ -120,7 +120,7 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
               {data.why.map((point, i) => (
                 <div
                   key={point.title}
-                  className="group rounded-2xl border border-card-border bg-card p-8 h-full transition-all duration-500 hover:border-pink/30 relative overflow-hidden hover:-translate-y-1"
+                  className="aw-reveal group rounded-2xl border border-card-border bg-card p-8 h-full transition-all duration-500 hover:border-pink/30 relative overflow-hidden hover:-translate-y-1"
                 >
                   <span className="absolute top-4 right-6 text-5xl font-black text-white/[0.03] group-hover:text-pink/[0.08] transition-colors duration-500">
                     0{i + 1}
@@ -145,7 +145,7 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid lg:grid-cols-2 gap-16">
               <div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                <h2 className="aw-reveal-left text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                   {data.faqHeading} <span className="text-pink">questions.</span>
                 </h2>
               </div>
@@ -173,9 +173,9 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
         <section className="py-24 border-t border-card-border relative overflow-hidden">
           <div
             aria-hidden
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-pink/10 rounded-full blur-[100px] opacity-20"
+            className="aw-glow absolute bottom-0 left-1/2 w-[600px] h-[300px] bg-pink/10 rounded-full blur-[100px]"
           />
-          <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+          <div className="aw-reveal relative z-10 mx-auto max-w-3xl px-6 text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
               {data.ctaHeadline}
             </h2>

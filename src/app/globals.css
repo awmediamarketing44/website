@@ -74,3 +74,38 @@ html {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+
+/* ── Scroll-driven reveals (GPU, zero JS) ──────────────────────────────────
+   Same fade/slide-in feel as the old framer-motion whileInView, but driven by
+   CSS scroll timelines so nothing hydrates on the mobile CPU. Falls back to a
+   one-shot play on load where view() timelines aren't supported. Reduced-motion
+   users get the content with no animation. */
+@keyframes aw-fade-left {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes aw-glow-pulse {
+  0%, 100% { opacity: 0.12; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 0.24; transform: translateX(-50%) scale(1.18); }
+}
+
+/* Keep the CTA glow centred even when its pulse animation isn't running. */
+.aw-glow { transform: translateX(-50%); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .aw-reveal,
+  .aw-reveal-left {
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+  .aw-reveal { animation-name: fade-up; }
+  .aw-reveal-left { animation-name: aw-fade-left; }
+
+  @supports not (animation-timeline: view()) {
+    .aw-reveal { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .aw-reveal-left { animation: aw-fade-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  }
+
+  .aw-glow { animation: aw-glow-pulse 8s ease-in-out infinite; }
+}
