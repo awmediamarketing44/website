@@ -91,6 +91,12 @@ const CITIES: City[] = [
     region: "South Yorkshire",
     based: "based in South Yorkshire, a short hop from Barnsley",
   },
+  {
+    name: "Chesterfield",
+    slug: "chesterfield",
+    region: "Derbyshire",
+    based: "based just up the road in South Yorkshire, on Chesterfield's doorstep",
+  },
 ];
 
 // ── Keyword-variant builders ────────────────────────────────────────────────
