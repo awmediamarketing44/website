@@ -781,12 +781,7 @@
   },
   {
     "source": "/freelance-web-designer-sheffield",
-    "destination": "/locations/web-design-sheffield",
-    "statusCode": 301
-  },
-  {
-    "source": "/freelance-web-design-sheffield",
-    "destination": "/locations/web-design-sheffield",
+    "destination": "/freelance-web-design-sheffield",
     "statusCode": 301
   },
   {
