@@ -29,6 +29,10 @@ import howLongToBuild from "./blog-posts/how-long-does-it-take-to-build-a-websit
 import rankOnChatgpt from "./blog-posts/how-to-rank-on-chatgpt-and-ai-search";
 import howToChooseDesigner from "./blog-posts/how-to-choose-a-web-designer";
 import doINeedWebsite from "./blog-posts/do-i-need-a-website";
+import chooseWebDesignCompanySheffield from "./blog-posts/how-to-choose-a-web-design-company-in-sheffield";
+import webDesignCostSheffield from "./blog-posts/web-design-cost-sheffield";
+import freelanceVsAgencySheffield from "./blog-posts/freelance-web-designer-vs-agency-sheffield";
+import sheffieldFoundOnline from "./blog-posts/get-your-sheffield-business-found-online";
 import importedWpPosts from "./blog-posts/_imported-wp";
 
 const MONTHS = [
@@ -42,6 +46,10 @@ function dateSortKey(dateStr: string): number {
 }
 
 const ALL: BlogPost[] = [
+  chooseWebDesignCompanySheffield,
+  webDesignCostSheffield,
+  freelanceVsAgencySheffield,
+  sheffieldFoundOnline,
   howMuchWebsiteCost,
   howLongToBuild,
   rankOnChatgpt,

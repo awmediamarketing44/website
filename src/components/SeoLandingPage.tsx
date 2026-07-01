@@ -48,6 +48,15 @@ export function SeoLandingPage({ slug }: { slug: string }) {
       "@type": "Organization",
       name: "AW Media & Marketing",
       url: siteUrl,
+      ...(data.team && data.team.length > 0
+        ? {
+            employee: data.team.map((m) => ({
+              "@type": "Person",
+              name: m.name,
+              jobTitle: m.role,
+            })),
+          }
+        : {}),
     },
     areaServed: "GB",
   };

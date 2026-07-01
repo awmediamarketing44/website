@@ -26,6 +26,12 @@ export interface LandingFAQ {
   answer: string;
 }
 
+export interface LandingTeamMember {
+  name: string;
+  role: string;
+  photo: string;
+}
+
 export interface LandingPageData {
   slug: string;
   // SEO
@@ -45,6 +51,10 @@ export interface LandingPageData {
   // Why us
   whyHeading: [string, string];
   why: LandingPillar[];
+  // Named team (optional) — renders a "meet the people" block when present.
+  // Used on flagship local pages to give AI/search real, verifiable named staff.
+  teamHeading?: [string, string];
+  team?: LandingTeamMember[];
   // FAQ
   faqHeading: string; // single line, accent word appended by component
   faqs: LandingFAQ[];
@@ -423,6 +433,57 @@ const VARIANTS: ((c: City) => LandingPageData)[] = [
 // One-off pages that don't fit the city × variant matrix (city-specific niche
 // keywords, or national service keywords with no city).
 const extraPages: LandingPageData[] = [
+  // web design sheffield — the exact head term, people-led, small-business angle
+  {
+    slug: "web-design-sheffield",
+    metaTitle: "Web Design Sheffield | AW Media | Since 2016",
+    metaDescription:
+      "Web design in Sheffield for small businesses. Affordable, custom websites built to win enquiries, by a real Sheffield team. AI-accelerated or fully bespoke. Book a free call.",
+    tag: "Web Design · Sheffield",
+    title: "Web design in Sheffield,",
+    titleAccent: "built by people you can actually meet.",
+    headerDescription:
+      "We're a Sheffield web design and digital marketing team building affordable, custom websites for small businesses across the city. Real people, no templates, no agency waffle. Just sites that bring in the enquiries.",
+    introHeading: ["Affordable web design for small", "businesses in Sheffield."],
+    introParas: [
+      "AW Media is a web design studio born and based in Sheffield. Since 2016 we've built websites for small businesses across the city and South Yorkshire that don't just look good, they bring in the work. If you've searched for affordable web design for small businesses in Sheffield and found nothing but faceless agencies and DIY builders, this is the alternative: a real local team who answer the phone.",
+      "A slow, template-looking website quietly costs you customers every single day. People judge your business in seconds, and if your site looks dated or loads slowly, they hit the back button and call a competitor instead. We fix that with a custom-designed site built around your customers and the enquiries you actually want.",
+      "We're also a digital marketing agency, Sheffield through and through, so your website doesn't sit on its own. We can handle the branding, the SEO to get you found on Google, and the social graphics that keep you looking premium. One local team for the lot, whether you need a fast AI-accelerated build or a fully bespoke website.",
+    ],
+    servicesHeading: ["What we build for", "Sheffield small businesses."],
+    services: [
+      { title: "Small Business Websites", description: "Affordable, custom-designed websites for Sheffield small businesses, built to look premium and turn visitors into booked calls and paying customers." },
+      { title: "E-commerce & Online Stores", description: "Sell online with a fast, secure store that's easy to manage, from a handful of products to a full catalogue." },
+      { title: "SEO & Google Visibility", description: "On-page SEO and technically fast builds so Sheffield customers find you on Google first, not your competitor." },
+      { title: "Branding & Logo Design", description: "Logos and brand identity that make you the obvious premium choice in your Sheffield market." },
+      { title: "Social Media Graphics", description: "On-brand carousels, posts and ad creative that keep your business looking sharp on every platform." },
+      { title: "Website Support & Care", description: "Hosting, security and updates handled for you, so your site keeps performing long after launch." },
+    ],
+    whyHeading: ["Why Sheffield businesses", "choose AW Media."],
+    why: [
+      { title: "A real Sheffield team.", description: "We're local, named and reachable. Come in for a coffee, or just pick up the phone. You're never talking to a call centre or a faceless account manager." },
+      { title: "Affordable, without looking cheap.", description: "AI-accelerated builds start from £695 so a small business can have a genuinely professional site. Every one is custom, never a template that looks like every other Sheffield business." },
+      { title: "Built to win enquiries.", description: "A pretty website that doesn't generate enquiries is wasted money. We design around the actions you want visitors to take: call, book, buy." },
+    ],
+    teamHeading: ["Meet the Sheffield team", "behind your website."],
+    team: [
+      { name: "Alex Whitehead", role: "Director, Developer & Award-Winning Web Designer", photo: "/images/team/alex.jpg" },
+      { name: "Beth Rendell", role: "Director & Operations", photo: "/images/team/beth.jpg" },
+      { name: "Paul Rendell", role: "Web Design & Development", photo: "/images/team/paul.jpg" },
+      { name: "Lahcen", role: "Graphic Design", photo: "/images/team/lahcen.jpg" },
+    ],
+    faqHeading: "Sheffield web design",
+    faqs: [
+      { question: "How much does web design cost in Sheffield?", answer: "It depends on scope and lane. AI-accelerated builds start from £695 for a landing page, with full small-business websites and online stores priced accordingly. Fully bespoke builds with deeper strategy cost more. Book a free call and we'll give you a straight number, no obligation." },
+      { question: "Do you offer affordable web design for small businesses in Sheffield?", answer: "Yes. That's exactly who we build for. Our AI-accelerated lane makes a genuinely professional, custom website affordable for small businesses, without dropping to a cheap template that looks like everyone else. You get a site that competes with far bigger budgets." },
+      { question: "Are you a web design or a digital marketing agency?", answer: "Both. We're a Sheffield web design studio first, but we also handle branding, SEO and social media graphics, so your website, your Google visibility and your brand all pull in the same direction. One local team instead of three separate suppliers." },
+      { question: "Do I have to be in Sheffield to work with you?", answer: "No. We're Sheffield-based and love working with local businesses face to face, but most of the work happens online, so we build for clients right across the UK. Wherever you are, it's easy to work together." },
+    ],
+    ctaHeadline: "Need a web designer in Sheffield?",
+    ctaSubtext: "Book a free 15-minute call with a real member of the team. We'll tell you exactly what your website needs to bring in more enquiries, no obligation.",
+    serviceName: "Web Design Sheffield",
+    serviceType: "Web design",
+  },
   // graphic designer sheffield
   {
     slug: "graphic-designer-sheffield",

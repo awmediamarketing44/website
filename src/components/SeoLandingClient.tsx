@@ -137,6 +137,35 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
           </div>
         </section>
 
+        {/* Named team (optional) — real, verifiable local staff */}
+        {data.team && data.team.length > 0 && (
+          <section className="py-24 border-t border-card-border">
+            <div className="mx-auto max-w-7xl px-6">
+              <Heading lines={data.teamHeading ?? ["Meet the team", "behind your website."]} />
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                {data.team.map((member) => (
+                  <div
+                    key={member.name}
+                    className="aw-reveal rounded-2xl border border-card-border bg-card p-6 text-center hover:border-pink/30 transition-colors duration-300"
+                  >
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      width={128}
+                      height={128}
+                      loading="lazy"
+                      className="mx-auto mb-4 h-24 w-24 rounded-full object-cover"
+                    />
+                    <p className="font-bold text-white">{member.name}</p>
+                    <p className="mt-1 text-xs text-muted leading-relaxed">{member.role}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Recent work (scroll-lazy) */}
         <LazyWork />
 

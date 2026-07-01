@@ -40,6 +40,14 @@ const SYSTEM_STYLE = [
 ].join(" ");
 
 const PER_POST_PROMPT = {
+  "how-to-choose-a-web-design-company-in-sheffield":
+    "A 3D clay hand holding a magnifying glass over a row of small clay storefront cards, one card glowing pink as the chosen one. Editorial, top-down.",
+  "web-design-cost-sheffield":
+    "A 3D clay pink price tag resting on a small clay website card, with a stack of clay coins beside it. Clean, editorial, generous negative space.",
+  "freelance-web-designer-vs-agency-sheffield":
+    "Two 3D clay figures side by side, one lone figure at a desk and one small group of three around a table, a subtle pink divider between them. Balanced, editorial.",
+  "get-your-sheffield-business-found-online":
+    "A 3D clay pin marker rising out of a stylised map with a pink signal pulse radiating outward, a small magnifying glass nearby. Sense of being discovered.",
   "ai-built-in-30-seconds-is-a-scam":
     "A cracked 3D clay browser window with a 'BUILT IN 30 SECONDS' speedometer needle snapped off. Subtle warning glow.",
   "what-695-buys-in-web-design":
