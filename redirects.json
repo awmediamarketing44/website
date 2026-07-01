@@ -785,11 +785,6 @@
     "statusCode": 301
   },
   {
-    "source": "/web-design-sheffield",
-    "destination": "/locations/web-design-sheffield",
-    "statusCode": 301
-  },
-  {
     "source": "/freelance-web-designer-rotherham",
     "destination": "/locations/web-design-rotherham",
     "statusCode": 301
