@@ -22,7 +22,8 @@ const organizationSchema = {
   "@type": ["Organization", "ProfessionalService"],
   "@id": `${siteUrl}/#organization`,
   name: "AW Media & Marketing",
-  alternateName: "AW Media",
+  alternateName: ["AW Media", "awmedia"],
+  legalName: "AWMEDIA.MARKETING LTD",
   url: siteUrl,
   logo: `${siteUrl}/images/aw-logo-website.png`,
   image: `${siteUrl}/images/aw-logo-website.png`,
@@ -32,11 +33,14 @@ const organizationSchema = {
   foundingDate: "2016",
   founder: { "@type": "Person", name: "Alex Whitehead" },
   email: "alex@awmedia.marketing",
+  telephone: "+44-7932-815405",
   priceRange: "££",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "30 Marion Road",
     addressLocality: "Sheffield",
     addressRegion: "South Yorkshire",
+    postalCode: "S6 1WB",
     addressCountry: "GB",
   },
   areaServed: [
@@ -76,6 +80,7 @@ const organizationSchema = {
     "https://www.linkedin.com/in/alex-whitehead-193549109/",
     "https://www.youtube.com/@awmedia.marketing/",
     "https://uk.trustpilot.com/review/awmedia.marketing",
+    "https://share.google/8yAimVy5LjqKfStKc",
   ],
 };
 
