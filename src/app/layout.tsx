@@ -75,6 +75,7 @@ const organizationSchema = {
     "https://www.threads.net/@awmedia.marketing",
     "https://www.linkedin.com/in/alex-whitehead-193549109/",
     "https://www.youtube.com/@awmedia.marketing/",
+    "https://uk.trustpilot.com/review/awmedia.marketing",
   ],
 };
 
