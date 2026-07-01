@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ReviewsClient from "./Client";
+import { SITE_URL, aggregateRating, reviewSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Reviews | What Our Clients Say",
@@ -8,6 +9,26 @@ export const metadata: Metadata = {
   alternates: { canonical: "/reviews" },
 };
 
+// Reviews live on the Organization itself, with the real client testimonials as
+// schema.org Review objects and an aggregate rating built from them.
+const reviewsSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": `${SITE_URL}/#organization`,
+  name: "AW Media & Marketing",
+  url: SITE_URL,
+  aggregateRating: aggregateRating(),
+  review: reviewSchema(),
+};
+
 export default function Page() {
-  return <ReviewsClient />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsSchema) }}
+      />
+      <ReviewsClient />
+    </>
+  );
 }

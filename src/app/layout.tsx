@@ -5,6 +5,7 @@ import FloatingOrbs from "@/components/FloatingOrbs";
 import CursorSpotlight from "@/components/CursorSpotlight";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics, { AnalyticsNoscript } from "@/components/Analytics";
+import { aggregateRating } from "@/lib/schema";
 import "./globals.css";
 
 const rethinkSans = Rethink_Sans({
@@ -18,20 +19,56 @@ const siteUrl = "https://awmedia.marketing";
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": `${siteUrl}/#organization`,
   name: "AW Media & Marketing",
+  alternateName: "AW Media",
   url: siteUrl,
   logo: `${siteUrl}/images/aw-logo-website.png`,
+  image: `${siteUrl}/images/aw-logo-website.png`,
   description:
     "UK web design studio. Bespoke design when the project demands it, AI-accelerated when speed matters. Building websites, brands and landing pages since 2016.",
+  slogan: "Designed properly. Built faster.",
   foundingDate: "2016",
+  founder: { "@type": "Person", name: "Alex Whitehead" },
   email: "alex@awmedia.marketing",
+  priceRange: "££",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Sheffield",
+    addressRegion: "South Yorkshire",
     addressCountry: "GB",
   },
-  areaServed: "GB",
+  areaServed: [
+    { "@type": "Country", name: "United Kingdom" },
+    "Sheffield",
+    "Rotherham",
+    "Barnsley",
+    "Chesterfield",
+    "Leeds",
+    "Manchester",
+    "Liverpool",
+  ],
+  knowsAbout: [
+    "Web Design",
+    "Bespoke Website Development",
+    "Branding and Brand Identity",
+    "Logo Design",
+    "Social Media Graphics",
+    "Search Engine Optimisation",
+    "E-commerce Websites",
+    "Landing Page Design",
+    "AI-Accelerated Web Design",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "alex@awmedia.marketing",
+    telephone: "+44-7932-815405",
+    areaServed: "GB",
+    availableLanguage: "English",
+  },
+  aggregateRating: aggregateRating(),
   sameAs: [
     "https://www.instagram.com/awmedia.marketing/",
     "https://www.facebook.com/awmedianmarketing",

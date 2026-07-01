@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getIndustryBySlug, industries } from "@/data/industries";
+import { breadcrumb } from "@/lib/schema";
 import Client from "./Client";
 
 export function generateStaticParams() {
@@ -41,6 +42,19 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  if (!getIndustryBySlug(slug)) notFound();
-  return <Client slug={slug} />;
+  const industry = getIndustryBySlug(slug);
+  if (!industry) notFound();
+  const breadcrumbSchema = breadcrumb([
+    { name: "Industries", path: "/industries" },
+    { name: `${industry.title} Web Design`, path: `/industries/${slug}` },
+  ]);
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Client slug={slug} />
+    </>
+  );
 }

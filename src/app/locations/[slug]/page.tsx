@@ -6,6 +6,7 @@ import {
   metaTitle,
   metaDescription,
 } from "@/data/locations";
+import { breadcrumb } from "@/lib/schema";
 import Client from "./Client";
 
 export function generateStaticParams() {
@@ -43,6 +44,19 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  if (!getLocationBySlug(slug)) notFound();
-  return <Client slug={slug} />;
+  const loc = getLocationBySlug(slug);
+  if (!loc) notFound();
+  const breadcrumbSchema = breadcrumb([
+    { name: "Locations", path: "/locations" },
+    { name: `Web Design ${loc.city}`, path: `/locations/${slug}` },
+  ]);
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Client slug={slug} />
+    </>
+  );
 }

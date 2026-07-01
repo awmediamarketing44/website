@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getServiceBySlug, services } from "@/data/services";
+import { breadcrumb } from "@/lib/schema";
 import Client from "./Client";
 
 export function generateStaticParams() {
@@ -40,6 +41,19 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  if (!getServiceBySlug(slug)) notFound();
-  return <Client slug={slug} />;
+  const service = getServiceBySlug(slug);
+  if (!service) notFound();
+  const breadcrumbSchema = breadcrumb([
+    { name: "Services", path: "/services" },
+    { name: service.title, path: `/services/${slug}` },
+  ]);
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Client slug={slug} />
+    </>
+  );
 }
