@@ -41,6 +41,63 @@ export interface ProjectData {
 
 const webProjects: ProjectData[] = [
   {
+    slug: "sp26-bodybuilding",
+    title: "SP26 Bodybuilding",
+    category: "Web Design & Build",
+    tags: ["Website", "Custom Build", "Booking Platform", "Claude Code", "WordPress"],
+    heroImage: "/images/projects/sp26-bodybuilding/hero.jpg",
+    thumbnailImage: "/images/projects/sp26-bodybuilding/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "SP26 Bodybuilding",
+      industry: "Private Gym",
+      location: "Shirebrook, UK",
+      website: "https://sp26bodybuilding.com/",
+    },
+    brief:
+      "Most new gyms open with an Instagram page and a booking link. SP26 opened with this: a custom designed and built website shaped around how the gym actually sells, with their own booking platform built directly into it.",
+    challenge: [
+      "Launching new is the hardest position to sell from, because nobody knows you yet. The website does the introducing, and if it looks thrown together, so do you.",
+      "The gym sells in five different ways: private hire, PT sessions, shoots, seminars and day passes. A template wouldn't carry that.",
+      "A proper booking platform is the part most new businesses get priced out of. Renting an off-brand booking app forever wasn't the answer.",
+    ],
+    approach: [
+      "Custom design and build, no template, shaped around how the gym actually sells.",
+      "Their own booking platform, built directly into the site. Customers pick a session, pick a date and time, and the team confirms with one click. No DM back-and-forth.",
+      "Custom booking software normally means serious development money. We built theirs with Claude Code as their own WordPress plugin, in a fraction of the usual development time, and that saving went straight to the client. They own it outright, no monthly fees, built exactly how they work. The design is ours, the craft is ours. AI comes in where it cuts the cost of custom work, not the quality of it.",
+    ],
+    features: [
+      "Custom design + WordPress build",
+      "Own booking platform, built in",
+      "One-click booking confirmations",
+      "Built with Claude Code",
+      "Owned outright, no monthly fees",
+      "Mobile-first responsive",
+    ],
+    testimonial: {
+      quote:
+        "Alex and the team came as a recommendation and they definitely lived up to expectations and beyond. Patience, attention to detail, prompt turnaround. Literally, craftsmen in their field. I'd recommend AW Media's service to anyone and everyone looking for a team that are truly dialled into their line of work.",
+      name: "SP26 Bodybuilding",
+      role: "Private Gym, Shirebrook",
+    },
+    gallery: [
+      "/images/projects/sp26-bodybuilding/desktop.jpg",
+      "/images/projects/sp26-bodybuilding/mobile.jpg",
+      "/images/projects/sp26-bodybuilding/desktop-full.jpg",
+    ],
+    graphics: [
+      "/images/projects/sp26-bodybuilding/booking/booking-1.jpg",
+      "/images/projects/sp26-bodybuilding/booking/booking-2.jpg",
+      "/images/projects/sp26-bodybuilding/booking/booking-3.jpg",
+    ],
+    graphicsTitle: ["The booking", "platform."],
+    graphicsSubtitle:
+      "Customers pick a session, pick a date and time, and the team confirms with one click. Built with Claude Code as SP26's own WordPress plugin. They own it outright, no monthly fees, built exactly how they work.",
+    relatedProjects: ["body-lab", "drug-free-bodybuilding"],
+  },
+
+  {
     slug: "mind-muscle-movement",
     title: "The Mind and Muscle Movement",
     category: "Web Design & Build",
