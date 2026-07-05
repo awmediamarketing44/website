@@ -82,6 +82,15 @@ const post: BlogPost = {
         "Then be patient. Recoveries from core updates typically show over weeks and consolidate at the next update.",
       ],
     },
+    { type: "h2", text: "We've done every one of these ourselves" },
+    {
+      type: "p",
+      text: "This isn't advice from the sidelines. Our own rankings took a knock in the June updates, and this checklist is exactly what we ran on awmedia.marketing in response: near-duplicate pages consolidated with 301s, every landing page brought into the site's internal link structure, duplicate www addresses redirected to one canonical domain, named author bios added across this blog, and our strongest near-miss pages deepened instead of new thin ones published.",
+    },
+    {
+      type: "p",
+      text: "That's the same playbook we run for clients, and it's why every recommendation above is specific rather than generic: each one is something we've just done, not something we've read about.",
+    },
     { type: "h2", text: "What not to do" },
     {
       type: "p",
