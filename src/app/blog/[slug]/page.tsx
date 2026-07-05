@@ -102,7 +102,13 @@ export default async function Page({
     image: `${siteUrl}${post.coverImage}`,
     datePublished: toIsoDate(post.date),
     dateModified: toIsoDate(post.date),
-    author: { "@type": "Organization", name: "AW Media & Marketing", url: siteUrl },
+    author: {
+      "@type": "Person",
+      name: "Alex Whitehead",
+      jobTitle: "Director, Developer & Award-Winning Web Designer",
+      url: `${siteUrl}/about`,
+      worksFor: { "@type": "Organization", name: "AW Media & Marketing", url: siteUrl },
+    },
     publisher: {
       "@type": "Organization",
       name: "AW Media & Marketing",

@@ -10,6 +10,18 @@ import type { NextRequest } from "next/server";
 // Hashed static assets (/_next/static, images) are excluded and keep their
 // long immutable cache.
 export function middleware(req: NextRequest) {
+  // Canonical host: 301 www → apex. The www host serves the full site as a
+  // duplicate (Google had 43 www pages indexed), splitting ranking signals
+  // across two hosts. DNS/nginx can't do this on 20i, so it lives here.
+  const host = req.headers.get("host") ?? "";
+  if (host.startsWith("www.")) {
+    const { pathname, search } = req.nextUrl;
+    return NextResponse.redirect(
+      `https://awmedia.marketing${pathname}${search}`,
+      301
+    );
+  }
+
   const res = NextResponse.next();
   const { pathname } = req.nextUrl;
   const isAssetOrApi =

@@ -43,6 +43,25 @@ const SOCIALS = [
   { name: "YouTube", href: "https://www.youtube.com/@awmedia.marketing/", icon: YouTubeIcon },
 ];
 
+// Local + service landing pages. Linked here so they're part of the site's
+// internal link graph (sitemap-only orphan pages read as doorways to Google).
+const areaLinks = [
+  { label: "Web Design Sheffield", href: "/web-design-sheffield" },
+  { label: "Web Design Agency Sheffield", href: "/web-design-agency-sheffield" },
+  { label: "Ecommerce Web Design Sheffield", href: "/ecommerce-web-design-sheffield" },
+  { label: "AI Web Design Sheffield", href: "/ai-web-design-sheffield" },
+  { label: "SEO Agency Sheffield", href: "/seo-agency-sheffield" },
+  { label: "Local SEO Sheffield", href: "/local-seo-sheffield" },
+  { label: "Website Redesign Sheffield", href: "/website-redesign-sheffield" },
+  { label: "Logo Design Sheffield", href: "/logo-design-sheffield" },
+  { label: "Web Design Rotherham", href: "/web-design-agency-rotherham" },
+  { label: "Web Design Barnsley", href: "/web-design-agency-barnsley" },
+  { label: "Web Design Chesterfield", href: "/web-design-agency-chesterfield" },
+  { label: "AI Web Design", href: "/ai-web-design" },
+  { label: "Landing Page Design", href: "/landing-page-design-uk" },
+  { label: "Small Business Web Design", href: "/web-design-for-small-businesses-uk" },
+];
+
 const footerLinks = {
   Company: [
     { label: "About", href: "/about" },
@@ -142,6 +161,25 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* Areas & specialisms */}
+        <div className="mt-12 pt-8 border-t border-card-border">
+          <h4 className="text-sm font-semibold mb-4">
+            Web design across South Yorkshire &amp; the UK
+          </h4>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {areaLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-xs text-muted hover:text-white transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="mt-16 pt-8 border-t border-card-border flex flex-col sm:flex-row items-center justify-between gap-4">

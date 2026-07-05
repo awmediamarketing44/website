@@ -8,7 +8,7 @@ export type BlogSection =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "quote"; text: string; attribution?: string }
-  | { type: "callout"; text: string; label?: string };
+  | { type: "callout"; text: string; label?: string; href?: string; linkLabel?: string };
 
 export interface BlogPost {
   slug: string;

@@ -109,6 +109,17 @@ const PER_POST_PROMPT = {
     "A 3D clay hand choosing one glowing pink website card from a fan of plain grey ones. Sense of a careful pick. Top-down, restrained. No text.",
   "do-i-need-a-website":
     "A 3D clay house-shaped home base with small clay social-media icons (a heart, a play triangle, a chat bubble) all pointing arrows back toward it on pink threads. Sense of a central hub. No text, no letters.",
+
+  "google-rankings-dropped-june-2026":
+    "A 3D clay search results ladder with small clay website cards sliding down its rungs, one pink card climbing back up against the flow. Sense of a shake-up and recovery. No text, no letters, no numbers.",
+  "website-redesign-checklist":
+    "A 3D clay website card mid-transformation, half weathered and faded grey, half fresh and pink-highlighted, with a clay checklist clipboard beside it, ticks as simple clay dots. No text, no letters.",
+  "logo-design-cost-sheffield":
+    "A 3D clay pink price tag tied to an abstract hand-shaped clay logo mark on a small plinth, a row of cheaper identical grey marks fading behind it. Value versus cheap. No text, no letters, no numbers.",
+  "local-seo-sheffield-five-things":
+    "A 3D clay map with three podium steps rising from it, a pink map pin standing on the top step, a small star-rating ribbon of five clay dots nearby. Map pack energy. No text, no letters.",
+  "landing-page-vs-homepage":
+    "Two 3D clay pages side by side: one busy homepage crowded with many small panels and doors, one clean focused landing page with a single glowing pink button. A clay cursor arrow choosing the focused one. No text, no letters.",
 };
 
 async function loadPosts() {

@@ -72,6 +72,14 @@ function SectionBlock({ section }: { section: BlogSection }) {
             </div>
           )}
           <p className="text-base sm:text-lg text-white/85 leading-relaxed">{section.text}</p>
+          {section.href && (
+            <Link
+              href={section.href}
+              className="mt-3 inline-block text-sm font-semibold text-pink hover:underline"
+            >
+              {section.linkLabel ?? "Find out more"} →
+            </Link>
+          )}
         </aside>
       );
   }
@@ -181,6 +189,44 @@ export default function BlogPostClient({ slug }: { slug: string }) {
             ))}
           </div>
         </article>
+
+        {/* Author bio — named-expert signal (E-E-A-T) */}
+        <section className="pb-16">
+          <div className="mx-auto max-w-3xl px-6">
+            <div className="flex items-start gap-5 rounded-2xl border border-card-border bg-card p-6 sm:p-8">
+              <div className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 overflow-hidden rounded-full border border-pink/25">
+                <Image
+                  src="/images/team/alex.jpg"
+                  alt="Alex Whitehead, Director at AW Media & Marketing"
+                  fill
+                  sizes="80px"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <p className="text-sm font-semibold">
+                  Written by <span className="text-pink">Alex Whitehead</span>
+                </p>
+                <p className="mt-0.5 text-xs text-muted uppercase tracking-widest">
+                  Director, Developer &amp; Award-Winning Web Designer
+                </p>
+                <p className="mt-3 text-sm text-muted leading-relaxed">
+                  Alex founded AW Media in Sheffield in 2016 and has led 500+ website,
+                  branding and SEO projects since, picking up four back-to-back industry
+                  awards along the way. He writes the way he works: straight answers,
+                  no jargon, judged on results.
+                </p>
+                <Link
+                  href="/about"
+                  className="mt-3 inline-block text-xs text-pink/70 hover:text-pink transition-colors"
+                >
+                  More about the team →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* CTA */}
         <section className="pb-24">

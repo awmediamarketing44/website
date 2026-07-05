@@ -990,8 +990,23 @@
     "statusCode": 301
   },
   {
-    "source": "/ai-web-design",
-    "destination": "/services/ai-design",
+    "source": "/web-design-companies-sheffield",
+    "destination": "/web-design-agency-sheffield",
+    "statusCode": 301
+  },
+  {
+    "source": "/web-design-companies-rotherham",
+    "destination": "/web-design-agency-rotherham",
+    "statusCode": 301
+  },
+  {
+    "source": "/web-design-companies-barnsley",
+    "destination": "/web-design-agency-barnsley",
+    "statusCode": 301
+  },
+  {
+    "source": "/web-design-companies-chesterfield",
+    "destination": "/web-design-agency-chesterfield",
     "statusCode": 301
   }
 ]

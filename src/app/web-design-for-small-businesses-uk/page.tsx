@@ -1,6 +1,6 @@
 import { SeoLandingPage, landingMetadata } from "@/components/SeoLandingPage";
 
-const SLUG = "web-design-companies-chesterfield";
+const SLUG = "web-design-for-small-businesses-uk";
 
 export const metadata = landingMetadata(SLUG);
 

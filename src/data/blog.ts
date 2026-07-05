@@ -33,6 +33,11 @@ import chooseWebDesignCompanySheffield from "./blog-posts/how-to-choose-a-web-de
 import webDesignCostSheffield from "./blog-posts/web-design-cost-sheffield";
 import freelanceVsAgencySheffield from "./blog-posts/freelance-web-designer-vs-agency-sheffield";
 import sheffieldFoundOnline from "./blog-posts/get-your-sheffield-business-found-online";
+import googleRankingsDropped from "./blog-posts/google-rankings-dropped-june-2026";
+import redesignChecklist from "./blog-posts/website-redesign-checklist";
+import logoDesignCostSheffield from "./blog-posts/logo-design-cost-sheffield";
+import localSeoSheffieldFive from "./blog-posts/local-seo-sheffield-five-things";
+import landingPageVsHomepage from "./blog-posts/landing-page-vs-homepage";
 import importedWpPosts from "./blog-posts/_imported-wp";
 
 const MONTHS = [
@@ -46,6 +51,11 @@ function dateSortKey(dateStr: string): number {
 }
 
 const ALL: BlogPost[] = [
+  googleRankingsDropped,
+  redesignChecklist,
+  logoDesignCostSheffield,
+  localSeoSheffieldFive,
+  landingPageVsHomepage,
   chooseWebDesignCompanySheffield,
   webDesignCostSheffield,
   freelanceVsAgencySheffield,
