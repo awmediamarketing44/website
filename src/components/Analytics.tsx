@@ -51,21 +51,39 @@ export default function Analytics() {
         })(window, document, "clarity", "script", "uk9ecutvw0");
       `}</Script>
 
-      {/* CRM form-submit bridge. The enquiry forms are embedded as iframes from
-          crm.awmedia.marketing; on submit they postMessage { awcrm: 'submit' }
-          up to the parent. Forward that to GA4 (generate_lead) + GTM dataLayer.
-          Origin-checked so only the CRM can fire these events. */}
+      {/* CRM form-submit + call-booked bridge. The enquiry forms are embedded as
+          iframes from crm.awmedia.marketing; on submit they postMessage
+          { awcrm: 'submit' } up to the parent, and when someone books the
+          Calendly call on the thank-you screen they relay { awcrm: 'call_booked' }.
+          The site's own Calendly modal (CalendlyModal.tsx, a plain calendly.com
+          iframe) also posts calendly.event_scheduled straight to this window.
+          Forward all of it to GA4 + GTM dataLayer + Meta Pixel (Schedule is a
+          standard Meta event, so ad campaigns can optimise for booked calls).
+          Origin-checked so only the CRM / Calendly can fire these events. */}
       <Script id="aw-crm-lead" strategy="afterInteractive">{`
-        window.addEventListener('message', function(e){
-          if (e.origin !== 'https://crm.awmedia.marketing') return;
-          if (e.data && e.data.awcrm === 'submit') {
-            if (typeof gtag === 'function') {
-              gtag('event','generate_lead',{form_slug:e.data.form_slug, form_name:e.data.form_name});
-            }
+        (function(){
+          function trackCallBooked(slug, name){
+            if (typeof gtag === 'function') gtag('event','book_call',{form_slug:slug||'', form_name:name||'site-modal'});
             window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event:'aw_form_submit', form_slug:e.data.form_slug, form_name:e.data.form_name});
+            window.dataLayer.push({event:'aw_call_booked', form_slug:slug||'', form_name:name||'site-modal'});
+            if (typeof fbq === 'function') fbq('track','Schedule');
           }
-        });
+          window.addEventListener('message', function(e){
+            if (e.origin === 'https://crm.awmedia.marketing' && e.data) {
+              if (e.data.awcrm === 'submit') {
+                if (typeof gtag === 'function') {
+                  gtag('event','generate_lead',{form_slug:e.data.form_slug, form_name:e.data.form_name});
+                }
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({event:'aw_form_submit', form_slug:e.data.form_slug, form_name:e.data.form_name});
+              } else if (e.data.awcrm === 'call_booked') {
+                trackCallBooked(e.data.form_slug, e.data.form_name);
+              }
+            } else if (e.origin === 'https://calendly.com' && e.data && e.data.event === 'calendly.event_scheduled') {
+              trackCallBooked('', 'site-modal');
+            }
+          });
+        })();
       `}</Script>
 
       {/* Meta Pixel */}
