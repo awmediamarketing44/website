@@ -78,7 +78,7 @@ const post: BlogPost = {
     },
     {
       type: "p",
-      text: "Book a free 15-minute call and we will tell you exactly where you are losing visibility and what to do about it.",
+      text: "Book a free 20-minute call and we will tell you exactly where you are losing visibility and what to do about it.",
     },
   ],
   relatedSlugs: [

@@ -236,7 +236,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
                 Want this for your business?
               </h3>
               <p className="text-muted leading-relaxed max-w-xl mx-auto mb-6">
-                Free 15-minute call. We&apos;ll look at your current site, tell you what&apos;s
+                Free 20-minute call. We&apos;ll look at your current site, tell you what&apos;s
                 working, what isn&apos;t, and what we&apos;d do differently. No pitch.
               </p>
               <Link

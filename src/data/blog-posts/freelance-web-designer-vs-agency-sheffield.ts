@@ -69,7 +69,7 @@ const post: BlogPost = {
     },
     {
       type: "p",
-      text: "Want to talk it through? Book a free 15-minute call and we will give you an honest steer, freelancer, agency or us.",
+      text: "Want to talk it through? Book a free 20-minute call and we will give you an honest steer, freelancer, agency or us.",
     },
   ],
   relatedSlugs: [

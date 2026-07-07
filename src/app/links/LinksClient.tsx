@@ -37,7 +37,7 @@ interface LinkItem {
 }
 
 const LINKS: LinkItem[] = [
-  { label: "Book a Free Call", sub: "15 mins, no pressure", action: "calendly", primary: true },
+  { label: "Book a Free Call", sub: "20 mins, no pressure", action: "calendly", primary: true },
   { label: "Free Website Audit", sub: "Instant Google-powered scores", href: "/website-audit" },
   { label: "Free Social Media Audit", sub: "Your profiles, professionally reviewed", href: "/social-audit" },
   { label: "Start an Enquiry", sub: "Tell us about your project", href: "/contact" },

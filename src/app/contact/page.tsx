@@ -2,7 +2,6 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import Script from "next/script";
 import { motion } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
@@ -118,7 +117,7 @@ function ContactForm() {
           tag="Get In Touch"
           title="Let's build something"
           titleAccent="that actually works."
-          description="Book a free 15-minute call or send us a message. No pressure, no jargon. Just an honest conversation about what your business needs."
+          description="Book a free 20-minute call or send us a message. No pressure, no jargon. Just an honest conversation about what your business needs."
         />
 
         <section className="py-12 pb-24">
@@ -360,10 +359,10 @@ function ContactForm() {
               transition={{ delay: 0.15 }}
               className="text-muted text-lg mb-12"
             >
-              15 minutes. Free. No obligation.
+              20 minutes. Free. No obligation.
             </motion.p>
 
-            {/* Calendly embed */}
+            {/* AW booking system embed (crm.awmedia.marketing/book) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -371,14 +370,10 @@ function ContactForm() {
               transition={{ delay: 0.3 }}
               className="rounded-2xl border border-card-border bg-card/50 backdrop-blur-sm overflow-hidden"
             >
-              <div
-                className="calendly-inline-widget"
-                data-url="https://calendly.com/awmedia-marketing/aw-discovery-call?hide_event_type_details=1&hide_gdpr_banner=1"
-                style={{ minWidth: "320px", height: "700px" }}
-              />
-              <Script
-                src="https://assets.calendly.com/assets/external/widget.js"
-                strategy="lazyOnload"
+              <iframe
+                src="https://crm.awmedia.marketing/book"
+                title="Book a call with AW Media"
+                style={{ minWidth: "320px", width: "100%", height: "700px", border: 0 }}
               />
             </motion.div>
           </div>
@@ -454,7 +449,7 @@ export default function ContactPage() {
               tag="Get In Touch"
               title="Let's build something"
               titleAccent="that actually works."
-              description="Book a free 15-minute call or send us a message. No pressure, no jargon. Just an honest conversation about what your business needs."
+              description="Book a free 20-minute call or send us a message. No pressure, no jargon. Just an honest conversation about what your business needs."
             />
           </main>
           <Footer />

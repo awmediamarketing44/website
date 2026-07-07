@@ -359,7 +359,7 @@ export default function LocationPageClient({ slug }: { slug: string }) {
               transition={{ delay: 0.15 }}
               className="mt-4 text-muted text-lg"
             >
-              Book a free 15-minute call. We&apos;ll tell you exactly what your
+              Book a free 20-minute call. We&apos;ll tell you exactly what your
               business needs online, no obligation.
             </motion.p>
             <motion.div

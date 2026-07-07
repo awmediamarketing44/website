@@ -36,7 +36,7 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
             <div className="flex items-center justify-between px-6 py-4 border-b border-card-border">
               <div>
                 <h3 className="text-lg font-bold">Book a FREE Discovery Call</h3>
-                <p className="text-sm text-muted">15 minutes. No obligation. No jargon.</p>
+                <p className="text-sm text-muted">20 minutes. No obligation. No jargon.</p>
               </div>
               <button
                 onClick={onClose}
@@ -48,10 +48,10 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
               </button>
             </div>
 
-            {/* Calendly iframe */}
-            <div className="relative" style={{ height: "min(580px, calc(90vh - 138px))" }}>
+            {/* AW booking system iframe (replaces Calendly, 07/2026) */}
+            <div className="relative" style={{ height: "min(620px, calc(90vh - 138px))" }}>
               <iframe
-                src="https://calendly.com/awmedia-marketing/aw-discovery-call?hide_event_type_details=1&hide_gdpr_banner=1"
+                src="https://crm.awmedia.marketing/book"
                 width="100%"
                 height="100%"
                 frameBorder="0"

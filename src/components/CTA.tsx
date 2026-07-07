@@ -74,7 +74,7 @@ export default function CTA() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-8 text-lg text-muted max-w-2xl mx-auto"
         >
-          Book a free 15-minute call. No pressure, no jargon. Just an honest
+          Book a free 20-minute call. No pressure, no jargon. Just an honest
           conversation about what your business actually needs to grow online.
         </motion.p>
 

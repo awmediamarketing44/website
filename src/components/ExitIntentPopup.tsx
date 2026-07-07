@@ -96,7 +96,7 @@ export default function ExitIntentPopup({ onBookCall }: ExitIntentPopupProps) {
             <h3 className="text-2xl font-bold mb-2">Wait, before you go.</h3>
             <p className="text-muted leading-relaxed mb-6">
               Most ambitious businesses lose clients to a website that doesn&apos;t convert.
-              Book a free 15-minute call and we&apos;ll show you exactly what&apos;s holding
+              Book a free 20-minute call and we&apos;ll show you exactly what&apos;s holding
               yours back.
             </p>
 
