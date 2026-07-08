@@ -260,6 +260,11 @@
     "statusCode": 301
   },
   {
+    "source": "/shopify-web-design-agency",
+    "destination": "/ecommerce-web-design-sheffield",
+    "statusCode": 301
+  },
+  {
     "source": "/shopify-website-bebe-cosmetics",
     "destination": "/blog/shopify-website-bebe-cosmetics",
     "statusCode": 301
