@@ -68,7 +68,7 @@ export const industries: IndustryData[] = [
       },
     ],
     ctaHeadline: "Ready to get a website that matches your coaching?",
-    ctaSubtext: "Book a free 15-minute call. We'll tell you exactly what your fitness business needs online.",
+    ctaSubtext: "Book a free 20-minute call. We'll tell you exactly what your fitness business needs online.",
   },
   {
     slug: "construction",

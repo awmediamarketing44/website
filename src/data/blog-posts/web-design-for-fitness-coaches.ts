@@ -71,7 +71,7 @@ const post: BlogPost = {
     },
     {
       type: "p",
-      text: "If your CTA is 'Get In Touch', you're losing people. Use 'Book a free 15-minute call' or 'Apply for coaching' and wire it to a calendar or a short qualifier form. The faster they can take action, the more action they take.",
+      text: "If your CTA is 'Get In Touch', you're losing people. Use 'Book a free 20-minute call' or 'Apply for coaching' and wire it to a calendar or a short qualifier form. The faster they can take action, the more action they take.",
     },
     {
       type: "callout",

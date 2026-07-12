@@ -15,6 +15,7 @@ import {
   type PackageTier,
   type PackageVariant,
 } from "@/data/packages";
+import { faqPage } from "@/lib/schema";
 
 const checkIcon = (
   <svg
@@ -208,6 +209,12 @@ export default function HowWeWorkPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPage(howWeWorkFaqs)),
+        }}
+      />
       <FloatingParticles count={20} />
       <Navbar />
       <main>
@@ -346,39 +353,55 @@ export default function HowWeWorkPage() {
               className="rounded-2xl border border-card-border bg-card overflow-hidden"
             >
               <div className="overflow-x-auto">
-                <div className="min-w-[600px]">
-              <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b border-card-border bg-background/50">
-                <div className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-muted">
-                  What you get
-                </div>
-                <div className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-pink border-l border-card-border">
-                  AI lane
-                </div>
-                <div className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-white border-l border-card-border">
-                  Bespoke lane
-                </div>
-              </div>
-              {comparisonRows.map((row, i) => (
-                <div
-                  key={row.label}
-                  className={`grid grid-cols-[1.4fr_1fr_1fr] ${
-                    i !== comparisonRows.length - 1
-                      ? "border-b border-card-border"
-                      : ""
-                  }`}
-                >
-                  <div className="px-6 py-4 text-sm font-medium">
-                    {row.label}
-                  </div>
-                  <div className="px-6 py-4 text-sm text-muted border-l border-card-border">
-                    {row.ai}
-                  </div>
-                  <div className="px-6 py-4 text-sm text-muted border-l border-card-border">
-                    {row.bespoke}
-                  </div>
-                </div>
-              ))}
-                </div>
+                <table className="w-full min-w-[600px] border-collapse text-left">
+                  <caption className="sr-only">
+                    AW Media AI-Accelerated lane versus Bespoke lane compared
+                    across deliverables, process and support.
+                  </caption>
+                  <thead>
+                    <tr className="border-b border-card-border bg-background/50">
+                      <th
+                        scope="col"
+                        className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-muted"
+                      >
+                        What you get
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-pink border-l border-card-border"
+                      >
+                        AI lane
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-white border-l border-card-border"
+                      >
+                        Bespoke lane
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {comparisonRows.map((row) => (
+                      <tr
+                        key={row.label}
+                        className="border-b border-card-border last:border-0"
+                      >
+                        <th
+                          scope="row"
+                          className="px-6 py-4 text-sm font-medium text-white align-top"
+                        >
+                          {row.label}
+                        </th>
+                        <td className="px-6 py-4 text-sm text-muted border-l border-card-border align-top">
+                          {row.ai}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-muted border-l border-card-border align-top">
+                          {row.bespoke}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </motion.div>
           </div>

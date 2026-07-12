@@ -93,7 +93,7 @@ const post: BlogPost = {
     },
     {
       type: "p",
-      text: "If you are weighing up web design companies in Sheffield, book a free 15-minute call. We will give you a straight steer on what your site needs, even if we are not the right fit for you.",
+      text: "If you are weighing up web design companies in Sheffield, book a free 20-minute call. We will give you a straight steer on what your site needs, even if we are not the right fit for you.",
     },
   ],
   relatedSlugs: [

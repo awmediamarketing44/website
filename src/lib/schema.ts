@@ -25,6 +25,24 @@ export function breadcrumb(
   };
 }
 
+// FAQPage schema from a list of question/answer pairs. Reused across the
+// homepage, service pages, comparison pages and any Q&A blog post so AI answer
+// engines can surface our answers directly. Render with a
+// <script type="application/ld+json"> tag, matching the existing pages.
+export function faqPage(
+  faqs: { question: string; answer: string }[],
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+}
+
 // AggregateRating built from the real on-site client testimonials (never
 // invented). Every featured testimonial is a verified 5-star client review.
 export function aggregateRating(): Record<string, unknown> {

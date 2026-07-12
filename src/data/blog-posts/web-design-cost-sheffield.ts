@@ -75,7 +75,7 @@ const post: BlogPost = {
     },
     {
       type: "p",
-      text: "Want a straight number for your project? Book a free 15-minute call and we will give you a realistic price range, no obligation and no hard sell.",
+      text: "Want a straight number for your project? Book a free 20-minute call and we will give you a realistic price range, no obligation and no hard sell.",
     },
   ],
   relatedSlugs: [

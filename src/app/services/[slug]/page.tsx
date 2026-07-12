@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getServiceBySlug, services } from "@/data/services";
-import { breadcrumb } from "@/lib/schema";
+import { breadcrumb, faqPage } from "@/lib/schema";
 import Client from "./Client";
 
 export function generateStaticParams() {
@@ -47,12 +47,20 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     { name: "Services", path: "/services" },
     { name: service.title, path: `/services/${slug}` },
   ]);
+  const faqSchema =
+    service.faqs && service.faqs.length > 0 ? faqPage(service.faqs) : null;
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <Client slug={slug} />
     </>
   );

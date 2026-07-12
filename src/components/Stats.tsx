@@ -193,6 +193,21 @@ function DesktopStats() {
       className="relative border-t border-card-border"
       style={{ height: "400vh" }}
     >
+      {/*
+        Crawlable static copy of the stats. The animated scrollytelling above
+        drives each digit from a scroll-tied count-up, so in static HTML three
+        of the four numbers read as "0". This block keeps the real, citable
+        figures in the DOM (visually hidden) for search + AI answer engines.
+      */}
+      <ul className="sr-only">
+        {stats.map((stat) => (
+          <li key={stat.label}>
+            {stat.value}
+            {stat.suffix} {stat.label}. {stat.description}
+          </li>
+        ))}
+      </ul>
+
       <div className="sticky top-0 h-screen overflow-hidden flex items-center">
         <motion.div
           style={{ background: bgGradient }}

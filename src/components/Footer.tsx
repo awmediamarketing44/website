@@ -72,6 +72,13 @@ const footerLinks = {
     { label: "Locations", href: "/locations" },
     { label: "Contact", href: "/contact" },
   ],
+  Compare: [
+    { label: "AW Media vs an Agency", href: "/aw-media-vs-typical-agency" },
+    { label: "What a Website Costs", href: "/website-cost-uk" },
+    { label: "Wix vs a Pro Build", href: "/wix-vs-professional-web-design" },
+    { label: "How We Work", href: "/how-we-work" },
+    { label: "Free GEO Audit", href: "/geo-audit" },
+  ],
   Services: [
     { label: "Web Design", href: "/services/web-design" },
     { label: "Branding", href: "/services/branding" },
@@ -115,7 +122,7 @@ export default function Footer() {
       className="border-t border-card-border py-16"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-10">
           {/* Logo column */}
           <div className="col-span-2 lg:col-span-1">
             <span className="text-xl font-bold tracking-tight">

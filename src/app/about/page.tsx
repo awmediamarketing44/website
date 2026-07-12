@@ -107,6 +107,10 @@ export default function AboutPage() {
                   className="space-y-4 text-muted leading-relaxed"
                 >
                   <p>
+                    AW Media (AW Media &amp; Marketing Ltd) is a Sheffield-based
+                    UK web design studio founded in 2016 by Alex Whitehead.
+                  </p>
+                  <p>
                     AW Media started in 2016 when Alex realised that small businesses
                     were getting absolutely rinsed by agencies charging thousands for
                     template websites that didn&apos;t convert.

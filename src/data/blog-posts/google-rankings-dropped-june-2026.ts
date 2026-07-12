@@ -99,7 +99,7 @@ const post: BlogPost = {
     {
       type: "callout",
       label: "Had a drop you can't explain?",
-      text: "We'll look at your Search Console data, tell you exactly what got hit and why, and give you a straight recovery plan. Free 15-minute call, no pitch.",
+      text: "We'll look at your Search Console data, tell you exactly what got hit and why, and give you a straight recovery plan. Free 20-minute call, no pitch.",
       href: "/contact",
       linkLabel: "Book a free ranking review",
     },

@@ -61,7 +61,7 @@ const post: BlogPost = {
     {
       type: "callout",
       label: "Want to know where you stand?",
-      text: "Book a free 15-minute call and we'll check your map pack position live, look at your profile and tell you exactly which of the five is holding you back.",
+      text: "Book a free 20-minute call and we'll check your map pack position live, look at your profile and tell you exactly which of the five is holding you back.",
       href: "/local-seo-sheffield",
       linkLabel: "See our Sheffield local SEO service",
     },

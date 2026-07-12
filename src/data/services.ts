@@ -88,7 +88,7 @@ export const services: ServiceData[] = [
       },
     ],
     ctaHeadline: "Ready to stop losing clients to a bad website?",
-    ctaSubtext: "Book a free 15-minute call. We'll tell you exactly what needs fixing.",
+    ctaSubtext: "Book a free 20-minute call. We'll tell you exactly what needs fixing.",
     relatedProjects: ["Hard to Kill", "Newgen Coaching", "Bridge2Fitness", "Glean App"],
   },
   {

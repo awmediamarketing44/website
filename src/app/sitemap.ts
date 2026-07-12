@@ -5,6 +5,7 @@ import { services } from "@/data/services";
 import { industries } from "@/data/industries";
 import { locations } from "@/data/locations";
 import { landingPages } from "@/data/landing-pages";
+import { comparisons } from "@/data/comparisons";
 
 const siteUrl = "https://awmedia.marketing";
 
@@ -25,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/free-audit", priority: 0.6, freq: "monthly" },
     { path: "/website-audit", priority: 0.6, freq: "monthly" },
     { path: "/social-audit", priority: 0.6, freq: "monthly" },
+    { path: "/geo-audit", priority: 0.7, freq: "monthly" },
     { path: "/privacy-policy", priority: 0.2, freq: "yearly" },
     { path: "/cookie-policy", priority: 0.2, freq: "yearly" },
   ];
@@ -80,6 +82,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Comparison / decision pages (AW vs agency, website cost, Wix vs pro).
+  const comparisonEntries: MetadataRoute.Sitemap = comparisons.map((c) => ({
+    url: `${siteUrl}/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     ...staticEntries,
     ...serviceEntries,
@@ -88,5 +98,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...workEntries,
     ...blogEntries,
     ...landingEntries,
+    ...comparisonEntries,
   ];
 }
