@@ -10,7 +10,7 @@ const post: BlogPost = {
     "How often should you redesign your website? The realistic lifespan of a business site, the warning signs it's costing you enquiries, and when a refresh beats a full rebuild.",
   date: "July 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/how-often-should-you-redesign-your-website.jpg",
+  coverImage: "/images/blog/how-often-should-you-redesign-your-website-v2.jpg",
   body: [
     {
       type: "p",

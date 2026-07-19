@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Wix vs Squarespace vs a custom website in 2026: an honest comparison of cost, speed, SEO, ownership and when each one is actually the right choice for your business.",
   date: "July 2026",
   readingMinutes: 8,
-  coverImage: "/images/blog/wix-squarespace-or-custom-website.jpg",
+  coverImage: "/images/blog/wix-squarespace-or-custom-website-v2.jpg",
   body: [
     {
       type: "p",

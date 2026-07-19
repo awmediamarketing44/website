@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Why your website copy loses customers and how to write words that sell: lead with the customer's problem, cut the jargon, and turn features into outcomes. Practical, no fluff.",
   date: "July 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/website-copy-that-sells.jpg",
+  coverImage: "/images/blog/website-copy-that-sells-v2.jpg",
   body: [
     {
       type: "p",

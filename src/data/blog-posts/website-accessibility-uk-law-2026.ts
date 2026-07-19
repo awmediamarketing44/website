@@ -10,7 +10,7 @@ const post: BlogPost = {
     "UK website accessibility explained for business owners in 2026: what the law expects, the WCAG basics that matter, and the practical fixes that widen your customer base.",
   date: "July 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/website-accessibility-uk-law-2026.jpg",
+  coverImage: "/images/blog/website-accessibility-uk-law-2026-v2.jpg",
   body: [
     {
       type: "p",

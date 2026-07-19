@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Google Business Profile mistakes local Sheffield businesses make, and how to fix them: categories, reviews, photos, posts and the details that decide whether you show up in the map pack.",
   date: "July 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/google-business-profile-mistakes.jpg",
+  coverImage: "/images/blog/google-business-profile-mistakes-v2.jpg",
   body: [
     {
       type: "p",
