@@ -120,6 +120,17 @@ const PER_POST_PROMPT = {
     "A 3D clay map with three podium steps rising from it, a pink map pin standing on the top step, a small star-rating ribbon of five clay dots nearby. Map pack energy. No text, no letters.",
   "landing-page-vs-homepage":
     "Two 3D clay pages side by side: one busy homepage crowded with many small panels and doors, one clean focused landing page with a single glowing pink button. A clay cursor arrow choosing the focused one. No text, no letters.",
+
+  "website-accessibility-uk-law-2026":
+    "A 3D clay website card with a small pink universal-access ring symbol glowing on it and a clay ramp leading up to an open clay doorway, a cream contrast dial beside it. Sense of a site open to everyone. No text, no letters, no numbers.",
+  "website-copy-that-sells":
+    "A 3D clay fountain-pen nib drawing a single glowing pink line that curves into a shopping-cart button shape, a small clay speech bubble nearby. Words turning into sales. Editorial, restrained. No text, no letters, no numbers.",
+  "google-business-profile-mistakes":
+    "A 3D clay map pin shaped like a small storefront card, half of it faded grey and unfinished, half fresh with a pink row of five clay star dots, a little magnifying glass hovering. Local listing energy. No text, no letters, no numbers.",
+  "wix-squarespace-or-custom-website":
+    "Two 3D clay website cards at a fork in a clay road: one built from identical stacked template blocks, one hand-shaped and unique with a pink highlight, a clay cursor arrow between them. Kit versus custom. Top-down, editorial. No text, no letters, no numbers.",
+  "how-often-should-you-redesign-your-website":
+    "A 3D clay website card on a small plinth mid-transformation, one faded weathered grey panel swapping out for a fresh pink one, a clay clock-cycle arrow looping around it. Sense of periodic renewal. No text, no letters, no numbers.",
 };
 
 async function loadPosts() {
