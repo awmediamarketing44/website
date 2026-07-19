@@ -38,6 +38,11 @@ import redesignChecklist from "./blog-posts/website-redesign-checklist";
 import logoDesignCostSheffield from "./blog-posts/logo-design-cost-sheffield";
 import localSeoSheffieldFive from "./blog-posts/local-seo-sheffield-five-things";
 import landingPageVsHomepage from "./blog-posts/landing-page-vs-homepage";
+import websiteAccessibilityUkLaw from "./blog-posts/website-accessibility-uk-law-2026";
+import websiteCopyThatSells from "./blog-posts/website-copy-that-sells";
+import googleBusinessProfileMistakes from "./blog-posts/google-business-profile-mistakes";
+import wixSquarespaceOrCustom from "./blog-posts/wix-squarespace-or-custom-website";
+import howOftenRedesign from "./blog-posts/how-often-should-you-redesign-your-website";
 import importedWpPosts from "./blog-posts/_imported-wp";
 
 const MONTHS = [
@@ -51,6 +56,11 @@ function dateSortKey(dateStr: string): number {
 }
 
 const ALL: BlogPost[] = [
+  websiteAccessibilityUkLaw,
+  websiteCopyThatSells,
+  googleBusinessProfileMistakes,
+  wixSquarespaceOrCustom,
+  howOftenRedesign,
   googleRankingsDropped,
   redesignChecklist,
   logoDesignCostSheffield,
