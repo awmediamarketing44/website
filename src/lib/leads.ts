@@ -36,6 +36,7 @@ export async function sendMail(opts: {
 export async function syncToActiveCampaign(opts: {
   name: string;
   email: string;
+  phone?: string;
   marketingOptIn?: boolean;
   tagId?: string | number; // overrides AC_TAG_ID (e.g. an audit-specific tag)
 }) {
@@ -51,7 +52,14 @@ export async function syncToActiveCampaign(opts: {
     const syncRes = await fetch(`${base}/api/3/contact/sync`, {
       method: "POST",
       headers,
-      body: JSON.stringify({ contact: { email: opts.email, firstName, lastName } }),
+      body: JSON.stringify({
+        contact: {
+          email: opts.email,
+          firstName,
+          lastName,
+          ...(opts.phone ? { phone: opts.phone } : {}),
+        },
+      }),
     });
     const data = await syncRes.json();
     const contactId = data?.contact?.id;

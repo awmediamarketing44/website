@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/website-audit", priority: 0.6, freq: "monthly" },
     { path: "/social-audit", priority: 0.6, freq: "monthly" },
     { path: "/geo-audit", priority: 0.7, freq: "monthly" },
+    { path: "/ai-score", priority: 0.7, freq: "monthly" },
     { path: "/privacy-policy", priority: 0.2, freq: "yearly" },
     { path: "/cookie-policy", priority: 0.2, freq: "yearly" },
   ];

@@ -42,6 +42,20 @@ const audits = [
     cta: "Run my social audit",
     href: SOCIAL_AUDIT_URL,
   },
+  {
+    title: "AI Opportunity Score",
+    tagline: "2 minutes, 11 questions.",
+    description:
+      "Answer eleven quick questions about how your business runs and get a score out of 100, plus the three places AI would genuinely pay off first: enquiries answered around the clock, admin automated, marketing that runs itself.",
+    points: [
+      "Scored instantly, out of 100",
+      "Your top 3 AI opportunities",
+      "Plain English, no jargon",
+      "Personalised to your answers",
+    ],
+    cta: "Get my AI score",
+    href: "/ai-score",
+  },
 ];
 
 export default function FreeAuditClient() {
@@ -54,12 +68,12 @@ export default function FreeAuditClient() {
           tag="Free Audit"
           title="See exactly what's"
           titleAccent="holding you back."
-          description="Two free audits, no obligation. Pick your website or your socials, leave a few details, and we'll show you what's working, what's not, and what to fix first."
+          description="Three free tools, no obligation. Check your website, your socials or your AI opportunity, leave a few details, and we'll show you what's working, what's not, and what to fix first."
         />
 
         <section className="py-12 pb-24">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {audits.map((audit, i) => (
                 <motion.div
                   key={audit.title}

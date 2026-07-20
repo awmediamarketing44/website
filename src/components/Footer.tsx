@@ -48,6 +48,8 @@ const SOCIALS = [
 const areaLinks = [
   { label: "Web Design Sheffield", href: "/web-design-sheffield" },
   { label: "Web Design Agency Sheffield", href: "/web-design-agency-sheffield" },
+  { label: "Small Business Web Design Sheffield", href: "/small-business-web-design-sheffield" },
+  { label: "WordPress Web Design Sheffield", href: "/wordpress-web-design-sheffield" },
   { label: "Ecommerce Web Design Sheffield", href: "/ecommerce-web-design-sheffield" },
   { label: "AI Web Design Sheffield", href: "/ai-web-design-sheffield" },
   { label: "SEO Agency Sheffield", href: "/seo-agency-sheffield" },
@@ -78,6 +80,7 @@ const footerLinks = {
     { label: "Wix vs a Pro Build", href: "/wix-vs-professional-web-design" },
     { label: "How We Work", href: "/how-we-work" },
     { label: "Free GEO Audit", href: "/geo-audit" },
+    { label: "AI Opportunity Score", href: "/ai-score" },
   ],
   Services: [
     { label: "Web Design", href: "/services/web-design" },
