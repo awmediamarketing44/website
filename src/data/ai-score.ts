@@ -384,6 +384,16 @@ export const AREA_ORDER: AreaId[] = [
   "visibility",
 ];
 
+// The outer orbit of the brain map: concrete things AI can run in a business,
+// hanging off the area they belong to. Pure display copy, not scored.
+export const AREA_SATELLITES: Record<AreaId, string[]> = {
+  support: ["24/7 Chat", "WhatsApp Replies", "FAQ Answers"],
+  leads: ["CRM", "Instant Follow-Up", "Reminders"],
+  content: ["Social Posts", "Email Campaigns", "Blog Content"],
+  admin: ["Bookings", "Quotes", "Invoicing"],
+  visibility: ["Google Rankings", "AI Answers", "Reviews"],
+};
+
 
 export interface AreaResult {
   id: AreaId;
@@ -391,6 +401,8 @@ export interface AreaResult {
   outcome: string;
   body: string;
   insights: string[];
+  // weekly hours of automatable work the answers attributed to this area
+  hoursPerWeek: number;
 }
 
 export interface AreaStat {
@@ -429,6 +441,13 @@ export function computeResult(picked: number[]): ScoreResult {
     admin: [],
     visibility: [],
   };
+  const areaHours: Record<AreaId, number> = {
+    support: 0,
+    leads: 0,
+    content: 0,
+    admin: 0,
+    visibility: 0,
+  };
   const answers: { question: string; answer: string }[] = [];
 
   QUIZ_QUESTIONS.forEach((q, i) => {
@@ -442,10 +461,11 @@ export function computeResult(picked: number[]): ScoreResult {
       entries.forEach(([area, w]) => {
         areaPoints[area] += w;
       });
-      // The insight belongs on the area this answer weights most heavily.
-      if (opt.insight && entries.length) {
+      // Insights and hours belong on the area this answer weights most heavily.
+      if (entries.length) {
         const [bestArea] = entries.reduce((a, b) => (b[1] > a[1] ? b : a));
-        areaInsights[bestArea].push(opt.insight);
+        if (opt.insight) areaInsights[bestArea].push(opt.insight);
+        areaHours[bestArea] += opt.hoursSaved ?? 0;
       }
     }
   });
@@ -454,9 +474,11 @@ export function computeResult(picked: number[]): ScoreResult {
   const ranked = [...AREA_ORDER].sort((a, b) => areaPoints[b] - areaPoints[a]);
   const top3 = new Set(ranked.slice(0, 3));
 
-  const topAreas = ranked
-    .slice(0, 3)
-    .map((id) => ({ ...AREA_CONTENT[id], insights: areaInsights[id] }));
+  const topAreas = ranked.slice(0, 3).map((id) => ({
+    ...AREA_CONTENT[id],
+    insights: areaInsights[id],
+    hoursPerWeek: areaHours[id],
+  }));
 
   // Percentages are share-of-signal relative to the strongest area, so the
   // biggest bar is always 100% and the pink top-three always carry the

@@ -176,12 +176,17 @@ export default function AiScoreClient() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                 >
-                  <BrainMap className="max-w-[420px]" />
+                  <BrainMap className="max-w-[480px]" />
                   <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted leading-relaxed">
                     One AI core, plugged into every corner of your business:
-                    support that never sleeps, follow-up that never slips,
-                    marketing that runs itself. The test shows you where to
-                    start.
+                    support that never sleeps, a CRM that chases every lead,
+                    bookings, quotes and marketing that run themselves.
+                    <span className="font-semibold text-white/90">
+                      {" "}
+                      Most owners we test find 10+ hours a week they could hand
+                      over.
+                    </span>{" "}
+                    The test shows you where yours are hiding.
                   </p>
 
                   <div className="mt-8 rounded-2xl border border-card-border bg-card p-8 text-center sm:p-10">
@@ -197,6 +202,7 @@ export default function AiScoreClient() {
                       {[
                         "11 quick questions, all multiple choice",
                         "Scored instantly, out of 100",
+                        "How many hours a week you could win back",
                         "Your top 3 opportunities, explained in plain English",
                       ].map((point) => (
                         <li key={point} className="flex items-start gap-3 text-sm text-muted">
@@ -349,6 +355,16 @@ export default function AiScoreClient() {
                     <p className="mx-auto mt-2 max-w-md text-sm text-muted">
                       {result.band.headline}
                     </p>
+                    {result.hoursPerWeek > 0 && (
+                      <p className="mx-auto mt-4 max-w-md rounded-xl border border-pink/25 bg-pink/5 px-5 py-3 text-sm leading-relaxed">
+                        We found around{" "}
+                        <span className="font-bold text-pink">
+                          {result.hoursPerWeek} hours a week
+                        </span>{" "}
+                        of automatable work in your answers. Unlock the breakdown
+                        to see where it&apos;s hiding.
+                      </p>
+                    )}
                   </div>
 
                   {/* Locked breakdown preview */}
@@ -545,9 +561,16 @@ export default function AiScoreClient() {
                         transition={{ delay: i * 0.1 }}
                         className="rounded-2xl border border-card-border bg-card p-6 sm:p-8"
                       >
-                        <p className="text-xs font-bold uppercase tracking-widest text-pink">
-                          Opportunity {i + 1}
-                        </p>
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <p className="text-xs font-bold uppercase tracking-widest text-pink">
+                            Opportunity {i + 1}
+                          </p>
+                          {area.hoursPerWeek > 0 && (
+                            <span className="rounded-full border border-pink/30 bg-pink/10 px-3 py-1 text-xs font-bold text-pink">
+                              ~{area.hoursPerWeek} hrs a week back
+                            </span>
+                          )}
+                        </div>
                         <h3 className="mt-2 text-xl font-bold">{area.title}</h3>
                         <p className="mt-1 text-base font-medium text-white/90">
                           {area.outcome}
@@ -586,8 +609,19 @@ export default function AiScoreClient() {
                     <p className="mx-auto mt-3 max-w-md text-sm text-muted leading-relaxed">
                       We build this for businesses like yours: AI support that answers
                       while you sleep, follow-up that never slips, and marketing that
-                      runs itself. Book a free call and we&apos;ll walk through your
-                      results together.
+                      runs itself.
+                      {result.hoursPerWeek > 0 && (
+                        <>
+                          {" "}
+                          That&apos;s how you get those{" "}
+                          <span className="font-semibold text-white/90">
+                            {result.hoursPerWeek} hours a week
+                          </span>{" "}
+                          back.
+                        </>
+                      )}{" "}
+                      Book a free call and we&apos;ll walk through your results
+                      together.
                     </p>
                     <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
                       <BookCallButton>Book a FREE Call</BookCallButton>

@@ -6,7 +6,12 @@
 
 import { useEffect, useState } from "react";
 import { motion, animate, useReducedMotion } from "motion/react";
-import { AREA_ORDER, AREA_LABELS, type AreaStat } from "@/data/ai-score";
+import {
+  AREA_ORDER,
+  AREA_LABELS,
+  AREA_SATELLITES,
+  type AreaStat,
+} from "@/data/ai-score";
 
 const PINK = "#F92672";
 const PURPLE = "#a855f7";
@@ -76,18 +81,25 @@ export function ScoreGauge({ score, size = 190 }: { score: number; size?: number
 }
 
 /* ── AI brain network map ────────────────────────────────────────────── */
-// A central AI core with the five business areas as orbiting nodes, pulses
-// travelling out along the connections. In `ambient` mode (intro/calculating)
-// all nodes glow evenly; with `areas` data, node size and glow scale with the
-// visitor's own answers and the top three light up pink.
+// A central AI core, the five scored business areas as an inner ring, and an
+// outer orbit of concrete capabilities (CRM, bookings, quotes, WhatsApp
+// replies...) hanging off each area. Pulses run core -> area -> satellite,
+// orbit rings slowly rotate, satellites drift. Without `areas` data it runs
+// in ambient mode (intro/calculating); with data, node size, glow and the
+// pink highlights follow the visitor's own answers.
 
-const CX = 260;
-const CY = 235;
-const RING = 168;
+const CX = 365;
+const CY = 300;
+const RING = 138;
+const SAT_RING = 238;
 
-function nodePos(i: number) {
-  const angle = ((i * 72 - 90) * Math.PI) / 180;
-  return { x: CX + RING * Math.cos(angle), y: CY + RING * Math.sin(angle) };
+function polar(cx: number, cy: number, r: number, deg: number) {
+  const rad = (deg * Math.PI) / 180;
+  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+}
+
+function areaAngle(i: number) {
+  return i * 72 - 90;
 }
 
 export function BrainMap({
@@ -104,10 +116,10 @@ export function BrainMap({
 
   return (
     <svg
-      viewBox="0 0 520 470"
-      className={`mx-auto w-full max-w-[520px] ${className}`}
+      viewBox="0 0 730 600"
+      className={`mx-auto w-full max-w-[600px] ${className}`}
       role="img"
-      aria-label="Map of the business areas AI can plug into: support, lead follow-up, marketing, admin and visibility, all connected to one AI core"
+      aria-label="Map of everything AI can run in a business: 24/7 chat, WhatsApp replies, a CRM, follow-ups, bookings, quotes, invoicing, social posts, email campaigns, Google rankings and reviews, all connected to one AI core"
     >
       <defs>
         <radialGradient id="coreGrad">
@@ -121,12 +133,43 @@ export function BrainMap({
         </linearGradient>
       </defs>
 
-      {/* Connections + pulses */}
+      {/* Slow-rotating orbit rings give the whole map constant motion */}
+      {!reduced && (
+        <>
+          <motion.circle
+            cx={CX}
+            cy={CY}
+            r={RING}
+            fill="none"
+            stroke="rgba(249,38,114,0.14)"
+            strokeWidth="1"
+            strokeDasharray="3 14"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+            style={{ transformOrigin: `${CX}px ${CY}px` }}
+          />
+          <motion.circle
+            cx={CX}
+            cy={CY}
+            r={SAT_RING}
+            fill="none"
+            stroke="rgba(255,255,255,0.07)"
+            strokeWidth="1"
+            strokeDasharray="2 16"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+            style={{ transformOrigin: `${CX}px ${CY}px` }}
+          />
+        </>
+      )}
+
+      {/* Connections: core -> area, area -> satellites, plus pulses */}
       {stats.map((area, i) => {
-        const p = nodePos(i);
+        const p = polar(CX, CY, RING, areaAngle(i));
         const strength = area.pct / 100;
+        const sats = AREA_SATELLITES[area.id];
         return (
-          <g key={`line-${area.id}`}>
+          <g key={`wires-${area.id}`}>
             <line
               x1={CX}
               y1={CY}
@@ -147,39 +190,103 @@ export function BrainMap({
               animate={{ pathLength: 1 }}
               transition={{ duration: 0.9, delay: 0.2 + i * 0.12, ease: "easeOut" }}
             />
+            {sats.map((label, j) => {
+              const sp = polar(CX, CY, SAT_RING, areaAngle(i) + (j - 1) * 24);
+              return (
+                <motion.line
+                  key={`sat-wire-${label}`}
+                  x1={p.x}
+                  y1={p.y}
+                  x2={sp.x}
+                  y2={sp.y}
+                  stroke={area.hot ? PINK : "rgba(255,255,255,0.4)"}
+                  strokeWidth="1"
+                  strokeOpacity={0.08 + strength * 0.18}
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.9 + i * 0.12 + j * 0.08,
+                    ease: "easeOut",
+                  }}
+                />
+              );
+            })}
             {!reduced && (
-              <motion.circle
-                r="3.2"
-                fill={area.hot ? PINK : "rgba(255,255,255,0.5)"}
-                style={{ filter: `drop-shadow(0 0 6px ${PINK})` }}
-                initial={{ cx: CX, cy: CY, opacity: 0 }}
-                animate={{ cx: [CX, p.x], cy: [CY, p.y], opacity: [0, 1, 1, 0] }}
-                transition={{
-                  duration: 1.8,
-                  delay: 0.8 + i * 0.35,
-                  repeat: Infinity,
-                  repeatDelay: 1.4,
-                  ease: "easeInOut",
-                }}
-              />
+              <>
+                <motion.circle
+                  r="3.2"
+                  fill={area.hot ? PINK : "rgba(255,255,255,0.5)"}
+                  style={{ filter: `drop-shadow(0 0 6px ${PINK})` }}
+                  initial={{ cx: CX, cy: CY, opacity: 0 }}
+                  animate={{ cx: [CX, p.x], cy: [CY, p.y], opacity: [0, 1, 1, 0] }}
+                  transition={{
+                    duration: 1.6,
+                    delay: 0.8 + i * 0.5,
+                    repeat: Infinity,
+                    repeatDelay: 2.2,
+                    ease: "easeInOut",
+                  }}
+                />
+                {sats.map((label, j) => {
+                  const sp = polar(CX, CY, SAT_RING, areaAngle(i) + (j - 1) * 24);
+                  return (
+                    <motion.circle
+                      key={`sat-pulse-${label}`}
+                      r="2.2"
+                      fill={area.hot ? PINK : "rgba(255,255,255,0.55)"}
+                      style={{ filter: `drop-shadow(0 0 4px ${PINK})` }}
+                      initial={{ cx: p.x, cy: p.y, opacity: 0 }}
+                      animate={{
+                        cx: [p.x, sp.x],
+                        cy: [p.y, sp.y],
+                        opacity: [0, 0.9, 0.9, 0],
+                      }}
+                      transition={{
+                        duration: 1.3,
+                        delay: 2.4 + i * 0.5 + j * 0.45,
+                        repeat: Infinity,
+                        repeatDelay: 3.6,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  );
+                })}
+              </>
             )}
           </g>
         );
       })}
 
-      {/* Core */}
-      <circle cx={CX} cy={CY} r="86" fill="url(#coreGrad)" opacity="0.35" />
+      {/* Core: glow, expanding ping, radar sweep, badge */}
+      <circle cx={CX} cy={CY} r="90" fill="url(#coreGrad)" opacity="0.35" />
       {!reduced && (
-        <motion.circle
-          cx={CX}
-          cy={CY}
-          fill="none"
-          stroke={PINK}
-          strokeWidth="1"
-          initial={{ r: 44, opacity: 0.5 }}
-          animate={{ r: [44, 68], opacity: [0.5, 0] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut" }}
-        />
+        <>
+          <motion.circle
+            cx={CX}
+            cy={CY}
+            fill="none"
+            stroke={PINK}
+            strokeWidth="1"
+            initial={{ r: 44, opacity: 0.5 }}
+            animate={{ r: [44, 70], opacity: [0.5, 0] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut" }}
+          />
+          <motion.circle
+            cx={CX}
+            cy={CY}
+            r="54"
+            fill="none"
+            stroke="url(#coreRing)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            pathLength={1}
+            strokeDasharray="0.22 0.78"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+            style={{ transformOrigin: `${CX}px ${CY}px`, opacity: 0.8 }}
+          />
+        </>
       )}
       <motion.circle
         cx={CX}
@@ -209,13 +316,84 @@ export function BrainMap({
         AI
       </text>
 
-      {/* Area nodes */}
+      {/* Satellites: the outer orbit of concrete capabilities */}
       {stats.map((area, i) => {
-        const p = nodePos(i);
+        const strength = area.pct / 100;
+        return AREA_SATELLITES[area.id].map((label, j) => {
+          const deg = areaAngle(i) + (j - 1) * 24;
+          const sp = polar(CX, CY, SAT_RING, deg);
+          // Label sits radially outward from the satellite dot.
+          const lp = polar(CX, CY, SAT_RING + 15, deg);
+          const cos = Math.cos((deg * Math.PI) / 180);
+          const anchor = cos > 0.35 ? "start" : cos < -0.35 ? "end" : "middle";
+          const dy = Math.abs(cos) > 0.35 ? 4 : Math.sin((deg * Math.PI) / 180) > 0 ? 12 : -6;
+          const floatDelay = (i * 3 + j) * 0.4;
+          return (
+            <motion.g
+              key={`sat-${label}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1.1 + i * 0.12 + j * 0.08 }}
+            >
+              <motion.g
+                animate={reduced ? undefined : { y: [0, -4, 0] }}
+                transition={{
+                  duration: 3.4,
+                  delay: floatDelay,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <circle
+                  cx={sp.x}
+                  cy={sp.y}
+                  r="10"
+                  fill={PINK}
+                  opacity={area.hot ? 0.07 + strength * 0.08 : 0}
+                />
+                <circle
+                  cx={sp.x}
+                  cy={sp.y}
+                  r="4.5"
+                  fill={area.hot ? PINK : "rgba(255,255,255,0.3)"}
+                  stroke={
+                    area.hot ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.2)"
+                  }
+                  strokeWidth="1"
+                  opacity={0.55 + strength * 0.45}
+                  style={{
+                    filter: area.hot
+                      ? "drop-shadow(0 0 6px rgba(249,38,114,0.6))"
+                      : "none",
+                  }}
+                />
+                <text
+                  x={lp.x}
+                  y={lp.y + dy}
+                  textAnchor={anchor}
+                  fill={
+                    area.hot ? "rgba(255,255,255,0.78)" : "rgba(255,255,255,0.45)"
+                  }
+                  fontSize="11.5"
+                  fontWeight="600"
+                  letterSpacing="0.04em"
+                  fontFamily="inherit"
+                >
+                  {label}
+                </text>
+              </motion.g>
+            </motion.g>
+          );
+        });
+      })}
+
+      {/* Area nodes (inner ring) */}
+      {stats.map((area, i) => {
+        const p = polar(CX, CY, RING, areaAngle(i));
         const strength = area.pct / 100;
         const nodeR = 9 + strength * 10;
         const above = p.y < CY;
-        const labelY = above ? p.y - nodeR - 14 : p.y + nodeR + 22;
+        const labelY = above ? p.y - nodeR - 12 : p.y + nodeR + 20;
         return (
           <g key={`node-${area.id}`}>
             {area.hot && (
@@ -235,8 +413,21 @@ export function BrainMap({
               stroke={area.hot ? "rgba(255,255,255,0.65)" : "rgba(255,255,255,0.25)"}
               strokeWidth="1.4"
               initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 + i * 0.12, ease: "backOut" }}
+              animate={
+                reduced || !area.hot
+                  ? { scale: 1 }
+                  : { scale: [1, 1.12, 1] }
+              }
+              transition={
+                reduced || !area.hot
+                  ? { duration: 0.5, delay: 0.5 + i * 0.12, ease: "backOut" }
+                  : {
+                      duration: 2.6,
+                      delay: 0.5 + i * 0.4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }
+              }
               style={{
                 transformOrigin: `${p.x}px ${p.y}px`,
                 filter: area.hot
@@ -248,7 +439,7 @@ export function BrainMap({
               x={p.x}
               y={labelY}
               textAnchor="middle"
-              fill="rgba(255,255,255,0.85)"
+              fill="rgba(255,255,255,0.9)"
               fontSize="12.5"
               fontWeight="700"
               letterSpacing="0.08em"
@@ -260,10 +451,10 @@ export function BrainMap({
             {areas && (
               <text
                 x={p.x}
-                y={labelY + (above ? -14 : 15)}
+                y={labelY + (above ? -13 : 14)}
                 textAnchor="middle"
                 fill={area.hot ? PINK : "rgba(255,255,255,0.45)"}
-                fontSize="11.5"
+                fontSize="11"
                 fontWeight="700"
                 fontFamily="inherit"
               >
@@ -328,7 +519,7 @@ function StatTile({
   const display = useCountUp(value, 1.5, delay);
   return (
     <div className="rounded-2xl border border-card-border bg-background/60 p-5 text-center">
-      <p className="text-4xl font-black tabular-nums gradient-text leading-none">
+      <p className="text-5xl font-black tabular-nums gradient-text leading-none">
         {display}
         <span className="text-2xl text-pink">{suffix}</span>
       </p>
