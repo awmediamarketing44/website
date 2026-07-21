@@ -40,6 +40,7 @@ const LINKS: LinkItem[] = [
   { label: "Book a Free Call", sub: "20 mins, no pressure", action: "calendly", primary: true },
   { label: "Free Website Audit", sub: "Instant Google-powered scores", href: "/website-audit" },
   { label: "Free Social Media Audit", sub: "Your profiles, professionally reviewed", href: "/social-audit" },
+  { label: "AI Opportunity Score", sub: "See where AI saves you time + money", href: "/ai-score" },
   { label: "Start an Enquiry", sub: "Tell us about your project", href: "/contact" },
   { label: "See Our Work", sub: "Recent websites + branding", href: "/work" },
   { label: "Our Services", sub: "Web, branding, SEO + more", href: "/services" },
