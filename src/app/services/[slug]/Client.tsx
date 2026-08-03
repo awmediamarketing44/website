@@ -61,6 +61,7 @@ function FAQItem({
 export default function ServicePageClient({ slug }: { slug: string }) {
   const service = getServiceBySlug(slug);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [subLane, setSubLane] = useState<"standard" | "ai">("standard");
 
   if (!service) return notFound();
 
@@ -250,22 +251,126 @@ export default function ServicePageClient({ slug }: { slug: string }) {
                 </p>
               </motion.div>
 
-              {/* Cadences */}
-              <div className="grid sm:grid-cols-3 gap-6 mb-14">
-                {service.subscription.cadences.map((c, i) => (
-                  <motion.div
-                    key={c.name}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 }}
-                    className="rounded-2xl border border-card-border bg-card p-7 hover:border-pink/30 transition-colors duration-300"
-                  >
-                    <h3 className="text-lg font-bold text-pink">{c.name}</h3>
-                    <p className="mt-3 text-sm text-muted leading-relaxed">{c.detail}</p>
-                  </motion.div>
-                ))}
-              </div>
+              {/* Cadences (unpriced fallback) */}
+              {service.subscription.cadences && (
+                <div className="grid sm:grid-cols-3 gap-6 mb-14">
+                  {service.subscription.cadences.map((c, i) => (
+                    <motion.div
+                      key={c.name}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.08 }}
+                      className="rounded-2xl border border-card-border bg-card p-7 hover:border-pink/30 transition-colors duration-300"
+                    >
+                      <h3 className="text-lg font-bold text-pink">{c.name}</h3>
+                      <p className="mt-3 text-sm text-muted leading-relaxed">{c.detail}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+
+              {/* Priced tiers with Standard / AI-Accelerated lanes */}
+              {service.subscription.pricing && (
+                <div className="mb-14">
+                  <div className="flex flex-wrap items-center gap-3 mb-8">
+                    <div className="inline-flex rounded-full border border-card-border bg-card p-1">
+                      {(
+                        [
+                          { key: "standard", label: "Standard" },
+                          { key: "ai", label: "AI-Accelerated" },
+                        ] as const
+                      ).map((l) => (
+                        <button
+                          key={l.key}
+                          onClick={() => setSubLane(l.key)}
+                          className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${
+                            subLane === l.key
+                              ? "bg-pink text-white"
+                              : "text-muted hover:text-white"
+                          }`}
+                        >
+                          {l.label}
+                        </button>
+                      ))}
+                    </div>
+                    {subLane === "ai" && (
+                      <span className="inline-flex items-center rounded-full border border-pink/30 bg-pink/5 px-3 py-1 text-xs font-semibold text-pink">
+                        25% off every plan
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="grid sm:grid-cols-3 gap-6">
+                    {service.subscription.pricing.tiers.map((tier, i) => {
+                      const lane = subLane === "ai" ? tier.ai : tier.standard;
+                      return (
+                        <motion.div
+                          key={tier.name}
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.08 }}
+                          className={`relative rounded-2xl border p-7 flex flex-col transition-all duration-300 ${
+                            tier.highlight
+                              ? "border-pink/40 bg-gradient-to-b from-pink/[0.04] to-card hover:border-pink/60 hover:shadow-[0_0_60px_rgba(249,38,114,0.15)]"
+                              : "border-card-border bg-card hover:border-pink/30"
+                          }`}
+                        >
+                          {tier.badge && (
+                            <span className="absolute -top-3 left-7 rounded-full bg-pink px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                              {tier.badge}
+                            </span>
+                          )}
+                          <h3 className="text-lg font-bold text-pink">{tier.name}</h3>
+                          <p className="mt-2 text-xs text-muted leading-relaxed">
+                            {tier.bestFor}
+                          </p>
+                          <div className="mt-5 flex items-baseline gap-2">
+                            <span className="text-4xl font-extrabold tracking-tight">
+                              {lane.price}
+                            </span>
+                          </div>
+                          <p className="mt-1 text-xs text-muted">{lane.plan}</p>
+                          <p className="mt-4 text-sm font-semibold text-white">
+                            {tier.cadence}
+                            <span className="block mt-0.5 text-xs font-normal text-muted">
+                              {lane.perGraphic}
+                            </span>
+                          </p>
+                          <ul className="mt-5 space-y-2.5 flex-1">
+                            {tier.features.map((feature) => (
+                              <li
+                                key={feature}
+                                className="flex items-start gap-2.5 text-sm text-muted leading-relaxed"
+                              >
+                                <span className="text-pink mt-0.5 flex-shrink-0">
+                                  &#10003;
+                                </span>
+                                {feature}
+                              </li>
+                            ))}
+                            {subLane === "ai" && (
+                              <li className="flex items-start gap-2.5 text-sm text-muted leading-relaxed">
+                                <span className="text-pink mt-0.5 flex-shrink-0">
+                                  &#10003;
+                                </span>
+                                AI-accelerated production, hand-finished
+                              </li>
+                            )}
+                          </ul>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+
+                  <p className="mt-8 max-w-3xl text-sm text-muted leading-relaxed">
+                    {subLane === "ai"
+                      ? service.subscription.pricing.aiNote
+                      : service.subscription.pricing.note}
+                  </p>
+                </div>
+              )}
 
               {/* What you get */}
               <motion.div

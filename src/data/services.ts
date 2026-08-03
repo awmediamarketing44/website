@@ -1,6 +1,11 @@
 export interface ServiceData {
   slug: string;
   title: string;
+  // Optional SEO overrides. Without these the route falls back to the
+  // "<title> | UK Services" pattern, which is fine for most services but too
+  // narrow where the page has to answer a specific search term.
+  metaTitle?: string;
+  metaDescription?: string;
   tag: string;
   headerTitle: string;
   headerAccent: string;
@@ -17,7 +22,21 @@ export interface ServiceData {
     name: string;
     tagline: string;
     intro: string;
-    cadences: { name: string; detail: string }[];
+    cadences?: { name: string; detail: string }[];
+    pricing?: {
+      note: string;
+      aiNote: string;
+      tiers: {
+        name: string;
+        bestFor: string;
+        cadence: string;
+        features: string[];
+        standard: { price: string; plan: string; perGraphic: string };
+        ai: { price: string; plan: string; perGraphic: string };
+        highlight?: boolean;
+        badge?: string;
+      }[];
+    };
     whatYouGet: string[];
     process: { step: string; detail: string }[];
     flexibility: string;
@@ -159,15 +178,21 @@ export const services: ServiceData[] = [
   {
     slug: "social-media",
     title: "Social Media Graphics",
+    metaTitle: "Social Media Marketing Sheffield | Content & Graphics | AW Media",
+    metaDescription:
+      "Social media marketing and design for Sheffield businesses. On-brand content, carousels, templates and ad creative, planned and delivered for you every week.",
     tag: "Social Media",
     headerTitle: "Content that actually",
     headerAccent: "looks professional.",
     headerDescription:
-      "Scroll-stopping graphics and templates so your feed looks consistent, branded, and premium without you spending hours in Canva.",
+      "Social media marketing and design for Sheffield businesses and brands across the UK. Scroll-stopping graphics and templates so your feed looks consistent, branded and premium, without you spending hours in Canva.",
     longDescription: [
       "You know you need to post consistently. But between running the business, serving clients, and actually living your life, designing social media content falls to the bottom of the list. And when you do get around to it, you're stuck in Canva for three hours making something you'll probably delete anyway.",
       "Your Instagram feed is often the first thing potential clients check before they enquire. If it looks inconsistent, messy, or like every other account in your space, you're losing people before they even read your caption.",
       "We design custom templates and graphics that match your brand, so every post looks like it was made by a design team. Because it was. You get templates you can reuse, custom one-off designs for launches and campaigns, and a feed that finally looks like it belongs to a premium brand.",
+      "Here's where we're different from a typical social media marketing agency, and it's worth being straight about it. We're not a community manager sitting in your inbox replying to comments, and we won't sell you a retainer built on posting for the sake of it. We're the design and content engine behind your social: we work out what's worth posting, we design it properly, and we deliver it on time so you can actually stay consistent. The consistency is the bit that compounds, and it's the bit almost every business gives up on first.",
+      "For a Sheffield business, social does a specific job. It's the second place a local customer checks after your website, and often the first if they found you through a friend, a local group or a hashtag. A feed that looks sharp, current and unmistakably yours turns that check into an enquiry. A feed that's three months stale, or looks like it was made in five different apps, quietly sends them to whoever looks more on top of things. We're a Sheffield studio, so we know the local market you're being compared against.",
+      "The work covers the full spread: what to post and in what order, the carousels and single posts themselves, story and highlight templates you can reuse, launch and campaign graphics, ad creative built to convert paid traffic rather than just look nice, and YouTube thumbnails and lead magnets when those are part of the plan. It all follows one brand system, so everything you put out pulls in the same direction.",
     ],
     features: [
       "Custom post & story templates",
@@ -176,6 +201,9 @@ export const services: ServiceData[] = [
       "Content calendar templates",
       "Branded quote & tip graphics",
       "Reel cover designs",
+      "Launch & campaign graphics",
+      "Paid social ad creative",
+      "Consistent brand system across every platform",
     ],
     benefits: [
       {
@@ -216,6 +244,26 @@ export const services: ServiceData[] = [
         answer:
           "Absolutely. We offer monthly packages where we design fresh content for you on a rolling basis: new templates, campaign graphics, whatever you need. No more DIY.",
       },
+      {
+        question: "Do you do social media marketing for Sheffield businesses?",
+        answer:
+          "Yes. We're a Sheffield studio and a good chunk of the businesses we design social content for are local, though we work with brands right across the UK. What we do is the content side of social media marketing: working out what's worth posting, designing it to a standard that makes you look premium, and delivering it on a schedule so you stay consistent. What we don't do is sit in your inbox as a community manager. If that's what you need, we'll tell you straight rather than sell you the wrong thing.",
+      },
+      {
+        question: "What does social media marketing actually include?",
+        answer:
+          "For most businesses it breaks into four parts: deciding what to post and when, creating the content itself, publishing it consistently, and looking at what worked. We cover the deciding and the creating, which is where nearly every business gets stuck, and we build it all on one brand system so your feed, your ads and your website look like the same company. Publishing stays with you or your team, which keeps you in control of your accounts and your tone.",
+      },
+      {
+        question: "How do I keep posting consistently when I'm busy running the business?",
+        answer:
+          "By taking the design decision off your plate entirely. That's the whole idea behind our AW-lways On Time subscription: you get a fixed slot in our schedule, you tell us what's coming up, and finished graphics land ready to post. No blank Canva page, no half-finished drafts, no week where nothing goes out because the job overran.",
+      },
+      {
+        question: "Can you design ads as well as organic posts?",
+        answer:
+          "Yes. Paid social creative is a different job from an organic post, because it has seconds to stop a stranger and one clear action to drive. We design ad creative built around that, matched to the offer and the audience you're targeting, so your ad spend comes back as enquiries rather than impressions.",
+      },
     ],
     ctaHeadline: "Ready to stop dreading content day?",
     ctaSubtext: "Let's build you a set of templates that makes posting easy.",
@@ -225,20 +273,77 @@ export const services: ServiceData[] = [
       tagline: "Your dedicated design slot, every week",
       intro:
         "Don't want to touch the design at all? Our AW-lways On Time subscription gives you a dedicated spot in our schedule. You tell us what's coming up, we design scroll-stopping, on-brand graphics and deliver them like clockwork. No briefs left in your drafts, no Canva, no missed posts.",
-      cadences: [
-        {
-          name: "Weekly",
-          detail: "A fresh batch of graphics every single week, perfect for content-heavy brands that need to stay front-of-mind.",
-        },
-        {
-          name: "Fortnightly",
-          detail: "On-brand visuals every two weeks. The balance of consistency and flexibility without the overwhelm.",
-        },
-        {
-          name: "Monthly",
-          detail: "A tailored batch delivered in one go each month, ideal for planning ahead and staying organised.",
-        },
-      ],
+      pricing: {
+        note: "All graphics are custom designed to your brand. 3 month minimum term, billed via a simple Stripe subscription. Prefer to pay upfront? 3 months upfront saves you half a month, 6 months upfront gives you a full month free.",
+        aiNote: "Happy for us to lean on our AI pipeline? The same tools that power the rest of the studio do the production heavy lifting, and every graphic is still art-directed, quality checked and finished by hand before it reaches you. Same slot, same deadlines, same brand standards. Just 25% off every plan.",
+        tiers: [
+          {
+            name: "Monthly",
+            bestFor: "Best for: smaller brands or anyone just getting serious about content.",
+            cadence: "3 graphics / month",
+            features: [
+              "3 custom graphics every month",
+              "Carousels, single posts, lead-gen designs or YouTube thumbnails",
+              "Designed to your brand and content style",
+              "Delivered in one batch, ready to schedule",
+            ],
+            standard: {
+              price: "£100",
+              plan: "per month",
+              perGraphic: "approx £33 per graphic",
+            },
+            ai: {
+              price: "£75",
+              plan: "per month, normally £100",
+              perGraphic: "approx £25 per graphic",
+            },
+          },
+          {
+            name: "Fortnightly",
+            bestFor: "Best for: staying active online without the every-week commitment.",
+            cadence: "6 graphics / month",
+            features: [
+              "6 custom graphics every month (3 every 2 weeks)",
+              "A steady drip so your feed never goes quiet",
+              "Priority in the design diary over monthly clients",
+              "The balance of consistency and flexibility",
+            ],
+            standard: {
+              price: "£170",
+              plan: "per month (£85 every 2 weeks)",
+              perGraphic: "approx £28 per graphic",
+            },
+            ai: {
+              price: "£125",
+              plan: "per month, normally £170",
+              perGraphic: "approx £21 per graphic",
+            },
+          },
+          {
+            name: "Weekly",
+            bestFor: "Best for: content-led brands that want to stay front of mind.",
+            cadence: "12 graphics / month",
+            features: [
+              "12 custom graphics every month (3 every week)",
+              "Full mix of formats, fresh every single week",
+              "First priority in the design diary",
+              "Swap a week's graphics for a 10-page PDF lead magnet or site updates",
+            ],
+            standard: {
+              price: "£280",
+              plan: "per month (£70 every week)",
+              perGraphic: "approx £23 per graphic, best value",
+            },
+            ai: {
+              price: "£210",
+              plan: "per month, normally £280",
+              perGraphic: "£17.50 per graphic, best value",
+            },
+            highlight: true,
+            badge: "Most popular",
+          },
+        ],
+      },
       whatYouGet: [
         "Carousels",
         "YouTube thumbnails",
