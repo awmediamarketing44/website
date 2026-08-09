@@ -44,6 +44,12 @@ import googleBusinessProfileMistakes from "./blog-posts/google-business-profile-
 import wixSquarespaceOrCustom from "./blog-posts/wix-squarespace-or-custom-website";
 import howOftenRedesign from "./blog-posts/how-often-should-you-redesign-your-website";
 import importedWpPosts from "./blog-posts/_imported-wp";
+import worseBusinessesTaking from "./blog-posts/worse-businesses-are-taking-your-customers";
+import pricesSetBeforeYouSpeak from "./blog-posts/your-prices-are-set-before-you-say-a-word";
+import sundayNightsCanva from "./blog-posts/your-sunday-nights-are-going-into-canva";
+import adminDoesNotNeedYou from "./blog-posts/the-admin-your-business-does-not-need-you-for";
+import tenPmTest from "./blog-posts/the-10pm-test";
+import weRebuiltOurOwnWebsite from "./blog-posts/we-rebuilt-our-own-website";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -56,6 +62,12 @@ function dateSortKey(dateStr: string): number {
 }
 
 const ALL: BlogPost[] = [
+  worseBusinessesTaking,
+  pricesSetBeforeYouSpeak,
+  sundayNightsCanva,
+  adminDoesNotNeedYou,
+  tenPmTest,
+  weRebuiltOurOwnWebsite,
   websiteAccessibilityUkLaw,
   websiteCopyThatSells,
   googleBusinessProfileMistakes,

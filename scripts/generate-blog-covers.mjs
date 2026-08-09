@@ -131,6 +131,19 @@ const PER_POST_PROMPT = {
     "Two 3D clay website cards at a fork in a clay road: one built from identical stacked template blocks, one hand-shaped and unique with a pink highlight, a clay cursor arrow between them. Kit versus custom. Top-down, editorial. No text, no letters, no numbers.",
   "how-often-should-you-redesign-your-website":
     "A 3D clay website card on a small plinth mid-transformation, one faded weathered grey panel swapping out for a fresh pink one, a clay clock-cycle arrow looping around it. Sense of periodic renewal. No text, no letters, no numbers.",
+
+  "worse-businesses-are-taking-your-customers":
+    "Two 3D clay storefronts side by side: a rough lopsided one with a glowing pink open sign shape and a queue of small clay figures outside it, and a beautifully crafted one standing empty. Sense of the wrong shop winning. No text, no letters, no numbers.",
+  "your-prices-are-set-before-you-say-a-word":
+    "A 3D clay price tag hanging from an invisible thread above a small clay storefront, with a clay measuring ruler pressed against the shop's facade as if measuring its looks. Pink highlight on the tag. Judged on sight. No text, no letters, no numbers.",
+  "your-sunday-nights-are-going-into-canva":
+    "A 3D clay desk lamp glowing over a tiny clay laptop at night, scattered clay template squares piling up beside it, a clay moon shape above. A drained hourglass nearby. Sense of late evenings lost to fiddly design work. No text, no letters, no numbers.",
+  "the-admin-your-business-does-not-need-you-for":
+    "A 3D clay conveyor belt carrying small completely blank clay envelopes, blank paper sheets and empty speech bubbles into a friendly rounded clay robot arm that sorts them neatly, while a clay figure walks away relaxed. Pink highlight on the sorted stack. Every surface is plain smooth clay. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
+  "the-10pm-test":
+    "A 3D clay smartphone glowing in the dark with a soft pink beam, resting on a clay sofa arm beside a clay mug, a crescent moon above. On the screen, abstract clay search-result cards. Late-night lookup energy. No text, no letters, no numbers.",
+  "we-rebuilt-our-own-website":
+    "A 3D clay website card being rebuilt by clay scaffolding and a small crane, fresh pink panels replacing faded grey ones, with a small clay mirror leaning against the scaffold. Sense of practising what you preach. No text, no letters, no numbers.",
 };
 
 async function loadPosts() {
