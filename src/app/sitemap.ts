@@ -6,6 +6,7 @@ import { industries } from "@/data/industries";
 import { locations } from "@/data/locations";
 import { landingPages } from "@/data/landing-pages";
 import { comparisons } from "@/data/comparisons";
+import { downloads } from "@/data/resources";
 
 const siteUrl = "https://awmedia.marketing";
 
@@ -23,6 +24,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/reviews", priority: 0.7, freq: "monthly" },
     { path: "/about", priority: 0.7, freq: "monthly" },
     { path: "/contact", priority: 0.7, freq: "yearly" },
+    { path: "/free-resources", priority: 0.8, freq: "monthly" },
+    { path: "/newsletter", priority: 0.7, freq: "monthly" },
+    { path: "/website-concept", priority: 0.8, freq: "monthly" },
     { path: "/free-audit", priority: 0.6, freq: "monthly" },
     { path: "/website-audit", priority: 0.6, freq: "monthly" },
     { path: "/social-audit", priority: 0.6, freq: "monthly" },
@@ -83,6 +87,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Free guide capture pages (/free-resources/<slug>). Indexable: each one
+  // targets its own buyer-intent term and feeds the lead-magnet funnel.
+  const resourceEntries: MetadataRoute.Sitemap = downloads.map((d) => ({
+    url: `${siteUrl}/free-resources/${d.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   // Comparison / decision pages (AW vs agency, website cost, Wix vs pro).
   const comparisonEntries: MetadataRoute.Sitemap = comparisons.map((c) => ({
     url: `${siteUrl}/${c.slug}`,
@@ -99,6 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...workEntries,
     ...blogEntries,
     ...landingEntries,
+    ...resourceEntries,
     ...comparisonEntries,
   ];
 }

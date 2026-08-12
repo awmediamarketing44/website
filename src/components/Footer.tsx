@@ -71,6 +71,8 @@ const footerLinks = {
     { label: "Blog", href: "/blog" },
     { label: "Reviews", href: "/reviews" },
     { label: "AI Portal", href: "/portal" },
+    { label: "Free Resources", href: "/free-resources" },
+    { label: "Newsletter", href: "/newsletter" },
     { label: "Locations", href: "/locations" },
     { label: "Contact", href: "/contact" },
   ],
