@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import TiltCard from "@/components/TiltCard";
-import PhoneFrame from "@/components/PhoneFrame";
+import DeviceShowcase from "@/components/DeviceShowcase";
 import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
 import { getProjectBySlug, projects } from "@/data/projects";
@@ -320,86 +320,30 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
             </h2>
 
             {project.hasImages ? (
-              (() => {
-                const desktop = project.gallery.find((g) => g.includes('desktop') && !g.includes('full'));
-                const mobile = project.gallery.find((g) => g.includes('mobile'));
-                const full = project.gallery.find((g) => g.includes('full'));
-                return (
-                  <div className="space-y-6">
-                    {full ? (
-                      /* Varied section shots sliced from the full-page grab —
-                         different parts of the site, not one repeated hero. */
-                      <>
-                        {[1, 2, 3].map((n, i) => (
-                          <motion.div
-                            key={n}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.08 }}
-                            className="rounded-2xl border border-card-border overflow-hidden"
-                          >
-                            <div className="aspect-[16/9] relative bg-card">
-                              <Image
-                                src={full.replace("desktop-full.jpg", `section-${n}.jpg`)}
-                                alt={`${project.title} — section ${n}`}
-                                fill
-                                sizes="(max-width: 1280px) 100vw, 1280px"
-                                className="object-cover object-top"
-                              />
-                            </div>
-                          </motion.div>
-                        ))}
-                        {mobile && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="flex justify-center pt-2"
-                          >
-                            <PhoneFrame src={mobile} alt={`${project.title} mobile`} className="w-full max-w-[300px]" />
-                          </motion.div>
-                        )}
-                      </>
-                    ) : (
-                      /* Fallback: projects without a full-page grab (no slices) */
-                      <>
-                        {desktop && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="rounded-2xl border border-card-border overflow-hidden"
-                          >
-                            <div className="aspect-[16/10] relative bg-card">
-                              <Image
-                                src={desktop}
-                                alt={`${project.title} desktop`}
-                                fill
-                                sizes="(max-width: 1280px) 100vw, 1280px"
-                                className="object-cover object-top"
-                              />
-                            </div>
-                          </motion.div>
-                        )}
-                        {mobile && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="flex justify-center"
-                          >
-                            <PhoneFrame src={mobile} alt={`${project.title} mobile`} className="w-full max-w-[280px]" />
-                          </motion.div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                );
-              })()
+              /* Interactive desktop/mobile viewer — scrolls a full-page grab
+                 inside a browser/phone frame (no live iframe: many client sites
+                 block framing and it would tank this page's Core Web Vitals). */
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <DeviceShowcase
+                  title={project.title}
+                  /* Use the standard single-viewport desktop grab, NOT the tall
+                     desktop-full.jpg (those are ~2880x21000px / 60+ megapixels —
+                     decoding the whole thing in a scroll frame janks desktop and
+                     can crash mobile). Fall back to full/hero only if absent. */
+                  desktopSrc={
+                    project.gallery.find((g) => g.includes("desktop") && !g.includes("full")) ??
+                    project.gallery.find((g) => g.includes("full")) ??
+                    project.heroImage
+                  }
+                  mobileSrc={project.gallery.find((g) => g.includes("mobile"))}
+                  website={project.client.website}
+                />
+              </motion.div>
             ) : (
               <div className="grid sm:grid-cols-2 gap-6 items-start">
                 {project.gallery.map((img, i) => (
@@ -478,6 +422,62 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
                         fill
                         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 380px"
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Showcase: landscape stills (admin/CMS screens, wide brand assets) */}
+        {project.showcase && project.showcase.length > 0 && (
+          <section className="py-24 border-t border-card-border">
+            <div className="mx-auto max-w-7xl px-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {(project.showcaseTitle ?? ["Behind the", "scenes."]).map((line, i) => (
+                  <motion.span
+                    key={i}
+                    className={`block ${i > 0 ? "text-pink" : ""}`}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {line}
+                  </motion.span>
+                ))}
+              </h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-muted text-base sm:text-lg max-w-2xl mb-16"
+              >
+                {project.showcaseSubtitle ??
+                  "The parts of the build the client actually lives in."}
+              </motion.p>
+
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                {project.showcase.map((img, i) => (
+                  <motion.div
+                    key={img}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.08 }}
+                    whileHover={{ y: -6 }}
+                    className="group rounded-xl border border-card-border overflow-hidden bg-card"
+                  >
+                    <div className="relative" style={{ aspectRatio: "16 / 10" }}>
+                      <Image
+                        src={img}
+                        alt={`${project.title} screen ${i + 1}`}
+                        fill
+                        sizes="(max-width: 640px) 90vw, 580px"
+                        className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
                       />
                     </div>
                   </motion.div>

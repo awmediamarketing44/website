@@ -212,7 +212,7 @@ export default function BlogPostClient({ slug }: { slug: string }) {
                   Director, Developer &amp; Award-Winning Web Designer
                 </p>
                 <p className="mt-3 text-sm text-muted leading-relaxed">
-                  Alex founded AW Media in Sheffield in 2016 and has led 500+ website,
+                  Alex founded AW Media in Sheffield in 2016 and has led 450+ website,
                   branding and SEO projects since, picking up four back-to-back industry
                   awards along the way. He writes the way he works: straight answers,
                   no jargon, judged on results.

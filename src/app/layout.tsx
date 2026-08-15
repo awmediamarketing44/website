@@ -37,10 +37,10 @@ const organizationSchema = {
   priceRange: "££",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "30 Marion Road",
-    addressLocality: "Sheffield",
+    streetAddress: "30 Meadowhall Road",
+    addressLocality: "Rotherham",
     addressRegion: "South Yorkshire",
-    postalCode: "S6 1WB",
+    postalCode: "S61 2JA",
     addressCountry: "GB",
   },
   areaServed: [
@@ -118,13 +118,13 @@ export const metadata: Metadata = {
     siteName: "AW Media & Marketing",
     title: "AW Media & Marketing | UK Web Design Studio",
     description:
-      "Award-winning bespoke and AI-accelerated web design for ambitious UK businesses. 400+ websites built since 2016. A decade of craft.",
+      "Award-winning bespoke and AI-accelerated web design for ambitious UK businesses. 450+ websites built since 2016. A decade of craft.",
   },
   twitter: {
     card: "summary_large_image",
     title: "AW Media & Marketing | UK Web Design Studio",
     description:
-      "Award-winning bespoke and AI-accelerated web design for ambitious UK businesses. 400+ websites built since 2016. A decade of craft.",
+      "Award-winning bespoke and AI-accelerated web design for ambitious UK businesses. 450+ websites built since 2016. A decade of craft.",
   },
   robots: {
     index: true,

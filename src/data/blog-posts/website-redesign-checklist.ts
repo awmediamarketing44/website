@@ -7,7 +7,7 @@ const post: BlogPost = {
   excerpt:
     "A website redesign done badly can wipe out years of Google rankings overnight. Done properly, it wins you more work AND keeps everything you've earned. Here's the checklist we run on every redesign.",
   metaDescription:
-    "The 10-point website redesign checklist: protect your Google rankings, keep what works, fix what's costing you enquiries. From a Sheffield studio with 500+ builds.",
+    "The 10-point website redesign checklist: protect your Google rankings, keep what works, fix what's costing you enquiries. From a Sheffield studio with 450+ builds.",
   date: "July 2026",
   readingMinutes: 6,
   coverImage: "/images/blog/website-redesign-checklist.jpg",

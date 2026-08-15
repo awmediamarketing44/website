@@ -5,7 +5,7 @@ const post: BlogPost = {
   title: "We Rebuilt Our Own Website. Here Is Why That Matters To You",
   tag: "Strategy",
   excerpt:
-    "This year we tore down our own website and rebuilt it from scratch, after a decade and 459 client sites. Not because it was broken. Because it had stopped doing its job.",
+    "This year we tore down our own website and rebuilt it from scratch, after a decade and 450+ client sites. Not because it was broken. Because it had stopped doing its job.",
   metaDescription:
     "AW Media rebuilt its own website in 2026 after a decade in business. What forced the decision, and the question every business owner should ask their own site.",
   date: "August 2026",
@@ -56,7 +56,7 @@ const post: BlogPost = {
     },
     {
       type: "p",
-      text: "After 459 builds for other people, doing our own reminded us how much this decision moves. If your website is describing an old version of your business, we know exactly what that feels like and exactly how to fix it. Get in touch and we will have a look together.",
+      text: "After 450+ builds for other people, doing our own reminded us how much this decision moves. If your website is describing an old version of your business, we know exactly what that feels like and exactly how to fix it. Get in touch and we will have a look together.",
     },
   ],
   relatedSlugs: ["agency-websites-worse-than-clients", "how-often-should-you-redesign-your-website"],

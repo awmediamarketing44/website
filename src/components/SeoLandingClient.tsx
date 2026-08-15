@@ -137,6 +137,34 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
           </div>
         </section>
 
+        {/* Deep dive (optional): long-form, sub-headed topic depth */}
+        {data.deepDive && (
+          <section className="py-24 border-t border-card-border">
+            <div className="mx-auto max-w-7xl px-6">
+              <Heading lines={data.deepDive.heading} />
+
+              {data.deepDive.intro && (
+                <p className="aw-reveal -mt-8 mb-14 max-w-4xl text-lg text-white/80 leading-relaxed">
+                  {data.deepDive.intro}
+                </p>
+              )}
+
+              <div className="grid lg:grid-cols-2 gap-x-16 gap-y-14">
+                {data.deepDive.blocks.map((block) => (
+                  <div key={block.title} className="aw-reveal">
+                    <h3 className="text-xl font-bold mb-4">{block.title}</h3>
+                    <div className="space-y-4 text-sm text-muted leading-relaxed">
+                      {block.body.map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Named team (optional) — real, verifiable local staff */}
         {data.team && data.team.length > 0 && (
           <section className="py-24 border-t border-card-border">
@@ -197,6 +225,35 @@ export default function SeoLandingClient({ data }: { data: LandingPageData }) {
             </div>
           </div>
         </section>
+
+        {/* Related pages — in-content internal links (SEO link graph) */}
+        {data.relatedLinks && data.relatedLinks.length > 0 && (
+          <section className="py-24 border-t border-card-border">
+            <div className="mx-auto max-w-7xl px-6">
+              <Heading lines={["Explore more of", "what we do."]} />
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {data.relatedLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="aw-reveal group rounded-2xl border border-card-border bg-card p-8 h-full transition-all duration-300 hover:border-pink/30 hover:-translate-y-1.5"
+                  >
+                    <h3 className="text-lg font-bold mb-3 group-hover:text-pink transition-colors duration-300">
+                      {link.label}
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      {link.blurb}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-pink group-hover:gap-3 transition-all duration-200">
+                      Learn more <span>→</span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* CTA */}
         <section className="py-24 border-t border-card-border relative overflow-hidden">

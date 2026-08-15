@@ -32,6 +32,9 @@ export interface ProjectData {
   documents?: string[];         // Optional document page images (rendered welcome pack / PDF pages)
   documentsTitle?: [string, string]; // Optional heading for the documents section (default ["The welcome","pack."])
   documentsSubtitle?: string;   // Optional subtitle for the documents section
+  showcase?: string[];          // Optional LANDSCAPE stills (admin/CMS screens, wide brand assets)
+  showcaseTitle?: [string, string];  // Optional heading (default ["Behind the","scenes."])
+  showcaseSubtitle?: string;    // Optional subtitle for the showcase section
   relatedProjects: string[];    // Slugs of related projects
 }
 
@@ -40,6 +43,176 @@ export interface ProjectData {
 // ============================================================================
 
 const webProjects: ProjectData[] = [
+  {
+    slug: "calibre-coaching",
+    title: "Calibre Coaching",
+    category: "AI-Powered",
+    tags: ["AI-Accelerated", "Website", "Custom CMS", "Built-in CRM", "Rebrand"],
+    heroImage: "/images/projects/calibre-coaching/hero.jpg",
+    thumbnailImage: "/images/projects/calibre-coaching/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Morgan Cox / Calibre Coaching",
+      industry: "Online Transformation Coaching",
+      location: "UK",
+      website: "https://calibre-coaching.com/",
+    },
+    brief:
+      "Calibre is a coaching team, not a one-man band, and the brand needed to look like it. We rebranded them, built the website to carry it, then put a proper content system and a client database underneath so the team can launch a new page or chase a new enquiry without waiting on us.",
+    challenge: [
+      "A team of coaches selling one standard. The old presence made them look like several separate people, so the standard never came across.",
+      "Every new coach, offer or campaign meant another page. Paying an agency each time is slow and expensive, and slow kills a launch.",
+      "Enquiries were arriving in scattered places. Anything that sits unanswered for a day is usually gone.",
+    ],
+    approach: [
+      "Custom rebrand first, then a fully bespoke website built around it. No template, no theme, so the crimson design stays exact and they own the lot outright.",
+      "A visual page builder where the team edits the real page, not a form. They click a headline and type on it, drag sections around, and build a whole new lead generation page from a styled starting point. The colours and type stay locked to the brand, so it cannot drift off-brand by accident.",
+      "A CRM built into the same system. Every enquiry is stored first, then pushed onward, so a lead is never lost if an outside tool is down. Google Analytics is reported inside the admin in plain English, alongside coach call pages with live booking calendars.",
+      "AI accelerated the build, which is why a custom platform came in at a fraction of the usual development cost. The design is ours, the craft is ours, and the saving went to the client.",
+    ],
+    features: [
+      "Custom rebrand + bespoke website",
+      "Visual on-page editor, no code",
+      "Built-in CRM and lead inbox",
+      "Lead generation page builder",
+      "Coach call pages with live booking",
+      "Analytics in plain English",
+    ],
+    gallery: [
+      "/images/projects/calibre-coaching/desktop.jpg",
+      "/images/projects/calibre-coaching/mobile.jpg",
+      "/images/projects/calibre-coaching/desktop-full.jpg",
+    ],
+    showcase: [
+      "/images/projects/calibre-coaching/admin/admin-1.jpg",
+      "/images/projects/calibre-coaching/admin/admin-2.jpg",
+      "/images/projects/calibre-coaching/admin/admin-3.jpg",
+    ],
+    showcaseTitle: ["The system", "behind it."],
+    showcaseSubtitle:
+      "The part clients never see and the team uses every week. Enquiries, pages, images and traffic in one place, with no monthly platform fee and nobody to ask for permission. Enquiry details are blurred here for privacy.",
+    graphics: [
+      "/images/projects/calibre-coaching/graphics/graphic-1.jpg",
+      "/images/projects/calibre-coaching/graphics/graphic-2.jpg",
+      "/images/projects/calibre-coaching/graphics/graphic-3.jpg",
+      "/images/projects/calibre-coaching/graphics/graphic-4.jpg",
+      "/images/projects/calibre-coaching/graphics/graphic-5.jpg",
+      "/images/projects/calibre-coaching/graphics/graphic-6.jpg",
+    ],
+    graphicsTitle: ["The social", "side."],
+    graphicsSubtitle:
+      "The rebrand rolled out across social. Pinned grids, profile assets and highlight covers, one coach at a time, so a follower recognises Calibre wherever they land.",
+    relatedProjects: ["physique-method", "sp26-bodybuilding"],
+  },
+
+  {
+    slug: "physique-method",
+    title: "Physique Method",
+    category: "AI-Powered",
+    tags: ["AI-Accelerated", "Website", "Custom CMS", "Lead Capture"],
+    heroImage: "/images/projects/physique-method/hero.jpg",
+    thumbnailImage: "/images/projects/physique-method/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Ashley Lewis / Physique Method",
+      industry: "Elite Physique Coaching",
+      location: "UK",
+      website: "https://physiquemethod.co.uk/",
+    },
+    brief:
+      "Ash is an IFBB Pro coaching competitors and high performers. His coaching is measured, precise and evidence-led, and the page had to feel like that before anyone reads a word. We built it, then handed him the keys so he can change any part of it himself.",
+    challenge: [
+      "Elite coaching sells on credibility. A generic template would have undersold a coach operating at pro level.",
+      "The page needed to keep working after launch. Ash changes his stats, transformations and testimonials constantly, and paying for every edit would have meant the page slowly went stale instead.",
+      "Enquiries had to arrive somewhere he would actually see them, on his phone, in seconds.",
+    ],
+    approach: [
+      "A science and data visual language built from scratch: instrument panels, live readouts, a transformations gallery and a six-stage protocol. Bespoke design, nothing off the shelf.",
+      "A custom back end where nearly every part of the page is editable. Headline, stats, transformations, coach bio, testimonials, FAQ, video, even the SEO. Ash and his partner both have their own logins, and changes go live the moment they save.",
+      "Enquiries land in a built-in inbox with one-tap call and WhatsApp, and push straight into his CRM. Google Analytics is reported inside the admin in plain English rather than a dashboard he would never open.",
+      "AI accelerated the build, which is how a bespoke site with its own content system landed at a fraction of the usual development cost. Ash owns it outright, with no monthly platform fee.",
+    ],
+    features: [
+      "Bespoke design + custom build",
+      "Full self-edit content system",
+      "Enquiry inbox with call + WhatsApp",
+      "CRM push on every enquiry",
+      "Analytics in plain English",
+      "Owned outright, no monthly fees",
+    ],
+    gallery: [
+      "/images/projects/physique-method/desktop.jpg",
+      "/images/projects/physique-method/mobile.jpg",
+      "/images/projects/physique-method/desktop-full.jpg",
+    ],
+    showcase: [
+      "/images/projects/physique-method/admin/admin-1.jpg",
+      "/images/projects/physique-method/admin/admin-2.jpg",
+      "/images/projects/physique-method/admin/admin-4.jpg",
+      "/images/projects/physique-method/admin/admin-3.jpg",
+    ],
+    showcaseTitle: ["The back end,", "built for Ash."],
+    showcaseSubtitle:
+      "Every section of the page is a screen in here. No developer, no ticket, no waiting. He edits it, saves it, and it is live.",
+    graphics: [
+      "/images/projects/physique-method/graphics/graphic-1.jpg",
+      "/images/projects/physique-method/graphics/graphic-2.jpg",
+      "/images/projects/physique-method/graphics/graphic-3.jpg",
+      "/images/projects/physique-method/graphics/graphic-4.jpg",
+      "/images/projects/physique-method/graphics/graphic-5.jpg",
+      "/images/projects/physique-method/graphics/graphic-6.jpg",
+    ],
+    graphicsTitle: ["The content", "engine."],
+    graphicsSubtitle:
+      "An ongoing carousel system in the same visual language as the site. Education-led, evidence-led, and instantly recognisable as Physique Method in a crowded feed.",
+    relatedProjects: ["calibre-coaching", "sp26-bodybuilding"],
+  },
+
+  {
+    slug: "spotlight-dance",
+    title: "Spotlight School of Dance",
+    category: "Web Design & Build",
+    tags: ["Website", "WordPress", "Local SEO", "Hosting"],
+    heroImage: "/images/projects/spotlight-dance/hero.jpg",
+    thumbnailImage: "/images/projects/spotlight-dance/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Spotlight School of Dance",
+      industry: "Dance School",
+      location: "Sheffield, UK",
+      website: "https://www.spotlight-schoolofdance.co.uk/",
+    },
+    brief:
+      "Forty years of teaching Sheffield to dance, and a website that told none of it. Parents searching for a class locally were meeting a dated page instead of one of the few schools in the city set up for every child, whatever their needs.",
+    challenge: [
+      "Four decades of history and an award-winning inclusion programme, none of it visible. The site was actively underselling the school.",
+      "Parents decide fast and on a phone. Class, age, day, place, price. If those answers are buried, they book somewhere else.",
+      "Local search is where this is won. If you do not come up for dance classes in Sheffield, the rest of it does not matter.",
+    ],
+    approach: [
+      "A warm, confident rebuild that leads with the two things nobody else can claim: over 40 years of teaching, and classes genuinely open to every age and every ability.",
+      "Structure built around how a parent actually chooses. Classes by style and age, a clear timetable, and a free trial as the obvious next step from every page.",
+      "Full on-page SEO across every live page, targeting the real local searches, plus hosting, SSL and security handled so the school never has to think about it.",
+    ],
+    features: [
+      "Full website rebuild",
+      "Free trial booking as the primary CTA",
+      "Classes + timetable structure",
+      "Inclusion programmes given their own home",
+      "On-page SEO across every page",
+      "Hosting, SSL + security",
+    ],
+    gallery: [
+      "/images/projects/spotlight-dance/desktop.jpg",
+      "/images/projects/spotlight-dance/mobile.jpg",
+      "/images/projects/spotlight-dance/desktop-full.jpg",
+    ],
+    relatedProjects: ["sensory-emergency", "body-lab"],
+  },
+
   {
     slug: "sp26-bodybuilding",
     title: "SP26 Bodybuilding",
@@ -487,7 +660,7 @@ const webProjects: ProjectData[] = [
       "/images/projects/thecoachconsultant/mobile.jpg",
       "/images/projects/thecoachconsultant/desktop-full.jpg",
     ],
-    relatedProjects: ["kensington-scott", "dan-reeve"],
+    relatedProjects: ["titanom", "kensington-scott"],
   },
 
   {
@@ -1057,6 +1230,67 @@ const webProjects: ProjectData[] = [
 
 const landingProjects: ProjectData[] = [
   {
+    slug: "titanom",
+    title: "Titanom.AI",
+    category: "AI-Powered",
+    tags: ["AI-Accelerated", "Rebrand", "Logo", "Landing Page", "Social Pack"],
+    heroImage: "/images/projects/titanom/hero.jpg",
+    thumbnailImage: "/images/projects/titanom/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Ben Hawksworth / Titanom.AI",
+      industry: "AI Consultancy",
+      location: "UK",
+      website: "https://titanom.ai/predictable-growth/",
+    },
+    brief:
+      "Ben came to us as The Coach Consultant and left as Titanom.AI. A complete change of identity: new name, new logo, new brand, and the pages and funnels that carry it. One business, a bigger idea of itself, and nothing left looking like the old one.",
+    challenge: [
+      "A rebrand is the moment a business is most likely to lose the trust it already built. The new identity had to feel like a step up rather than a stranger.",
+      "The product is abstract. Selling an intelligence layer for a business is much harder than selling a thing people can picture, so the page had to make it concrete fast.",
+      "The page carries real spend. Anything slow or unclear is money leaving on every click.",
+    ],
+    approach: [
+      "Bespoke logo and full brand identity first. Ink black, teal, and a second accent reserved strictly for outcomes and client results, so the eye learns what matters.",
+      "An AI-Accelerated long-form landing page that does the explaining: a signature knowledge-graph visual, custom charts built as code rather than flat images, and a single clear next step.",
+      "A performance pass on the live pages afterwards, with no design taken out. We measured everything before and after rather than guessing at it.",
+      "Then the whole social and brand asset pack on top: profile pictures, YouTube, LinkedIn, Facebook covers and email signatures, all built from the real brand vector so nothing is ever redrawn slightly wrong.",
+    ],
+    features: [
+      "Bespoke logo + brand identity",
+      "AI-accelerated long-form landing page",
+      "Custom data visuals, no stock charts",
+      "Lead capture wired to their CRM",
+      "Full social + brand asset pack",
+      "Measured performance pass",
+    ],
+    results: {
+      stats: [
+        { value: "7.2s to 2.0s", label: "First paint, measured on throttled mobile" },
+        { value: "2410KB to 273KB", label: "Page weight, with no design removed" },
+      ],
+    },
+    gallery: [
+      "/images/projects/titanom/desktop.jpg",
+      "/images/projects/titanom/mobile.jpg",
+      "/images/projects/titanom/desktop-full.jpg",
+    ],
+    showcase: [
+      "/images/projects/titanom/showcase/showcase-1.jpg",
+      "/images/projects/titanom/showcase/showcase-2.jpg",
+      "/images/projects/titanom/showcase/showcase-3.jpg",
+      "/images/projects/titanom/showcase/showcase-4.jpg",
+      "/images/projects/titanom/showcase/showcase-5.jpg",
+      "/images/projects/titanom/showcase/showcase-6.jpg",
+    ],
+    showcaseTitle: ["The brand,", "everywhere else."],
+    showcaseSubtitle:
+      "A rebrand only lands if it lands in every place people meet you. YouTube, LinkedIn, Facebook and the profile assets, all drawn from the real brand files.",
+    relatedProjects: ["thecoachconsultant", "kensington-scott"],
+  },
+
+  {
     slug: "dan-reeve",
     title: "Reeve Conditioning Institute",
     category: "AI-Powered",
@@ -1419,6 +1653,118 @@ const landingProjects: ProjectData[] = [
 // ============================================================================
 
 const brandingProjects: ProjectData[] = [
+  {
+    slug: "dan-james",
+    title: "Daniel James Coaching",
+    category: "Branding / Logo Design",
+    tags: ["Full Brand Set Up", "Logo", "Social Set Up", "Welcome Pack"],
+    heroImage: "/images/projects/dan-james/hero.jpg",
+    thumbnailImage: "/images/projects/dan-james/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Dan Owens / Daniel James Coaching",
+      industry: "Online Coaching",
+      location: "UK",
+      website: "https://www.instagram.com/danjamesfit/",
+    },
+    brief:
+      "Most coaches rebrand three years in, once the mismatch between the work and the look gets embarrassing. Dan skipped that. He came to us with a placeholder logo and a serious plan, and launched with a brand that already looked established.",
+    challenge: [
+      "The plan runs in two directions at once. Dan competes in bodybuilding and wants to coach competitors, but his everyday clients hear that word and assume it is not for them.",
+      "One identity had to serve both without splitting into two brands or watering either one down.",
+      "It had to hold up everywhere from day one, because a new business gets judged on the first thing anyone sees.",
+    ],
+    approach: [
+      "One shield mark that flexes. Light and warm for lifestyle clients, dark and high contrast with the orange running through it for the competing side. Same coach, same brand, and nobody lands on his page thinking this is not for them.",
+      "The full identity underneath it: logo suite, colour system, typography and brand guidelines, so it stays right whoever touches it next.",
+      "Then everything he needs to actually use it. Profile pictures, pinned posts, highlight covers and editable Canva templates, so he stays on brand without needing a designer for every post.",
+      "A branded client welcome pack to finish it, so a new sign-up gets the professional treatment from day one rather than a plain PDF.",
+    ],
+    features: [
+      "Custom logo + brand identity",
+      "One mark, two treatments",
+      "Colour system + typography",
+      "Full social media asset pack",
+      "Editable Canva templates",
+      "Branded client welcome pack",
+    ],
+    testimonial: {
+      quote:
+        "Service is absolutely unreal. Alex and his team are true masters of their craft, taking sometimes the most surface level ideas and building something amazing out of them. He goes above and beyond for you and your brand.",
+      name: "Dan Owens",
+      role: "Daniel James Coaching",
+    },
+    gallery: [],
+    graphics: [
+      "/images/projects/dan-james/mockup-1.jpg",
+      "/images/projects/dan-james/mockup-2.jpg",
+      "/images/projects/dan-james/mockup-3.jpg",
+      "/images/projects/dan-james/mockup-4.jpg",
+      "/images/projects/dan-james/mockup-5.jpg",
+    ],
+    graphicsTitle: ["Brand", "showcase."],
+    graphicsSubtitle:
+      "One mark that flexes across both sides of the business, rolled out from profile picture to welcome pack. Fifteen minutes of his time and a few messages, start to finish.",
+    relatedProjects: ["trident-coaching", "casey-lifestyle"],
+  },
+
+  {
+    slug: "trident-coaching",
+    title: "Trident Coaching",
+    category: "Branding / Logo Design",
+    tags: ["Rebrand", "Logo", "Social Set Up", "Brand Guidelines"],
+    heroImage: "/images/projects/trident-coaching/hero.jpg",
+    thumbnailImage: "/images/projects/trident-coaching/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Josh Miller-Hall / Trident Coaching",
+      industry: "Online Coaching",
+      location: "UK",
+      website: "https://www.instagram.com/joshmillerhall/",
+    },
+    brief:
+      "Josh has been coaching since he was 18. His logo was made online, for free, back in 2019. The coaching grew, the results grew, the reputation grew, and the brand stayed frozen at day one. We brought it back up to level.",
+    challenge: [
+      "Starting young means your first brand is a placeholder, and placeholders quietly stay. Years of real credibility was sitting behind a free logo.",
+      "He works with competitive and lifestyle clients, so the mark had to read serious to one group without going cold on the other.",
+      "Josh grew up surfing and is big into art. None of that personality was visible, and that personality is a reason people pick him.",
+    ],
+    approach: [
+      "Three black and white logo concepts, refined until the trident mark felt like him. Sharp enough for competitive clients, artistic enough to actually feel personal.",
+      "A proper brand system around it: jet black, slate, chrome silver and a teal accent, with guidelines so it stays right.",
+      "Then the socials built on top. Profile pictures, story templates, pinned posts and editable post templates, because a logo on its own only lives in one place.",
+      "The result is that a follower recognises Trident whether they land on his grid, his stories or his DMs. One man's coaching business that reads like a serious operation.",
+    ],
+    features: [
+      "Full rebrand from a DIY logo",
+      "Three concepts, refined to one mark",
+      "Brand guidelines + colour system",
+      "Profile, story + pinned post assets",
+      "Editable post templates",
+      "Consistent across grid, stories + DMs",
+    ],
+    testimonial: {
+      quote:
+        "You have outdone yourself mate. This is perfect. Exactly as I envisioned.",
+      name: "Josh Miller-Hall",
+      role: "Trident Coaching",
+    },
+    gallery: [],
+    graphics: [
+      "/images/projects/trident-coaching/mockup-1.jpg",
+      "/images/projects/trident-coaching/mockup-2.jpg",
+      "/images/projects/trident-coaching/mockup-3.jpg",
+      "/images/projects/trident-coaching/mockup-4.jpg",
+      "/images/projects/trident-coaching/mockup-5.jpg",
+    ],
+    graphicsTitle: ["Brand", "showcase."],
+    graphicsSubtitle:
+      "The free 2019 logo against the mark that replaced it, then the whole system rolled out across everywhere his audience actually meets him.",
+    relatedProjects: ["dan-james", "alexis-gosset"],
+  },
+
   {
     slug: "casey-lifestyle",
     title: "Casey Lifestyle Coaching",

@@ -93,6 +93,13 @@ const post: BlogPost = {
       type: "p",
       text: "If the demo is impressive, ask to see the analytics six months later. That's when the real story comes out.",
     },
+    {
+      type: "callout",
+      label: "What the honest version looks like",
+      text: "We've written up exactly how we use AI in a build, what it does, what it never touches, and what it costs. Read it before you buy AI web design from anyone, including us.",
+      href: "/ai-web-design",
+      linkLabel: "See how our AI web design works",
+    },
   ],
 };
 

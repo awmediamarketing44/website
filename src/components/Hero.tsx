@@ -54,7 +54,7 @@ function MobileHero() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[10px] uppercase tracking-widest text-white/55">
           <span className="flex items-center gap-1.5">
             <span className="w-1 h-1 rounded-full bg-pink" />
-            400+ websites shipped
+            450+ websites shipped
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-1 h-1 rounded-full bg-pink" />
@@ -208,7 +208,7 @@ function DesktopHero({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) {
         >
           <span className="flex items-center gap-2">
             <span className="w-1 h-1 rounded-full bg-pink" />
-            400+ websites shipped
+            450+ websites shipped
           </span>
           <span className="flex items-center gap-2">
             <span className="w-1 h-1 rounded-full bg-pink" />

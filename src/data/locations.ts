@@ -151,7 +151,7 @@ export function intro(loc: LocationData): string[] {
 
 export const locationStats = [
   { value: "Est. 2016", label: "nearly a decade in business" },
-  { value: "500+", label: "websites designed & built" },
+  { value: "450+", label: "websites designed & built" },
   { value: "4x", label: "back-to-back award winners" },
   { value: "UK-wide", label: "clients in every region" },
 ];

@@ -20,10 +20,12 @@ export async function generateMetadata({
   if (!service) return { title: "Service not found" };
 
   const description =
-    service.headerDescription?.slice(0, 160) || `${service.title} services by AW Media`;
+    service.metaDescription ||
+    service.headerDescription?.slice(0, 160) ||
+    `${service.title} services by AW Media`;
 
   return {
-    title: `${service.title} | UK Services`,
+    title: service.metaTitle || `${service.title} | UK Services`,
     description,
     openGraph: {
       title: `${service.title} | AW Media`,

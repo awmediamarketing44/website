@@ -47,7 +47,7 @@ export const comparisons: ComparisonData[] = [
     headerDescription:
       "How we stack up against a standard UK web design agency on the things that actually matter: speed, price, support and whether the work is genuinely custom.",
     answer:
-      "AW Media is a Sheffield-based UK web design studio that delivers fully custom websites in 2 to 6 weeks on its AI-accelerated lane, where a typical agency takes 8 to 12 weeks and often starts from a template. We publish our pricing (websites from £1,495), you talk directly to the people building your site, and we have shipped 400+ websites since 2016.",
+      "AW Media is a Sheffield-based UK web design studio that delivers fully custom websites in 2 to 6 weeks on its AI-accelerated lane, where a typical agency takes 8 to 12 weeks and often starts from a template. We publish our pricing (websites from £1,495), you talk directly to the people building your site, and we have shipped 450+ websites since 2016.",
     takeaways: [
       "Turnaround: 2 to 6 weeks with AW Media, versus 8 to 12 weeks at a typical agency.",
       "Pricing is published up front, not hidden behind a sales call.",
@@ -90,7 +90,7 @@ export const comparisons: ComparisonData[] = [
         },
         {
           feature: "Track record",
-          cells: ["400+ sites since 2016, 4x award winner", "Varies"],
+          cells: ["450+ sites since 2016, 4x award winner", "Varies"],
         },
         {
           feature: "Based",

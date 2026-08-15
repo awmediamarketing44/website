@@ -26,7 +26,7 @@ export default function SocialProof() {
         transition={{ duration: 1 }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8rem] sm:text-[14rem] lg:text-[20rem] font-black text-white pointer-events-none select-none"
       >
-        400+
+        450+
       </motion.div>
 
       <motion.div
@@ -35,7 +35,7 @@ export default function SocialProof() {
       >
         <p className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-medium leading-snug sm:leading-relaxed">
           {[
-            { text: "400+ websites built. UK-wide.", className: "text-pink font-bold" },
+            { text: "450+ websites built. UK-wide.", className: "text-pink font-bold" },
             { text: "Coaches, clinics, trades, services, e-commerce. Fully bespoke when the project demands it. AI-accelerated when speed matters." },
           ].map((line, i) => (
             <motion.span

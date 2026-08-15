@@ -43,6 +43,20 @@ const audits = [
     href: SOCIAL_AUDIT_URL,
   },
   {
+    title: "GEO Audit",
+    tagline: "Can AI even see you?",
+    description:
+      "When someone asks ChatGPT or Perplexity for a recommendation, can it find you? We check your site across five pillars and show you the gaps stopping you being named.",
+    points: [
+      "Scored out of 100 across 5 pillars",
+      "AI crawler access checked",
+      "Structured data reviewed",
+      "The quick wins to fix first",
+    ],
+    cta: "Get my GEO score",
+    href: "/geo-audit",
+  },
+  {
     title: "AI Opportunity Score",
     tagline: "2 minutes, 11 questions.",
     description:
@@ -68,7 +82,7 @@ export default function FreeAuditClient() {
           tag="Free Audit"
           title="See exactly what's"
           titleAccent="holding you back."
-          description="Three free tools, no obligation. Check your website, your socials or your AI opportunity, leave a few details, and we'll show you what's working, what's not, and what to fix first."
+          description="Four free tools, no obligation. Check your website, your socials, your AI visibility or your AI opportunity, leave a few details, and we'll show you what's working, what's not, and what to fix first."
         />
 
         <section className="py-12 pb-24">
@@ -131,6 +145,16 @@ export default function FreeAuditClient() {
               transition={{ delay: 0.3 }}
               className="mt-16 text-center"
             >
+              <p className="text-muted mb-4">
+                Prefer to read instead? Our{" "}
+                <Link
+                  href="/free-resources"
+                  className="text-pink font-medium hover:underline underline-offset-4"
+                >
+                  free guides and checklists
+                </Link>{" "}
+                cover the same ground in more depth.
+              </p>
               <p className="text-muted mb-6">
                 Prefer to talk it through? We&apos;ll happily walk you through
                 the results.

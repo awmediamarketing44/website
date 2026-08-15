@@ -601,39 +601,56 @@ export default function AiScoreClient() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
-                    className="mt-10 rounded-2xl border border-pink/30 bg-card p-8 text-center sm:p-10"
+                    className="relative mt-12 overflow-hidden rounded-3xl border border-pink/40 bg-gradient-to-b from-pink/10 to-card p-8 text-center shadow-[0_0_60px_-15px_rgba(249,38,114,0.55)] sm:p-12"
                   >
-                    <h3 className="text-xl font-bold sm:text-2xl">
-                      Want these three <span className="gradient-text">actually built?</span>
-                    </h3>
-                    <p className="mx-auto mt-3 max-w-md text-sm text-muted leading-relaxed">
-                      We build this for businesses like yours: AI support that answers
-                      while you sleep, follow-up that never slips, and marketing that
-                      runs itself.
+                    <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-pink/30 blur-3xl" />
+                    <div className="relative">
+                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-pink">
+                        Your next step
+                      </p>
+                      <h3 className="mx-auto mt-3 max-w-xl text-2xl font-extrabold leading-tight sm:text-4xl">
+                        Want these <span className="gradient-text">actually built</span> for
+                        your business?
+                      </h3>
+
                       {result.hoursPerWeek > 0 && (
-                        <>
-                          {" "}
-                          That&apos;s how you get those{" "}
-                          <span className="font-semibold text-white/90">
-                            {result.hoursPerWeek} hours a week
-                          </span>{" "}
-                          back.
-                        </>
-                      )}{" "}
-                      Book a free call and we&apos;ll walk through your results
-                      together.
-                    </p>
-                    <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                      <BookCallButton>Book a FREE Call</BookCallButton>
-                      <span className="text-sm text-muted">
-                        or{" "}
-                        <Link
-                          href="/enquiry"
-                          className="whitespace-nowrap font-medium text-pink underline-offset-4 hover:underline"
-                        >
-                          send a quick enquiry →
-                        </Link>
-                      </span>
+                        <div className="mx-auto mt-6 inline-flex items-center gap-3 rounded-2xl border border-pink/30 bg-pink/10 px-6 py-3">
+                          <span className="gradient-text text-4xl font-extrabold sm:text-5xl">
+                            {result.hoursPerWeek}
+                          </span>
+                          <span className="text-left text-sm font-semibold leading-tight text-white/90">
+                            hours a week
+                            <br />
+                            we could hand back
+                          </span>
+                        </div>
+                      )}
+
+                      <p className="mx-auto mt-6 max-w-md text-base text-muted leading-relaxed">
+                        Book a free call and we&apos;ll walk through your results
+                        together, and show you exactly what each opportunity would look
+                        like running in your business. No pitch, no pressure.
+                      </p>
+
+                      <div className="mt-8 flex flex-col items-center gap-4">
+                        <BookCallButton className="w-full max-w-xs px-10 py-5 text-base">
+                          Book a FREE Call
+                        </BookCallButton>
+                        <span className="text-sm text-muted">
+                          Prefer to type it out?{" "}
+                          <Link
+                            href="/enquiry"
+                            className="whitespace-nowrap font-medium text-pink underline-offset-4 hover:underline"
+                          >
+                            Send a quick enquiry →
+                          </Link>
+                        </span>
+                      </div>
+
+                      <p className="mx-auto mt-8 max-w-sm text-xs leading-relaxed text-muted/80">
+                        450+ websites and 60+ businesses already run their day on work
+                        we&apos;ve built. Yours could be next.
+                      </p>
                     </div>
                   </motion.div>
                 </motion.div>

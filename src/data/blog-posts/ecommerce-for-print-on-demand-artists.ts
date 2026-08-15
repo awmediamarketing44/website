@@ -118,6 +118,13 @@ const post: BlogPost = {
       text: "Shopify: about £25 a month plus your theme. WooCommerce: hosting from £15 a month plus build cost. Prodigi and Printful: free to join, you pay per order. For a properly designed POD store with brand work, custom product pages and decent imagery, AW Media's AI-Accelerated lane starts at £2,495 and the Bespoke lane at £3,995. Both genuinely look like real shops, not Etsy escapees.",
     },
     {
+      type: "callout",
+      label: "Want someone to build it for you?",
+      text: "We design and build custom Shopify and WooCommerce stores, including migrations off marketplaces, with every old link redirected so you keep the traffic you've earned. Sheffield-based, working with sellers across the UK.",
+      href: "/ecommerce-web-design-sheffield",
+      linkLabel: "See our Shopify and ecommerce web design",
+    },
+    {
       type: "h2",
       text: "The practical takeaway",
     },

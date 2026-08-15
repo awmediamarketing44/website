@@ -219,10 +219,10 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            href="/free-audit"
+            href="/free-resources"
             className="text-sm text-muted hover:text-white transition-colors duration-200"
           >
-            Free Audit
+            Free Resources
           </motion.a>
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
@@ -347,6 +347,7 @@ export default function Navbar() {
               {/* Extra mobile links not in the main nav */}
               {[
                 { label: "AI Portal", href: "/portal" },
+                { label: "Free Resources", href: "/free-resources" },
                 { label: "Free Audit", href: "/free-audit" },
                 { label: "Reviews", href: "/reviews" },
                 { label: "Contact", href: "/contact" },

@@ -11,7 +11,7 @@ import { useIsDesktop } from "@/hooks/useIsDesktop";
 
 const stats = [
   {
-    value: 400,
+    value: 450,
     suffix: "+",
     label: "Websites shipped",
     description:

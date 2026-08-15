@@ -33,6 +33,32 @@ export interface LandingTeamMember {
   photo: string;
 }
 
+// Contextual internal links to thematically-related pages. Rendered as an
+// in-content "explore more" block near the foot of the page. Post the June 2026
+// spam update these in-content, descriptive-anchor links are what carry ranking
+// signal between our SEO pages (footer links alone read as boilerplate). Keep
+// anchors descriptive and the targets genuinely related to the page's topic.
+export interface LandingRelatedLink {
+  label: string;
+  href: string;
+  blurb: string;
+}
+
+// A long-form, sub-headed section for pages that need to answer a search
+// properly rather than in card-sized chunks (e.g. the Shopify half of the
+// ecommerce page). Renders as an H2 with H3 sub-topics, so the page carries
+// real depth on its term instead of another grid of six short cards.
+export interface LandingDeepDiveBlock {
+  title: string;
+  body: string[];
+}
+
+export interface LandingDeepDive {
+  heading: [string, string];
+  intro?: string;
+  blocks: LandingDeepDiveBlock[];
+}
+
 export interface LandingPageData {
   slug: string;
   // SEO
@@ -52,6 +78,8 @@ export interface LandingPageData {
   // Why us
   whyHeading: [string, string];
   why: LandingPillar[];
+  // Deep dive (optional) — long-form section for pages that need real depth.
+  deepDive?: LandingDeepDive;
   // Named team (optional) — renders a "meet the people" block when present.
   // Used on flagship local pages to give AI/search real, verifiable named staff.
   teamHeading?: [string, string];
@@ -62,6 +90,8 @@ export interface LandingPageData {
   // CTA
   ctaHeadline: string;
   ctaSubtext: string;
+  // Related pages (optional) — in-content internal links to related SEO pages.
+  relatedLinks?: LandingRelatedLink[];
   // Schema
   serviceName: string; // schema.org Service name
   serviceType: string; // schema.org serviceType
@@ -78,7 +108,7 @@ interface City {
 // Shared proof points — same across all pages.
 export const landingStats: LandingStat[] = [
   { value: "Est. 2016", label: "nearly a decade in business" },
-  { value: "500+", label: "websites & brands delivered" },
+  { value: "450+", label: "websites & brands delivered" },
   { value: "4x", label: "back-to-back award winners" },
   { value: "5.0", label: "average client rating" },
 ];
@@ -157,16 +187,27 @@ function webDesignAgency(c: City): LandingPageData {
     ],
     ctaHeadline: `Looking for a web design agency in ${c.name}?`,
     ctaSubtext: "Book a free 20-minute call. We'll tell you exactly what your business needs online, no obligation.",
+    relatedLinks: [
+      { label: `Small Business Web Design ${c.name}`, href: `/small-business-web-design-${c.slug}`, blurb: `Running something smaller? Affordable, custom ${c.name} web design that makes small businesses look bigger.` },
+      { label: `${c.name} Web Design`, href: `/${c.slug}-web-design`, blurb: `The head term done properly: conversion-led ${c.name} web design with no templates, ever.` },
+      { label: `Branding Agency ${c.name}`, href: `/branding-agency-${c.slug}`, blurb: `Logos, brand identities and guidelines that make you the obvious premium choice in ${c.name}.` },
+    ],
     serviceName: `Web Design Agency ${c.name}`,
     serviceType: "Web design",
   };
   if (isSheffield) {
-    page.introParas[0] = `AW Media is a web design agency ${c.based}. If you're comparing agencies and searching for the best web design agency in Sheffield, our honest pitch is simple: judge us on the work. Four years of back-to-back awards, 500+ sites delivered since 2016, and a 5.0 average client rating. A slow, template-looking site quietly costs you customers every day. We fix that.`;
+    page.introParas[0] = `AW Media is a web design agency ${c.based}. If you're comparing agencies and searching for the best web design agency in Sheffield, our honest pitch is simple: judge us on the work. Four years of back-to-back awards, 450+ sites delivered since 2016, and a 5.0 average client rating. A slow, template-looking site quietly costs you customers every day. We fix that.`;
     page.faqs.unshift({
       question: "How do I find the best web design agency in Sheffield?",
       answer:
         "Ignore the sales patter and check three things: recent work you can actually visit, named people you can meet, and proof the sites bring in business, reviews, awards, results. We're happy to be judged on all three: 4x back-to-back award winners, a real named Sheffield team, and a 5.0 average rating across 25+ published client reviews.",
     });
+    page.relatedLinks = [
+      ...(page.relatedLinks ?? []),
+      { label: "Shopify Agency Sheffield", href: "/ecommerce-web-design-sheffield", blurb: "Selling online? Custom Shopify and WooCommerce stores built to turn Sheffield browsers into buyers, from £2,495." },
+      { label: "Logo Design Sheffield", href: "/logo-design-sheffield", blurb: "Just the logo? A full hand-designed logo suite with every file you'll ever need, no AI dumps." },
+      { label: "Social Media Marketing & Graphics", href: "/services/social-media", blurb: "Keep the brand consistent after launch with on-brand social content that looks like the business you are." },
+    ];
   }
   return page;
 }
@@ -210,12 +251,23 @@ function brandingAgency(c: City): LandingPageData {
     ],
     ctaHeadline: `Need a branding agency in ${c.name}?`,
     ctaSubtext: "Book a free 20-minute call. We'll tell you honestly whether your brand is helping or holding you back, no obligation.",
+    relatedLinks: [
+      ...(c.slug === "sheffield"
+        ? [
+            { label: "Logo Design Sheffield", href: "/logo-design-sheffield", blurb: "Just need the logo? A full, hand-designed logo suite with every file you'll ever need." },
+            { label: "Graphic Designer Sheffield", href: "/graphic-designer-sheffield", blurb: "Ongoing design work: social graphics, print, brand assets, from a real Sheffield designer." },
+          ]
+        : []),
+      { label: `${c.name} Web Design`, href: `/${c.slug}-web-design`, blurb: `Carry your new brand straight into a website built around it, no translation lost between suppliers.` },
+      { label: `Web Design Agency ${c.name}`, href: `/web-design-agency-${c.slug}`, blurb: `Brand and website under one roof, our full ${c.name} agency offering.` },
+    ],
     serviceName: `Branding Agency ${c.name}`,
     serviceType: "Brand identity design",
   };
 }
 
 function smallBusiness(c: City): LandingPageData {
+  const isSheffield = c.slug === "sheffield";
   return {
     slug: `small-business-web-design-${c.slug}`,
     metaTitle: `Small Business Web Design ${c.name} | AW Media`,
@@ -229,6 +281,7 @@ function smallBusiness(c: City): LandingPageData {
       `AW Media designs websites for small businesses across ${c.name}. We know the pressure: you need a site that looks professional and wins work, but you can't justify a five-figure agency invoice. That's exactly the gap we built our AI-accelerated lane to fill.`,
       "Most small business websites are either expensive agency overkill or cheap, template-looking DIY jobs that quietly cost you customers. We give you a third option: a custom-designed, fast, conversion-focused website at a price that makes sense for a small business.",
       `Every site is built to make you look bigger and more established than you are, so you can compete with larger ${c.name} businesses and charge what you're worth. No jargon, no bloat, just a website that earns its keep.`,
+      `Whether you're a sole trader, a trade, a clinic, a shop or a growing team, the process is the same: a quick call to understand your customers, a custom design you sign off, then a fast, mobile-first build with your enquiry forms, Google visibility and hosting sorted. You end up with a website you're proud to hand out, that quietly brings in ${c.name} work while you get on with the job.`,
     ],
     servicesHeading: ["Web design built for", `small ${c.name} businesses.`],
     services: [
@@ -251,9 +304,19 @@ function smallBusiness(c: City): LandingPageData {
       { question: "Is this just a template website?", answer: "No. Even our most affordable builds are custom-designed around your business, not pulled from a template pack. That's how we make small businesses look more professional than competitors using DIY website builders." },
       { question: "I'm not technical, is that a problem?", answer: "Not at all. We handle all the technical side, speak plain English, and keep the process simple. You don't need to know anything about web design, that's our job." },
       { question: "How quickly can my small business get online?", answer: "AI-accelerated builds typically ship in 2 to 6 weeks depending on scope. We'll give you a clear timeline up front and keep you updated the whole way through." },
+      { question: "What's included, and are there ongoing costs?", answer: `A ${c.name} small business site includes the design and build, mobile-first layouts, on-page SEO foundations, your enquiry and booking forms, and Google-ready speed. After launch there's a simple monthly care plan for hosting, security, backups and support, so nothing breaks and there's always a real person to call. We tell you the ongoing number up front, no surprises.` },
+      { question: `Can you help my small business get found on Google in ${c.name}?`, answer: `Yes. Every build ships with the on-page SEO and local signals that help nearby ${c.name} customers find you, and we can go further with a dedicated local SEO push to chase the map pack and 'near me' searches. We'll be honest about what's worth doing for a business your size.` },
     ],
     ctaHeadline: `Need a website for your small ${c.name} business?`,
     ctaSubtext: "Book a free 20-minute call. We'll tell you exactly what your business needs to win more work online, no obligation.",
+    relatedLinks: [
+      { label: `${c.name} Web Design`, href: `/${c.slug}-web-design`, blurb: `The broader picture: custom ${c.name} web design built to convert, for businesses of every size.` },
+      { label: `Web Design Agency ${c.name}`, href: `/web-design-agency-${c.slug}`, blurb: `Our full-service ${c.name} agency offering, for when the project is bigger than a small business site.` },
+      { label: "AI Web Design", href: "/ai-web-design", blurb: "How our AI-accelerated lane delivers a genuinely custom site in weeks, at a small business price." },
+      ...(isSheffield
+        ? [{ label: "Logo Design Sheffield", href: "/logo-design-sheffield", blurb: "Look established from day one with a professional logo suite to match your new site." }]
+        : []),
+    ],
     serviceName: `Small Business Web Design ${c.name}`,
     serviceType: "Web design",
   };
@@ -298,6 +361,16 @@ function cityWebDesign(c: City): LandingPageData {
     ],
     ctaHeadline: `Need web design in ${c.name}?`,
     ctaSubtext: "Book a free 20-minute call. We'll tell you exactly what your business needs online, no obligation.",
+    relatedLinks: [
+      { label: `Web Design Agency ${c.name}`, href: `/web-design-agency-${c.slug}`, blurb: `The full agency offering: web design, branding and SEO for ${c.name} businesses under one roof.` },
+      { label: `Small Business Web Design ${c.name}`, href: `/small-business-web-design-${c.slug}`, blurb: `Running something smaller? Custom ${c.name} web design that makes small businesses look bigger.` },
+      ...(c.slug === "sheffield"
+        ? [
+            { label: "Shopify Agency Sheffield", href: "/ecommerce-web-design-sheffield", blurb: "Selling products? Custom Shopify and WooCommerce stores built to convert, from £2,495." },
+            { label: "Logo Design Sheffield", href: "/logo-design-sheffield", blurb: "A full hand-designed logo suite with every file you'll ever need, designed not generated." },
+          ]
+        : [{ label: `Branding Agency ${c.name}`, href: `/branding-agency-${c.slug}`, blurb: `Logos, identities and guidelines that make you the obvious premium choice in ${c.name}.` }]),
+    ],
     serviceName: `${c.name} Web Design`,
     serviceType: "Web design",
   };
@@ -342,6 +415,11 @@ function aiWebDesign(c: City): LandingPageData {
     ],
     ctaHeadline: `Want a premium ${c.name} website, live in weeks?`,
     ctaSubtext: "Book a free 20-minute call. We'll show you what we'd build and how fast you could have it live, no obligation.",
+    relatedLinks: [
+      { label: "AI Web Design", href: "/ai-web-design", blurb: "The full explainer: what AI web design actually is, how we use it, and what it costs." },
+      { label: "How We Work (AI vs Bespoke)", href: "/how-we-work", blurb: "The two lanes side by side, so you can see which fits your project and budget." },
+      { label: `${c.name} Web Design`, href: `/${c.slug}-web-design`, blurb: `Prefer the local head term? Custom ${c.name} web design built to convert.` },
+    ],
     serviceName: `AI Web Design ${c.name}`,
     serviceType: "Web design",
   };
@@ -451,6 +529,14 @@ const extraPages: LandingPageData[] = [
     ],
     ctaHeadline: "Need a web designer in Sheffield?",
     ctaSubtext: "Book a free 20-minute call with a real member of the team. We'll tell you exactly what your website needs to bring in more enquiries, no obligation.",
+    relatedLinks: [
+      { label: "Small Business Web Design Sheffield", href: "/small-business-web-design-sheffield", blurb: "Affordable, custom web design for Sheffield small businesses, built to make you look bigger and win more work." },
+      { label: "WordPress Web Design Sheffield", href: "/wordpress-web-design-sheffield", blurb: "Bespoke WordPress, built from scratch and easy to edit, never a stretched template." },
+      { label: "Ecommerce Web Design Sheffield", href: "/ecommerce-web-design-sheffield", blurb: "Custom Shopify and WooCommerce stores designed to turn Sheffield browsers into buyers." },
+      { label: "Website Redesign Sheffield", href: "/website-redesign-sheffield", blurb: "Refresh a dated site without losing the Google rankings you've already earned." },
+      { label: "Logo Design Sheffield", href: "/logo-design-sheffield", blurb: "A professional logo suite that works everywhere, with every file you'll ever need." },
+      { label: "Local SEO Sheffield", href: "/local-seo-sheffield", blurb: "Get into the Google map pack so nearby Sheffield customers find you first." },
+    ],
     serviceName: "Web Design Sheffield",
     serviceType: "Web design",
   },
@@ -495,6 +581,12 @@ const extraPages: LandingPageData[] = [
     ],
     ctaHeadline: "Need a graphic designer in Sheffield?",
     ctaSubtext: "Book a free 20-minute call. We'll tell you exactly how to make your business look more premium, no obligation.",
+    relatedLinks: [
+      { label: "Logo Design Sheffield", href: "/logo-design-sheffield", blurb: "Need a proper logo? A full, hand-designed logo suite with every file you'll ever need." },
+      { label: "Branding Agency Sheffield", href: "/branding-agency-sheffield", blurb: "The full identity: logo, colours, typography and guidelines that make you look premium." },
+      { label: "Social Media Marketing & Graphics", href: "/services/social-media", blurb: "The content side of social media marketing: carousels, templates and ad creative, delivered on time." },
+      { label: "Web Design Sheffield", href: "/web-design-sheffield", blurb: "Carry your brand into a website built around it, design and build under one roof." },
+    ],
     serviceName: "Graphic Designer Sheffield",
     serviceType: "Graphic design",
   },
@@ -558,7 +650,7 @@ const extraPages: LandingPageData[] = [
     introHeading: ["Freelance-style service,", "studio-grade reliability."],
     introParas: [
       "Looking for a freelance web designer in Sheffield, you usually face a trade-off: the personal, direct service and fair pricing of a freelancer, or the reliability and depth of an agency that won't disappear mid-project. AW Media gives you both.",
-      "You deal directly with the people designing and building your site, the same as you would with a freelancer, but with an established Sheffield studio behind it: nearly a decade in business, 500+ sites delivered, and the security of knowing the work always gets finished and supported.",
+      "You deal directly with the people designing and building your site, the same as you would with a freelancer, but with an established Sheffield studio behind it: nearly a decade in business, 450+ sites delivered, and the security of knowing the work always gets finished and supported.",
       "Every site is custom-designed around your brand and built to convert, not pulled from a template. Whether you need a single landing page or a full website, you get sharp work, fair pricing, and someone who actually picks up the phone.",
     ],
     servicesHeading: ["What you get with", "freelance-style web design."],
@@ -574,7 +666,7 @@ const extraPages: LandingPageData[] = [
     why: [
       { title: "The upside of a freelancer.", description: "Direct contact, personal service, sensible pricing, and someone who genuinely cares about your project." },
       { title: "Without the downside.", description: "No vanishing mid-build, no single point of failure, no 'sorry, I've taken on too much'. An established studio has your back." },
-      { title: "Proven since 2016.", description: "500+ websites and brands delivered, four years of back-to-back awards, and a 5.0 average rating." },
+      { title: "Proven since 2016.", description: "450+ websites and brands delivered, four years of back-to-back awards, and a 5.0 average rating." },
     ],
     faqHeading: "freelance web design Sheffield",
     faqs: [
@@ -592,28 +684,29 @@ const extraPages: LandingPageData[] = [
   // wordpress web design sheffield
   {
     slug: "wordpress-web-design-sheffield",
-    metaTitle: "WordPress Web Design Sheffield | AW Media",
+    metaTitle: "WordPress Web Design Sheffield | Bespoke, Fast, No Bloat | AW Media",
     metaDescription:
-      "WordPress web design in Sheffield, built bespoke not from a template. Fast, secure, easy to edit and built to convert. Book a free call.",
+      "Bespoke WordPress web design in Sheffield, built from scratch not a stretched Elementor template. AI-accelerated, faster than page-builder sites, easy to edit. Book a free call.",
     tag: "WordPress Web Design · Sheffield",
     title: "WordPress web design",
     titleAccent: "Sheffield, done properly.",
     headerDescription:
-      "Bespoke WordPress web design for Sheffield businesses. Custom-built, never a stretched template: fast, secure, easy to edit and built to bring in enquiries.",
+      "Bespoke WordPress web design for Sheffield businesses. Custom-built, never a stretched template or a bloated page builder: faster to load, secure, easy to edit and built to bring in enquiries.",
     introHeading: ["WordPress, built bespoke,", "not bolted together."],
     introParas: [
       "AW Media is a WordPress web design studio born and based in Sheffield. Most WordPress sites are a stock theme stretched to fit and crammed with plugins: slow, fragile, and a pain to edit. We build the opposite, bespoke WordPress designed from scratch around your Sheffield business.",
+      "Here's the difference most Sheffield agencies won't spell out: a site built on a page builder like Elementor or Divi drags in layers of extra code that slow every page down and hurt your Google Core Web Vitals. We build clean, lightweight WordPress that loads faster, ranks better and doesn't fall over on a plugin update, and because we build AI into our process, you get that bespoke quality in weeks rather than months, for less than the traditional agency rate.",
       "You get the flexibility and familiarity of WordPress with the polish of a custom design, and a back end set up so you or your team can actually update it without breaking the layout. Fast to load, hardened against threats, and built to rank locally.",
-      "Whether it's a smart brochure site, a content-heavy platform or a full WooCommerce store, we build it bespoke, optimise it for speed and Google, and back it with ongoing care so it keeps performing long after launch.",
+      "Whether it's a smart brochure site, a content-heavy platform or a full WooCommerce store, we build it bespoke, optimise it for speed and Google, and back it with ongoing care so it keeps performing long after launch. Already on a slow, plugin-heavy WordPress site? We also rescue and rebuild them, keeping your content and rankings intact.",
     ],
     servicesHeading: ["What our Sheffield", "WordPress web design covers."],
     services: [
-      { title: "Bespoke WordPress Builds", description: "Designed from scratch around your brand. No stock themes, no two Sheffield clients with the same site." },
-      { title: "Clean, Lightweight Code", description: "No plugin bloat or page-builder drag. Fast-loading, stable WordPress built to last." },
+      { title: "Bespoke WordPress Builds", description: "Designed from scratch around your brand. No stock themes, no page builders, no two Sheffield clients with the same site." },
+      { title: "AI-Accelerated Delivery", description: "We build AI into the process, so you get bespoke WordPress in weeks not months, at less than the traditional agency rate." },
+      { title: "Faster Than Page-Builder Sites", description: "Clean, lightweight code instead of Elementor or Divi bloat, so your Core Web Vitals and Google rankings actually improve." },
       { title: "Easy-to-Edit Back End", description: "A tidy dashboard set up so you can update content confidently without breaking the design." },
       { title: "WooCommerce Stores", description: "Bespoke WordPress e-commerce with payment, shipping and tax fully configured, built to sell." },
-      { title: "Local SEO & Speed", description: "Optimised hosting, on-page SEO and schema so Sheffield customers find you on Google." },
-      { title: "Care Plans & Support", description: "Updates, backups, monitoring and support from the Sheffield team who built it." },
+      { title: "Rescue & Speed-Up Rebuilds", description: "On a slow, plugin-heavy site? We rebuild it clean and fast, keeping your content and Google rankings intact." },
     ],
     whyHeading: ["Why Sheffield businesses", "choose us for WordPress."],
     why: [
@@ -624,12 +717,20 @@ const extraPages: LandingPageData[] = [
     faqHeading: "WordPress web design Sheffield",
     faqs: [
       { question: "Why choose bespoke WordPress over a template?", answer: "A template is a pre-made theme thousands of other sites also use, stretched to fit. A bespoke WordPress site is built from scratch around your brand and goals, so it's faster, more flexible, easier to edit and unmistakably yours." },
+      { question: "Do you build with Elementor, Divi or another page builder?", answer: "No, and it's a deliberate choice. Page builders like Elementor and Divi make editing easy but pile on extra code that slows every page down and drags your Google Core Web Vitals. We hand-build clean, lightweight WordPress and still give you an easy way to edit it, so you get the best of both: fast and manageable." },
+      { question: "Can you speed up or rescue my existing WordPress site?", answer: "Usually, yes. A lot of the Sheffield sites we're sent are slow because of a bloated theme and too many plugins. We can rebuild them clean and lightweight, or in some cases optimise what's there, keeping your content and Google rankings intact. We'll tell you honestly which is the better-value route." },
       { question: "Will I be able to edit it myself?", answer: "Yes. We build on WordPress because it's familiar and editable, and we set the dashboard up so you can update text, images and pages confidently without breaking the design. We're on hand if you'd rather we made changes too." },
       { question: "Isn't WordPress slow and insecure?", answer: "Theme-and-plugin sites can be. A bespoke build is the opposite: clean, lightweight code, a minimal plugin stack, hardened security and optimised hosting, so it loads fast and stays safe." },
-      { question: "How much does WordPress web design cost in Sheffield?", answer: "It depends on scope and features. Builds are priced per project after a quick call. Book a free call and we'll give you a straight number, no pressure." },
+      { question: "How much does WordPress web design cost in Sheffield?", answer: "It depends on scope and features. Because we build AI into our process, a bespoke WordPress site costs less than the traditional agency rate and ships faster. Builds are priced per project after a quick call, book one and we'll give you a straight number, no pressure." },
     ],
     ctaHeadline: "Need WordPress web design in Sheffield?",
     ctaSubtext: "Book a free 20-minute call. We'll tell you exactly what your project needs and what it'll cost, no obligation.",
+    relatedLinks: [
+      { label: "Web Design Sheffield", href: "/web-design-sheffield", blurb: "The bigger picture: custom Sheffield web design built to win enquiries, WordPress or otherwise." },
+      { label: "Ecommerce Web Design Sheffield", href: "/ecommerce-web-design-sheffield", blurb: "Selling online? Bespoke WooCommerce and Shopify stores built to turn browsers into buyers." },
+      { label: "Website Redesign Sheffield", href: "/website-redesign-sheffield", blurb: "Rebuild a slow, dated WordPress site without losing the Google rankings you've earned." },
+      { label: "AI Web Design", href: "/ai-web-design", blurb: "How AI-accelerated building gets you a bespoke site in weeks, at a fraction of the usual cost." },
+    ],
     serviceName: "WordPress Web Design Sheffield",
     serviceType: "Web design",
   },
@@ -637,18 +738,19 @@ const extraPages: LandingPageData[] = [
   // ecommerce web design sheffield
   {
     slug: "ecommerce-web-design-sheffield",
-    metaTitle: "Ecommerce Website Design Sheffield | Stores That Sell | AW Media",
+    metaTitle: "Ecommerce Website Design Sheffield | Shopify Agency | AW Media",
     metaDescription:
-      "Ecommerce web design in Sheffield. Custom Shopify and WooCommerce stores built to turn browsers into buyers. Award-winning studio since 2016. Book a free call.",
-    tag: "Ecommerce Website Design · Sheffield",
+      "Ecommerce web design and Shopify agency in Sheffield. Custom Shopify and WooCommerce stores built to sell, from £2,495. Award-winning studio since 2016.",
+    tag: "Ecommerce & Shopify · Sheffield",
     title: "Ecommerce website design",
     titleAccent: "Sheffield stores that actually sell.",
     headerDescription:
-      "Ecommerce website design for Sheffield businesses. Custom Shopify and WooCommerce stores designed to look premium and turn browsers into buyers.",
+      "Ecommerce website design and Shopify builds for Sheffield businesses. Custom Shopify and WooCommerce stores designed to look premium and turn browsers into buyers.",
     introHeading: ["An online store built", "to sell, not just to sit there."],
     introParas: [
       "AW Media handles ecommerce website design for Sheffield businesses, custom stores designed and built to sell. A store that looks like a default template with stock photos kills trust, and customers bounce before they ever reach the checkout. We build the opposite: online stores designed to convert.",
-      "Whether you sell products, apparel, supplements or digital programmes, we design and build a store on Shopify or WooCommerce that matches the quality of what you sell, with every detail aimed at reducing friction and increasing sales.",
+      "We're a Shopify agency and a WooCommerce studio in one, which matters more than it sounds. Most Sheffield agencies only build on the platform they happen to know, so that's the platform you get recommended. We build on both, so the advice you get is about your products and your margins, not about what's easiest at our end.",
+      "Whether you sell products, apparel, supplements or digital programmes, we design and build a store on Shopify or WooCommerce that matches the quality of what you sell, with every detail aimed at reducing friction and increasing sales. Stores start from £2,495 in our AI-accelerated lane, typically live in around six weeks.",
       "And it's not just the storefront. We set up the systems that make selling easier: payment, shipping and tax configured properly, abandoned cart recovery, subscriptions, and analytics that actually tell you what's working.",
     ],
     servicesHeading: ["What our Sheffield", "ecommerce website design covers."],
@@ -666,15 +768,73 @@ const extraPages: LandingPageData[] = [
       { title: "The systems, not just the storefront.", description: "Payment, shipping, tax, subscriptions and analytics all set up properly, so the store runs smoothly behind the scenes." },
       { title: "Local studio, real support.", description: "A Sheffield team you can actually talk to, who built your store and are here when you need a change." },
     ],
+    deepDive: {
+      heading: ["What a Shopify agency in", "Sheffield actually does."],
+      intro:
+        "Plenty of people can install a Shopify theme. That isn't what you're paying an agency for. Here's the honest version of the work, so you know what to expect from us or from anyone else you're comparing.",
+      blocks: [
+        {
+          title: "Shopify store design and build",
+          body: [
+            "We design your store first and build it second. That means real layouts for your homepage, collection pages, product pages, cart and checkout, drawn around your products and your customers rather than around whatever a theme happened to ship with.",
+            "Then we build it out in Shopify properly: products and variants loaded and organised, collections structured so people can actually find things, payment, shipping and tax configured, and the whole thing tested on a phone before it goes anywhere near live.",
+          ],
+        },
+        {
+          title: "Shopify or WooCommerce, and how to choose",
+          body: [
+            "Shopify suits most product businesses. It handles hosting, security, payments and PCI compliance for you, it rarely breaks, and it scales happily from ten orders a month to thousands. You pay a monthly fee and some transaction cost for that, and for most Sheffield retailers it's money well spent.",
+            "WooCommerce suits you better when you already live in WordPress, when you want total control over the checkout or the data, or when your products behave in an unusual way that Shopify would fight you on. It's cheaper to run and more work to look after.",
+            "The honest test is this: if you want to sell without thinking about the plumbing, go Shopify. If you want control and you have someone to maintain it, go WooCommerce. We'll tell you which one your business actually needs on the call, even when it's the one we'd earn less on.",
+          ],
+        },
+        {
+          title: "Migrating an existing store to Shopify",
+          body: [
+            "Moving from Wix, Squarespace, Etsy, BigCommerce or an ageing WooCommerce site is one of the most common jobs we get asked for, and it's where a lot of businesses lose money quietly.",
+            "We move your products, variants, collections, customers and order history across, then map every old URL to its new home with 301 redirects so the Google rankings and links you've built up keep working. Skip that step and traffic falls off a cliff the week you launch. It's the single most expensive mistake in a migration and it's entirely avoidable.",
+          ],
+        },
+        {
+          title: "Theme customisation and the bits that get skipped",
+          body: [
+            "If you already have a Shopify store you're happy with, you don't always need a rebuild. We customise existing themes: restyling to match your brand properly, rebuilding product pages that aren't converting, cleaning up a bloated app stack, and fixing the mobile experience where most of your traffic actually is.",
+            "The details that get skipped are usually the ones that cost sales: product photography that doesn't match, delivery information buried three clicks down, no reviews on the product page, a checkout with avoidable friction in it. Those are cheap to fix and they show up in the numbers.",
+          ],
+        },
+        {
+          title: "Getting your Shopify store found",
+          body: [
+            "A store nobody finds isn't a business. We build stores technically clean and fast, with product and collection pages structured so Google can read them, proper titles and descriptions rather than the theme defaults, and schema so your products can show up with prices and reviews in search.",
+            "For Sheffield businesses selling locally as well as online, we tie the store into your local presence too, so you turn up for people nearby who are ready to buy today. Our local SEO Sheffield page covers that side in more detail.",
+          ],
+        },
+        {
+          title: "What it costs and how long it takes",
+          body: [
+            "An online store in our AI-accelerated lane starts at £2,495 and typically goes live in around six weeks: up to five pages plus your product catalogue, up to fifteen products loaded, payment gateway, shipping and tax set up, and order confirmation emails working.",
+            "The fully bespoke lane starts at £3,995 over roughly ten weeks, and adds custom product page templates designed for conversion, cart and checkout optimisation, and email automations including abandoned cart recovery. Bigger catalogues and custom functionality are priced on the call, with the number given to you straight.",
+          ],
+        },
+      ],
+    },
     faqHeading: "ecommerce website design Sheffield",
     faqs: [
-      { question: "Should I use Shopify or WooCommerce?", answer: "Both are excellent; the right choice depends on your products, volume and how you want to run things. Shopify is brilliant for most product businesses; WooCommerce suits those who want full control on WordPress. We'll recommend the best fit on a quick call." },
-      { question: "Can you migrate my existing store?", answer: "Yes. We can migrate from Wix, Squarespace, an old WooCommerce or another platform across to a new store without losing your products, customers or order history." },
-      { question: "How much does an ecommerce website cost in Sheffield?", answer: "It depends on how many products and features you need. Stores are priced per project after a quick call to understand your setup. Book a free call and we'll give you a straight number." },
+      { question: "Are you a Shopify agency in Sheffield?", answer: "Yes. We design and build Shopify stores for businesses in Sheffield and across South Yorkshire, and we've been building online stores since 2016. We're not a Shopify-only shop though: we build on WooCommerce too, which means the platform advice you get from us is based on your products and margins rather than on the one platform we happen to sell." },
+      { question: "Should I use Shopify or WooCommerce?", answer: "Both are excellent; the right choice depends on your products, volume and how you want to run things. Shopify handles hosting, security and payments for you and is the right answer for most product businesses. WooCommerce suits you if you already run WordPress, want full control of the checkout and data, or sell in an unusual way. We'll recommend the best fit on a quick call, including when that's the one we'd earn less on." },
+      { question: "Can you migrate my existing store to Shopify?", answer: "Yes, and it's one of the most common jobs we take on. We move products, variants, collections, customers and order history across from Wix, Squarespace, Etsy, BigCommerce or an old WooCommerce site, then map every old URL to its new one with 301 redirects so you keep the Google rankings you've built. That redirect step is the one most migrations skip and the one that costs the most traffic." },
+      { question: "Can you customise my existing Shopify theme instead of rebuilding?", answer: "Often, yes, and it's usually better value. We restyle themes to match your brand properly, rebuild product pages that aren't converting, trim a bloated app stack that's slowing the store down, and fix the mobile experience. If a rebuild genuinely is the better spend, we'll say so and explain why rather than sell you the bigger job by default." },
+      { question: "How much does an ecommerce website cost in Sheffield?", answer: "Online stores start from £2,495 in our AI-accelerated lane, live in around six weeks, with the fully bespoke lane from £3,995 over roughly ten weeks. Larger catalogues and custom functionality are priced after a quick call to understand your setup. Book a free call and we'll give you a straight number." },
       { question: "Do you only work with Sheffield businesses?", answer: "We're Sheffield-based and love working locally, but most of the process happens online, so we build stores for clients across the UK." },
     ],
     ctaHeadline: "Need an online store that actually sells?",
     ctaSubtext: "Book a free 20-minute call. We'll tell you exactly what your Sheffield store needs to convert, no obligation.",
+    relatedLinks: [
+      { label: "WordPress Web Design Sheffield", href: "/wordpress-web-design-sheffield", blurb: "Going the WooCommerce route? Bespoke WordPress built clean and fast, never a stretched template." },
+      { label: "Web Design Sheffield", href: "/web-design-sheffield", blurb: "Need the website as well as the store? Custom Sheffield web design built to win enquiries." },
+      { label: "Local SEO Sheffield", href: "/local-seo-sheffield", blurb: "Selling locally too? Get into the Google map pack so nearby Sheffield customers find you first." },
+      { label: "Website Redesign Sheffield", href: "/website-redesign-sheffield", blurb: "Replacing a dated store or site without losing the rankings you've already earned." },
+    ],
     serviceName: "Ecommerce Web Design Sheffield",
     serviceType: "Web design",
   },
@@ -754,7 +914,7 @@ const extraPages: LandingPageData[] = [
     why: [
       { title: "We protect what's working.", description: "A redesign should never cost you rankings or traffic. We map, redirect and preserve before we touch the design." },
       { title: "Honest about what needs fixing.", description: "Sometimes it's the whole site, sometimes it's five key pages. We'll tell you straight what's costing you enquiries and what isn't." },
-      { title: "Before-and-after proof.", description: "500+ builds since 2016 and four years of back-to-back awards. We've redesigned sites in nearly every industry Sheffield has." },
+      { title: "Before-and-after proof.", description: "450+ builds since 2016 and four years of back-to-back awards. We've redesigned sites in nearly every industry Sheffield has." },
     ],
     faqHeading: "Sheffield website redesign",
     faqs: [
@@ -773,9 +933,9 @@ const extraPages: LandingPageData[] = [
   // graphic-designer pages: this one is cost/process/deliverables focused)
   {
     slug: "logo-design-sheffield",
-    metaTitle: "Logo Design Sheffield | Professional Designers | AW Media",
+    metaTitle: "Logo Design Sheffield | Full Logo Suite, Every File | AW Media",
     metaDescription:
-      "Professional logo design in Sheffield. A logo suite that works everywhere, with every file you'll need. Award-winning designers since 2016. Book a free call.",
+      "Logo design in Sheffield from a 4x award-winning studio. Hand-designed, never generated: a full logo suite with every print and web file included, since 2016.",
     tag: "Logo Design · Sheffield",
     title: "Logo design Sheffield",
     titleAccent: "businesses are proud to put everywhere.",
@@ -800,7 +960,7 @@ const extraPages: LandingPageData[] = [
     why: [
       { title: "Designed, not generated.", description: "No AI logo dumps, no template packs, no crowdsourcing sites. A designer draws your mark around your business." },
       { title: "A suite, not a single file.", description: "You get every version and format upfront, so you're never paying again later for 'the white one' or 'the print file'." },
-      { title: "Proven for nearly a decade.", description: "500+ brands and websites delivered since 2016, four years of back-to-back awards, and a 5.0 average client rating." },
+      { title: "Proven for nearly a decade.", description: "450+ brands and websites delivered since 2016, four years of back-to-back awards, and a 5.0 average client rating." },
     ],
     faqHeading: "Sheffield logo design",
     faqs: [
@@ -811,6 +971,12 @@ const extraPages: LandingPageData[] = [
     ],
     ctaHeadline: "Need a logo you're proud to put everywhere?",
     ctaSubtext: "Book a free 20-minute call. We'll tell you honestly whether your current logo is helping or hurting, no obligation.",
+    relatedLinks: [
+      { label: "What Logo Design Costs in Sheffield", href: "/blog/logo-design-cost-sheffield", blurb: "The honest breakdown of what you get at each price level, and where the cheap options catch you out." },
+      { label: "Branding Agency Sheffield", href: "/branding-agency-sheffield", blurb: "Ready for the full identity? Colours, typography and guidelines built around the logo." },
+      { label: "Graphic Designer Sheffield", href: "/graphic-designer-sheffield", blurb: "Ongoing design work: social graphics, print and brand assets from a real Sheffield designer." },
+      { label: "Web Design Sheffield", href: "/web-design-sheffield", blurb: "Carry the new logo straight into a website built around it, with nothing lost between suppliers." },
+    ],
     serviceName: "Logo Design Sheffield",
     serviceType: "Graphic design",
   },
@@ -890,7 +1056,7 @@ const extraPages: LandingPageData[] = [
     whyHeading: ["Why businesses use us", "for landing pages."],
     why: [
       { title: "From £695, live in days.", description: "AI-accelerated builds mean a genuinely custom, conversion-built page without agency lead times or agency invoices." },
-      { title: "We've built hundreds.", description: "Coaches, trades, clinics, ecommerce, SaaS: 500+ projects since 2016 means we already know what converts in your space." },
+      { title: "We've built hundreds.", description: "Coaches, trades, clinics, ecommerce, SaaS: 450+ projects since 2016 means we already know what converts in your space." },
       { title: "Judged on your numbers.", description: "A landing page has one honest metric: conversion rate. That's what we design for and what we report on." },
     ],
     faqHeading: "landing page design",
@@ -935,7 +1101,7 @@ const extraPages: LandingPageData[] = [
     whyHeading: ["Why UK small businesses", "choose AW Media."],
     why: [
       { title: "Priced for small businesses.", description: "AI acceleration cuts our build time, not our quality. You get the saving, and a site you'd swear cost five times more." },
-      { title: "500+ small businesses served.", description: "Trades, coaches, clinics, shops, studios: since 2016 small businesses have been the heart of what we do." },
+      { title: "450+ small businesses served.", description: "Trades, coaches, clinics, shops, studios: since 2016 small businesses have been the heart of what we do." },
       { title: "Honest advice first.", description: "We'll tell you what your business actually needs, even when that's less than you expected to spend." },
     ],
     faqHeading: "small business web design",
@@ -947,6 +1113,11 @@ const extraPages: LandingPageData[] = [
     ],
     ctaHeadline: "Ready for a website that wins you work?",
     ctaSubtext: "Book a free 20-minute call. We'll tell you exactly what your small business needs online and what it costs, no obligation.",
+    relatedLinks: [
+      { label: "Small Business Web Design Sheffield", href: "/small-business-web-design-sheffield", blurb: "Based in or near Sheffield? The local version of this page, built around South Yorkshire small businesses." },
+      { label: "AI Web Design", href: "/ai-web-design", blurb: "How our AI-accelerated lane gives small businesses a genuinely custom site in weeks, from £695." },
+      { label: "Landing Page Design", href: "/landing-page-design-uk", blurb: "Running ads? A conversion-first landing page so your ad spend comes back as enquiries." },
+    ],
     serviceName: "Web Design for Small Businesses",
     serviceType: "Web design",
   },
@@ -981,17 +1152,75 @@ const extraPages: LandingPageData[] = [
     why: [
       { title: "The economics just work.", description: "Agency-quality custom design at a price and timeline that used to be impossible. The AI saving is passed to you." },
       { title: "A designer signs everything off.", description: "AI is our tool, not our designer. Every decision that reaches you has been made or approved by a human who does this for a living." },
-      { title: "Proven at 500+ projects.", description: "We've been building websites since 2016 and building AI into the process for years, award-winning work, 5.0 average rating." },
+      { title: "Proven at 450+ projects.", description: "We've been building websites since 2016 and building AI into the process for years, award-winning work, 5.0 average rating." },
     ],
+    deepDive: {
+      heading: ["How AI-accelerated web design", "actually works."],
+      intro:
+        "\"AI web design\" is doing a lot of work as a phrase right now, and it's being used to sell two completely different things. Here's what it means when we say it, in enough detail that you can hold us to it or use it to judge anyone else you're talking to.",
+      blocks: [
+        {
+          title: "What changes for you, in plain terms",
+          body: [
+            "Three things, and they're all things you can measure. Your website goes live in weeks rather than months, so it starts earning while your competitors are still in a project queue. It costs less, because you aren't paying for the weeks of manual production that used to sit in the middle of every build.",
+            "And you see more options. The slow part of traditional design was always producing each direction by hand, which is why agencies show you one concept and hope you like it. We can explore several properly, so you choose from real alternatives instead of accepting the only one that got made.",
+          ],
+        },
+        {
+          title: "What AI does, and what it never does",
+          body: [
+            "AI does the production grind: drafting layout variations, building out repeated components, producing and retouching imagery, structuring content, writing first-pass copy for a human to sharpen, and handling the boilerplate code that every site needs and nobody enjoys writing.",
+            "AI does not decide who your customer is, what your offer should be, what to put first on the page, what to cut, or what your business should look like. Those are judgement calls made against your market and your goals, and a designer makes every one of them. If nobody at the studio can explain why your homepage is ordered the way it is, you didn't buy design, you bought output.",
+          ],
+        },
+        {
+          title: "Why it costs less without being worth less",
+          body: [
+            "Traditional agency pricing is mostly time. A big share of the invoice on a hand-built site is production hours: making the same component five times, resizing assets, wiring up pages. That work still has to happen, it just doesn't have to be done slowly by a person any more.",
+            "The saving comes out of the production, not out of the thinking. The strategy, the design decisions, the review passes and the quality bar are unchanged. That's the whole argument, and it's why we're comfortable putting the price on the page: from £695 for a landing page, with full websites and stores priced by scope.",
+          ],
+        },
+        {
+          title: "How to tell a designer-led build from a generated one",
+          body: [
+            "Ask to see three or four recent sites from the same studio, side by side. Generated sites give themselves away instantly: the same section order, the same stock-feeling imagery, the same shape of hero. Designer-led work looks like different businesses because it was made for different businesses.",
+            "Then ask two questions. Who makes the creative decisions, and can I speak to them? And what happens when I want something the tool doesn't do by default? If the answer to the second one is vague, you're buying a template generator with a person attached to the invoice.",
+          ],
+        },
+        {
+          title: "Where we deliberately don't use it",
+          body: [
+            "We don't let AI write your final copy unsupervised. Generic marketing prose is the fastest way to sound like every other business in your sector, and search engines have got noticeably better at spotting it since the 2026 updates.",
+            "We don't use AI-generated logos or brand marks. A logo has to work at a favicon and on a shop front, in one colour, for years. That's a craft job with real files at the end of it, which is why our logo work is drawn by a designer.",
+            "And we don't use it to fake proof. Every client name, review and figure on this site is real, because the alternative is a business that falls apart the first time someone checks.",
+          ],
+        },
+        {
+          title: "Is it right for your project?",
+          body: [
+            "It's the right lane when you need to be live soon, when the budget has to make sense against what the site will actually bring in, and when the project is a website rather than a bespoke platform. That covers most small and medium businesses, most service businesses, and nearly every landing page and campaign.",
+            "It's the wrong lane when the project needs deep research, complex custom functionality, or a long strategic runway. For that we have the fully bespoke lane, and we'll tell you plainly which one your project belongs in on the call. Two lanes, one quality standard.",
+          ],
+        },
+      ],
+    },
     faqHeading: "AI web design",
     faqs: [
       { question: "What is AI web design?", answer: "It's using AI tools through the design and build process: generating concepts, drafting layouts, structuring content and producing imagery, so a custom website comes together in a fraction of the traditional time. Done properly, a designer leads it all. Done lazily, it's a template generator. Always ask which one you're buying." },
       { question: "Will an AI-designed website look generic?", answer: "A generated one will. A designer-led one won't. Every site we ship is custom to your brand and audience, AI just lets us explore more directions faster and skip the slow production work. No two clients have ever received the same site." },
       { question: "How much does AI web design cost?", answer: "From £695 for a custom landing page, with full websites and online stores priced by scope, typically well under traditional agency pricing because we're not billing weeks of manual work. Book a free call for a straight number." },
       { question: "Is AI web design good for SEO?", answer: "The build method doesn't decide SEO, the build quality does. Our AI-accelerated sites ship fast, technically clean and with on-page SEO done properly, which is exactly what Google rewards. What hurts SEO is thin, generic auto-generated content, which is the version we don't sell." },
+      { question: "What's the difference between an AI website builder and AI web design?", answer: "An AI website builder hands you a tool and leaves you to it: you get a template filled in by a machine, and it looks like one. AI web design with us means a professional designer uses AI as a tool to build you a bespoke site faster. One is DIY software; the other is a design service that happens to be quicker and cheaper because of AI. Very different outcomes." },
+      { question: "How long does AI web design take?", answer: "Most of our AI-accelerated builds go live in 2 to 6 weeks depending on scope, versus the 8 to 12 weeks a comparable site takes built entirely by hand. You get a clear timeline before we start, and because AI removes the slow production grind, we can usually hit tight launch dates other studios can't." },
     ],
     ctaHeadline: "Want to see what AI web design really looks like?",
     ctaSubtext: "Book a free 20-minute call. We'll show you real builds, real timelines and a straight price for yours, no obligation.",
+    relatedLinks: [
+      { label: "How We Work (AI vs Bespoke)", href: "/how-we-work", blurb: "The two lanes side by side, so you can see exactly which fits your project and budget." },
+      { label: "Web Design for Small Businesses", href: "/web-design-for-small-businesses-uk", blurb: "Why AI-accelerated building is the third option between 'too expensive' and 'too cheap'." },
+      { label: "Landing Page Design", href: "/landing-page-design-uk", blurb: "A custom, conversion-first landing page from £695, live in days, built to make your ad spend pay." },
+      { label: "AI Web Design Sheffield", href: "/ai-web-design-sheffield", blurb: "Local to South Yorkshire? The Sheffield version, with a real team you can actually meet." },
+    ],
     serviceName: "AI Web Design",
     serviceType: "Web design",
   },

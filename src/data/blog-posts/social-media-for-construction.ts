@@ -96,6 +96,13 @@ const post: BlogPost = {
       ],
     },
     {
+      type: "callout",
+      label: "Haven't got time to design it all?",
+      text: "That's the bit that stops most firms. We handle the content side of social media marketing: working out what's worth posting, designing it on-brand, and delivering it on a schedule so you actually stay consistent.",
+      href: "/services/social-media",
+      linkLabel: "See our social media marketing and design",
+    },
+    {
       type: "h2",
       text: "The practical takeaway",
     },

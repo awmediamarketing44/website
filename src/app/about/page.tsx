@@ -85,7 +85,7 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-8">
-                  {["Started in a bedroom.", "Now trusted by 400+."].map((line, i) => (
+                  {["Started in a bedroom.", "Now trusted by 450+."].map((line, i) => (
                     <motion.span
                       key={i}
                       className={`block ${i > 0 ? "text-pink" : ""}`}
@@ -121,7 +121,7 @@ export default function AboutPage() {
                     account managers, no 6-week wait times.
                   </p>
                   <p>
-                    Fast forward to today and we&apos;ve built over 400 websites,
+                    Fast forward to today and we&apos;ve built over 450 websites,
                     won multiple awards back to back, grown into a team of 5, and
                     on 2 June 2026 we hit a full decade in business. We cut our
                     teeth in fitness, and now bring that craft to ambitious UK

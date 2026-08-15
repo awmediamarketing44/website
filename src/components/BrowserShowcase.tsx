@@ -36,7 +36,7 @@ export default function BrowserShowcase() {
         <div className="mx-auto flex max-w-md flex-col items-center gap-4 px-6 text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/85">
             <span className="h-1.5 w-1.5 rounded-full bg-pink" />
-            Recent Build · Newgen Coaching
+            Recent Build · Calibre Coaching
           </span>
           <h2 className="text-3xl font-black leading-[0.95] tracking-tight">
             Built <span className="gradient-text">like this.</span>
@@ -48,12 +48,12 @@ export default function BrowserShowcase() {
               <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
               <span className="h-2 w-2 rounded-full bg-[#28c840]" />
               <div className="mx-2 flex h-3.5 flex-1 items-center rounded border border-white/10 bg-white/5 px-2 font-mono text-[9px] text-muted">
-                newgencoaching.uk
+                calibre-coaching.com
               </div>
             </div>
             <img
-              src="/images/newgen-hero-v4.jpg"
-              alt="Newgen Coaching, a recent AW Media build."
+              src="/images/calibre-hero.jpg"
+              alt="Calibre Coaching, a recent AW Media build."
               width={1280}
               height={800}
               className="block aspect-[16/10] w-full bg-black object-cover object-top"
@@ -68,7 +68,7 @@ export default function BrowserShowcase() {
     );
   }
 
-  // ---- Desktop path: full pinned scrollytelling with the Newgen scroll loop ----
+  // ---- Desktop path: full pinned scrollytelling with the Calibre scroll loop ----
   return <DesktopBrowserShowcase wrapperRef={sectionRef} videoReady={videoReady} />;
 }
 
@@ -112,7 +112,7 @@ function DesktopBrowserShowcase({
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/85"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-pink animate-pulse" />
-              Recent Build · Newgen Coaching
+              Recent Build · Calibre Coaching
             </motion.span>
             <motion.h2
               style={{ opacity: headlineOpacity, y: headlineY }}
@@ -141,7 +141,7 @@ function DesktopBrowserShowcase({
                   <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#28c840]" />
                   <div className="flex-1 mx-2 sm:mx-3 h-5 sm:h-6 rounded-md bg-white/5 border border-white/10 flex items-center px-3 text-[10px] sm:text-xs text-muted font-mono">
                     <span className="hidden sm:inline text-pink/70 mr-1">https://</span>
-                    newgencoaching.uk
+                    calibre-coaching.com
                   </div>
                   <div className="hidden sm:flex items-center gap-1.5 opacity-50">
                     <span className="w-3 h-3 rounded-sm border border-white/20" />
@@ -155,15 +155,15 @@ function DesktopBrowserShowcase({
                     muted
                     playsInline
                     preload="metadata"
-                    poster="/images/newgen-hero-v4.jpg"
+                    poster="/images/calibre-hero.jpg"
                     className="block w-full h-[calc(100%-2.25rem)] sm:h-[calc(100%-2.75rem)] object-cover bg-black"
                   >
-                    <source src="/videos/newgen-scroll-loop-v2.webm" type="video/webm" />
-                    <source src="/videos/newgen-scroll-loop-v2.mp4" type="video/mp4" />
+                    <source src="/videos/calibre-scroll-loop.webm" type="video/webm" />
+                    <source src="/videos/calibre-scroll-loop.mp4" type="video/mp4" />
                   </video>
                 ) : (
                   <img
-                    src="/images/newgen-hero-v4.jpg"
+                    src="/images/calibre-hero.jpg"
                     alt=""
                     className="block w-full h-[calc(100%-2.25rem)] sm:h-[calc(100%-2.75rem)] object-cover bg-black"
                   />

@@ -74,7 +74,7 @@ const post: BlogPost = {
     },
     {
       type: "p",
-      text: "We have shipped 459 websites over ten years and the pattern barely changes. The work was almost never the problem. The thing standing in for the business at the deciding moment was.",
+      text: "We have shipped 450+ websites over ten years and the pattern barely changes. The work was almost never the problem. The thing standing in for the business at the deciding moment was.",
     },
     {
       type: "p",

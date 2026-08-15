@@ -7,13 +7,15 @@ import { motion } from "motion/react";
 import { projects } from "@/data/projects";
 
 const FEATURED_SLUGS = [
+  "calibre-coaching",
+  "physique-method",
+  "titanom",
   "team-procoach",
   "newgen-coaching",
+  "spotlight-dance",
   "drug-free-bodybuilding",
   "jic",
   "nick-firth-tiles",
-  "warrior-movement",
-  "fortis",
   "dan-reeve",
 ];
 
