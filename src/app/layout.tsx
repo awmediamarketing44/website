@@ -5,7 +5,7 @@ import FloatingOrbs from "@/components/FloatingOrbs";
 import CursorSpotlight from "@/components/CursorSpotlight";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics, { AnalyticsNoscript } from "@/components/Analytics";
-import { aggregateRating } from "@/lib/schema";
+import { aggregateRating, offerCatalog } from "@/lib/schema";
 import "./globals.css";
 
 const rethinkSans = Rethink_Sans({
@@ -73,6 +73,7 @@ const organizationSchema = {
     availableLanguage: "English",
   },
   aggregateRating: aggregateRating(),
+  hasOfferCatalog: offerCatalog(),
   sameAs: [
     "https://www.instagram.com/awmedia.marketing/",
     "https://www.facebook.com/awmedianmarketing",

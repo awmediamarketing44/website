@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLandingPageBySlug } from "@/data/landing-pages";
+import { ORG_ID } from "@/lib/schema";
 import SeoLandingClient from "@/components/SeoLandingClient";
 
 const siteUrl = "https://awmedia.marketing";
@@ -45,6 +46,9 @@ export function SeoLandingPage({ slug }: { slug: string }) {
     description: data.metaDescription,
     url: `${siteUrl}/${slug}`,
     provider: {
+      // Same @id as the sitewide Organization node, so these 15 landing pages
+      // strengthen one entity instead of declaring 15 separate businesses.
+      "@id": ORG_ID,
       "@type": "Organization",
       name: "AW Media & Marketing",
       url: siteUrl,

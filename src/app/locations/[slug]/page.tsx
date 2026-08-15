@@ -6,7 +6,7 @@ import {
   metaTitle,
   metaDescription,
 } from "@/data/locations";
-import { breadcrumb } from "@/lib/schema";
+import { breadcrumb, locationService } from "@/lib/schema";
 import Client from "./Client";
 
 export function generateStaticParams() {
@@ -50,11 +50,16 @@ export default async function Page({
     { name: "Locations", path: "/locations" },
     { name: `Web Design ${loc.city}`, path: `/locations/${slug}` },
   ]);
+  const serviceSchema = locationService(loc);
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <Client slug={slug} />
     </>
