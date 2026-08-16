@@ -7,6 +7,8 @@ import { motion } from "motion/react";
 import { projects } from "@/data/projects";
 
 const FEATURED_SLUGS = [
+  "blood-clinic",
+  "dixons-dispatch",
   "calibre-coaching",
   "physique-method",
   "titanom",

@@ -32,6 +32,9 @@ export interface ProjectData {
   documents?: string[];         // Optional document page images (rendered welcome pack / PDF pages)
   documentsTitle?: [string, string]; // Optional heading for the documents section (default ["The welcome","pack."])
   documentsSubtitle?: string;   // Optional subtitle for the documents section
+  pages?: string[];             // Optional LANDSCAPE stills of further pages on the live site
+  pagesTitle?: [string, string];     // Optional heading (default ["Every page","earns its place."])
+  pagesSubtitle?: string;       // Optional subtitle for the pages section
   showcase?: string[];          // Optional LANDSCAPE stills (admin/CMS screens, wide brand assets)
   showcaseTitle?: [string, string];  // Optional heading (default ["Behind the","scenes."])
   showcaseSubtitle?: string;    // Optional subtitle for the showcase section
@@ -43,6 +46,188 @@ export interface ProjectData {
 // ============================================================================
 
 const webProjects: ProjectData[] = [
+  {
+    slug: "blood-clinic",
+    title: "The Blood Clinic UK",
+    category: "AI-Powered",
+    tags: [
+      "AI-Accelerated",
+      "Custom Platform",
+      "Patient Portal",
+      "Booking Engine",
+      "WooCommerce",
+      "Lab API",
+    ],
+    heroImage: "/images/projects/blood-clinic/hero.jpg",
+    thumbnailImage: "/images/projects/blood-clinic/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Rich / The Blood Clinic UK",
+      industry: "Private Blood Testing Clinic",
+      location: "Sheffield, Retford & 65 clinics nationwide",
+      website: "https://thebloodclinic.uk/",
+    },
+    brief:
+      "A private blood testing clinic running on three outsourced plugins and around seven thousand lines of code nobody could safely touch. Bookings hung, results were hard to read, and a medical PDF could be downloaded by anyone who guessed the link. We rebuilt the whole thing: the booking engine, the patient portal, the reporting, the lab connection and the back office the owner runs it from.",
+    challenge: [
+      "The booking diary called the lab while the page was still loading, with no timeout set and nothing cached, on top of WooCommerce Bookings working out availability at the same time. Customers watched a spinner before they could pick a date, and some of them left.",
+      "Patients got a plain lab PDF and a list of numbers. No context, no reference ranges they could read at a glance, no way to see whether a marker had moved since last time.",
+      "Results PDFs sat on a public endpoint that never checked who was asking, and the results webhook accepted every caller, created accounts and wrote patient details into the error log.",
+      "Orders were handed to the lab on the thank-you page with no queue and no retry. When it failed, nobody found out, which is exactly why nationwide bookings sometimes went quiet.",
+      "When a booking could not be placed, the code deleted the order. A paid order, gone.",
+      "Missing clinical fields were filled with hardcoded defaults, so a sample could reach the lab dated 31 December 2000 and marked male.",
+      "There was no data model. Patients, registrations and results all lived in scattered WordPress meta, and nine paid plugins were propping the rest up.",
+    ],
+    approach: [
+      "One plugin instead of three, with its own database tables for patients, registrations, results, appointments and a visible sync log. Every job that talks to the lab goes through a proper queue that retries, and every failure is something you can look at rather than guess at.",
+      "The booking diary rebuilt around when work actually happens. The page paints straight away, both clinic calendars are fetched quietly in the background while the customer is still choosing a location, and the times for a single day are pulled only when that day is tapped. By the time anyone picks a clinic the month is already there.",
+      "A patient portal that answers the question people actually have. A health snapshot at the top, anything outside its healthy range brought to the front, then a system-by-system view, then every marker with its reference range drawn as a gauge and its history behind a tap.",
+      "The clinic's own branded PDF, built from the stored results rather than passing on the lab's template, carrying the doctor's letter, the gauges and the out-of-range flags. It is never emailed as an attachment: health data does not belong in an inbox, so the email links to a download that checks who is asking.",
+      "A back office the owner runs without us. His clinic hours, closures, slot length, capacity, buffer and lead time, a colour-coded calendar of who is coming in, walk-in entry, the emails his customers receive, and reporting on revenue, locations, busiest days and test popularity.",
+      "AI accelerated the build. A rebuild of this size, on a live clinic taking real orders, is not something a business this size gets offered otherwise.",
+    ],
+    features: [
+      "Patient results portal with reference-range gauges",
+      "Out-of-range markers surfaced first, with trends",
+      "Plain-English guide to every marker tested",
+      "Branded PDF report, behind a permission check",
+      "Booking in three modes: clinic, nationwide, home kit",
+      "Postcode and town finder across 65 clinics",
+      "Owner-controlled diary, hours, closures and capacity",
+      "Colour-coded admin calendar, synced to Google",
+      "Walk-in entry with an other-lab safeguard",
+      "Editable customer emails, separate from WooCommerce",
+      "Revenue, location and test-popularity reporting",
+      "Queued lab sync with retries and a visible log",
+    ],
+    results: {
+      stats: [
+        {
+          value: "199,131",
+          label: "Historic results migrated into the new portal, for 2,206 patients",
+        },
+        {
+          value: "1,704",
+          label: "Existing bookings moved into the new diary so no slot could be sold twice",
+        },
+        {
+          value: "9 plugins",
+          label: "Paid plugins retired, including WooCommerce Bookings",
+        },
+        {
+          value: "No waiting",
+          label: "A month of real availability is in hand before a customer picks a clinic",
+        },
+      ],
+    },
+    gallery: [
+      "/images/projects/blood-clinic/desktop.jpg",
+      "/images/projects/blood-clinic/mobile.jpg",
+    ],
+    pages: [
+      "/images/projects/blood-clinic/portal/booking-1-method-crop.jpg",
+      "/images/projects/blood-clinic/portal/booking-2-clinic-crop.jpg",
+      "/images/projects/blood-clinic/portal/booking-3-calendar-crop.jpg",
+      "/images/projects/blood-clinic/portal/booking-4-slots-crop.jpg",
+    ],
+    pagesTitle: ["Booking that does not", "keep you waiting."],
+    pagesSubtitle:
+      "Four taps from a test to a time. How you want to be tested, where, which day, which slot. The old diary made you wait on the lab before the page had even finished loading. This one loads first and does the waiting itself, in the background, while you are still reading.",
+    showcase: [
+      "/images/projects/blood-clinic/portal/portal-2-attention.jpg",
+      "/images/projects/blood-clinic/portal/portal-3-systems.jpg",
+      "/images/projects/blood-clinic/portal/portal-4-test.jpg",
+      "/images/projects/blood-clinic/portal/portal-6-allmarkers.jpg",
+      "/images/projects/blood-clinic/portal/portal-7-trend.jpg",
+      "/images/projects/blood-clinic/portal/portal-9-guide.jpg",
+    ],
+    showcaseTitle: ["Your results, in", "a language you speak."],
+    showcaseSubtitle:
+      "Anything outside its healthy range comes first. Then a system-by-system read, then every marker against the range it should sit in, with its history behind a tap and a plain-English explanation of what it measures. Shown on a test account with demonstration results, not a patient's record.",
+    relatedProjects: ["dixons-dispatch", "calibre-coaching"],
+  },
+
+  {
+    slug: "dixons-dispatch",
+    title: "Dixons Dispatch",
+    category: "AI-Powered",
+    tags: ["AI-Accelerated", "Website", "Custom Platform", "Operations CRM", "Driver App"],
+    heroImage: "/images/projects/dixons-dispatch/hero.jpg",
+    thumbnailImage: "/images/projects/dixons-dispatch/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Benn Dixon / Dixons Dispatch",
+      industry: "ADR Class 7 & NHS Courier",
+      location: "Stevenage, Hertfordshire",
+      website: "https://dixonsdispatch.co.uk/",
+    },
+    brief:
+      "A family courier firm that has carried radioactive and medical consignments for the NHS for over 40 years, being sold short by a dated listing site and run out of a 32-bit database with no future. We rebuilt both ends: a website that wins the specialist work, and a bespoke operations platform that runs the business behind it.",
+    challenge: [
+      "Their old site read like a general courier. The ADR Class 7 licensing, the radioactive work and four decades with the NHS were all buried, so they were being priced against firms who could not legally take the job.",
+      "The office ran on a 32-bit Microsoft Access system being phased out at the end of 2026. Jobs, invoices and driver pay all lived somewhere with no support and no way forward.",
+      "Quoting, invoicing and pay were manual. Prices worked out by hand off a spreadsheet, invoices raised one job at a time, month end done in Excel, vehicle checks on paper in a folder.",
+      "Nothing joined up. A website enquiry did not become a job, and a delivered job did not become an invoice, so the same details were typed out three or four times.",
+    ],
+    approach: [
+      "A website built around the work only they can take. A page per specialism, a page per area they cover, full schema and an FAQ written for AI search, so the search that matters finds the specialist rather than the nearest van.",
+      "The quote form on the contact page is not a contact form. It saves the enquiry the moment someone types their name, asks for postcodes, weight, dimensions and ADR details, warns when a load will not fit the van, and lands straight on the job board as a live enquiry.",
+      "A bespoke operations platform to replace the Access system, written in plain PHP so it runs on the hosting they already pay for. One database, three doors: the office, the drivers, and their customers.",
+      "Pricing built from their own rate card. Two postcodes give the real driving miles for the round trip from base, their rate is applied, waiting time and extra drops are added, and the Congestion Charge, ULEZ, Dart Charge or M6 toll on that route is flagged before anyone is out of pocket.",
+      "Month end down to a few clicks. Every job carries its price, the system groups them by account, raises one branded invoice per customer per month and one pay statement per driver, and emails them out with the PDF attached.",
+      "AI accelerated the build. That is the only reason a firm this size gets a bespoke website and a platform of this scope at all, instead of another five years on the Access database.",
+    ],
+    features: [
+      "Bespoke website built for AI and local search",
+      "Quoting enquiry form straight to the job board",
+      "Live job pipeline the office drags through stages",
+      "Automatic round-trip mileage, tolls and ULEZ",
+      "Monthly invoicing and driver pay, PDFs emailed out",
+      "Paper vehicle checks digitised, with a defect board",
+      "Installable driver app with photo proof of delivery",
+      "Customer portal with one-click repeat bookings",
+    ],
+    results: {
+      stats: [
+        {
+          value: "Replaces Access",
+          label: "The 32-bit back office being phased out at the end of 2026",
+        },
+        {
+          value: "One record",
+          label: "Office, drivers and customers on the same live job",
+        },
+      ],
+    },
+    gallery: [
+      "/images/projects/dixons-dispatch/desktop.jpg",
+      "/images/projects/dixons-dispatch/mobile.jpg",
+    ],
+    pages: [
+      "/images/projects/dixons-dispatch/service-adr.jpg",
+      "/images/projects/dixons-dispatch/service-medical.jpg",
+      "/images/projects/dixons-dispatch/areas.jpg",
+      "/images/projects/dixons-dispatch/contact-form.jpg",
+    ],
+    pagesTitle: ["The work only they", "can take."],
+    pagesSubtitle:
+      "A page for each specialism and each area they cover, so the enquiry that is worth having lands on the right one. The quote form on the contact page is the front door of the platform, not a contact form.",
+    showcase: [
+      "/images/projects/dixons-dispatch/crm/crm-1-pipeline.jpg",
+      "/images/projects/dixons-dispatch/crm/crm-2-quote.jpg",
+      "/images/projects/dixons-dispatch/crm/crm-5-routes.jpg",
+      "/images/projects/dixons-dispatch/crm/crm-3-invoices.jpg",
+      "/images/projects/dixons-dispatch/crm/crm-4-checklists.jpg",
+      "/images/projects/dixons-dispatch/crm/crm-6-reports.jpg",
+    ],
+    showcaseTitle: ["The system", "underneath."],
+    showcaseSubtitle:
+      "The half nobody sees, and the half that replaces the old database. The board the office works off, pricing a job while the customer is still on the phone, their rate card, month end, the paper vehicle checks made digital, and the numbers out the back. Names, registrations and figures shown here are demonstration data, not their live jobs.",
+    relatedProjects: ["calibre-coaching", "physique-method"],
+  },
+
   {
     slug: "calibre-coaching",
     title: "Calibre Coaching",
