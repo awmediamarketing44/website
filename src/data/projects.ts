@@ -47,6 +47,314 @@ export interface ProjectData {
 
 const webProjects: ProjectData[] = [
   {
+    slug: "apex-gym-glasgow",
+    title: "Apex Gym Glasgow",
+    category: "AI-Powered",
+    tags: [
+      "Website",
+      "AI-Accelerated",
+      "Bespoke Design",
+      "Custom Build",
+      "Hosting",
+      "SSL",
+      "Coaching",
+      "Glasgow, UK",
+    ],
+    heroImage: "/images/projects/apex-gym-glasgow/hero.jpg",
+    thumbnailImage: "/images/projects/apex-gym-glasgow/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Apex Gym Glasgow",
+      industry: "Small Group Personal Training",
+      location: "Southside, Glasgow",
+      website: "https://apexgymglasgow.com/",
+    },
+    brief:
+      "Sean runs small group personal training in the Southside of Glasgow. He had no website. The brand, the coaching, the members and the community all existed, they just lived on Instagram, and the only link anywhere was a raw Google Form. He filled in our brief form asking for enquiries, credibility and to be found on Google. Seven days later the site was live on his own domain.",
+    challenge: [
+      "There was no website at all. Someone would watch a reel, decide they were interested, tap the link and land on a bare Google Form with no gym behind it. No prices, no timetable, no faces, nothing to say what they were actually signing up for.",
+      "The brand already existed and was genuinely good. Black, white type, wide-tracked APEX, photography stripped back to near mono, the same lettering that is painted on his gym wall. It just had nowhere to live except a grid of posts that scroll away.",
+      "Everything Apex sells runs on a cap of six people a session. That is the whole proposition, and it is the thing a stranger cannot tell from the outside. The conditioning classes are a different thing entirely and run twenty to thirty plus, so the site had to hold both without muddling them.",
+      "The thing stopping people joining was never the design. It was five sentences he hears every week. I do not have time. I will join once I am in better shape. What if I am not fit enough. What if I cannot keep up. What if I do not know anyone.",
+      "He owned apexgymglasgow.com and it went nowhere. The domain had been sitting on a 404 while every enquiry took the long way round through a form.",
+    ],
+    approach: [
+      "We did not invent a look for him. He had already built one and posts it a slide at a time. So the site is his own system scaled up rather than a new coat of paint, which is why it landed first time.",
+      "The hero is his footage. A locked off wide of the real gym, the real APEX wall, a coach working with a member. We tried four other heroes that made the typography the event and every one of them was wrong. The gym is more interesting than any type treatment we could put over it.",
+      "The copy is his. Nearly every line on the page is lifted straight out of his own captions, because he had already written the website without realising it. The questions section is his objection reels word for word, so the page answers people in the same voice they already follow.",
+      "One page, because joining a gym is one decision. Who you are, how it works, when it runs, who else is there, what people say, what you are worried about, and then the form. In that order, in a single scroll.",
+      "His members do the selling. Real stories under real names, a continuous river of photographs from meetups and sports day and hill walks, and clips of members on camera with no script. Every gym in the country claims community. He can prove it, so we let the photographs do it.",
+      "He can change it himself. Text and images are editable on the live site, so a timetable change or a new set of photos does not need to come back to us.",
+    ],
+    features: [
+      "Single page site, custom built, no template",
+      "Hero video cut from the gym's own footage",
+      "Weekly timetable with the sessions and open gym hours",
+      "Member stories under real names",
+      "Continuous community photo river",
+      "Member video clips, straight from the gym",
+      "Questions section built from the objections he hears weekly",
+      "Enquiry form landing in the gym inbox",
+      "Client-editable text and images",
+      "Hosting, SSL and the domain pointed at it",
+      "Search and social titles, descriptions and share cards",
+    ],
+    testimonial: {
+      quote: "Looks class bro, really happy with it to be honest.",
+      name: "Sean",
+      role: "Founder, Apex Gym Glasgow",
+    },
+    results: {
+      stats: [
+        {
+          value: "7 days",
+          label: "From filling in the brief form to a live site on his own domain",
+        },
+        {
+          value: "A Google Form",
+          label:
+            "The entire online front door before this. No website, nothing on the domain he already owned",
+        },
+        {
+          value: "One page",
+          label:
+            "Everything someone needs to decide, in one scroll, with the trial enquiry at the end of it",
+        },
+        {
+          value: "Groups of 6",
+          label:
+            "The cap the whole model runs on, and the number the site had to make impossible to miss",
+        },
+      ],
+    },
+    gallery: [
+      "/images/projects/apex-gym-glasgow/desktop.jpg",
+      "/images/projects/apex-gym-glasgow/mobile.jpg",
+    ],
+    pages: [
+      "/images/projects/apex-gym-glasgow/pages/who-we-are.jpg",
+      "/images/projects/apex-gym-glasgow/pages/timetable.jpg",
+      "/images/projects/apex-gym-glasgow/pages/members.jpg",
+      "/images/projects/apex-gym-glasgow/pages/community.jpg",
+      "/images/projects/apex-gym-glasgow/pages/on-camera.jpg",
+      "/images/projects/apex-gym-glasgow/pages/trial.jpg",
+    ],
+    pagesTitle: ["One page.", "Every question answered."],
+    pagesSubtitle:
+      "Joining a gym is one decision, so we did not spread it over six pages and hope people kept clicking. Who they are, how it runs, when it runs, who else trains there, what members say on camera, and the five things people talk themselves out of it with. Then the form.",
+    relatedProjects: ["onyx-lagree", "physique-method"],
+  },
+  {
+    slug: "dr-shabri",
+    title: "Dr Shabri",
+    category: "Web Design & Build",
+    tags: [
+      "WordPress",
+      "Elementor",
+      "Website Build",
+      "Local SEO",
+      "Dental & Aesthetics",
+      "Ongoing Support",
+    ],
+    heroImage: "/images/projects/dr-shabri/hero.jpg",
+    thumbnailImage: "/images/projects/dr-shabri/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Dr Shabri Chandarana",
+      industry: "Cosmetic Dentistry & Facial Aesthetics",
+      location: "Marylebone, London",
+      website: "https://drshabri.com/",
+    },
+    brief:
+      "A Marylebone practice that treats dentistry, facial aesthetics and regenerative health as one discipline rather than three departments. The website had to carry that idea across more than sixty pages without ever feeling like a treatment menu, book patients into three different clinical systems without dumping them in the wrong one, and be found by people searching for a treatment rather than for her name.",
+    challenge: [
+      "Sixty six pages, most of them treatments. On a site that size the danger is not the design, it is drift. Wording, buttons, headings and page furniture pull apart page by page until the twentieth treatment page reads like a different practice from the first.",
+      "Booking runs through separate clinical systems for dentistry, aesthetics and skincare. Every enquiry button had to land a patient in the right one, and the site was routing them through popups that added a step and lost people.",
+      "The practice writes in the first person, but large parts of the site said we and our, which reads as a clinic full of people when the whole proposition is that one clinician plans the treatment.",
+      "Patients search for the treatment, not the practice. Someone typing composite bonding or tear trough filler into Google has never heard of Dr Shabri, so every treatment page had to be able to win that search on its own.",
+      "Dental practices are regulated. GDC-required information has to be published and correct, and the practice address has to be right everywhere it appears, which on a site like this is more places than anyone expects.",
+    ],
+    approach: [
+      "One design system, applied everywhere rather than page by page. Where a change touched dozens of pages we scripted it against the page data instead of opening each one, so the fortieth treatment page came out identical to the first.",
+      "Booking popups replaced with buttons that go straight to the right portal. Sixty seven of them across forty four pages, split three ways so a dental patient, an aesthetics patient and a skincare patient each land where they should.",
+      "Every page given its own hand-written title, description and target search term. Not generated, not templated. All sixty six were then read back off the live page to prove what we wrote is what Google sees.",
+      "The practice published in a form search engines and AI assistants can read: the clinic as a named dental practice with its address, map position, opening hours and phone number, rather than leaving that buried in the footer as ordinary text.",
+      "Alt text written for ninety six images from where each image actually sits on the page, taking its meaning from the section it illustrates rather than from a filename.",
+      "The footer rebuilt into two columns and locked to the same width as the band above it, measured across five screen widths rather than eyeballed, so the edges line up on every machine.",
+      "The address verified against the postcode database before it was allowed anywhere near the site's structured data. On this site that mattered more than usual, because the regulatory page also carries the GDC's own address, and mixing the two up would have put the wrong practice on the map.",
+    ],
+    features: [
+      "Sixty six pages on one consistent design system",
+      "Treatment pages built to win their own search",
+      "Booking routed to three separate clinical portals",
+      "Direct-to-portal buttons, no popup in the way",
+      "Named dental practice markup with address and hours",
+      "Hand-written titles and descriptions on every page",
+      "Alt text taken from context, not filenames",
+      "GDC regulatory information published properly",
+      "Two-column footer with a working enquiry form",
+      "New treatment pages added inside the same system",
+      "Cached delivery for a fast repeat visit",
+      "Ongoing changes handled as the practice grows",
+    ],
+    results: {
+      stats: [
+        {
+          value: "66 pages",
+          label:
+            "Each with its own hand-written title, description and target search term, every one verified on the live page",
+        },
+        {
+          value: "67 popups",
+          label:
+            "Replaced with buttons that take a patient straight to the right booking system, across 44 pages",
+        },
+        {
+          value: "230ms",
+          label:
+            "Warm page load on a sixty six page Elementor site",
+        },
+        {
+          value: "5 new pages",
+          label:
+            "Built and published inside the existing design system, including the regulatory page the practice must show",
+        },
+      ],
+    },
+    gallery: [
+      "/images/projects/dr-shabri/desktop.jpg",
+      "/images/projects/dr-shabri/mobile.jpg",
+      "/images/projects/dr-shabri/desktop-full.jpg",
+    ],
+    pages: [
+      "/images/projects/dr-shabri/pages/home-disciplines.jpg",
+      "/images/projects/dr-shabri/pages/about.jpg",
+      "/images/projects/dr-shabri/pages/philosophy.jpg",
+      "/images/projects/dr-shabri/pages/treatment-harmonisation.jpg",
+      "/images/projects/dr-shabri/pages/treatment-full-face.jpg",
+      "/images/projects/dr-shabri/pages/treatment-invisalign.jpg",
+      "/images/projects/dr-shabri/pages/treatment-skinboosters.jpg",
+      "/images/projects/dr-shabri/pages/contact.jpg",
+      "/images/projects/dr-shabri/pages/gdc-regulations.jpg",
+      "/images/projects/dr-shabri/pages/home-footer.jpg",
+    ],
+    pagesTitle: ["Sixty six pages that", "read as one practice."],
+    pagesSubtitle:
+      "The work on a site this size is consistency. Every treatment page carries the same structure, the same tone and the same route to an enquiry, so a patient who arrives on skin boosters from a Google search gets the same practice as one who arrives on the homepage. The regulatory page is held to the same standard as the rest, because a dental site is judged on that too.",
+    relatedProjects: ["complete-dentist-academy", "blood-clinic", "kensington-scott"],
+  },
+
+  {
+    slug: "onyx-lagree",
+    title: "Onyx Lagree and Co",
+    category: "AI-Powered",
+    tags: [
+      "AI-Accelerated",
+      "Custom CMS",
+      "Website Build",
+      "Local SEO",
+      "Booking Integration",
+      "Fitness Studio",
+    ],
+    heroImage: "/images/projects/onyx-lagree/hero.jpg",
+    thumbnailImage: "/images/projects/onyx-lagree/thumb.jpg",
+    hasImages: true,
+    year: "2026",
+    client: {
+      name: "Paige & Kacey / Onyx Lagree and Co",
+      industry: "Lagree & Hot Mat Pilates Studio",
+      location: "Auckley, Doncaster",
+      website: "https://onyxlagreeandco.com/",
+    },
+    brief:
+      "Two sisters opened the north of England's only Lagree studio. They had the space, the machines and a following watching the fit-out go up. What they did not have was anywhere to send them. No website, no booking link, not even a link in the Instagram bio, because there was nothing to put in it. We built the site, and then we built them a way to run it themselves without ever ringing us.",
+    challenge: [
+      "The whole business lived in a feed. Every enquiry arrived as a direct message, which meant somebody had to be holding a phone for the studio to take a booking, and anyone who scrolled past at eleven at night was gone.",
+      "Nobody in Doncaster was searching for the studio by name, because nobody knew it existed. They were searching for Lagree and for reformer Pilates, and the studio had to be the answer to those searches or the launch would be carried entirely by the feed.",
+      "Neither founder wanted to learn a website. Their words, not ours. A normal dashboard, a page builder and a login they use twice a year is how a site quietly goes out of date and starts lying to customers about prices.",
+      "Half the facts did not exist yet when we started building. No confirmed prices, no timetable, no headshots. A site plastered in TBC reads as not open yet, which is the opposite of what a studio needs in its first month.",
+      "Classes are run in TeamUp, which the studio manages itself. Typing the timetable onto the website as well would have meant two places to keep right, and one of them would have been wrong within a fortnight.",
+    ],
+    approach: [
+      "The design was built first and the software second, so nothing got flattened to fit a template. Then we hand-built the site around it in PHP with its own database, which means every word and every price is real text on the page that Google can read, not something hidden inside an embed.",
+      "Editing is the site itself. They open their own website, turn editing on, click the words and type. Click a photo and pick a different one. There is no dashboard to learn, no preview, no publish button to be frightened of. It saves as they go.",
+      "Anything that grows, they grow themselves. Adding a membership, retiring a class, writing a new question and answer, putting a new instructor up with her photo. All of it is add and remove, not a phone call to us.",
+      "Nothing they have not answered ever appears. A contact detail with no answer removes its own row rather than showing a placeholder, and the pricing section stays hidden until a real price exists. In editing mode they see every empty slot with a prompt in it, so the gaps are visible to them and invisible to customers.",
+      "Local search was designed in, not bolted on. Every page opens with a plain answer to the question it is named after, the studio's details are published in a form Google and the AI assistants can read, and the address was validated against the Royal Mail database before it went anywhere near the page.",
+      "The timetable is pulled live out of TeamUp, so what a customer sees is whatever the studio set this morning. If they ever want the hand-built version back, clearing one field in settings brings it back with no developer involved.",
+      "AI accelerated the build. A bespoke site with its own content system, on a studio's opening budget, is not something a business this size normally gets offered.",
+    ],
+    features: [
+      "Click-to-edit on the live page, no dashboard",
+      "Photo swapping with a media library of past uploads",
+      "Add and remove FAQs, classes, memberships and staff",
+      "Live TeamUp timetable, managed in one place",
+      "Enquiry inbox with spam traps, built in",
+      "Page titles and descriptions the studio edits itself",
+      "Local business and FAQ markup for Google and AI search",
+      "Validated address, phone and hours in one place",
+      "Cookie consent with analytics off by default",
+      "Analytics and Search Console as paste-in fields",
+      "Deploys that back up, verify and roll themselves back",
+      "No plugins, no page builder, no monthly licences",
+    ],
+    results: {
+      stats: [
+        {
+          value: "250+",
+          label:
+            "Pieces of the site the studio changes itself, by clicking them on the live page",
+        },
+        {
+          value: "6 pages",
+          label:
+            "Live on opening week, with nothing marked TBC on any of them",
+        },
+        {
+          value: "No plugins",
+          label:
+            "Nothing to license, renew or pay for monthly. The site is theirs outright",
+        },
+        {
+          value: "One timetable",
+          label:
+            "Pulled live from the booking software they already run, so it is never typed twice",
+        },
+      ],
+    },
+    gallery: [
+      "/images/projects/onyx-lagree/desktop.jpg",
+      "/images/projects/onyx-lagree/mobile.jpg",
+      "/images/projects/onyx-lagree/desktop-full.jpg",
+    ],
+    pages: [
+      "/images/projects/onyx-lagree/pages/lagree-hero.jpg",
+      "/images/projects/onyx-lagree/pages/lagree-compare.jpg",
+      "/images/projects/onyx-lagree/pages/lagree-classes.jpg",
+      "/images/projects/onyx-lagree/pages/method-grid.jpg",
+      "/images/projects/onyx-lagree/pages/timetable-widget.jpg",
+      "/images/projects/onyx-lagree/pages/timetable-pricing.jpg",
+      "/images/projects/onyx-lagree/pages/contact-form.jpg",
+    ],
+    pagesTitle: ["The questions people ask", "before they book."],
+    pagesSubtitle:
+      "Most people arriving at a Lagree studio have never heard of Lagree. So the site answers that first, in plain words, before it asks anyone for anything. What the workout is, how it differs from Pilates, which of the two classes to start with, what it costs, and when the next one runs. The timetable is the studio's real schedule, live out of their booking software.",
+    showcase: [
+      "/images/projects/onyx-lagree/admin/edit-bar.jpg",
+      "/images/projects/onyx-lagree/admin/edit-media-library.jpg",
+      "/images/projects/onyx-lagree/admin/admin-staff.jpg",
+      "/images/projects/onyx-lagree/admin/admin-seo.jpg",
+      "/images/projects/onyx-lagree/admin/admin-settings.jpg",
+    ],
+    showcaseTitle: ["The bit they", "actually use."],
+    showcaseSubtitle:
+      "Neither founder wanted to learn a website, so there is nothing to learn. They open their own site, turn editing on, and the page tells them what to do: click any text to change it, click a photo to swap it. Photos come from a library of everything they have uploaded before. Instructors, prices, classes and questions all add and remove themselves. Even the titles Google shows in search results are theirs to write. Shown on the studio's own back office.",
+    relatedProjects: ["blood-clinic", "body-lab", "warrior-movement"],
+  },
+
+  {
     slug: "blood-clinic",
     title: "The Blood Clinic UK",
     category: "AI-Powered",

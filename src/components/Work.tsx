@@ -9,6 +9,7 @@ import { projects } from "@/data/projects";
 const FEATURED_SLUGS = [
   "blood-clinic",
   "dixons-dispatch",
+  "apex-gym-glasgow",
   "calibre-coaching",
   "physique-method",
   "titanom",
