@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import FloatingParticles from "@/components/FloatingParticles";
+import CrmEmbed from "@/components/CrmEmbed";
+import BookCallButton from "@/components/BookCallButton";
 import { packages, type Lane } from "@/data/packages";
+import { getDownload, magnetFormUrl } from "@/data/resources";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Websites lander. Cold Meta traffic, so it breaks from the rest of the site
@@ -31,7 +33,17 @@ import { packages, type Lane } from "@/data/packages";
 // The showcase rail. Images and URLs both come from what is already in the
 // repo (public/images/projects + src/data/projects.ts), so swapping a site in
 // or out is one entry here and nothing else.
-const WORK = [
+interface WorkItem {
+  slug: string;
+  name: string;
+  trade: string;
+  domain: string;
+  line: string;
+  /** Defaults to desktop.jpg. Set it when that file is not the public site. */
+  img?: string;
+}
+
+const WORK: WorkItem[] = [
   {
     slug: "kensington-scott",
     name: "Kensington Scott",
@@ -58,7 +70,11 @@ const WORK = [
     name: "The Blood Clinic UK",
     trade: "Clinic",
     domain: "thebloodclinic.uk",
-    line: "Tests, prices and booking in one run, so nobody has to ring up to find out what anything costs.",
+    // Not desktop.jpg. That one is the logged-in patient portal, a results
+    // dashboard with health markers on it, which is neither the public site nor
+    // something that belongs on an ad lander. site-home.jpg is the homepage.
+    img: "site-home.jpg",
+    line: "Sixty five clinics, every test priced, and booking that finishes in one run.",
   },
   {
     slug: "dixons-dispatch",
@@ -124,6 +140,20 @@ const STEPS = [
   },
 ];
 
+// The three guides that fit a websites push, in the order they matter to
+// somebody who came off a websites ad. Copy is NOT retyped here: it is read from
+// src/data/resources.ts so these cards cannot drift from /free-resources, and
+// each one posts into its own CRM magnet form which does the email capture.
+//
+// These sit at the very bottom on purpose. A free thing next to a paid thing
+// gives people a cheaper action, and some who would have enquired will take the
+// freebie instead. Last means it only catches the ones already leaving.
+const FREEBIES = [
+  "what-a-website-should-cost",
+  "website-that-sells-checklist",
+  "local-seo-starter",
+];
+
 const FAQS = [
   {
     q: "What is the difference between the two lanes?",
@@ -149,150 +179,36 @@ const FAQS = [
 
 // ─────────────────────────────────────────────────────────────────────────────
 
+// The enquiry goes into the CRM, not /api/contact.
+//
+// Everything of Alex's runs through crm.awmedia.marketing now: the pipeline,
+// partials, contracts and booking. A form posting to /api/contact would email
+// him and tag ActiveCampaign but never appear in the pipeline, and the CRM only
+// saves a partial once a name and number are in, which is the warmest list in
+// the funnel. So this embeds the CRM's own "Website enquiry" form, exactly as
+// /website-concept embeds its own.
+//
+// ActiveCampaign is unchanged and still the email list. It is Typeform, Calendly
+// and SignWell that the CRM replaced, not AC.
+//
+// NOTE for attribution: this is the shared /web-design form, so these leads land
+// under the same tag as every other website enquiry. If this campaign needs to be
+// measured on its own, make a /websites form in the CRM and change this one line.
+const FORM_URL = "https://crm.awmedia.marketing/web-design";
+
 function QuoteForm() {
-  const router = useRouter();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    lane: "",
-    service: "website",
-    message: "",
-    marketingOptIn: false,
-    company: "", // honeypot — must stay empty; bots fill it, humans never see it
-  });
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-    setError("");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) throw new Error("Failed to send");
-      router.push("/thank-you?form=websites");
-    } catch {
-      setError(
-        "Something went wrong. Try again, or email office@awmedia.marketing and we will pick it up."
-      );
-    } finally {
-      setSending(false);
-    }
-  };
-
-  const field =
-    "w-full rounded-xl border border-card-border bg-background px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-muted focus:border-pink/60";
-
   return (
-    <form
+    <div
       id="quote"
-      onSubmit={handleSubmit}
-      className="scroll-mt-24 space-y-4 rounded-3xl border border-card-border bg-card p-6 shadow-2xl shadow-black/40 sm:p-8"
+      className="scroll-mt-24 rounded-3xl bg-white p-3 shadow-2xl shadow-black/40 ring-1 ring-white/10 sm:p-5"
     >
-      <div>
-        <h2 className="text-xl font-black tracking-tight">Get a price</h2>
-        <p className="mt-1 text-sm text-muted">
-          Two minutes. We come back to you with what we would build and what it
-          costs.
-        </p>
-      </div>
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <input
-          required
-          type="text"
-          placeholder="Your name"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className={field}
-        />
-        <input
-          required
-          type="email"
-          placeholder="Email address"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className={field}
-        />
-      </div>
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <select
-          value={formData.service}
-          onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-          className={field}
-          aria-label="What you need"
-        >
-          <option value="landing-page">Landing page</option>
-          <option value="website">Website</option>
-          <option value="online-store">Online store</option>
-          <option value="other">Not sure yet</option>
-        </select>
-        <select
-          value={formData.lane}
-          onChange={(e) => setFormData({ ...formData, lane: e.target.value })}
-          className={field}
-          aria-label="Which lane"
-        >
-          <option value="">Which lane, if you know</option>
-          <option value="ai">AI-accelerated</option>
-          <option value="bespoke">Bespoke</option>
-        </select>
-      </div>
-
-      <textarea
-        rows={3}
-        placeholder="What does the business do, and what is not working at the moment?"
-        value={formData.message}
-        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-        className={field}
+      <CrmEmbed
+        src={FORM_URL}
+        title="Website enquiry"
+        autoHeight
+        minHeight={560}
       />
-
-      {/* Honeypot. Visually hidden, never focusable, never announced. */}
-      <input
-        type="text"
-        name="company"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-        value={formData.company}
-        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-        className="absolute left-[-9999px] h-0 w-0 opacity-0"
-      />
-
-      <label className="flex items-start gap-3 text-xs text-muted">
-        <input
-          type="checkbox"
-          checked={formData.marketingOptIn}
-          onChange={(e) =>
-            setFormData({ ...formData, marketingOptIn: e.target.checked })
-          }
-          className="mt-0.5 h-4 w-4 flex-shrink-0 accent-pink"
-        />
-        <span>
-          Send us the odd email about websites and what is working. No spam, and
-          you can drop off whenever you want.
-        </span>
-      </label>
-
-      {error && <p className="text-sm text-pink">{error}</p>}
-
-      <button
-        type="submit"
-        disabled={sending}
-        className="w-full rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-transform duration-200 hover:-translate-y-0.5 disabled:opacity-60"
-      >
-        {sending ? "Sending..." : "Get my price"}
-      </button>
-
-      <p className="text-center text-xs text-muted">
-        No card, no obligation, and we will not ring you out of the blue.
-      </p>
-    </form>
+    </div>
   );
 }
 
@@ -314,7 +230,7 @@ function BackToForm({ label = "Get my price" }: { label?: string }) {
 
 // A live client site in a browser frame. The domain is real and the site is
 // live, so the bar can carry it. Nothing in this rail is a concept.
-function SiteCard({ item }: { item: (typeof WORK)[number] }) {
+function SiteCard({ item }: { item: WorkItem }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -333,7 +249,7 @@ function SiteCard({ item }: { item: (typeof WORK)[number] }) {
       </div>
       <div className="relative aspect-[16/10] w-full bg-black">
         <Image
-          src={`/images/projects/${item.slug}/desktop.jpg`}
+          src={`/images/projects/${item.slug}/${item.img ?? "desktop.jpg"}`}
           alt={`${item.name} website`}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -673,6 +589,77 @@ export default function WebsitesClient() {
             </div>
 
             <BackToForm label="Right, price mine up" />
+          </div>
+        </section>
+
+        {/* ── Rather talk to somebody ───────────────────────────────────── */}
+        {/* Second door, same intent. Plenty of people will not fill a form in
+            but will happily put twenty minutes in a diary, and we have already
+            paid for the click either way. */}
+        <section className="border-t border-card-border py-16 lg:py-24">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <h2 className="text-3xl font-black leading-[1.05] tracking-tight sm:text-4xl">
+              Would you rather
+              <span className="gradient-text"> just talk it through?</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-muted">
+              Twenty minutes, no pitch. Tell us what the business does and what
+              is not working, and we will tell you straight what we would build
+              and what it would cost. If we are not the right fit we will say so.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <BookCallButton>Book a call</BookCallButton>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Freebies, last on the page ────────────────────────────────── */}
+        <section className="border-t border-card-border py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <h2 className="max-w-2xl text-3xl font-black leading-[1.05] tracking-tight sm:text-4xl">
+              Not ready yet?
+              <span className="gradient-text"> Take something useful with you.</span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-muted">
+              No cost and nothing to cancel. The first one has our own prices in
+              it, so you can hold them against whatever else you get quoted.
+            </p>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {FREEBIES.map((slug) => {
+                const d = getDownload(slug);
+                if (!d) return null;
+                return (
+                  <motion.a
+                    key={slug}
+                    href={magnetFormUrl(slug)}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex flex-col rounded-2xl border border-card-border bg-card p-7 transition-colors duration-300 hover:border-pink/30"
+                  >
+                    <div className="flex items-baseline justify-between gap-3">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-pink">
+                        {d.kicker}
+                      </span>
+                      <span className="text-[10px] uppercase tracking-widest text-muted">
+                        {d.format}
+                      </span>
+                    </div>
+                    <h3 className="mt-3 text-lg font-bold leading-snug">
+                      {d.title}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                      {d.description}
+                    </p>
+                    <span className="mt-6 text-sm font-semibold text-pink">
+                      {d.cta}
+                    </span>
+                  </motion.a>
+                );
+              })}
+            </div>
           </div>
         </section>
 
