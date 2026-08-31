@@ -41,6 +41,8 @@ interface WorkItem {
   line: string;
   /** Defaults to desktop.jpg. Set it when that file is not the public site. */
   img?: string;
+  /** Set ONLY when the build is not live yet, so the card cannot imply it is. */
+  status?: string;
 }
 
 const WORK: WorkItem[] = [
@@ -49,14 +51,20 @@ const WORK: WorkItem[] = [
     name: "Kensington Scott",
     trade: "Kitchens",
     domain: "kensingtonscott.co.uk",
-    line: "Twenty five pages behind five tabs, and a builder that prices a kitchen live before anyone rings.",
+    // The REDESIGN, captured from the showcase build, not the old landing page.
+    // It is NOT live: kensingtonscott.co.uk and the bespoke subdomain both still
+    // serve the old page, and the redesign only exists as a client preview. So
+    // the card says so rather than letting the browser frame imply otherwise.
+    img: "redesign-desktop.jpg",
+    status: "Finished, not launched yet",
+    line: "Twenty five pages behind five tabs, and a builder that prices a kitchen before anyone rings.",
   },
   {
-    slug: "hotchen-construction",
-    name: "Hotchen Construction",
-    trade: "Construction",
-    domain: "hotchenconstruction.com",
-    line: "The work does the selling. Projects up front, so a stranger can see the standard before they read a word.",
+    slug: "apex-gym-glasgow",
+    name: "Apex Gym Glasgow",
+    trade: "Gym",
+    domain: "apexgymglasgow.com",
+    line: "Groups of six, every session coached, and the six week trial starts in two taps on a phone.",
   },
   {
     slug: "br-accountancy",
@@ -263,6 +271,11 @@ function SiteCard({ item }: { item: WorkItem }) {
             {item.trade}
           </span>
         </div>
+        {item.status && (
+          <span className="mt-2 inline-block rounded-full border border-pink/30 bg-pink/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-pink">
+            {item.status}
+          </span>
+        )}
         <p className="mt-2 text-sm leading-relaxed text-muted">{item.line}</p>
       </div>
     </motion.div>
@@ -434,13 +447,14 @@ export default function WebsitesClient() {
         <section className="border-t border-card-border py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <h2 className="max-w-2xl text-3xl font-black leading-[1.05] tracking-tight sm:text-4xl">
-              These are all live,
+              Six we have built.
               <br />
-              <span className="gradient-text">and you can go and look.</span>
+              <span className="gradient-text">Five you can go and look at.</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted">
               Different trades, different budgets, same standard. Open any of
-              them on your phone and have a proper look.
+              them on your phone and have a proper look. The sixth is Kensington
+              Scott&apos;s new site, finished and waiting to go live.
             </p>
 
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
