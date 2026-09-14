@@ -31,6 +31,18 @@ const REVISED = {
   comparisons: "2026-07-12",
 } as const;
 
+// Blog posts carry a human display date ("August 2026"), not a machine date.
+// Passing that string straight to lastModified emits an invalid <lastmod>, so
+// normalise to YYYY-MM-DD. Built from local getters, not toISOString(), because
+// UTC conversion shifts a local-midnight date back a day under BST.
+function isoDate(raw: string, fallback: string): string {
+  const d = new Date(raw);
+  if (Number.isNaN(d.getTime())) return fallback;
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${d.getFullYear()}-${mm}-${dd}`;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
@@ -94,7 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,
-    lastModified: post.date,
+    lastModified: isoDate(post.date, REVISED.core),
     changeFrequency: "monthly",
     priority: 0.6,
   }));
