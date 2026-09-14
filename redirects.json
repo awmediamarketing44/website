@@ -1013,5 +1013,130 @@
     "source": "/web-design-companies-chesterfield",
     "destination": "/web-design-agency-chesterfield",
     "statusCode": 301
+  },
+  {
+    "source": "/services/web-design-and-development",
+    "destination": "/services/web-design",
+    "statusCode": 301
+  },
+  {
+    "source": "/services/logo-design-and-branding",
+    "destination": "/services/branding",
+    "statusCode": 301
+  },
+  {
+    "source": "/services/ecommerce-web-design",
+    "destination": "/services/ecommerce",
+    "statusCode": 301
+  },
+  {
+    "source": "/services/seo-and-website-support",
+    "destination": "/services/seo-support",
+    "statusCode": 301
+  },
+  {
+    "source": "/services/aw-ongoing-support",
+    "destination": "/services/seo-support",
+    "statusCode": 301
+  },
+  {
+    "source": "/services/web-hosting-sheffield",
+    "destination": "/services/seo-support",
+    "statusCode": 301
+  },
+  {
+    "source": "/services/wordpress-websites",
+    "destination": "/bespoke-wordpress-website",
+    "statusCode": 301
+  },
+  {
+    "source": "/services/responsive-web-design-sheffield",
+    "destination": "/web-design-sheffield",
+    "statusCode": 301
+  },
+  {
+    "source": "/services/video-photography",
+    "destination": "/services",
+    "statusCode": 301
+  },
+  {
+    "source": "/locations/freelance-web-designer-sheffield",
+    "destination": "/freelance-web-design-sheffield",
+    "statusCode": 301
+  },
+  {
+    "source": "/locations/freelance-web-designer-manchester",
+    "destination": "/locations/web-design-manchester",
+    "statusCode": 301
+  },
+  {
+    "source": "/locations/freelance-web-designer-liverpool",
+    "destination": "/locations/web-design-liverpool",
+    "statusCode": 301
+  },
+  {
+    "source": "/locations/freelance-web-designer-newcastle",
+    "destination": "/locations/web-design-newcastle",
+    "statusCode": 301
+  },
+  {
+    "source": "/locations/freelance-web-designer-barnsley",
+    "destination": "/locations/web-design-barnsley",
+    "statusCode": 301
+  },
+  {
+    "source": "/locations/freelance-web-designer-chesterfield",
+    "destination": "/locations/web-design-chesterfield",
+    "statusCode": 301
+  },
+  {
+    "source": "/locations/freelance-web-designer-livingston",
+    "destination": "/locations/web-design-livingston",
+    "statusCode": 301
+  },
+  {
+    "source": "/about-freelance-web-designer-sheffield/meet-aw",
+    "destination": "/about",
+    "statusCode": 301
+  },
+  {
+    "source": "/testimonials",
+    "destination": "/reviews",
+    "statusCode": 301
+  },
+  {
+    "source": "/web-design-agency",
+    "destination": "/services/web-design",
+    "statusCode": 301
+  },
+  {
+    "source": "/shopify-developers-sheffield",
+    "destination": "/services/ecommerce",
+    "statusCode": 301
+  },
+  {
+    "source": "/affordable-shopify-websites",
+    "destination": "/services/ecommerce",
+    "statusCode": 301
+  },
+  {
+    "source": "/one-page-websites",
+    "destination": "/landing-page-design-uk",
+    "statusCode": 301
+  },
+  {
+    "source": "/estimate-project",
+    "destination": "/contact",
+    "statusCode": 301
+  },
+  {
+    "source": "/website-enquiry",
+    "destination": "/contact",
+    "statusCode": 301
+  },
+  {
+    "source": "/home",
+    "destination": "/",
+    "statusCode": 301
   }
 ]

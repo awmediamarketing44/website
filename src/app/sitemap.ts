@@ -10,8 +10,28 @@ import { downloads } from "@/data/resources";
 
 const siteUrl = "https://awmedia.marketing";
 
+// Stable per-section revision dates.
+//
+// These must NOT be `new Date()`. A sitemap that stamps the current build time
+// on all 372 URLs tells crawlers every page changed on every deploy, which
+// carries no information, so Bing and Brave discount the field entirely.
+// Brave's main passive re-crawl trigger is a recent lastmod in the sitemap it
+// finds via robots.txt, so a build timestamp actively costs us re-crawls.
+//
+// Bump one of these only when that section's content actually changes.
+// Blog posts use their own real publication date instead.
+const REVISED = {
+  core: "2026-09-08",
+  services: "2026-08-03",
+  industries: "2026-07-12",
+  locations: "2026-06-21",
+  work: "2026-08-10",
+  landing: "2026-06-21",
+  resources: "2026-08-09",
+  comparisons: "2026-07-12",
+} as const;
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
 
   const staticPages: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "", priority: 1.0, freq: "weekly" },
@@ -32,48 +52,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/social-audit", priority: 0.6, freq: "monthly" },
     { path: "/geo-audit", priority: 0.7, freq: "monthly" },
     { path: "/ai-score", priority: 0.7, freq: "monthly" },
+    { path: "/ai-label-check", priority: 0.7, freq: "monthly" },
     { path: "/privacy-policy", priority: 0.2, freq: "yearly" },
     { path: "/cookie-policy", priority: 0.2, freq: "yearly" },
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticPages.map((p) => ({
     url: `${siteUrl}${p.path}`,
-    lastModified: now,
+    lastModified: REVISED.core,
     changeFrequency: p.freq,
     priority: p.priority,
   }));
 
   const serviceEntries: MetadataRoute.Sitemap = services.map((s) => ({
     url: `${siteUrl}/services/${s.slug}`,
-    lastModified: now,
+    lastModified: REVISED.services,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
   const industryEntries: MetadataRoute.Sitemap = industries.map((i) => ({
     url: `${siteUrl}/industries/${i.slug}`,
-    lastModified: now,
+    lastModified: REVISED.industries,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
   const locationEntries: MetadataRoute.Sitemap = locations.map((l) => ({
     url: `${siteUrl}/locations/${l.slug}`,
-    lastModified: now,
+    lastModified: REVISED.locations,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
   const workEntries: MetadataRoute.Sitemap = projects.map((p) => ({
     url: `${siteUrl}/work/${p.slug}`,
-    lastModified: now,
+    lastModified: REVISED.work,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,
-    lastModified: now,
+    lastModified: post.date,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
@@ -82,7 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Google discovers and indexes them for their target ranking terms.
   const landingEntries: MetadataRoute.Sitemap = landingPages.map((p) => ({
     url: `${siteUrl}/${p.slug}`,
-    lastModified: now,
+    lastModified: REVISED.landing,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
@@ -91,7 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // targets its own buyer-intent term and feeds the lead-magnet funnel.
   const resourceEntries: MetadataRoute.Sitemap = downloads.map((d) => ({
     url: `${siteUrl}/free-resources/${d.slug}`,
-    lastModified: now,
+    lastModified: REVISED.resources,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
@@ -99,7 +120,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Comparison / decision pages (AW vs agency, website cost, Wix vs pro).
   const comparisonEntries: MetadataRoute.Sitemap = comparisons.map((c) => ({
     url: `${siteUrl}/${c.slug}`,
-    lastModified: now,
+    lastModified: REVISED.comparisons,
     changeFrequency: "monthly",
     priority: 0.8,
   }));

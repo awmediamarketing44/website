@@ -13,7 +13,9 @@ const aiCrawlers = [
   "Perplexity-User", // Perplexity live fetch
   "Google-Extended", // Gemini + Google AI Overviews
   "Applebot-Extended", // Apple Intelligence
-  "ClaudeBot", // Anthropic
+  "ClaudeBot", // Anthropic training
+  "Claude-SearchBot", // Claude search index (drives citations)
+  "Claude-User", // Claude live fetch on a user's behalf
   "anthropic-ai",
   "Claude-Web",
   "cohere-ai",
