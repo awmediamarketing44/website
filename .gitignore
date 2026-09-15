@@ -48,3 +48,10 @@ next-env.d.ts
 scripts/_*.json
 public/images/projects/*/graphics/_apify-raw.json
 public/images/projects/*/_*
+
+# editor swap files and local backups
+*.swp
+*.bak
+
+# local build artefacts (deploy tarballs)
+*.tgz
