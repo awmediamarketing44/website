@@ -3,6 +3,7 @@
 // stays consistent (and truthful) across the site. Render the output with a
 // <script type="application/ld+json"> tag, matching the existing pages.
 import { testimonials } from "@/data/reviews";
+import { REVIEW_STATS } from "@/data/review-stats";
 import { services } from "@/data/services";
 import type { LocationData } from "@/data/locations";
 
@@ -71,6 +72,39 @@ export function offerCatalog(): Record<string, unknown> {
   };
 }
 
+// Per-service Service schema. The service pages previously carried only a
+// breadcrumb and their FAQs, so the thing the page is actually selling was
+// never named as a Service anywhere an answer engine could read it. Same shape
+// as locationService below, tied back to the one organisation.
+export function serviceSchema(s: {
+  slug: string;
+  title: string;
+  serviceType?: string;
+  headerDescription: string;
+  metaDescription?: string;
+  features: string[];
+}): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/services/${s.slug}#service`,
+    name: s.title,
+    serviceType: s.serviceType || s.title,
+    description: s.metaDescription || s.headerDescription,
+    url: `${SITE_URL}/services/${s.slug}`,
+    provider: { "@id": ORG_ID },
+    areaServed: { "@type": "Country", name: "United Kingdom" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${s.title} — what is included`,
+      itemListElement: s.features.map((f) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: f },
+      })),
+    },
+  };
+}
+
 // Per-location Service schema. Every location page previously served only the
 // sitewide Organization block plus a breadcrumb, so twelve pages were telling
 // answer engines the same single fact. This gives each one its own service
@@ -96,17 +130,18 @@ export function locationService(loc: LocationData): Record<string, unknown> {
   };
 }
 
-// AggregateRating built from the real on-site client testimonials (never
-// invented). Every featured testimonial is a verified 5-star client review.
+// AggregateRating is deliberately the Trustpilot figure alone: it is the one
+// rating we can point a reader (or Google) at to check. The Google reviews are
+// counted in visible copy but left out here because we do not publish a
+// verified Google rating value.
 export function aggregateRating(): Record<string, unknown> {
-  const count = testimonials.length;
   return {
     "@type": "AggregateRating",
-    ratingValue: "5",
+    ratingValue: REVIEW_STATS.trustpilot.rating,
     bestRating: "5",
     worstRating: "1",
-    ratingCount: count,
-    reviewCount: count,
+    ratingCount: REVIEW_STATS.trustpilot.count,
+    reviewCount: REVIEW_STATS.trustpilot.count,
   };
 }
 

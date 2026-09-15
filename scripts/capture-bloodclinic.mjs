@@ -21,9 +21,11 @@
 // JSON file at BC_CREDS ({ "user": ..., "pass": ... }).
 
 import puppeteer from 'puppeteer';
+import applyLiveHeader from 'file:///C:/Users/mraiw/Desktop/bloodclinic-mockups/swap-header.mjs';
 import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
+import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -32,12 +34,32 @@ const projectRoot = path.resolve(__dirname, '..');
 const BASE = process.env.BC_BASE || 'https://bloodclinicnew-co-uk.stackstaging.com';
 const SLUG = 'blood-clinic';
 
-const SCRATCH =
-  process.env.BC_SCRATCH ||
-  'C:/Users/mraiw/AppData/Local/Temp/claude/C--Users-mraiw/5d69a4ba-8215-4f14-a010-107b2e828066/scratchpad';
+// Credentials live OUTSIDE this repo and are never committed. The old default pointed
+// at a per-session scratch folder, which is wiped between sessions, so the stable home
+// is ~/.aw/bc.json with the scratch path kept as a fallback.
+const SCRATCH = process.env.BC_SCRATCH || path.join(os.tmpdir(), 'bc-capture');
 const REVIEW_FILE = path.join(SCRATCH, 'bloodclinic-capture-review.txt');
-const CREDS_PATH = process.env.BC_CREDS || path.join(SCRATCH, 'bc.json');
-const CREDS = JSON.parse(fs.readFileSync(CREDS_PATH, 'utf8'));
+fs.mkdirSync(SCRATCH, { recursive: true });
+
+function readCreds() {
+  if (process.env.BC_USER && process.env.BC_PASS) {
+    return { user: process.env.BC_USER, pass: process.env.BC_PASS };
+  }
+  const candidates = [
+    process.env.BC_CREDS,
+    path.join(os.homedir(), '.aw', 'bc.json'),
+    path.join(SCRATCH, 'bc.json'),
+  ].filter(Boolean);
+  const found = candidates.find((p) => fs.existsSync(p));
+  if (!found) {
+    throw new Error(
+      'no credentials. Either set BC_USER and BC_PASS, or put {"user": "...", "pass": "..."} at ' +
+        path.join(os.homedir(), '.aw', 'bc.json')
+    );
+  }
+  return JSON.parse(fs.readFileSync(found, 'utf8'));
+}
+const CREDS = readCreds();
 
 const outDir = path.join(projectRoot, 'public', 'images', 'projects', SLUG, 'portal');
 await fsp.mkdir(outDir, { recursive: true });
@@ -209,11 +231,33 @@ function tidyChrome() {
   document.documentElement.style.scrollBehavior = 'auto';
 }
 
+// Put the REBUILT navigation on the page.
+//
+// Alex rebuilt the site nav on LIVE. Staging still serves the old two-row Elementor
+// menu, and staging is the only place the portal can safely be photographed, so the
+// live header is swapped in here, in the browser, before anything is measured or shot.
+// It must run BEFORE frame(): frame() measures the sticky header to decide where to
+// scroll, and the new nav is a different height from the old one (222px vs ~175px),
+// so swapping afterwards would leave every shot framed against the wrong headroom.
+//
+// Nothing is written to either site. See Desktop/bloodclinic-mockups/swap-header.mjs.
+async function dress(page) {
+  await page.evaluate(tidyChrome);
+  const r = await applyLiveHeader(page);
+  console.log(`  nav: rebuilt header in, ${r.newNodes} nodes, ${r.box.h}px tall, Poppins ok`);
+  await new Promise((res) => setTimeout(res, 500));
+  return r;
+}
+
 // Scroll so a named element sits just under the STICKY HEADER, not just under the top
 // of the viewport. The clinic's header is ~175px tall and sticky, so scrolling an
 // element to y=0 buries its first 175px and clipped the top off the health-snapshot
 // ring on the first pass. The header height is measured, never assumed.
-async function frame(page, selector, extra = 20) {
+// `extra` is deliberately small. At 20px the row ABOVE the target (the account tab
+// strip) kept its last ~10px in shot, so every frame opened with a band of sliced-off
+// buttons under the nav, which reads as a rendering fault. 4px buries it and still
+// leaves the target clear of the header.
+async function frame(page, selector, extra = 4) {
   const ok = await page.evaluate(
     (sel, p) => {
       const el = document.querySelector(sel);
@@ -268,6 +312,14 @@ async function open(page, selectors, settle = 800) {
 
 // Open one of the Help Guide / Trend bottom-sheet popups and wait for it to land.
 async function popup(page, attr) {
+  // Go to the top FIRST. Opening the sheet locks body scroll, which knocks the sticky
+  // header out of position: the shot came back with a band of the markers panel's own
+  // sticky summary row sitting ABOVE the nav. From the top of the page there is
+  // nothing to sit above it. The sheet is fixed to the viewport, so this does not move
+  // the thing being photographed.
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await new Promise((r) => setTimeout(r, 600));
+
   const name = await page.evaluate((a) => {
     const b = document.querySelector(`[${a}]`);
     if (!b) return null;
@@ -408,6 +460,7 @@ async function login(page, shotLoginAs = null) {
   if (shotLoginAs) {
     await page.evaluate(() => document.fonts?.ready).catch(() => {});
     await new Promise((r) => setTimeout(r, 1200));
+    await dress(page);
     await shoot(page, shotLoginAs, 'Sign in', { skipGate: true });
   }
 
@@ -483,6 +536,7 @@ async function runAccount({ width, height, dsf, mobile, shots, label, loginShot 
         timings.push(`${url}  ${Date.now() - t0}ms  (logged in, no page cache)`);
         await page.evaluate(() => document.fonts?.ready).catch(() => {});
         await new Promise((r) => setTimeout(r, 2200));
+        await dress(page);
         lastUrl = url;
       }
       if (prepare) {
@@ -529,7 +583,7 @@ async function runBooking({ width, height, dsf, mobile, prefix, label }) {
   timings.push(`product page DOM ready ${domReady}ms, booking widget interactive ${widgetUp}ms`);
   console.log(`  DOM ready ${domReady}ms, widget interactive ${widgetUp}ms`);
 
-  await page.evaluate(tidyChrome);
+  await dress(page);
   await frame(page, ROOT);
   await shoot(page, `${prefix}booking-1-method`, BOOKING_SHOTS[0][1]);
 

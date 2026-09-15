@@ -92,7 +92,7 @@ export default function WhyUs() {
               }}
             >
               <TiltCard>
-                <div className="group relative overflow-hidden rounded-2xl border border-card-border bg-card p-8 transition-all duration-500 hover:border-pink/30 min-h-[220px]">
+                <div className="aw-sheen group relative overflow-hidden rounded-2xl border border-card-border bg-card p-8 transition-all duration-500 hover:border-pink/30 min-h-[220px]">
                   {/* Large background number */}
                   <span className="absolute top-4 right-6 text-6xl font-black text-white/[0.03] group-hover:text-pink/[0.08] transition-colors duration-500">
                     {reason.number}

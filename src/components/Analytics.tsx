@@ -71,11 +71,29 @@ export default function Analytics() {
           window.addEventListener('message', function(e){
             if (e.origin === 'https://crm.awmedia.marketing' && e.data) {
               if (e.data.awcrm === 'submit') {
-                if (typeof gtag === 'function') {
-                  gtag('event','generate_lead',{form_slug:e.data.form_slug, form_name:e.data.form_name});
-                }
+                var band = e.data.budget_band || '';
+                var goals = Array.isArray(e.data.goals) ? e.data.goals.join(', ') : '';
+                var det = {form_slug:e.data.form_slug, form_name:e.data.form_name,
+                           enquiry_id:e.data.enquiry_id||'', budget_band:band,
+                           goals:goals, has_site:e.data.has_site||''};
+                if (typeof gtag === 'function') gtag('event','generate_lead', det);
                 window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({event:'aw_form_submit', form_slug:e.data.form_slug, form_name:e.data.form_name});
+                window.dataLayer.push(Object.assign({event:'aw_form_submit'}, det));
+                // Meta Lead. content_name/category let us split by form in Ads
+                // Manager, budget_band is the only real quality signal we have, and
+                // eventID is the CRM enquiry id so a Conversions API send later
+                // dedupes against this browser event instead of double counting.
+                // NO name, email or phone is sent: advanced matching is a separate
+                // consent decision and has not been made.
+                if (typeof fbq === 'function') {
+                  fbq('track','Lead', {
+                    content_name: e.data.form_name || e.data.form_slug,
+                    content_category: e.data.form_slug,
+                    budget_band: band,
+                    goals: goals,
+                    has_site: e.data.has_site || ''
+                  }, e.data.enquiry_id ? {eventID: e.data.enquiry_id} : undefined);
+                }
               } else if (e.data.awcrm === 'call_booked') {
                 trackCallBooked(e.data.form_slug, e.data.form_name);
               }

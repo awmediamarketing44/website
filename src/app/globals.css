@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Scroll-driven motion vocabulary. Zero JS, compositor only. See motion.css. */
+@import "./motion.css";
 
 :root {
   --background: #0a0a0a;

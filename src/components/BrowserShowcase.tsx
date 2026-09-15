@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import scrollFrames from "@/data/scroll-frames.json";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useIsDesktop } from "@/hooks/useIsDesktop";
 
@@ -28,21 +29,25 @@ export default function BrowserShowcase() {
     return () => io.disconnect();
   }, [isDesktop]);
 
-  // ---- Mobile path: simple static layout, no pinned scrollytelling, no video ----
+  // ---- Mobile path: the real site scrolls through the frame, no video ----
+  // Desktop proves the work with a 3.7MB scroll-loop video, which a phone
+  // should never be asked to carry. Instead a ~61KB full-page still travels
+  // upward through the browser frame on a CSS scroll timeline. Same idea, no
+  // video decode, no JS, and still lighter than the 98KB static screenshot it
+  // replaced. See .aw-page-frame in motion.css.
   if (!isDesktop) {
-    // Compact, fully static mobile layout — no scroll animations, fixed size.
     return (
       <section className="relative border-t border-card-border py-10">
         <div className="mx-auto flex max-w-md flex-col items-center gap-4 px-6 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/85">
+          <span className="aw-rise-sm inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/85">
             <span className="h-1.5 w-1.5 rounded-full bg-pink" />
             Recent Build · Calibre Coaching
           </span>
-          <h2 className="text-3xl font-black leading-[0.95] tracking-tight">
+          <h2 className="aw-rise-sm aw-late text-3xl font-black leading-[0.95] tracking-tight">
             Built <span className="gradient-text">like this.</span>
           </h2>
 
-          <div className="w-full max-w-[300px] overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0a] shadow-[0_12px_40px_-15px_rgba(249,38,114,0.4)]">
+          <div className="aw-page-host aw-scale-in w-full max-w-[300px] overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0a] shadow-[0_12px_40px_-15px_rgba(249,38,114,0.4)]">
             <div className="flex h-7 items-center gap-1.5 border-b border-white/10 bg-white/[0.03] px-3">
               <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
               <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
@@ -51,16 +56,34 @@ export default function BrowserShowcase() {
                 calibre-coaching.com
               </div>
             </div>
-            <img
-              src="/images/calibre-hero.jpg"
-              alt="Calibre Coaching, a recent AW Media build."
-              width={1280}
-              height={800}
-              className="block aspect-[16/10] w-full bg-black object-cover object-top"
-            />
+            <div
+              className="aw-page-frame aspect-[16/10] w-full bg-black"
+              style={
+                {
+                  // How far the capture has to travel to show its full length.
+                  // Read from the generated manifest rather than hard-coded,
+                  // because it depends on the capture's aspect ratio: re-shoot
+                  // the page at a different length and a fixed value would
+                  // quietly stop short or scroll into blank space.
+                  "--aw-page-travel": `${scrollFrames.calibre.travel}%`,
+                } as CSSProperties
+              }
+            >
+              <picture>
+                <source srcSet="/images/scroll-frames/calibre.avif" type="image/avif" />
+                <img
+                  src="/images/scroll-frames/calibre.webp"
+                  alt="Calibre Coaching, a recent AW Media build, scrolling through a browser frame."
+                  width={scrollFrames.calibre.width}
+                  height={scrollFrames.calibre.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </div>
           </div>
 
-          <p className="text-sm leading-relaxed text-muted">
+          <p className="aw-rise-sm text-sm leading-relaxed text-muted">
             Real client work. AI-accelerated, shipped in weeks not months.
           </p>
         </div>

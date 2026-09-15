@@ -6,6 +6,10 @@ export interface ServiceData {
   // narrow where the page has to answer a specific search term.
   metaTitle?: string;
   metaDescription?: string;
+  // Schema.org serviceType. Falls back to `title`, which is fine for most, but
+  // "Bespoke Systems & Software" is a brand phrase rather than a thing anyone
+  // searches, so that one names the category properly.
+  serviceType?: string;
   tag: string;
   headerTitle: string;
   headerAccent: string;
@@ -18,6 +22,24 @@ export interface ServiceData {
   ctaHeadline: string;
   ctaSubtext: string;
   relatedProjects: string[];
+  // Optional proof block for services whose deliverable is a screen rather than
+  // a website: the systems page shows the actual software we have built. Only
+  // rendered when present, so nothing else on /services changes.
+  showcase?: {
+    heading: [string, string];
+    intro: string;
+    systems: {
+      name: string;
+      sector: string;
+      caseStudy: string;
+      summary: string;
+      shots: { src: string; caption: string }[];
+      note: string;
+    }[];
+  };
+  // Slug of a form hosted in the CRM (crm.awmedia.marketing/<slug>). When set,
+  // the closing CTA embeds that form instead of only offering a call.
+  formSlug?: string;
   subscription?: {
     name: string;
     tagline: string;
@@ -758,6 +780,200 @@ export const services: ServiceData[] = [
         "Quiet month and nothing new to build? No problem. Swap your support hours for a deeper team training session, a one-off workflow build, or a fresh AI audit of a different part of your business, so you keep moving even when priorities shift.",
       ctaHref: "/contact",
     },
+  },
+
+  // ─────────────────────────── BESPOKE SYSTEMS ───────────────────────────
+  // The software side of the business, which had no page until now. The spine
+  // of this page is FIT, and it is deliberate: it is the same argument as the
+  // 1550 ads. Their software was built for thousands of businesses and not
+  // theirs, so they bend the business to fit it and patch the gap with a
+  // spreadsheet. That is true of everyone and it excludes nobody.
+  //
+  // PRICE STAYS OFF THE HOOK. Alex killed the money angle on that campaign in
+  // one line: "they still obviously have to pay". Any argument built on cost,
+  // or on stopping paying for software, gets rebutted instantly, because we
+  // are not free either. Price belongs on the call and in the quote. It does
+  // not lead this page.
+  //
+  // The proof is two systems already published on our own case study pages,
+  // both on demonstration data, so nothing new is being exposed here.
+  {
+    slug: "systems",
+    title: "Bespoke Systems & Software",
+    metaTitle: "Bespoke Business Software & Custom Systems | AW Media",
+    metaDescription:
+      "Custom built CRMs, client portals and booking systems for businesses outgrowing off-the-shelf software. Built round how you already work.",
+    serviceType: "Custom business software development",
+    tag: "Systems",
+    headerTitle: "Software built round",
+    headerAccent: "how you already work.",
+    headerDescription:
+      "Most businesses bend themselves to fit their software, then patch the gap with a spreadsheet. We build it the other way round, so the software is the thing that moves.",
+    longDescription: [
+      "There is a spreadsheet on your computer doing a job your software could not. Everyone has one. Nobody ever calls it a problem, because it works, and because it has been there so long it just looks like how the job gets done. It is the whole problem.",
+      "Off-the-shelf software is built for thousands of businesses, and yours was not one of them. So the bits that do not fit get worked round. A stage in your process the system has no box for. A price nobody can work out without opening Excel. The same customer details typed into three places because nothing talks to anything. None of it is dramatic. It quietly costs you a day a week, and nobody notices, because it happened one process at a time.",
+      "We build the system that fits instead. One place for the work, built round the process you already have rather than the one a software company assumed you had. It runs in a browser on hosting you already pay for, it works on a phone out on site, and your team picks it up in an afternoon because it does what they already do.",
+      "The reason a business your size can have this at all is that we build it AI-accelerated. Not AI written and left alone, but a proper build moving at a fraction of the old pace, with the judgement and the testing still done by people who have to answer for it. That is the difference between a bespoke platform being a realistic option and being a conversation you walk away from.",
+    ],
+    features: [
+      "Job, enquiry and order boards your team drags through stages",
+      "Quoting and pricing worked out off your own rate card",
+      "Invoicing, statements and pay runs, raised and emailed as PDFs",
+      "Customer or client portals with their own secure login",
+      "Booking diaries with your hours, capacity, closures and reminders",
+      "Staff, driver or engineer apps that install on a phone",
+      "Paper forms, checklists and sign-offs made digital",
+      "Reporting on the numbers you actually run the business on",
+      "Connections to the tools you already pay for, so nothing is typed twice",
+    ],
+    benefits: [
+      {
+        title: "The software moves, not your business.",
+        description:
+          "Your process was worked out over years and it is usually right. We build to it rather than asking you to change it, so there is no stage with nowhere to go and no job that needs a spreadsheet running alongside it.",
+      },
+      {
+        title: "One record, and everybody is on it.",
+        description:
+          "The enquiry becomes the job, the job becomes the invoice, and the person out on site is looking at the same live record as the office. Nothing gets typed out three times and nothing falls down the gap between the two.",
+      },
+      {
+        title: "The admin half of the week goes away.",
+        description:
+          "Month end, chasing paperwork, working a price out by hand, copying figures into a spreadsheet to see how you did. That is the work a system takes off you, and it is the reason people build one.",
+      },
+    ],
+    whoIsThisFor: [
+      "You are running part of the business off a spreadsheet because the software could not cover it",
+      "The same details get typed into three different places and something always gets missed",
+      "You are on a system being phased out, or one nobody left in the building knows how to change",
+      "You pay per seat, every month, for software you use about a tenth of",
+      "You have looked at a bespoke build before and decided it was not realistic",
+    ],
+    showcase: {
+      heading: ["Two we have", "already built."],
+      intro:
+        "Not mockups. Both of these are live, both replaced something that was holding the business back, and both are written up in full on our work pages. Everything on screen here is demonstration data, not real customers or patients.",
+      systems: [
+        {
+          name: "Dixons Dispatch",
+          sector: "ADR Class 7 and NHS courier, Stevenage",
+          caseStudy: "/work/dixons-dispatch",
+          summary:
+            "A family courier firm running four decades of NHS work out of a 32-bit Microsoft Access database that gets switched off at the end of 2026. We replaced it with one platform and three doors: the office, the drivers, and their customers. Quoting, invoicing, driver pay, vehicle checks and proof of delivery all on the same record.",
+          shots: [
+            {
+              src: "/images/projects/dixons-dispatch/crm/crm-1-pipeline.jpg",
+              caption:
+                "The job board the office works off, dragged through stages. A website enquiry lands here as a live job.",
+            },
+            {
+              src: "/images/projects/dixons-dispatch/crm/crm-2-quote.jpg",
+              caption:
+                "Pricing a job while the customer is still on the phone, off their own rate card instead of a spreadsheet.",
+            },
+            {
+              src: "/images/projects/dixons-dispatch/crm/crm-5-routes.jpg",
+              caption:
+                "Two postcodes give the real round-trip mileage, plus any Congestion Charge, ULEZ or toll on that route.",
+            },
+            {
+              src: "/images/projects/dixons-dispatch/crm/crm-3-invoices.jpg",
+              caption:
+                "Month end in a few clicks. One branded invoice per customer, one statement per driver, emailed with the PDF on.",
+            },
+            {
+              src: "/images/projects/dixons-dispatch/crm/crm-4-checklists.jpg",
+              caption:
+                "The paper vehicle checks that lived in a folder, now digital, with a defect board behind them.",
+            },
+            {
+              src: "/images/projects/dixons-dispatch/crm/crm-6-reports.jpg",
+              caption:
+                "The numbers out the back, without anybody rebuilding them in Excel at the end of the month.",
+            },
+          ],
+          note: "Names, registrations and figures shown here are demonstration data, not their live jobs.",
+        },
+        {
+          name: "The Blood Clinic UK",
+          sector: "Private blood testing, Sheffield and 65 clinics nationwide",
+          caseStudy: "/work/blood-clinic",
+          summary:
+            "A clinic running on three outsourced plugins and around seven thousand lines of code nobody could safely touch. We rebuilt the lot: the booking engine, the patient portal, the lab connection and the back office the owner runs it from. Just under 200,000 historic results moved across, nine paid plugins retired.",
+          shots: [
+            {
+              src: "/images/projects/blood-clinic/portal/portal-1-snapshot.jpg",
+              caption:
+                "The health snapshot a patient lands on, instead of a plain lab PDF and a list of numbers.",
+            },
+            {
+              src: "/images/projects/blood-clinic/portal/portal-2-attention.jpg",
+              caption:
+                "Anything outside its healthy range is brought to the front, so the answer is not buried on page four.",
+            },
+            {
+              src: "/images/projects/blood-clinic/portal/portal-6-allmarkers.jpg",
+              caption:
+                "Every marker drawn against the range it should sit in, with its history one tap behind it.",
+            },
+            {
+              src: "/images/projects/blood-clinic/portal/portal-7-trend.jpg",
+              caption:
+                "Whether a marker has actually moved since last time, which is the question people are really asking.",
+            },
+            {
+              src: "/images/projects/blood-clinic/portal/booking-3-calendar.jpg",
+              caption:
+                "The booking diary. It paints straight away and fetches availability in the background while you choose.",
+            },
+            {
+              src: "/images/projects/blood-clinic/portal/portal-9-guide.jpg",
+              caption:
+                "A plain-English explanation of what each marker measures, written for the person reading it.",
+            },
+          ],
+          note: "Shown on a test account with demonstration results, not a patient's record.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "How long does a system like this take?",
+        answer:
+          "It depends what it has to do, but a first working version your team can actually use is usually weeks rather than the many months this used to take. We build in stages, so you are looking at the real thing and telling us what is wrong with it early, instead of signing off a document and finding out six months later that we read it differently.",
+      },
+      {
+        question: "Where does it run, and do I need special hosting?",
+        answer:
+          "Almost always on the hosting you already have. These are web systems, so your team opens them in a browser like any other site and there is nothing to install on a laptop. Where a phone makes more sense, like a driver or an engineer out on site, it installs to the home screen and works the same way.",
+      },
+      {
+        question: "What happens to everything in my current system?",
+        answer:
+          "It comes with you. Migrating the old data is part of the job, not an extra, because leaving you running two things at once defeats the point. On the Blood Clinic build that meant just under 200,000 historic results and 1,704 existing bookings moved across before anybody switched over.",
+      },
+      {
+        question: "Can my team actually use it, or will it need training?",
+        answer:
+          "Because it is built round the process they already follow, most people are up and running the same day. We show the team round it properly, and afterwards you have us on the end of the phone rather than a support ticket queue.",
+      },
+      {
+        question: "Do I own what you build?",
+        answer:
+          "Yes. It is your system, on your hosting, with your data in it, and that is written into the agreement. You are not renting access to it and you are not tied to us to carry on using it.",
+      },
+      {
+        question: "What does one cost?",
+        answer:
+          "It is priced per job, because no two are the same shape. What we will not do is guess at it. We have a proper conversation about what the system actually has to handle, then you get a fixed written quote with the scope and the stages in it, so there is nothing to find out later.",
+      },
+    ],
+    ctaHeadline: "Tell us what the spreadsheet is doing.",
+    ctaSubtext:
+      "A few questions, takes a minute. Tell us where the system falls short and we will come back to you with what we would build and what it would cost.",
+    relatedProjects: ["dixons-dispatch", "blood-clinic"],
+    formSlug: "systems",
   },
 ];
 

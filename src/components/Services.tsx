@@ -54,6 +54,21 @@ const services = [
     ),
     gradient: "from-green-500/20 to-pink/10",
   },
+  {
+    slug: "systems",
+    title: "Bespoke Systems & Software",
+    description:
+      "There is a spreadsheet doing the job your software could not. We build CRMs, client portals and booking systems round how you already work, so the software is the thing that bends, not your business.",
+    icon: (
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75" />
+      </svg>
+    ),
+    gradient: "from-purple-500/20 to-pink/10",
+    // Four cards fill the 2-col grid exactly. A fifth would sit alone on row
+    // three looking like an afterthought, so it spans the full width instead.
+    wide: true,
+  },
 ];
 
 export default function Services() {
@@ -89,6 +104,7 @@ export default function Services() {
           {services.map((service, i) => (
             <motion.div
               key={service.title}
+              className={service.wide ? "sm:col-span-2" : undefined}
               initial={{ opacity: 0, y: 50, rotateX: 15 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
@@ -100,7 +116,7 @@ export default function Services() {
             >
               <Link href={`/services/${service.slug}`}>
               <TiltCard>
-                <div className="group relative overflow-hidden rounded-2xl border border-card-border bg-card p-8 transition-all duration-500 hover:border-pink/30 cursor-pointer">
+                <div className="aw-sheen group relative overflow-hidden rounded-2xl border border-card-border bg-card p-8 transition-all duration-500 hover:border-pink/30 cursor-pointer">
                   {/* Background gradient on hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 

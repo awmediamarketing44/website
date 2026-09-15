@@ -431,6 +431,62 @@ export default function ProjectPageClient({ slug }: { slug: string }) {
           </section>
         )}
 
+        {/* Pages: landscape stills of further pages on the live site */}
+        {project.pages && project.pages.length > 0 && (
+          <section className="py-24 border-t border-card-border">
+            <div className="mx-auto max-w-7xl px-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {(project.pagesTitle ?? ["Every page", "earns its place."]).map((line, i) => (
+                  <motion.span
+                    key={i}
+                    className={`block ${i > 0 ? "text-pink" : ""}`}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {line}
+                  </motion.span>
+                ))}
+              </h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-muted text-base sm:text-lg max-w-2xl mb-16"
+              >
+                {project.pagesSubtitle ??
+                  "Built to be found, and to answer the question before anyone has to ring."}
+              </motion.p>
+
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                {project.pages.map((img, i) => (
+                  <motion.div
+                    key={img}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.08 }}
+                    whileHover={{ y: -6 }}
+                    className="group rounded-xl border border-card-border overflow-hidden bg-card"
+                  >
+                    <div className="relative" style={{ aspectRatio: "16 / 10" }}>
+                      <Image
+                        src={img}
+                        alt={`${project.title} page ${i + 1}`}
+                        fill
+                        sizes="(max-width: 640px) 90vw, 580px"
+                        className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Showcase: landscape stills (admin/CMS screens, wide brand assets) */}
         {project.showcase && project.showcase.length > 0 && (
           <section className="py-24 border-t border-card-border">

@@ -20,38 +20,44 @@ export default function Hero() {
 
 function MobileHero() {
   return (
-    <section className="relative min-h-[calc(100svh-1px)] flex items-center justify-center overflow-hidden">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/hero-cinematic.webp"
-        alt="AW Media UK web design studio"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none z-0"
-      />
+    <section className="aw-hero-host relative min-h-[calc(100svh-1px)] flex items-center justify-center overflow-hidden">
+      {/* Backdrop. Two separate elements because .aw-ken (a one-shot settle on
+          load) and .aw-hero-bg (scroll-linked drift as the hero leaves) both
+          drive transform, so they cannot share a node. Both are compositor
+          only, so this costs nothing on the phone. */}
+      <div className="aw-hero-bg absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/hero-cinematic.webp"
+          alt="AW Media UK web design studio"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="aw-ken absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+        />
+      </div>
       <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-black/55 via-black/35 to-black/80" />
       <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_60%_45%_at_50%_50%,transparent_0%,rgba(0,0,0,0.55)_100%)]" />
 
-      <div className="relative z-10 mx-auto max-w-2xl px-6 py-24 text-center">
-        <span className="inline-block rounded-full border border-pink/40 bg-pink/10 px-5 py-2 text-[10px] font-medium uppercase tracking-widest text-pink mb-6 backdrop-blur-md">
+      <div className="aw-hero-exit relative z-10 mx-auto max-w-2xl px-6 py-24 text-center">
+        <span className="aw-in-1 inline-block rounded-full border border-pink/40 bg-pink/10 px-5 py-2 text-[10px] font-medium uppercase tracking-widest text-pink mb-6 backdrop-blur-md">
           UK Web Design Studio · Since 2016
         </span>
         <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.02]">
-          <span className="block">Designed properly.</span>
-          <span className="block gradient-text">Built faster.</span>
+          <span className="aw-in-2 block">Designed properly.</span>
+          <span className="aw-in-3 block gradient-text">Built faster.</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-lg text-base text-white/85 leading-relaxed">
+        <p className="aw-in-4 mx-auto mt-6 max-w-lg text-base text-white/85 leading-relaxed">
           An award-winning UK studio shipping bespoke websites at AI-accelerated
           speed. Two lanes. Both fully custom. Neither templated.
         </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3">
+        <div className="aw-in-5 mt-8 flex flex-col items-center justify-center gap-3">
           <BookCallButton>Book a FREE Call</BookCallButton>
           <MagneticButton href="/work" variant="secondary">
             View Recent Work
           </MagneticButton>
         </div>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[10px] uppercase tracking-widest text-white/55">
+        <div className="aw-in-6 mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[10px] uppercase tracking-widest text-white/55">
           <span className="flex items-center gap-1.5">
             <span className="w-1 h-1 rounded-full bg-pink" />
             450+ websites shipped

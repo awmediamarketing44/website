@@ -90,28 +90,49 @@ export default function ExitIntentPopup({ onBookCall }: ExitIntentPopupProps) {
               transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
               className="w-16 h-16 rounded-full bg-pink/10 flex items-center justify-center mx-auto mb-6"
             >
-              <span className="text-3xl">&#128075;</span>
+              {/* NOT an emoji, on purpose. The house rule is no emoji anywhere
+                  Alex's name is on, and a waving hand lived here until 2 Sep
+                  2026. An eye because the copy is about the thing you cannot
+                  spot by looking. */}
+              <svg
+                className="w-7 h-7 text-pink"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"
+                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
             </motion.div>
 
-            <h3 className="text-2xl font-bold mb-2">Wait, before you go.</h3>
+            <h3 className="text-2xl font-bold mb-2">Off already?</h3>
+            <p className="text-muted leading-relaxed mb-3">
+              Fair enough. Thing is, most websites look perfectly fine and still
+              quietly lose work every week. You can&apos;t spot it by looking, which
+              is the annoying bit.
+            </p>
             <p className="text-muted leading-relaxed mb-6">
-              Most ambitious businesses lose clients to a website that doesn&apos;t convert.
-              Book a free 20-minute call and we&apos;ll show you exactly what&apos;s holding
-              yours back.
+              Twenty minutes, free, and we&apos;ll show you yours.
             </p>
 
             <button
               onClick={handleBookCall}
               className="inline-block rounded-full bg-pink px-8 py-3.5 text-sm font-semibold text-white hover:shadow-[0_0_40px_rgba(249,38,114,0.4)] transition-shadow duration-300 mb-3 w-full"
             >
-              Book a FREE Call
+              Show me
             </button>
 
             <button
               onClick={dismiss}
               className="text-xs text-muted hover:text-white transition-colors duration-200"
             >
-              No thanks, I&apos;m good
+              I&apos;ll risk it
             </button>
           </motion.div>
         </motion.div>

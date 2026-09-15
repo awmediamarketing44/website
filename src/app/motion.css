@@ -1,0 +1,515 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   AW MOTION LAYER
+   ───────────────────────────────────────────────────────────────────────────
+   Scroll-driven animation vocabulary for the whole site, desktop AND mobile.
+
+   THE RULE THIS FILE OBEYS: zero JavaScript, zero bundle cost, zero hydration.
+   Every animation here is driven by a CSS scroll timeline (view() / scroll())
+   and animates ONLY transform and opacity, so it runs on the compositor
+   thread. It cannot block paint, cannot block input, and costs nothing on the
+   phone CPU. That is what lets us add this much motion without moving the
+   speed numbers.
+
+   THREE SAFETY GATES, all of them non-negotiable:
+   1. Content is VISIBLE by default. The hidden "from" state only ever exists
+      inside a keyframe. If a browser does not support scroll timelines, the
+      page renders finished, not blank. Never put opacity:0 on a base class.
+   2. Everything sits inside prefers-reduced-motion: no-preference.
+   3. The timeline work sits inside @supports (animation-timeline: view()).
+
+   Naming: .aw-* so it never collides with a Tailwind utility.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Animatable custom properties ─────────────────────────────────────────
+   Registered so they can be interpolated. Without @property these are just
+   strings and will not animate at all. */
+@property --aw-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --aw-n {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+/* ═══ KEYFRAMES ═══════════════════════════════════════════════════════════
+   Transform + opacity only. Nothing here triggers layout or paint. */
+
+@keyframes aw-k-rise      { from { opacity: 0; transform: translate3d(0, 34px, 0); } }
+@keyframes aw-k-rise-sm   { from { opacity: 0; transform: translate3d(0, 16px, 0); } }
+@keyframes aw-k-fall      { from { opacity: 0; transform: translate3d(0, -28px, 0); } }
+@keyframes aw-k-left      { from { opacity: 0; transform: translate3d(-40px, 0, 0); } }
+@keyframes aw-k-right     { from { opacity: 0; transform: translate3d(40px, 0, 0); } }
+@keyframes aw-k-scale     { from { opacity: 0; transform: scale(0.92); } }
+@keyframes aw-k-scale-lg  { from { opacity: 0; transform: scale(0.82); } }
+@keyframes aw-k-fade      { from { opacity: 0; } }
+@keyframes aw-k-wipe      { from { transform: translate3d(0, 102%, 0); } }
+@keyframes aw-k-wipe-x    { from { transform: translate3d(-102%, 0, 0); } }
+@keyframes aw-k-tilt      { from { opacity: 0; transform: perspective(1200px) rotateX(12deg) translate3d(0, 40px, 0); } }
+@keyframes aw-k-settle    { from { opacity: 0; transform: perspective(1200px) rotateY(-9deg) scale(0.94); } }
+@keyframes aw-k-grow-x    { from { transform: scaleX(0); } }
+@keyframes aw-k-grow-y    { from { transform: scaleY(0); } }
+@keyframes aw-k-spin      { to   { --aw-angle: 360deg; } }
+
+/* Scroll-LINKED. These run across the element's whole pass over the viewport
+   rather than playing once, so they scrub with the finger. */
+@keyframes aw-k-par-slow  { from { transform: translate3d(0, -22px, 0); } to { transform: translate3d(0, 22px, 0); } }
+@keyframes aw-k-par-med   { from { transform: translate3d(0, -48px, 0); } to { transform: translate3d(0, 48px, 0); } }
+@keyframes aw-k-par-fast  { from { transform: translate3d(0, -86px, 0); } to { transform: translate3d(0, 86px, 0); } }
+@keyframes aw-k-drift-x   { from { transform: translate3d(-34px, 0, 0); }  to { transform: translate3d(34px, 0, 0); } }
+@keyframes aw-k-zoom-out  { from { transform: scale(1.16); }               to { transform: scale(1); } }
+@keyframes aw-k-zoom-thru { from { transform: scale(1.02); }               to { transform: scale(1.14); } }
+@keyframes aw-k-stack {
+  /* A card only shrinks and dims AFTER the next one has ridden over it. */
+  0%, 62% { transform: scale(1);   opacity: 1; }
+  100%    { transform: scale(0.9); opacity: 0.42; }
+}
+/* Count-up starts at zero and lands on the element's own value, so the "to"
+   state is simply whatever --aw-n already resolves to. */
+@keyframes aw-k-count { from { --aw-n: 0; } }
+
+/* Base state for the scroll count-up, deliberately OUTSIDE the @supports and
+   reduced-motion gates. --aw-n defaults to the target, so with no animation
+   running at all the finished number is what renders. The pseudo-element's
+   text is exposed to assistive tech the same way the desktop version's is.
+   Usage: <span className="aw-count" style={{ "--aw-to": 450 }} /> */
+.aw-count {
+  --aw-to: 0;
+}
+.aw-count::after {
+  /* --aw-n is registered with inherits:false, so setting it on .aw-count does
+     NOT reach this pseudo-element: it would fall back to its initial 0 and the
+     number would render as a permanent zero. It has to be set HERE. --aw-to is
+     an unregistered property, so that one does inherit in from the inline
+     style on the parent. */
+  --aw-n: var(--aw-to);
+  counter-reset: aw-counter var(--aw-n);
+  content: counter(aw-counter);
+}
+@keyframes aw-k-page-scroll { to { transform: translate3d(0, var(--aw-page-travel, -85%), 0); } }
+
+/* Base state for the in-frame page scroll. Outside the gated block so the
+   frame still clips correctly and shows the top of the page when scroll
+   timelines are unavailable. */
+/* ── THE OVERFLOW-HIDDEN TRAP ─────────────────────────────────────────────
+   A view() timeline measures an element against its NEAREST SCROLLPORT
+   ANCESTOR, and any ancestor with overflow:hidden counts as one. Inside such
+   an ancestor the element's position never changes relative to that box, so
+   progress is pinned and the animation sits perfectly still. Nothing errors,
+   nothing warns, the CSS all looks correct.
+
+   Both places this bit us are clipped by design: the hero section clips its
+   ken-burns backdrop, and the showcase card clips its rounded corners. So the
+   timeline is declared on a HOST element that is itself outside any clipping,
+   and descendants reference it by name. Timeline names resolve up the tree,
+   which is what makes this work.
+
+   Rule of thumb for anything added later: if a scroll animation renders but
+   never moves, check for overflow:hidden above it before touching the range. */
+.aw-page-host {
+  view-timeline-name: --aw-page;
+  view-timeline-axis: block;
+}
+.aw-hero-host {
+  view-timeline-name: --aw-hero;
+  view-timeline-axis: block;
+}
+
+.aw-page-frame {
+  overflow: hidden;
+}
+.aw-page-frame > picture { display: contents; }
+.aw-page-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ═══ THE GATED BLOCK ═════════════════════════════════════════════════════
+   Nothing in here applies unless the browser supports scroll timelines AND
+   the visitor has not asked for reduced motion. */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+
+    /* ── 1. ENTRANCE REVEALS ──────────────────────────────────────────────
+       Play once as the element scrolls in. `both` fill keeps the start state
+       applied while the element is still below the fold. */
+    .aw-rise,
+    .aw-rise-sm,
+    .aw-fall,
+    .aw-in-left,
+    .aw-in-right,
+    .aw-scale-in,
+    .aw-scale-lg,
+    .aw-fade-in,
+    .aw-tilt-in,
+    .aw-settle {
+      animation-duration: 1ms; /* ignored on a timeline, but required to be valid */
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+
+    .aw-rise     { animation-name: aw-k-rise; }
+    .aw-rise-sm  { animation-name: aw-k-rise-sm; }
+    .aw-fall     { animation-name: aw-k-fall; }
+    .aw-in-left  { animation-name: aw-k-left; }
+    .aw-in-right { animation-name: aw-k-right; }
+    .aw-scale-in { animation-name: aw-k-scale; }
+    .aw-scale-lg { animation-name: aw-k-scale-lg; }
+    .aw-fade-in  { animation-name: aw-k-fade; }
+    .aw-tilt-in  { animation-name: aw-k-tilt; }
+    .aw-settle   { animation-name: aw-k-settle; }
+
+    /* Range modifiers. `-late` holds off until the element is properly in
+       shot, `-early` fires as soon as a sliver of it appears. */
+    .aw-early { animation-range: entry 0% entry 60%; }
+    .aw-late  { animation-range: entry 25% cover 45%; }
+    .aw-slow  { animation-range: entry 0% cover 55%; }
+
+    /* ── 2. WIPES ─────────────────────────────────────────────────────────
+       Transform-based, NOT clip-path. A translating child inside an
+       overflow-hidden parent is guaranteed to stay on the compositor, where
+       an animated clip-path can drop back to paint on some engines. */
+    .aw-wipe,
+    .aw-wipe-x { overflow: hidden; display: block; }
+    .aw-wipe > *,
+    .aw-wipe-x > * {
+      display: block;
+      animation-duration: 1ms;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      animation-timeline: view();
+      animation-range: entry 0% cover 32%;
+    }
+    .aw-wipe > *   { animation-name: aw-k-wipe; }
+    .aw-wipe-x > * { animation-name: aw-k-wipe-x; }
+
+    /* ── 3. STAGGER ───────────────────────────────────────────────────────
+       animation-delay does nothing on a scroll timeline, so a stagger has to
+       be built by nudging each child's animation-range instead. Each child
+       starts a little further down the scroll than the one before it. */
+    .aw-stagger > *,
+    .aw-stagger-tight > * {
+      animation-duration: 1ms;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      animation-timeline: view();
+    }
+    .aw-stagger > *       { animation-name: aw-k-rise; }
+    .aw-stagger-tight > * { animation-name: aw-k-rise-sm; }
+
+    .aw-stagger > *:nth-child(1) { animation-range: entry 0%  cover 26%; }
+    .aw-stagger > *:nth-child(2) { animation-range: entry 5%  cover 31%; }
+    .aw-stagger > *:nth-child(3) { animation-range: entry 10% cover 36%; }
+    .aw-stagger > *:nth-child(4) { animation-range: entry 15% cover 41%; }
+    .aw-stagger > *:nth-child(5) { animation-range: entry 20% cover 46%; }
+    .aw-stagger > *:nth-child(6) { animation-range: entry 25% cover 51%; }
+    .aw-stagger > *:nth-child(7) { animation-range: entry 30% cover 56%; }
+    .aw-stagger > *:nth-child(n + 8) { animation-range: entry 35% cover 61%; }
+
+    /* Tighter version for dense lists (tick rows, bullets). */
+    .aw-stagger-tight > *:nth-child(1) { animation-range: entry 0%  cover 20%; }
+    .aw-stagger-tight > *:nth-child(2) { animation-range: entry 3%  cover 23%; }
+    .aw-stagger-tight > *:nth-child(3) { animation-range: entry 6%  cover 26%; }
+    .aw-stagger-tight > *:nth-child(4) { animation-range: entry 9%  cover 29%; }
+    .aw-stagger-tight > *:nth-child(5) { animation-range: entry 12% cover 32%; }
+    .aw-stagger-tight > *:nth-child(n + 6) { animation-range: entry 15% cover 35%; }
+
+    /* Line-by-line heading reveal. Each direct child is one line; .aw-lines
+       clips it and the inner span slides up out of the clip. */
+    .aw-lines > * { display: block; overflow: hidden; }
+    .aw-lines > * > * {
+      display: block;
+      animation: aw-k-wipe 1ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-timeline: view();
+    }
+    .aw-lines > *:nth-child(1) > * { animation-range: entry 0%  cover 24%; }
+    .aw-lines > *:nth-child(2) > * { animation-range: entry 6%  cover 30%; }
+    .aw-lines > *:nth-child(3) > * { animation-range: entry 12% cover 36%; }
+    .aw-lines > *:nth-child(n + 4) > * { animation-range: entry 18% cover 42%; }
+
+    /* ── 4. SCROLL-LINKED PARALLAX ────────────────────────────────────────
+       Tied to the element's whole pass across the viewport, so it tracks the
+       scrub rather than playing once. This is real parallax on mobile for
+       nothing, where before it needed a JS scroll listener. */
+    .aw-par-slow,
+    .aw-par-med,
+    .aw-par-fast,
+    .aw-drift,
+    .aw-zoom-out,
+    .aw-zoom-thru {
+      animation-duration: 1ms;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    .aw-par-slow  { animation-name: aw-k-par-slow; }
+    .aw-par-med   { animation-name: aw-k-par-med; }
+    .aw-par-fast  { animation-name: aw-k-par-fast; }
+    .aw-drift     { animation-name: aw-k-drift-x; }
+    .aw-zoom-out  { animation-name: aw-k-zoom-out; }
+    .aw-zoom-thru { animation-name: aw-k-zoom-thru; }
+
+    /* ── 4b. PAGE SCROLLS INSIDE A FRAME ──────────────────────────────────
+       A tall full-page screenshot travels upward through a fixed browser
+       frame as the section crosses the viewport, so a real client site
+       appears to scroll. This is the phone's answer to the desktop scroll
+       -loop VIDEO, at about 12KB instead of 3.7MB, with no video decode.
+
+       The travel distance is a share of the IMAGE's own height, and because
+       both the frame and the image have fixed aspect ratios, that share is
+       constant at any rendered width. For a 16/10 frame and the standard
+       full-page capture it works out at -85%, which scripts/make-scroll
+       -frames.mjs prints and confirms. Override per image with
+       --aw-page-travel if a capture is ever re-shot at a different length. */
+    .aw-page-frame img {
+      animation: aw-k-page-scroll 1ms linear both;
+      animation-timeline: --aw-page; /* the frame's timeline, not the image's */
+      animation-range: cover 6% cover 94%;
+    }
+
+    /* ── 5. STICKY CARD STACK ─────────────────────────────────────────────
+       Cards pin, then shrink and dim as the next rides over the top. Set
+       --aw-stack-top on the container to clear the fixed navbar. */
+    .aw-stack > .aw-stack-item {
+      position: sticky;
+      top: var(--aw-stack-top, 96px);
+      transform-origin: center top;
+      animation: aw-k-stack 1ms linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+
+    /* ── 6. PROGRESS + DRAW ───────────────────────────────────────────────
+       Reading-progress bar, driven by the document's own scroll timeline. */
+    .aw-progress-bar {
+      transform-origin: 0 50%;
+      animation: aw-k-grow-x 1ms linear both;
+      animation-timeline: scroll(root block);
+    }
+    /* Section rules and dividers that draw themselves in. */
+    .aw-draw-x {
+      transform-origin: 0 50%;
+      animation: aw-k-grow-x 1ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+    }
+
+    /* Vertical rail that fills as its container scrolls past. Scroll-LINKED,
+       so it tracks the finger rather than playing once. Put it on an
+       absolutely positioned line inside a `relative` list to turn a numbered
+       list into a timeline that fills in. */
+    .aw-rail {
+      transform-origin: 50% 0;
+      animation: aw-k-grow-y 1ms linear both;
+      animation-timeline: view();
+      animation-range: cover 2% cover 72%;
+    }
+
+    /* ── 7. SCROLL COUNT-UP, NO JAVASCRIPT ────────────────────────────────
+       Only the ANIMATION is gated here. The number itself is printed by the
+       ungated base rule below, so a browser without scroll timelines shows
+       the finished figure rather than an empty space. */
+    .aw-count::after {
+      animation: aw-k-count 1ms linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 48%;
+    }
+  }
+}
+
+/* ═══ ABOVE THE FOLD ══════════════════════════════════════════════════════
+   A hero is already fully in view at scroll 0, so its `entry` range has
+   finished before anyone sees it. Two consequences:
+     - Entrances up here must be TIME based, not scroll based.
+     - Scroll reactions up here must use the `exit` range, which is the only
+       part of the timeline still ahead of the visitor.
+   Time-based entrances are deliberately kept off the reduced-motion path but
+   NOT behind @supports, so they run in every browser. */
+
+@keyframes aw-k-ken   { from { transform: scale(1.12); } to { transform: scale(1); } }
+@keyframes aw-k-hero-out { to { opacity: 0; transform: translate3d(0, -34px, 0) scale(0.97); } }
+@keyframes aw-k-hero-bg  { to { transform: translate3d(0, 42px, 0) scale(1.1); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Slow settle on the hero backdrop. One shot, not a perpetual loop, so the
+     GPU goes quiet once it lands. */
+  .aw-ken {
+    animation: aw-k-ken 2.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Staggered entrance for hero copy. Same curve as .anim-fade-up, offset. */
+  .aw-in-1 { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
+  .aw-in-2 { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+  .aw-in-3 { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both; }
+  .aw-in-4 { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both; }
+  .aw-in-5 { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both; }
+  .aw-in-6 { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both; }
+
+  @supports (animation-timeline: view()) {
+    /* Hero copy lifts away and fades as the section scrolls off. This is the
+       mobile equivalent of the desktop JS scroll transform, for nothing.
+       Both of these ride the SECTION's named timeline (.aw-hero-host), not
+       their own view(): they sit inside an overflow-hidden section, where a
+       self-measured timeline is frozen. See the overflow trap note above. */
+    .aw-hero-exit {
+      animation: aw-k-hero-out 1ms linear both;
+      animation-timeline: --aw-hero;
+      animation-range: exit 0% exit 92%;
+    }
+    /* Backdrop drifts down and pushes in slightly, so foreground and
+       background separate as you scroll. */
+    .aw-hero-bg {
+      animation: aw-k-hero-bg 1ms linear both;
+      animation-timeline: --aw-hero;
+      animation-range: exit 0% exit 100%;
+    }
+  }
+}
+
+/* ═══ PAGE TRANSITIONS ════════════════════════════════════════════════════
+   Only ever active while RouteTransition has flagged the document, which it
+   does on pathname changes and deliberately NOT on the first mount. That is
+   what keeps the initial paint, and therefore LCP, exactly as it was. */
+@keyframes aw-k-route {
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-route-enter] main {
+    animation: aw-k-route 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+/* ═══ HOVER + POINTER ═════════════════════════════════════════════════════
+   Outside the @supports gate because these work everywhere, but still inside
+   a reduced-motion guard wherever they actually move something. */
+
+/* Conic border glow. --aw-angle is registered above so it interpolates. */
+.aw-glow-border {
+  position: relative;
+  isolation: isolate;
+}
+.aw-glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--aw-angle),
+    transparent 0deg,
+    var(--pink) 70deg,
+    transparent 150deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .aw-glow-border:hover::before,
+  .aw-glow-border:focus-within::before {
+    opacity: 1;
+    animation: aw-k-spin 4s linear infinite;
+  }
+}
+
+/* Sheen sweep across a card or button on hover. Pure transform. */
+.aw-sheen { position: relative; overflow: hidden; }
+.aw-sheen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.09) 45%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.09) 55%,
+    transparent 100%
+  );
+  transform: translate3d(-260%, 0, 0) skewX(-16deg);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .aw-sheen:hover::after,
+  .aw-sheen:focus-visible::after {
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translate3d(340%, 0, 0) skewX(-16deg);
+  }
+}
+
+/* Card lift. Transform + shadow only, so it never shifts layout. */
+.aw-lift {
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.42s ease;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .aw-lift:hover,
+  .aw-lift:focus-within {
+    transform: translate3d(0, -6px, 0);
+    box-shadow: 0 22px 60px -22px rgba(249, 38, 114, 0.4);
+  }
+}
+
+/* Link underline that wipes in from the left and back out to the right. */
+.aw-underline {
+  position: relative;
+  display: inline-block;
+}
+.aw-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: var(--pink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aw-underline:hover::after,
+.aw-underline:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Zoom-on-hover for imagery. Parent clips, image scales. */
+.aw-img-zoom { overflow: hidden; }
+.aw-img-zoom :is(img, picture, video) {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .aw-img-zoom:hover :is(img, picture, video),
+  .aw-img-zoom:focus-within :is(img, picture, video) {
+    transform: scale(1.06);
+  }
+}
+
+/* Arrow nudge on hover for CTA links. */
+.aw-nudge :is(svg, .aw-arrow) {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aw-nudge:hover :is(svg, .aw-arrow) { transform: translate3d(4px, 0, 0); }
+
+/* Marquee: let people stop it so they can actually read the names. */
+@media (hover: hover) {
+  .aw-marquee-pause:hover .animate-ticker { animation-play-state: paused; }
+}

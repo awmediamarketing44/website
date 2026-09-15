@@ -70,6 +70,20 @@ const audits = [
     cta: "Get my AI score",
     href: "/ai-score",
   },
+  {
+    title: "AI Label Checker",
+    tagline: "Will your post get an AI badge?",
+    description:
+      "Platforms decide the AI badge from tags hidden inside your file, and one AI remove or generative fill stamps that tag across the whole thing. Drop in a carousel, a graphic or a photo and see who will flag it, and why.",
+    points: [
+      "Checked platform by platform",
+      "Tells you what caused it",
+      "Catches false positives on real work",
+      "Instant, and nothing is stored",
+    ],
+    cta: "Check my image",
+    href: "/ai-label-check",
+  },
 ];
 
 export default function FreeAuditClient() {

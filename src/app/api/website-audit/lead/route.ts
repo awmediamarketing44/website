@@ -184,6 +184,13 @@ export async function POST(request: Request) {
   // 1. Push to ActiveCampaign (best-effort — syncToActiveCampaign never throws).
   await syncToActiveCampaign({ name, email, marketingOptIn });
 
+  // 1b. Mirror into the CRM so the lead gets a monday item, the AI brief, a push
+  //     and a dashboard row like every other enquiry. Before this, audit leads
+  //     existed only in ActiveCampaign and Alex's inbox, so they never reached
+  //     the pipeline. Best-effort: the reveal must never wait on the CRM, and a
+  //     CRM wobble must not lose a lead that AC and the emails already have.
+  await pushToCrm(name, email, !!marketingOptIn, safeResults, request);
+
   // 2. Email the lead notification (to CONTACT_TO) + the report to the visitor.
   const reportHtml = buildReportEmail(name, email, !!marketingOptIn, safeResults);
   try {
@@ -205,4 +212,59 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.json({ success: true });
+}
+
+/* ── CRM mirror ──────────────────────────────────────────────────────────────
+   Server-to-server into crm.awmedia.marketing/ingest.php, authed by the shared
+   AW_INGEST_KEY. If the key is not set the mirror is skipped silently and the
+   rest of the flow is unaffected, so this is safe to deploy before the key is. */
+async function pushToCrm(
+  name: string,
+  email: string,
+  marketingOptIn: boolean,
+  results: AuditResults,
+  req: Request,
+): Promise<void> {
+  const key = process.env.AW_INGEST_KEY;
+  if (!key) {
+    console.warn("website-audit: AW_INGEST_KEY not set, CRM mirror skipped");
+    return;
+  }
+  const mob = results.mobile?.performance;
+  const band =
+    typeof mob !== "number" ? "unknown"
+    : mob < 50 ? "poor"
+    : mob < 90 ? "average"
+    : "good";
+  try {
+    const ac = new AbortController();
+    const t = setTimeout(() => ac.abort(), 8000);
+    const res = await fetch("https://crm.awmedia.marketing/ingest.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-AW-Ingest-Key": key },
+      signal: ac.signal,
+      body: JSON.stringify({
+        slug: "website-audit",
+        answers: {
+          name,
+          email,
+          current_url: results.url || "",
+          site_health: band,
+          mobile_score: results.mobile ? String(results.mobile.performance) : "",
+          desktop_score: results.desktop ? String(results.desktop.performance) : "",
+          seo_score: results.mobile ? String(results.mobile.seo) : "",
+          issues: (results.issues || []).slice(0, 12).join(String.fromCharCode(10)),
+          marketing_optin: marketingOptIn ? "yes" : "no",
+        },
+        ua: req.headers.get("user-agent") || "",
+        ip: req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "",
+      }),
+    });
+    clearTimeout(t);
+    if (!res.ok) {
+      console.error("website-audit: CRM ingest returned", res.status, await res.text().catch(() => ""));
+    }
+  } catch (e) {
+    console.error("website-audit: CRM ingest failed", e);
+  }
 }

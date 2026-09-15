@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import {
   motion,
   useScroll,
@@ -138,6 +138,23 @@ export default function Stats() {
   if (!isDesktop) {
     return (
       <section className="relative border-t border-card-border py-16">
+        {/*
+          Crawlable static copy of the stats, same guard as DesktopStats below.
+          This matters MORE here than there: useIsDesktop starts false, so this
+          mobile branch is what renders into the static HTML that search and AI
+          answer engines read. The visible figures are now drawn by a CSS
+          counter in a pseudo-element, which never appears in the DOM, so
+          without this block the real numbers would not be in the page at all.
+        */}
+        <ul className="sr-only">
+          {stats.map((stat) => (
+            <li key={stat.label}>
+              {stat.value}
+              {stat.suffix} {stat.label}. {stat.description}
+            </li>
+          ))}
+        </ul>
+
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 gap-x-4 gap-y-10">
           {stats.map((stat, i) => (
             <motion.div
@@ -148,8 +165,19 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="text-center"
             >
-              <p className="text-4xl sm:text-5xl font-black gradient-text leading-tight mb-2 tabular-nums whitespace-nowrap">
-                {stat.value}
+              {/* Count-up on mobile too. Driven by an interpolated CSS
+                  integer printed through a counter, so the phone gets the
+                  same rising number the desktop gets without the JS. Falls
+                  back to the finished figure where scroll timelines are
+                  unsupported. See .aw-count in motion.css. */}
+              <p
+                aria-hidden
+                className="text-4xl sm:text-5xl font-black gradient-text leading-tight mb-2 tabular-nums whitespace-nowrap"
+              >
+                <span
+                  className="aw-count"
+                  style={{ "--aw-to": stat.value } as CSSProperties}
+                />
                 <span className="text-pink">{stat.suffix}</span>
               </p>
               <p className="text-xs font-bold uppercase tracking-widest mb-2">

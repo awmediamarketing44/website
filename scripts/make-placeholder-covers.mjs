@@ -6,6 +6,7 @@
 // makes the layout feel broken). Just a category mark + AW Media footer.
 
 import fs from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
@@ -123,18 +124,43 @@ async function loadPosts() {
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
   const posts = await loadPosts();
-  console.log(`generating ${posts.length} placeholder covers`);
+
+  // SAFETY: this used to overwrite every cover on the site, which silently
+  // replaced 43 real Gemini-generated covers with placeholder gradients. The
+  // damage is invisible in a build and only shows up by eye. Existing covers
+  // are now skipped by default; pass --force to deliberately redo them, or
+  // --only <slug,slug> to target specific posts.
+  const args = process.argv.slice(2);
+  const force = args.includes("--force");
+  const onlyIdx = args.indexOf("--only");
+  const only =
+    onlyIdx === -1 ? null : new Set((args[onlyIdx + 1] || "").split(",").filter(Boolean));
+
+  let written = 0;
+  let skipped = 0;
 
   for (let i = 0; i < posts.length; i++) {
     const post = posts[i];
-    const svg = svgFor(post, i);
+    if (only && !only.has(post.slug)) continue;
+
     const outPath = path.join(OUT_DIR, `${post.slug}.jpg`);
+    if (!force && !only && existsSync(outPath)) {
+      skipped++;
+      continue;
+    }
+
+    const svg = svgFor(post, i);
     await sharp(Buffer.from(svg))
       .jpeg({ quality: 88, mozjpeg: true })
       .toFile(outPath);
-    console.log(`  ${post.slug}.jpg`);
+    console.log(`  wrote ${post.slug}.jpg`);
+    written++;
   }
-  console.log("done");
+
+  console.log(
+    `done: ${written} written, ${skipped} left alone` +
+      (skipped && !force ? " (pass --force to overwrite existing covers)" : "")
+  );
 }
 
 await main();

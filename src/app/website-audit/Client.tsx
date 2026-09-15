@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
@@ -276,7 +278,13 @@ function SeoIcon({ status }: { status: SeoStatus }) {
   );
 }
 
-export default function WebsiteAuditClient() {
+/**
+ * `adMode` renders the paid-traffic version of this page: the site Navbar and
+ * the Footer come off, because on cold ad traffic every nav link is a way off
+ * the page before they have typed a URL, and a logo-only bar replaces it. Same
+ * tool, same gate, same API underneath. Used by /free-website-audit.
+ */
+export default function WebsiteAuditClient({ adMode = false }: { adMode?: boolean }) {
   const [urlValue, setUrlValue] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -383,7 +391,20 @@ export default function WebsiteAuditClient() {
       }
 
       // Lead captured — fire the conversion event (results stay in place).
-      trackLead("website-audit", { url: pending.url });
+      // Meta gets a health BAND and an issue count, never the URL: a site
+      // scoring badly is a hotter prospect, so it is a real quality signal the
+      // ad account can optimise towards without us handing over who they are.
+      const mob = pending.mobile?.performance;
+      const band =
+        typeof mob !== "number" ? "unknown"
+        : mob < 50 ? "poor"
+        : mob < 90 ? "average"
+        : "good";
+      trackLead(
+        "website-audit",
+        { url: pending.url },
+        { meta: true, metaParams: { site_health: band, issue_count: (pending.issues || []).length } },
+      );
 
       // Reveal the full results in place (no page navigation).
       setResult(pending);
@@ -417,14 +438,40 @@ export default function WebsiteAuditClient() {
   return (
     <>
       <FloatingParticles count={20} />
-      <Navbar />
+      {adMode ? (
+        <header className="relative z-20 mx-auto flex max-w-7xl items-center px-6 py-6">
+          <Link href="/" aria-label="AW Media">
+            <span className="relative block" style={{ width: 104, aspectRatio: "200 / 79" }}>
+              <Image
+                src="/images/aw-logo-website.png"
+                alt="AW Media"
+                fill
+                priority
+                sizes="104px"
+                className="object-contain"
+              />
+            </span>
+          </Link>
+        </header>
+      ) : (
+        <Navbar />
+      )}
       <main>
-        <PageHeader
-          tag="Free Instant Website Audit"
-          title="Find out why your website"
-          titleAccent="isn't converting, in 30 seconds."
-          description="Enter your URL below and get instant scores on performance, mobile experience, SEO, accessibility and more, with plain-English recommendations for your business."
-        />
+        {adMode ? (
+          <PageHeader
+            tag="Free Instant Website Audit"
+            title="Your website is telling people something."
+            titleAccent="Let's find out what."
+            description="Put your address in below. Thirty seconds later you get the scores, the problems and what to actually do about them, in plain English. Free, no card, no call."
+          />
+        ) : (
+          <PageHeader
+            tag="Free Instant Website Audit"
+            title="Find out why your website"
+            titleAccent="isn't converting, in 30 seconds."
+            description="Enter your URL below and get instant scores on performance, mobile experience, SEO, accessibility and more, with plain-English recommendations for your business."
+          />
+        )}
 
         {/* How it works */}
         <section className="pb-12">
@@ -1026,7 +1073,7 @@ export default function WebsiteAuditClient() {
           </div>
         </section>
       </main>
-      <Footer />
+      {!adMode && <Footer />}
     </>
   );
 }

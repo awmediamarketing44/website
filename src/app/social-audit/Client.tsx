@@ -947,7 +947,7 @@ function ResultsView({
                 {
                   icon: "⭐",
                   h: "Award-Winning Team",
-                  p: "Sheffield-based studio, founded 2016. 1,000+ happy clients. 500+ five-star reviews.",
+                  p: "Sheffield-based studio, founded 2016. 1,000+ happy clients. 480+ five-star reviews.",
                 },
               ].map((f) => (
                 <div

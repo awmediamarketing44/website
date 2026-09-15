@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getServiceBySlug, services } from "@/data/services";
-import { breadcrumb, faqPage } from "@/lib/schema";
+import { breadcrumb, faqPage, serviceSchema } from "@/lib/schema";
 import Client from "./Client";
 
 export function generateStaticParams() {
@@ -51,11 +51,16 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   ]);
   const faqSchema =
     service.faqs && service.faqs.length > 0 ? faqPage(service.faqs) : null;
+  const serviceNode = serviceSchema(service);
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceNode) }}
       />
       {faqSchema && (
         <script

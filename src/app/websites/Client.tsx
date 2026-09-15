@@ -1,14 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import FloatingParticles from "@/components/FloatingParticles";
 import CrmEmbed from "@/components/CrmEmbed";
 import BookCallButton from "@/components/BookCallButton";
 import { packages, type Lane } from "@/data/packages";
 import { getDownload, magnetFormUrl } from "@/data/resources";
+import { getProjectBySlug } from "@/data/projects";
+import { REVIEW_STATS } from "@/data/review-stats";
+import { TRUSTPILOT_REVIEWS, TRUSTPILOT_URL } from "@/data/trustpilot";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Websites lander. Cold Meta traffic, so it breaks from the rest of the site
@@ -45,6 +48,42 @@ interface WorkItem {
   status?: string;
 }
 
+// Every word on this page used to be us talking about us. A stranger off a cold
+// ad has no reason to believe any of it, so the client's own voice goes on.
+//
+// QUOTES ARE READ FROM src/data/projects.ts, NEVER RETYPED, the same rule the
+// prices follow. They are real and they are verbatim. If a client is not in
+// there, their card gets no quote: an invented line under a real business name
+// is not proof, it is a liability.
+function realQuote(slug: string, maxChars?: number) {
+  const t = getProjectBySlug(slug)?.testimonial;
+  if (!t?.quote) return null;
+  // Length is a LAYOUT gate, never an editing one. The cards sit in a grid, so
+  // one 489 character review stretched its whole row and left Kensington and
+  // Apex with half a card of dead space under them. A long quote is dropped
+  // from the card and heard in full in the band below instead.
+  // DO NOT SOLVE THIS BY TRIMMING THE QUOTE. A cut-down review under a real
+  // business name is not their words any more.
+  if (maxChars && t.quote.length > maxChars) return null;
+  return { quote: t.quote, name: t.name, role: t.role };
+}
+
+/** Short enough to sit in a card without stretching the row. */
+const CARD_QUOTE_MAX = 160;
+
+/** Cross-trade proof, so the page is not six fitness-adjacent businesses and a
+ *  claim. Picked for what a website buyer is actually nervous about: does it
+ *  bring work in (Nick Firth names a result), do they stick around (ten years),
+ *  do they answer the phone, and can they do a shop and not just a brochure.
+ *  All verbatim from projects.ts. */
+const PROOF_SLUGS = [
+  "nick-firth-tiles",
+  "thecoachconsultant",
+  "br-accountancy",
+  "jic",
+  "quickfit-ev",
+];
+
 const WORK: WorkItem[] = [
   {
     slug: "kensington-scott",
@@ -67,11 +106,11 @@ const WORK: WorkItem[] = [
     line: "Groups of six, every session coached, and the six week trial starts in two taps on a phone.",
   },
   {
-    slug: "br-accountancy",
-    name: "BR Accountancy",
-    trade: "Accountancy",
-    domain: "braccountancy.co.uk",
-    line: "No logo, no brand and no site when we started. Accountancy is a trust business, so we built the trust first.",
+    slug: "dr-shabri",
+    name: "Dr Shabri",
+    trade: "Dentistry and aesthetics",
+    domain: "drshabri.com",
+    line: "Sixty six pages of treatments, three separate booking systems behind them, and a patient never lands in the wrong one.",
   },
   {
     slug: "blood-clinic",
@@ -202,7 +241,14 @@ const FAQS = [
 // NOTE for attribution: this is the shared /web-design form, so these leads land
 // under the same tag as every other website enquiry. If this campaign needs to be
 // measured on its own, make a /websites form in the CRM and change this one line.
-const FORM_URL = "https://crm.awmedia.marketing/web-design";
+// Its OWN form, not the shared /web-design one, and that is the point.
+// /web-design is SEVENTEEN questions and tells the visitor it takes two
+// minutes. This page prints every price and argues that the number is not held
+// back for a call, so sending cold ad traffic into a quote brief was the page
+// contradicting its own button. 366 views and no enquiries is what that looked
+// like. /websites is four questions plus the opt-in, and it carries its own
+// ac_tag (lead-websites-lander) so this campaign can be measured on its own.
+const FORM_URL = "https://crm.awmedia.marketing/websites";
 
 function QuoteForm() {
   return (
@@ -216,6 +262,194 @@ function QuoteForm() {
         autoHeight
         minHeight={560}
       />
+    </div>
+  );
+}
+
+/* The proof carousel.
+ *
+ * This band used to be a multi-column masonry. The five reviews run 240 to 606
+ * characters, so the columns packed them at wildly different heights and the
+ * whole thing read as scattered rather than as proof. Alex, 8/9/2026:
+ * "looks random at moment".
+ *
+ * One at a time fixes it: every quote gets the same box, so the eye has one
+ * thing to read instead of five competing shapes.
+ *
+ * The box is min-height'd, NOT the quote. A carousel that resizes to its
+ * content makes the page jump under the reader's thumb every time it advances,
+ * and the CTA below it moves. The height is set by the longest review on file,
+ * and shorter ones sit centred in it.
+ *
+ * QUOTES ARE STILL READ FROM projects.ts AND ARE STILL VERBATIM. Nothing here
+ * trims one to make it fit.
+ */
+function ProofCarousel({ slugs }: { slugs: string[] }) {
+  // Two sources, one list. projects.ts holds the reviews attached to a build we
+  // can name; trustpilot.ts holds the ones that are just as real but have no
+  // project page behind them. Both are verbatim and neither is retyped here.
+  const said: { quote: string; name: string; role?: string }[] = [
+    ...(slugs.map((slug) => realQuote(slug)).filter(Boolean) as {
+      quote: string;
+      name: string;
+      role?: string;
+    }[]),
+    ...TRUSTPILOT_REVIEWS.map((r) => ({
+      quote: r.quote,
+      name: r.name,
+      role: `Trustpilot, ${r.date}`,
+    })),
+  ];
+
+  const [i, setI] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const count = said.length;
+
+  // The box height is MEASURED off the slide that is actually mounted, then
+  // animated to. A `layout` prop was tried first and does not work here: with
+  // AnimatePresence mode="wait" the height went straight from 422px to 784px
+  // on a 390px phone with nothing in between, which is a snap, not a
+  // transition. Proven by sampling the height every 60ms through a change.
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [boxH, setBoxH] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    const el = innerRef.current;
+    if (!el) return;
+    const update = () => setBoxH(el.offsetHeight);
+    update();
+    // Fires on a font swap and on rotate as well as on a slide change, so the
+    // height cannot get stuck at whatever it was when the slide first mounted.
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [i]);
+
+  const go = (next: number) => setI(((next % count) + count) % count);
+
+  // Auto-advance, but never while somebody is reading it. Pausing on hover and
+  // on keyboard focus matters here because the longest review is 606
+  // characters, which is longer than seven seconds for most people.
+  useEffect(() => {
+    if (paused || count < 2) return;
+    const t = setTimeout(() => setI((v) => (v + 1) % count), 7000);
+    return () => clearTimeout(t);
+  }, [i, paused, count]);
+
+  if (count === 0) return null;
+  const item = said[i];
+
+  return (
+    <div
+      className="mt-12"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+    >
+      {/* Capped and centred. Full width, the card is a very wide box with a
+          narrow column of text floating in the middle of it, which reads as
+          empty rather than as considered. */}
+      {/* MEASURED, NOT GUESSED. First pass I picked these minimums by eye and
+          the box still jumped: 322-375px on desktop, 362-433 on tablet and
+          422-784 on a 390px phone, because the same words reflow to twice the
+          height in a narrow column.
+          Desktop and tablet minimums are now set above the tallest review on
+          file, so those two never move at all. A phone cannot be solved that
+          way, 800px would leave half a screen of dead air under the short ones,
+          so there the height animates instead of snapping.
+          If a longer review is ever added, RE-MEASURE. These numbers are only
+          right for the reviews currently in the list. */}
+      <motion.div
+        animate={boxH ? { height: boxH } : undefined}
+        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl border border-card-border bg-card"
+      >
+        <div
+          ref={innerRef}
+          className="relative flex min-h-[420px] items-center px-6 py-10 sm:min-h-[440px] sm:px-12 lg:min-h-[380px]"
+        >
+          <AnimatePresence mode="wait">
+            <motion.figure
+              key={i}
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -24 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mx-auto w-full text-center"
+            >
+              <svg
+                className="mx-auto h-7 w-7 text-pink/60"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M9.5 5.5C6.5 7 5 9.5 5 13v5.5h6V12H8.2c.2-2 1.3-3.4 3.3-4.3L9.5 5.5zm9 0C15.5 7 14 9.5 14 13v5.5h6V12h-2.8c.2-2 1.3-3.4 3.3-4.3L18.5 5.5z" />
+              </svg>
+              <blockquote className="mt-5 text-lg leading-relaxed text-white/90">
+                &ldquo;{item.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-6 text-xs uppercase tracking-widest text-muted">
+                <span className="text-white/80">{item.name}</span>
+                {item.role ? ` · ${item.role}` : ""}
+              </figcaption>
+            </motion.figure>
+          </AnimatePresence>
+        </div>
+      </motion.div>
+
+      {/* Controls sit under the card, not on top of the words. */}
+      <div className="mt-6 flex items-center justify-center gap-5">
+        <button
+          type="button"
+          onClick={() => go(i - 1)}
+          aria-label="Previous review"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-card-border bg-card text-muted transition-colors duration-200 hover:border-pink/40 hover:text-white"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <div className="flex items-center gap-2">
+          {said.map((_, d) => (
+            <button
+              key={d}
+              type="button"
+              onClick={() => go(d)}
+              aria-label={`Review ${d + 1} of ${count}`}
+              aria-current={d === i}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                d === i ? "w-6 bg-pink" : "w-2 bg-white/20 hover:bg-white/40"
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={() => go(i + 1)}
+          aria-label="Next review"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-card-border bg-card text-muted transition-colors duration-200 hover:border-pink/40 hover:text-white"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* The count is read from review-stats.ts, the one place it lives. A
+          stranger can go and check the lot, which is the point of saying it. */}
+      <p className="mt-5 text-center text-xs text-muted">
+        <a
+          href={TRUSTPILOT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-white/20 underline-offset-4 transition-colors duration-200 hover:text-white hover:decoration-pink"
+        >
+          Read all {REVIEW_STATS.trustpilot.count} on Trustpilot
+        </a>
+      </p>
     </div>
   );
 }
@@ -239,6 +473,7 @@ function BackToForm({ label = "Get my price" }: { label?: string }) {
 // A live client site in a browser frame. The domain is real and the site is
 // live, so the bar can carry it. Nothing in this rail is a concept.
 function SiteCard({ item }: { item: WorkItem }) {
+  const said = realQuote(item.slug, CARD_QUOTE_MAX);
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -277,6 +512,16 @@ function SiteCard({ item }: { item: WorkItem }) {
           </span>
         )}
         <p className="mt-2 text-sm leading-relaxed text-muted">{item.line}</p>
+        {said && (
+          <figure className="mt-4 border-t border-card-border pt-4">
+            <blockquote className="text-sm leading-relaxed text-white/85">
+              &ldquo;{said.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-2 text-[10px] uppercase tracking-widest text-muted">
+              {said.name} &middot; {said.role}
+            </figcaption>
+          </figure>
+        )}
       </div>
     </motion.div>
   );
@@ -386,10 +631,23 @@ export default function WebsitesClient() {
         {/* Logo bar. Keeps the trust, without giving cold traffic eight exits. */}
         <div className="border-b border-card-border">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-            <Link href="/" className="text-sm font-black tracking-tight">
-              AW MEDIA
+            <Link href="/" className="flex items-center" aria-label="AW Media and Marketing">
+              {/* Same logo file and aspect ratio the main Navbar uses, so it
+                  cannot drift away from the rest of the site. */}
+              <span className="relative block h-8" style={{ aspectRatio: "200 / 79" }}>
+                <Image
+                  src="/images/aw-logo-website.png"
+                  alt="AW Media and Marketing"
+                  fill
+                  priority
+                  sizes="120px"
+                  className="object-contain"
+                />
+              </span>
             </Link>
-            <span className="text-xs text-muted">Sheffield</span>
+            {/* No town on this page. The ads run UK-wide, and naming a city
+                tells everyone outside it the page is not for them. */}
+            <span className="text-xs text-muted">UK wide</span>
           </div>
         </div>
 
@@ -398,16 +656,47 @@ export default function WebsitesClient() {
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr]">
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/85">
-                  <span className="h-1.5 w-1.5 rounded-full bg-pink" />
-                  Websites
-                </span>
-
-                <h1 className="mt-5 text-4xl font-black leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl font-black leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
                   A proper website,
                   <br />
                   <span className="gradient-text">and the price up front.</span>
                 </h1>
+
+                {/* Alex's WhatsApp and review pills, lifted from /links so they
+                    are the same pills, not a lookalike. Cold traffic that is not
+                    ready to fill a form in will still message a person, and the
+                    star line is proof rather than another button.
+                    Both are py-2 here because they sit side by side, and the
+                    review count is read from src/data/review-stats.ts.
+                    /reviews opens in a new tab so the page we paid for stays. */}
+                <div className="mt-6 flex flex-wrap items-center gap-2.5">
+                  <a
+                    href="https://wa.me/447932815405"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-4 py-2 text-xs font-semibold transition-colors duration-200 hover:border-[#25D366]/50"
+                  >
+                    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-[#25D366]" aria-hidden>
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                    </svg>
+                    <span>WhatsApp</span>
+                    <span className="font-normal text-muted">+44 7932 815405</span>
+                  </a>
+
+                  <Link
+                    href="/reviews"
+                    target="_blank"
+                    className="inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-4 py-2 text-xs text-muted transition-colors duration-200 hover:border-pink/30"
+                  >
+                    <span className="text-pink" aria-hidden>
+                      &#9733;&#9733;&#9733;&#9733;&#9733;
+                    </span>
+                    <span>
+                      {REVIEW_STATS.trustpilot.count} on Trustpilot,{" "}
+                      {REVIEW_STATS.google.count} on Google
+                    </span>
+                  </Link>
+                </div>
 
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                   We build websites for businesses that need one doing properly.
@@ -462,6 +751,30 @@ export default function WebsitesClient() {
                 <SiteCard key={item.slug} item={item} />
               ))}
             </div>
+
+            <BackToForm />
+          </div>
+        </section>
+
+        {/* ── What they said ────────────────────────────────────────────────
+            Real, verbatim, read from projects.ts. Everything else on this page
+            is us talking about us, which is worth nothing to somebody who has
+            known us for thirty seconds. NEVER put a line under a real business
+            name that they did not say. ──────────────────────────────────── */}
+        <section className="border-t border-card-border py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <h2 className="max-w-2xl text-3xl font-black leading-[1.05] tracking-tight sm:text-4xl">
+              Not our words.
+              <br />
+              <span className="gradient-text">Theirs.</span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-muted">
+              A tiler, an accountant, an industrial firm, an EV installer and
+              a coach, plus a few off Trustpilot. Different trades, different
+              budgets, and not one of them left wondering where we had got to.
+            </p>
+
+            <ProofCarousel slugs={PROOF_SLUGS} />
 
             <BackToForm />
           </div>
@@ -680,7 +993,7 @@ export default function WebsitesClient() {
         <footer className="border-t border-card-border py-10">
           <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-6 text-center text-xs text-muted">
             <span className="font-black tracking-tight text-white">AW MEDIA</span>
-            <span>Websites, branding and social graphics. Sheffield.</span>
+            <span>Websites, branding and social graphics. Built for businesses across the UK.</span>
             <div className="mt-2 flex gap-4">
               <Link href="/privacy-policy" className="hover:text-white">
                 Privacy

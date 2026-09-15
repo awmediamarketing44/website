@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "@/components/Navbar";
 import FloatingParticles from "@/components/FloatingParticles";
 import PageHeader from "@/components/shared/PageHeader";
 import TiltCard from "@/components/TiltCard";
 import BookCallButton from "@/components/BookCallButton";
+import CrmEmbed from "@/components/CrmEmbed";
 import Footer from "@/components/Footer";
 import { getServiceBySlug, services } from "@/data/services";
 
@@ -229,6 +231,97 @@ export default function ServicePageClient({ slug }: { slug: string }) {
             </div>
           </div>
         </section>
+
+        {/* Systems showcase. Only /services/systems has this: the deliverable
+            there is a screen rather than a website, so the page has to show the
+            software or it is just a brochure about bespoke software. Every shot
+            is already published on the matching /work case study, on
+            demonstration data. */}
+        {service.showcase && (
+          <section className="py-24 border-t border-card-border">
+            <div className="mx-auto max-w-7xl px-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {service.showcase.heading.map((line, i) => (
+                  <motion.span
+                    key={i}
+                    className={`block ${i > 0 ? "text-pink" : ""}`}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {line}
+                  </motion.span>
+                ))}
+              </h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-muted text-base sm:text-lg max-w-2xl"
+              >
+                {service.showcase.intro}
+              </motion.p>
+
+              {service.showcase.systems.map((sys, si) => (
+                <div
+                  key={sys.name}
+                  className={si === 0 ? "mt-16" : "mt-24 pt-16 border-t border-card-border"}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="max-w-3xl"
+                  >
+                    <span className="inline-block rounded-full border border-pink/30 bg-pink/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-pink">
+                      {sys.sector}
+                    </span>
+                    <h3 className="mt-4 text-2xl sm:text-3xl font-bold">{sys.name}</h3>
+                    <p className="mt-3 text-muted leading-relaxed">{sys.summary}</p>
+                    <Link
+                      href={sys.caseStudy}
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-pink hover:gap-3 transition-all duration-200"
+                    >
+                      Read the full case study &rarr;
+                    </Link>
+                  </motion.div>
+
+                  <div className="mt-10 grid sm:grid-cols-2 gap-4 sm:gap-6">
+                    {sys.shots.map((shot, i) => (
+                      <motion.div
+                        key={shot.src}
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: i * 0.08 }}
+                        whileHover={{ y: -6 }}
+                        className="group rounded-xl border border-card-border overflow-hidden bg-card flex flex-col"
+                      >
+                        <div className="relative" style={{ aspectRatio: "16 / 10" }}>
+                          <Image
+                            src={shot.src}
+                            alt={`${sys.name}: ${shot.caption}`}
+                            fill
+                            sizes="(max-width: 640px) 90vw, 580px"
+                            className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
+                          />
+                        </div>
+                        <p className="px-5 py-4 text-sm text-muted leading-relaxed border-t border-card-border">
+                          {shot.caption}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <p className="mt-6 text-xs text-muted/70 leading-relaxed">{sys.note}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Subscription explainer (optional, e.g. AW-lways On Time) */}
         {service.subscription && (
@@ -550,15 +643,55 @@ export default function ServicePageClient({ slug }: { slug: string }) {
             >
               {service.ctaSubtext}
             </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="mt-8"
-            >
-              <BookCallButton>Book a FREE Call</BookCallButton>
-            </motion.div>
+            {/* Services that declare a formSlug close on their own CRM form
+                rather than only a call button. A bespoke system is a long
+                conversation, so the page has to capture the ones who will not
+                pick up the phone today. The call is still offered underneath,
+                and the form's own confirm screen carries Calendly too. */}
+            {service.formSlug ? (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="mt-10 text-left"
+              >
+                {/* THE WHITE CARD IS NOT DECORATION. `?embed=1` sets
+                    `body.embed{background:transparent}` in the CRM's own CSS so
+                    the form sits on whatever is behind it, and its type is
+                    near-black (--ink #14151a). Drop this card on our dark page
+                    and the form renders black-on-black with only the white
+                    input boxes visible, which reads as broken. Same wrapper as
+                    /websites and /website-concept — keep them in step. */}
+                <div className="rounded-3xl bg-white p-3 shadow-2xl shadow-black/40 ring-1 ring-white/10 sm:p-5">
+                  <CrmEmbed
+                    src={`https://crm.awmedia.marketing/${service.formSlug}`}
+                    title={`${service.title} enquiry form`}
+                    autoHeight
+                    minHeight={620}
+                    lazy
+                  />
+                </div>
+                <div className="mt-8 text-center">
+                  <p className="mb-4 text-sm text-muted">
+                    Would rather just talk it through?
+                  </p>
+                  <BookCallButton variant="secondary">
+                    Book a free call instead
+                  </BookCallButton>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="mt-8"
+              >
+                <BookCallButton>Book a FREE Call</BookCallButton>
+              </motion.div>
+            )}
           </div>
         </section>
       </main>

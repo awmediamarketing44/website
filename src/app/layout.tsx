@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Rethink_Sans } from "next/font/google";
 import CalendlyProvider from "@/components/CalendlyProvider";
+import RouteTransition from "@/components/RouteTransition";
 import FloatingOrbs from "@/components/FloatingOrbs";
 import CursorSpotlight from "@/components/CursorSpotlight";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -37,10 +38,10 @@ const organizationSchema = {
   priceRange: "££",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "30 Meadowhall Road",
-    addressLocality: "Rotherham",
+    streetAddress: "Unit 4 Broadfield Court",
+    addressLocality: "Sheffield",
     addressRegion: "South Yorkshire",
-    postalCode: "S61 2JA",
+    postalCode: "S8 0XF",
     addressCountry: "GB",
   },
   areaServed: [
@@ -63,6 +64,11 @@ const organizationSchema = {
     "E-commerce Websites",
     "Landing Page Design",
     "AI-Accelerated Web Design",
+    "Bespoke Business Software",
+    "Custom CRM Development",
+    "Client and Customer Portals",
+    "Booking and Scheduling Systems",
+    "Business Process Automation",
   ],
   contactPoint: {
     "@type": "ContactPoint",
@@ -155,6 +161,7 @@ export default function RootLayout({
         <AnalyticsNoscript />
         <FloatingOrbs />
         <CursorSpotlight />
+        <RouteTransition />
         <CalendlyProvider>{children}</CalendlyProvider>
         <WhatsAppButton />
       </body>

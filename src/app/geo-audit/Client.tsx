@@ -183,7 +183,8 @@ export default function GeoAuditClient() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Could not send.");
-      trackLead("geo_audit_lead", { url: pending?.url });
+      // Same gated-lead shape as website-audit: pixel on, URL withheld.
+      trackLead("geo_audit_lead", { url: pending?.url }, { meta: true });
       setResult(pending);
       setTimeout(
         () => resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),

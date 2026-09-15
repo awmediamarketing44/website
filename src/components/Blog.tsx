@@ -41,10 +41,10 @@ export default function Blog() {
               <TiltCard className="h-full">
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group flex flex-col h-full rounded-2xl border border-card-border bg-card overflow-hidden transition-all duration-500 hover:border-pink/30"
+                  className="aw-sheen group flex flex-col h-full rounded-2xl border border-card-border bg-card overflow-hidden transition-all duration-500 hover:border-pink/30"
                 >
                   {/* Cover image with animated gradient fallback */}
-                  <div className="aspect-[16/10] relative overflow-hidden bg-card">
+                  <div className="aw-img-zoom aspect-[16/10] relative overflow-hidden bg-card">
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-br from-pink/20 via-purple-500/10 to-card"
                       animate={{

@@ -20,6 +20,12 @@ const serviceLinks = [
 const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Services", href: "/services", hasDropdown: true },
+  // Systems is DELIBERATELY ABSENT from the nav, top level and dropdown both,
+  // on Alex's call 2 Sep 2026 ("don't think it is needed in nav", "and as well
+  // as dropdown menu"). It was in both for about an hour. The page is still
+  // reached from the /services grid, the homepage card, the sitemap and the
+  // Organization schema, all of which read services.ts automatically. Do not
+  // "restore" it here as a missing service.
   { label: "How We Work", href: "/how-we-work" },
   { label: "Industries", href: "/industries" },
   { label: "About", href: "/about" },
@@ -82,6 +88,16 @@ export default function Navbar() {
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
         {/* Bottom edge */}
         <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      {/* Reading progress. Driven by the document scroll timeline in CSS, so
+          there is no scroll listener and no state behind this. Works on
+          mobile as well as desktop. */}
+      <div
+        aria-hidden
+        className="absolute bottom-0 inset-x-0 h-[2px] overflow-hidden pointer-events-none"
+      >
+        <div className="aw-progress-bar h-full w-full bg-gradient-to-r from-pink via-pink to-purple-500" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
@@ -204,14 +220,27 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTAs */}
+        {/* Desktop CTAs.
+            AI Portal and Free Resources are held back until xl (1280px) ON
+            PURPOSE. The centre nav is absolutely centred, so below that it runs
+            straight underneath this cluster.
+
+            THIS STAYS EVEN THOUGH SYSTEMS HAS GONE BACK OUT OF THE NAV. The
+            overlap is NOT something Systems caused: measured in a real 1024px
+            viewport it was already 26px with the original six links, and went to
+            58px with Systems added. Dropping back to six links returns it to 26px,
+            which is still broken. Tightening the gaps cannot fix it either (they
+            would need to drop to about 4px).
+
+            Both links stay in the mobile menu and the footer, so nothing is lost.
+            Book a Call stays at every size because it is the actual CTA. */}
         <div className="hidden lg:flex items-center gap-3">
           <motion.a
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.5 }}
             href="/portal"
-            className="text-sm text-muted hover:text-white transition-colors duration-200"
+            className="hidden xl:inline text-sm text-muted hover:text-white transition-colors duration-200"
           >
             AI Portal
           </motion.a>
@@ -220,7 +249,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
             href="/free-resources"
-            className="text-sm text-muted hover:text-white transition-colors duration-200"
+            className="hidden xl:inline text-sm text-muted hover:text-white transition-colors duration-200"
           >
             Free Resources
           </motion.a>

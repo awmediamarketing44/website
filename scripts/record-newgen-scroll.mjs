@@ -1,9 +1,16 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
 
-const URL = "https://newgencoaching.uk/";
-const OUT = "C:/Users/mraiw/Desktop/ng-frames";
-const W = 1280, H = 800, FRAMES = 220;
+// Usage: node scripts/record-newgen-scroll.mjs [url] [outDir] [frames]
+// Defaults to the original Newgen capture so the old invocation still works.
+//
+// FRAMES sets the scroll SPEED, not just the length: frames are played back at a
+// fixed 30fps, so more frames = slower pan over the same page. Aim for roughly
+// 450-550 px/s of travel or the copy is unreadable. Work it out as
+// frames = (pageHeight - 800) / pixelsPerSecond * 30.
+const URL = process.argv[2] || "https://newgencoaching.uk/";
+const OUT = process.argv[3] || "C:/Users/mraiw/Desktop/ng-frames";
+const W = 1280, H = 800, FRAMES = Number(process.argv[4]) || 220;
 
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });

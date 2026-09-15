@@ -175,7 +175,16 @@ export default function Process() {
             </h2>
           </motion.div>
 
-          <ol className="space-y-8 sm:space-y-10">
+          {/* The numbered steps become a timeline that fills in as you scroll.
+              The rail is a single absolutely positioned line scaled on a CSS
+              scroll timeline, and each number sits on an opaque chip so the
+              line reads as running behind them. No JS, no layout change to
+              the rows themselves. */}
+          <ol className="relative space-y-8 sm:space-y-10">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-[1.5rem] top-2 bottom-2 w-px -translate-x-1/2 bg-gradient-to-b from-pink via-pink/40 to-transparent aw-rail"
+            />
             {steps.map((step, i) => (
               <motion.li
                 key={step.number}
@@ -183,9 +192,9 @@ export default function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="flex gap-4 sm:gap-6 items-start"
+                className="relative flex gap-4 sm:gap-6 items-start"
               >
-                <span className="text-4xl sm:text-5xl font-black gradient-text leading-none tabular-nums shrink-0 min-w-[3rem]">
+                <span className="relative z-10 bg-background py-1 text-4xl sm:text-5xl font-black gradient-text leading-none tabular-nums shrink-0 min-w-[3rem]">
                   {step.number}
                 </span>
                 <div>
