@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Most websites don't convert because of weak positioning, not weak design. The 3-second test, the questions every homepage must answer, and how to fix it.",
   date: "January 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/real-reason-website-isnt-converting.jpg",
+  coverImage: "/images/blog/real-reason-website-isnt-converting-v2.jpg",
   body: [
     {
       type: "p",

@@ -10,7 +10,7 @@ const post: BlogPost = {
     "An honest guide to AI design for coaches. Where AI-accelerated design wins, where it loses, and how to use it without your brand looking generic.",
   date: "March 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/ai-design-for-coaches.jpg",
+  coverImage: "/images/blog/ai-design-for-coaches-v2.jpg",
   body: [
     {
       type: "p",

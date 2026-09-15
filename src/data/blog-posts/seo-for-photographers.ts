@@ -10,7 +10,7 @@ const post: BlogPost = {
     "SEO for photographers that drives real bookings. Local queries, image SEO, gallery speed fixes, and service pages that rank and convert.",
   date: "March 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/seo-for-photographers.jpg",
+  coverImage: "/images/blog/seo-for-photographers-v2.jpg",
   body: [
     {
       type: "p",

@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Local SEO for personal trainers that actually fills your books. Google Business Profile, location pages, reviews, mobile speed, and a 7-day sprint.",
   date: "April 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/seo-for-personal-trainers.jpg",
+  coverImage: "/images/blog/seo-for-personal-trainers-v2.jpg",
   body: [
     {
       type: "p",

@@ -11,7 +11,7 @@ const post: BlogPost = {
   date: "May 2026",
   readingMinutes: 6,
   featured: true,
-  coverImage: "/images/blog/ai-built-in-30-seconds-is-a-scam.jpg",
+  coverImage: "/images/blog/ai-built-in-30-seconds-is-a-scam-v2.jpg",
   body: [
     {
       type: "p",

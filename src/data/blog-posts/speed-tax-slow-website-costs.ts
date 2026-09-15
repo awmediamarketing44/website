@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Slow websites quietly cost UK businesses real money. The speed tax explained in plain English, the biggest speed killers, and how to actually fix them.",
   date: "February 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/speed-tax-slow-website-costs.jpg",
+  coverImage: "/images/blog/speed-tax-slow-website-costs-v2.jpg",
   body: [
     {
       type: "p",

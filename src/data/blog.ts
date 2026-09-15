@@ -1,5 +1,10 @@
 import type { BlogPost } from "./blog-types";
 
+import whoOwnsYourWebsite from "./blog-posts/who-actually-owns-your-website";
+import enquiryFormBroken from "./blog-posts/your-enquiry-form-might-be-broken";
+import meetYouOnAPhone from "./blog-posts/almost-everyone-meets-you-on-a-phone";
+import photosAreTalking from "./blog-posts/the-photos-on-your-website-are-talking";
+import differentOnEveryPlatform from "./blog-posts/different-company-on-every-platform";
 import webDesignForFitnessCoaches from "./blog-posts/web-design-for-fitness-coaches";
 import webDesignForDentalPractices from "./blog-posts/web-design-for-dental-practices";
 import brandingForConstructionFirms from "./blog-posts/branding-for-construction-firms";
@@ -51,6 +56,24 @@ import adminDoesNotNeedYou from "./blog-posts/the-admin-your-business-does-not-n
 import tenPmTest from "./blog-posts/the-10pm-test";
 import weRebuiltOurOwnWebsite from "./blog-posts/we-rebuilt-our-own-website";
 
+// Systems series, September 2026. Supports /services/systems.
+import spreadsheetNobodyCalls from "./blog-posts/the-spreadsheet-nobody-calls-a-problem";
+import neverAgreedToWorkThisWay from "./blog-posts/you-never-agreed-to-work-this-way";
+import typedInFourTimes from "./blog-posts/the-same-information-typed-in-four-times";
+import personWhoJustKnows from "./blog-posts/when-the-person-who-just-knows-is-off";
+import bespokeWrongAnswer from "./blog-posts/when-bespoke-is-the-wrong-answer";
+
+// Positioning batch, September 2026. Get found, look the part, get your time back.
+import getFoundLookThePart from "./blog-posts/get-found-look-the-part-get-your-time-back";
+import goodNotFindable from "./blog-posts/being-good-is-not-the-same-as-being-findable";
+import fiveStarHabit from "./blog-posts/five-star-reviews-are-not-luck";
+import refreshNotRebrand from "./blog-posts/a-refresh-not-a-rebrand";
+import nobodyWaitingNextPost from "./blog-posts/nobody-is-waiting-for-your-next-post";
+import nobodyLookingAfterSite from "./blog-posts/nobody-is-looking-after-your-website";
+import whereEnquiriesGo from "./blog-posts/where-do-your-enquiries-actually-go";
+import portalNotEmailThread from "./blog-posts/a-portal-instead-of-another-email-thread";
+import aiNotWrittenDown from "./blog-posts/ai-will-not-fix-what-is-not-written-down";
+
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December",
@@ -62,6 +85,11 @@ function dateSortKey(dateStr: string): number {
 }
 
 const ALL: BlogPost[] = [
+  whoOwnsYourWebsite,
+  enquiryFormBroken,
+  meetYouOnAPhone,
+  photosAreTalking,
+  differentOnEveryPlatform,
   worseBusinessesTaking,
   pricesSetBeforeYouSpeak,
   sundayNightsCanva,
@@ -111,6 +139,20 @@ const ALL: BlogPost[] = [
   changesTakeWeeks,
   embarrassedToSend,
   diyBrandSameness,
+  getFoundLookThePart,
+  goodNotFindable,
+  fiveStarHabit,
+  refreshNotRebrand,
+  nobodyWaitingNextPost,
+  nobodyLookingAfterSite,
+  whereEnquiriesGo,
+  portalNotEmailThread,
+  aiNotWrittenDown,
+  spreadsheetNobodyCalls,
+  neverAgreedToWorkThisWay,
+  typedInFourTimes,
+  personWhoJustKnows,
+  bespokeWrongAnswer,
   ...importedWpPosts,
 ];
 

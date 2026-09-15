@@ -10,7 +10,7 @@ const post: BlogPost = {
     "How premium aesthetics clinics brand themselves in 2026: restrained palettes, editorial photography, considered space and the visual cues that justify higher pricing.",
   date: "April 2026",
   readingMinutes: 8,
-  coverImage: "/images/blog/branding-for-aesthetics-clinics.jpg",
+  coverImage: "/images/blog/branding-for-aesthetics-clinics-v2.jpg",
   body: [
     {
       type: "p",

@@ -10,7 +10,7 @@ const post: BlogPost = {
     "How aesthetics clinics build real trust on Instagram in 2026: education carousels, treatment room cinematics, founder personality, and the cliches to avoid.",
   date: "March 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/social-media-for-aesthetics-clinics.jpg",
+  coverImage: "/images/blog/social-media-for-aesthetics-clinics-v2.jpg",
   body: [
     {
       type: "p",

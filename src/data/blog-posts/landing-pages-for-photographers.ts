@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Why photographers need landing pages, not just portfolios: focused offer, single CTA, real reviews. Plus an AI-Accelerated route from £695 for small studios.",
   date: "February 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/landing-pages-for-photographers.jpg",
+  coverImage: "/images/blog/landing-pages-for-photographers-v2.jpg",
   body: [
     {
       type: "p",

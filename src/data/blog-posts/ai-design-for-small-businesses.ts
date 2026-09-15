@@ -10,7 +10,7 @@ const post: BlogPost = {
     "AI design for small businesses, demystified. Where AI helps, where it fails, and what an actual AI-Accelerated agency workflow looks like behind the scenes.",
   date: "March 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/ai-design-for-small-businesses.jpg",
+  coverImage: "/images/blog/ai-design-for-small-businesses-v2.jpg",
   body: [
     {
       type: "p",

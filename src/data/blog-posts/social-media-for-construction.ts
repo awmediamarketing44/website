@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Why construction firms are invisible on Instagram and the formats that actually drive enquiries: progress Reels, drone footage, founder Stories, plus a 4-week sprint.",
   date: "February 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/social-media-for-construction.jpg",
+  coverImage: "/images/blog/social-media-for-construction-v2.jpg",
   body: [
     {
       type: "p",

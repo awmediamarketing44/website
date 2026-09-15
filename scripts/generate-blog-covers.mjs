@@ -49,7 +49,7 @@ const PER_POST_PROMPT = {
   "get-your-sheffield-business-found-online":
     "A 3D clay pin marker rising out of a stylised map with a pink signal pulse radiating outward, a small magnifying glass nearby. Sense of being discovered.",
   "ai-built-in-30-seconds-is-a-scam":
-    "A cracked 3D clay browser window with a 'BUILT IN 30 SECONDS' speedometer needle snapped off. Subtle warning glow.",
+    "A cracked 3D clay browser window with a clay speedometer dial inside it, the needle snapped clean off and lying beside it, a pink warning glow through the crack. Deep ink black background filling the entire frame, edge to edge. Wide 16:9 landscape composition, no borders, no framing card, no light background. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
   "what-695-buys-in-web-design":
     "A neatly stacked 3D clay tower of three website cards labelled by tier with pink price tags. Editorial.",
   "ai-accelerated-vs-bespoke":
@@ -57,11 +57,11 @@ const PER_POST_PROMPT = {
   "bespoke-vs-template-when-custom-matters":
     "Two 3D clay business cards, one identical mass-produced grid, one hand-shaped and unique. Side by side, top-down.",
   "speed-tax-slow-website-costs":
-    "A 3D clay stopwatch with melting pink wax dripping from the hands. Sense of time bleeding.",
+    "A 3D clay stopwatch with melting pink wax dripping from its hands onto a small clay coin stack below. Deep ink black background filling the entire frame, edge to edge. Wide 16:9 landscape composition, no borders, no framing card, no light background. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
   "agency-websites-worse-than-clients":
-    "A 3D clay cobbler's bench with a beautiful shoe and a tatty unfinished shoe beside it. Paper-cut backdrop.",
+    "A 3D clay cobbler bench holding one beautifully finished pink and cream shoe and one tatty unfinished grey shoe beside it, clay tools scattered around. Plain smooth clay surfaces, no markings. Deep ink black background filling the entire frame, edge to edge. Wide 16:9 landscape composition, no borders, no framing card, no light background. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
   "real-reason-website-isnt-converting":
-    "A 3D clay funnel with the wide entry full of clay people but only one dropping out the bottom. Pink highlight on the drop.",
+    "A wide 3D clay funnel seen from the side, the mouth crowded with small clay figures and only one lone pink figure dropping out of the bottom into a pink pool of light. Deep ink black background filling the entire frame, edge to edge. Wide 16:9 landscape composition, no borders, no framing card, no light background. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
   "website-in-7-days-without-cutting-corners":
     "A 3D clay desk calendar with 7 pages folded open like a pop-up book, last page showing a finished website thumbnail.",
 
@@ -78,7 +78,7 @@ const PER_POST_PROMPT = {
   "seo-for-photographers":
     "A 3D clay vintage camera with a magnifying glass over its lens, pink highlight on the search reticle.",
   "ai-design-for-coaches":
-    "A 3D clay clipboard with a half-AI-half-handdrawn website wireframe sketch overlaid. Honest hybrid.",
+    "A 3D clay clipboard holding a completely blank wireframe of plain grey boxes, half of it crisply machine cut and half of it hand moulded with visible thumbprints, a pink clay pencil resting across it. Every surface plain smooth clay with no markings. Deep ink black background filling the entire frame, edge to edge. Wide 16:9 landscape composition, no borders, no framing card, no light background. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
   "ai-design-for-small-businesses":
     "A 3D clay storefront facade being assembled from clay puzzle pieces, half by hand and half floating in.",
   "social-media-for-aesthetics-clinics":
@@ -86,7 +86,7 @@ const PER_POST_PROMPT = {
   "social-media-for-construction":
     "A 3D clay phone showing a building under construction scene as a reel, pink play button highlighted.",
   "landing-pages-for-photographers":
-    "A 3D clay single-page brochure standing upright with a clay camera lens projecting a pink CTA button.",
+    "A single 3D clay page standing upright on a plinth with one big glowing pink button on it, a clay camera on a tripod pointed straight at it, a scatter of blank clay photo prints on the floor. Deep ink black background filling the entire frame, edge to edge. Wide 16:9 landscape composition, no borders, no framing card, no light background. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
   "ecommerce-for-print-on-demand-artists":
     "A 3D clay framed art print on a small clay easel, a checkout button glowing pink in the foreground.",
 
@@ -142,6 +142,46 @@ const PER_POST_PROMPT = {
     "A 3D clay conveyor belt carrying small completely blank clay envelopes, blank paper sheets and empty speech bubbles into a friendly rounded clay robot arm that sorts them neatly, while a clay figure walks away relaxed. Pink highlight on the sorted stack. Every surface is plain smooth clay. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
   "the-10pm-test":
     "A 3D clay smartphone glowing in the dark with a soft pink beam, resting on a clay sofa arm beside a clay mug, a crescent moon above. On the screen, abstract clay search-result cards. Late-night lookup energy. No text, no letters, no numbers.",
+  "who-actually-owns-your-website":
+    "A 3D clay house key with a small clay website card hanging from it as a keyring, a second grey hand reaching in from the edge holding an identical key. Sense of a shared key. No text, no letters, no numbers.",
+  "your-enquiry-form-might-be-broken":
+    "A 3D clay postbox with no back to it, pink clay envelopes falling straight through and piling up on the floor behind it, one envelope caught mid fall in a pink glow. Deep ink black background filling the entire frame, edge to edge. Wide 16:9 landscape composition, no borders, no framing card, no light background. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
+  "almost-everyone-meets-you-on-a-phone":
+    "A 3D clay shop doorway shrunk down and set into a clay phone screen with a pink awning above it, a tiny clay figure stepping in, the full size clay door standing shut and unused in the shadows behind. Deep ink black background filling the entire frame, edge to edge. Wide 16:9 landscape composition, no borders, no framing card, no light background. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
+  "the-photos-on-your-website-are-talking":
+    "Two 3D clay photo frames on a clay wall, one crisp and lit with a pink glow, one dim and blurred and slightly crooked, a small clay speech bubble rising from each. No text, no letters, no numbers.",
+  "different-company-on-every-platform":
+    "Four 3D clay profile cards laid out in a row, each a different colour and shape, a single pink thread trying and failing to link them. Sense of the same business looking like four. Top-down. No text, no letters, no numbers.",
+  "the-spreadsheet-nobody-calls-a-problem":
+    "A vast 3D clay grid of empty cells receding into the dark like a floor, one glowing pink cell propping up a leaning clay tower of stacked blocks above it. Deep ink black background filling the entire frame, edge to edge. Wide 16:9 landscape composition, no borders, no framing card, no light background. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
+  "you-never-agreed-to-work-this-way":
+    "A 3D clay path made of mismatched patched together stepping stones and bits of tape, worn smooth by use, curving off into the dark. One pink stone where a proper one should be. No text, no letters, no numbers.",
+  "the-same-information-typed-in-four-times":
+    "Four identical 3D clay forms lined up in a row with the same small pink clay block being placed into each one by four separate clay hands. Repetition, wasted effort. No text, no letters, no numbers.",
+  "when-the-person-who-just-knows-is-off":
+    "A 3D clay desk with an empty chair and a single glowing pink clay lightbulb switched off above it, while three smaller clay figures stand around a machine they cannot start. No text, no letters, no numbers.",
+  "when-bespoke-is-the-wrong-answer":
+    "A 3D clay tailor's dummy beside a rack of perfectly good ready made clay jackets, a pink measuring tape draped between them and a clay hand reaching for the ready made one. No text, no letters, no numbers.",
+
+  "get-found-look-the-part-get-your-time-back":
+    "Three 3D clay panels standing in a row like a triptych: a clay map pin with a pink signal pulse, a small clay storefront with a polished pink facade, and a clay hourglass with the sand flowing back upward. Balanced, editorial, one system. No text, no letters, no words, no numbers.",
+  "being-good-is-not-the-same-as-being-findable":
+    "A beautifully crafted 3D clay trophy-quality object sitting in deep shadow at the back, while a plainer clay object sits forward under a pink spotlight beam. A clay magnifying glass sweeping past the hidden one. Sense of quality overlooked. No text, no letters, no numbers.",
+  "five-star-reviews-are-not-luck":
+    "A 3D clay conveyor of small plain clay star shapes being placed one at a time onto a growing pink stack by a friendly clay hand. Steady habit, not luck. Studio lighting, generous negative space. No text, no letters, no numbers.",
+  "a-refresh-not-a-rebrand":
+    "A single abstract 3D clay logo mark on a small plinth, one half being gently polished to a fresh pink sheen while the other half stays faded grey, a clay cloth and brush beside it. Restoration, not replacement. No text, no letters, no numbers.",
+  "nobody-is-waiting-for-your-next-post":
+    "A 3D clay phone screen showing a grid of nine blank clay squares, the top row lifting forward and glowing pink while the rest sit flat and grey. A tiny clay figure glancing at it briefly. No text, no letters, no numbers.",
+  "nobody-is-looking-after-your-website":
+    "A 3D clay website card on a small stand with ivy-like clay vines creeping over one corner and a loose pink panel hanging off, a clay spanner and oil can resting unused beside it. Quiet neglect. No text, no letters, no numbers.",
+  "where-do-your-enquiries-actually-go":
+    "Five clay pipes coming in from different directions carrying small pink clay envelopes, three feeding into one tidy clay tray and two spilling onto the floor. Sense of leaks in the funnel. Top-down, editorial. No text, no letters, no numbers.",
+  "a-portal-instead-of-another-email-thread":
+    "A long tangled clay chain of blank speech bubbles on one side, and on the other a single clean clay doorway glowing pink with a small clay figure stepping through to a lit screen. One place to look. No text, no letters, no numbers.",
+  "ai-will-not-fix-what-is-not-written-down":
+    "A friendly rounded clay robot arm reaching into an empty clay filing drawer, while a neat stack of plain blank clay pages glows pink on the desk beside it. Sense of needing something written first. Every surface plain smooth clay. Absolutely no text, no letters, no words, no writing, no numbers, no labels anywhere in the image.",
+
   "we-rebuilt-our-own-website":
     "A 3D clay website card being rebuilt by clay scaffolding and a small crane, fresh pink panels replacing faded grey ones, with a small clay mirror leaning against the scaffold. Sense of practising what you preach. No text, no letters, no numbers.",
 };

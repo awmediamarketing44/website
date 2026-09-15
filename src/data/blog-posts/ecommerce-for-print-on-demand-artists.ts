@@ -10,7 +10,7 @@ const post: BlogPost = {
     "Print-on-demand artist ecommerce: Shopify vs WooCommerce vs Squarespace, Prodigi and Printful fulfilment, and the brand decisions that make a POD shop look premium.",
   date: "February 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/ecommerce-for-print-on-demand-artists.jpg",
+  coverImage: "/images/blog/ecommerce-for-print-on-demand-artists-v2.jpg",
   body: [
     {
       type: "p",

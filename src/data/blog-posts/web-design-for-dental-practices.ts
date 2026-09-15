@@ -10,7 +10,7 @@ const post: BlogPost = {
     "How dental practice websites should be built in 2026: trust signals, fast loading, and frictionless online booking that actually fills the diary.",
   date: "May 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/web-design-for-dental-practices.jpg",
+  coverImage: "/images/blog/web-design-for-dental-practices-v2.jpg",
   body: [
     {
       type: "p",

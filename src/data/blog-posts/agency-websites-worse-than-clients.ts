@@ -10,7 +10,7 @@ const post: BlogPost = {
     "If an agency's own website is slow, bloated and full of stock photos, that is your answer. How to vet a web design agency by judging their actual work.",
   date: "January 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/agency-websites-worse-than-clients.jpg",
+  coverImage: "/images/blog/agency-websites-worse-than-clients-v2.jpg",
   body: [
     {
       type: "p",

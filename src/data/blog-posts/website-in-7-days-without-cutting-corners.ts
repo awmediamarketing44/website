@@ -10,7 +10,7 @@ const post: BlogPost = {
     "How AW Media's AI-Accelerated 7-day website build actually works. Day-by-day process, what's in scope, what's not, and why fast doesn't mean cheap and nasty.",
   date: "January 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/website-in-7-days-without-cutting-corners.jpg",
+  coverImage: "/images/blog/website-in-7-days-without-cutting-corners-v2.jpg",
   body: [
     {
       type: "p",

@@ -10,7 +10,7 @@ const post: BlogPost = {
     "How AW Media's two-lane model works: when AI-Accelerated web design wins, when Bespoke wins, and why the same designers run both lanes to the same quality bar.",
   date: "April 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/ai-accelerated-vs-bespoke.jpg",
+  coverImage: "/images/blog/ai-accelerated-vs-bespoke-v2.jpg",
   body: [
     {
       type: "p",

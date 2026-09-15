@@ -10,7 +10,7 @@ const post: BlogPost = {
     "An honest, no-fluff breakdown of UK web design pricing tiers in 2026: what £695, £1,495 and £2,500+ actually deliver, and which is right for you.",
   date: "May 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/what-695-buys-in-web-design.jpg",
+  coverImage: "/images/blog/what-695-buys-in-web-design-v2.jpg",
   body: [
     {
       type: "p",

@@ -10,7 +10,7 @@ const post: BlogPost = {
     "How premium UK construction firms brand themselves: typography, restraint, real photography and the visual identity that wins £200k+ projects.",
   date: "April 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/branding-for-construction-firms.jpg",
+  coverImage: "/images/blog/branding-for-construction-firms-v2.jpg",
   body: [
     {
       type: "p",

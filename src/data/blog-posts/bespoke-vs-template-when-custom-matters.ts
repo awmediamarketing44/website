@@ -10,7 +10,7 @@ const post: BlogPost = {
     "When to use a template, when to go custom, and the AI-Accelerated middle ground that gives custom-feel for template-tier money. An honest founder's framework.",
   date: "April 2026",
   readingMinutes: 6,
-  coverImage: "/images/blog/bespoke-vs-template-when-custom-matters.jpg",
+  coverImage: "/images/blog/bespoke-vs-template-when-custom-matters-v2.jpg",
   body: [
     {
       type: "p",

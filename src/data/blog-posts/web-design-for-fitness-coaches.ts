@@ -10,7 +10,7 @@ const post: BlogPost = {
     "What actually converts on a fitness coach website in 2026: transformation proof, clear offers, fast mobile pages and frictionless booking.",
   date: "May 2026",
   readingMinutes: 7,
-  coverImage: "/images/blog/web-design-for-fitness-coaches.jpg",
+  coverImage: "/images/blog/web-design-for-fitness-coaches-v2.jpg",
   body: [
     {
       type: "p",
