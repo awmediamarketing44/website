@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Rethink_Sans } from "next/font/google";
 import CalendlyProvider from "@/components/CalendlyProvider";
 import RouteTransition from "@/components/RouteTransition";
@@ -164,6 +165,10 @@ export default function RootLayout({
         <RouteTransition />
         <CalendlyProvider>{children}</CalendlyProvider>
         <WhatsAppButton />
+        {/* Website live chat (AI in Alex's voice, hands over to him in the CRM).
+            Served by the CRM; while it is in test mode there it only shows for a
+            browser that has opened the site with ?chat=test. */}
+        <Script src="https://crm.awmedia.marketing/chat-embed.php" strategy="lazyOnload" />
       </body>
     </html>
   );
