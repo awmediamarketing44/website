@@ -1424,6 +1424,59 @@ const extraPages: LandingPageData[] = [
     ],
     serviceName: "Booking System Development",
     serviceType: "Custom software development",
+  },
+  // AW Media OS: the client support system at os.awmedia.marketing. This page
+  // is the sales asset for support plans, so it sells the client's own screen,
+  // not the tech. No prices: plans are quoted per client.
+  {
+    slug: "aw-media-os",
+    metaTitle: "AW Media OS | Your Support Portal & App | AW Media",
+    metaDescription:
+      "Every client we look after gets AW Media OS: report a problem, watch it get fixed, sign it off, and see exactly what your support plan did each month. Web and iPhone.",
+    tag: "AW Media OS · included with support",
+    title: "Every job you have asked us for,",
+    titleAccent: "in one place.",
+    headerDescription:
+      "Most agencies take your support fee and go quiet. Our clients get their own system: report a problem in seconds, watch it move, sign it off when it is right, and get a report at the end of the month showing exactly what the fee bought.",
+    introHeading: ["Support usually disappears", "into somebody's inbox."],
+    introParas: [
+      "You email a change. Or you WhatsApp it, or you mention it on a call. Then you wait, and a week later you are not sure whether it was done, forgotten, or never landed at all. Nobody is being difficult. It is just that email is a terrible place to keep a list of work.",
+      "AW Media OS is the answer to that. It is our own system, built for the people we look after, and every client on a plan gets it. You report a problem, you can see who has it and what stage it is at, you get told when it is ready to check, and you are the one who marks it done. Nothing closes because we decided it was finished.",
+      "It runs in a browser and there is an iPhone app, so you can flag something from the car park with a photo attached. Behind it sits the boring but important half: the hours on your plan, what they went on, uptime checks on your site, and a monthly report that lands in your inbox without anybody having to write it.",
+    ],
+    servicesHeading: ["What you get", "the day you join."],
+    services: [
+      { title: "Report it in seconds", description: "A few words and a photo if it helps. No ticket reference to quote, no form with eleven fields, no chasing." },
+      { title: "See exactly where it is", description: "Reported, being fixed, ready for you to check. You always know who has it and what is happening, without asking." },
+      { title: "You close it, not us", description: "When something is fixed you get told it is ready. It only counts as done when you say it is." },
+      { title: "Chat, answered straight away", description: "Ask a question and get an answer immediately, with us pulled in the moment it needs a person rather than a reply." },
+      { title: "Your hours, in the open", description: "What your plan includes, what has been used and what it went on. No mystery about where the monthly fee goes." },
+      { title: "A report every month", description: "What we did, what it took, and how your site has been running, emailed on the first without you having to ask." },
+    ],
+    whyHeading: ["Why we built", "our own."],
+    why: [
+      { title: "You can see the work.", description: "A support plan you cannot see is a subscription you eventually cancel. This one shows its working, which is exactly why we built it." },
+      { title: "Nothing falls down the gap.", description: "Everything you ask for is on one list, in one place, and it stays there until you have signed it off." },
+      { title: "It is ours, so it moves.", description: "When a client asks for something the system does not do yet, we build it. It is not a third-party tool we are waiting on." },
+    ],
+    faqHeading: "AW Media OS",
+    faqs: [
+      { question: "Who gets access to it?", answer: "Every client on a support or care plan, at no extra cost. It comes with the plan rather than being an add-on, because the point of it is that you can see what you are paying for." },
+      { question: "Do I need to download an app?", answer: "No. It works in any browser on any device. There is an iPhone app as well if you would rather have it on your home screen, and it does the same job." },
+      { question: "Can my team use it too?", answer: "Yes. Whoever needs to raise things can have a login, so it is not stuck with one person who happens to have the email thread." },
+      { question: "How quickly do things get picked up?", answer: "That depends on the plan you are on, and it is written into the plan rather than left vague. What the system guarantees is that you can see where something is up to at any point, instead of wondering." },
+      { question: "What if I want something that is not covered by my hours?", answer: "You get told before anything is done, with what it would take. Nothing gets added to a bill after the event." },
+      { question: "Can I get this without a website from you?", answer: "It is built round looking after the websites and systems we have built, so it comes with a plan. If we did not build it, have a word anyway and we will tell you straight whether we can look after it properly." },
+    ],
+    ctaHeadline: "Want your support to be visible?",
+    ctaSubtext: "Book a free 20-minute call. We will show you the system, walk you through what a plan covers, and price it for your setup.",
+    relatedLinks: [
+      { label: "SEO & Monthly Support", href: "/services/seo-support", blurb: "What a care plan actually covers: hosting, security, updates, content changes and improvements." },
+      { label: "Bespoke Systems & Software", href: "/services/systems", blurb: "The same approach we take for clients: build the system round how the business already runs." },
+      { label: "Client Portal Development", href: "/client-portal-development", blurb: "Want one of these for your own customers? That is a build we do all the time." },
+    ],
+    serviceName: "AW Media OS Client Support Portal",
+    serviceType: "Website support and maintenance",
   },];
 
 export const landingPages: LandingPageData[] = [
