@@ -851,9 +851,9 @@ export const services: ServiceData[] = [
       "You have looked at a bespoke build before and decided it was not realistic",
     ],
     showcase: {
-      heading: ["Two we have", "already built."],
+      heading: ["Four we have", "already built."],
       intro:
-        "Not mockups. Both of these are live, both replaced something that was holding the business back, and both are written up in full on our work pages. Everything on screen here is demonstration data, not real customers or patients.",
+        "Not mockups. All four are live, all four replaced something that was holding a business back, and each one is written up in full on our work pages. Everything on screen here is demonstration data, not real customers, patients or students.",
       systems: [
         {
           name: "Dixons Dispatch",
@@ -935,6 +935,86 @@ export const services: ServiceData[] = [
           ],
           note: "Shown on a test account with demonstration results, not a patient's record.",
         },
+        {
+          name: "The PT Business Blueprint",
+          sector: "Coach education and certification, CIMSPA endorsed",
+          caseStudy: "/work/pt-business-blueprint",
+          summary:
+            "A whole course business rather than a website. The sales site, the student platform, a white-labelled portal gyms buy seats on, the back office and the Stripe checkout, plus a 160 page printed workbook with a fulfilment board behind it. The owner edits every word, price and lesson himself, because on the old setup changing one line meant a developer and a risky deploy.",
+          shots: [
+            {
+              src: "/images/projects/pt-business-blueprint/showcase/admin-curriculum.webp",
+              caption:
+                "The curriculum editor. Seven modules and 41 lessons, reordered and published by the owner, no developer involved.",
+            },
+            {
+              src: "/images/projects/pt-business-blueprint/showcase/admin-assignments.webp",
+              caption:
+                "Seven portfolio assessments, written and published from the same back office.",
+            },
+            {
+              src: "/images/projects/pt-business-blueprint/showcase/admin-certificates.webp",
+              caption:
+                "CIMSPA CPD certificates generated to A4 with bleed and crop marks, ready for the printers.",
+            },
+            {
+              src: "/images/projects/pt-business-blueprint/showcase/portal-tools.webp",
+              caption:
+                "Ten working tools inside the course. Everything a student types saves and pre-fills as they go.",
+            },
+            {
+              src: "/images/projects/pt-business-blueprint/showcase/gym-portal.webp",
+              caption:
+                "The gym portal. Buy a block of seats, add your trainers, and a seat is only used once somebody actually signs in.",
+            },
+            {
+              src: "/images/projects/pt-business-blueprint/showcase/portal-booking.webp",
+              caption:
+                "Their own booking engine, which replaced Calendly. One diary, two-way Google Calendar, Meet link on the invite.",
+            },
+          ],
+          note: "Shown on the developer account with demonstration data, not a student's record.",
+        },
+        {
+          name: "PT Desk",
+          sector: "Scheduling and payments software for personal trainers",
+          caseStudy: "/work/pt-desk",
+          summary:
+            "Software we designed and built from the database up, for trainers drowning in the admin round the coaching. Booking, payments, packages, no-show policies and PAR-Q paperwork, deliberately leaving programmes and nutrition in whatever app they already use. White-labelled, so their clients never see our name or theirs.",
+          shots: [
+            {
+              src: "/images/projects/pt-desk/showcase/app-clients.webp",
+              caption:
+                "Clients and their remaining credits, so nobody has to work out who is running low on sessions.",
+            },
+            {
+              src: "/images/projects/pt-desk/showcase/app-calendar.webp",
+              caption:
+                "Only the hours they have actually opened are bookable, and their own calendar blocks itself out.",
+            },
+            {
+              src: "/images/projects/pt-desk/showcase/app-services.webp",
+              caption:
+                "The sessions and packages they sell, priced their way, with the policy attached.",
+            },
+            {
+              src: "/images/projects/pt-desk/showcase/app-forms.webp",
+              caption:
+                "The PAR-Q in their own words, sent on booking and returned signed before anybody trains.",
+            },
+            {
+              src: "/images/projects/pt-desk/showcase/client-view.webp",
+              caption:
+                "What the client sees. Branded as the trainer, because it is their business, not ours.",
+            },
+            {
+              src: "/images/projects/pt-desk/showcase/booking.webp",
+              caption:
+                "One booking link. Deposits, prepayment or a monthly plan, taken before they turn up.",
+            },
+          ],
+          note: "Shown on the public demo, so none of it is anybody's real client data.",
+        },
       ],
     },
     faqs: [
@@ -972,7 +1052,7 @@ export const services: ServiceData[] = [
     ctaHeadline: "Tell us what the spreadsheet is doing.",
     ctaSubtext:
       "A few questions, takes a minute. Tell us where the system falls short and we will come back to you with what we would build and what it would cost.",
-    relatedProjects: ["dixons-dispatch", "blood-clinic"],
+    relatedProjects: ["dixons-dispatch", "blood-clinic", "pt-business-blueprint", "pt-desk"],
     formSlug: "systems",
   },
 ];
