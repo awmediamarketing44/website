@@ -11,12 +11,15 @@ import BookCallButton from "@/components/BookCallButton";
 import Footer from "@/components/Footer";
 import { projects } from "@/data/projects";
 
+/* Systems sits second on purpose: it is the work Alex wants pushed and it had
+   no filter of its own, so the platform builds were hiding under AI-Powered. */
 const filters = [
   "All",
-  "Web Design & Build",
-  "AI-Powered",
-  "Graphic Subscriptions",
-  "Branding / Logo Design",
+  "Websites",
+  "Systems & Platforms",
+  "AI-Accelerated",
+  "Branding",
+  "Social Graphics",
   "Landing Pages",
 ];
 
@@ -122,7 +125,7 @@ export default function WorkPage() {
                               alt={`${project.title} thumbnail`}
                               fill
                               sizes="(max-width: 1024px) 50vw, 33vw"
-                              className={`${project.category === 'Branding / Logo Design' ? 'object-cover object-center' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-700`}
+                              className={`${project.category === 'Branding' ? 'object-cover object-center' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-700`}
                             />
                           ) : (
                             <>

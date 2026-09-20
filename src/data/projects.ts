@@ -49,7 +49,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "pt-business-blueprint",
     title: "The PT Business Blueprint",
-    category: "AI-Powered",
+    category: "Systems & Platforms",
     tags: ["Bespoke Platform", "Course Delivery", "Stripe", "Booking Engine", "Print"],
     heroImage: "/images/projects/pt-business-blueprint/hero.jpg",
     thumbnailImage: "/images/projects/pt-business-blueprint/thumb.jpg",
@@ -93,12 +93,22 @@ const webProjects: ProjectData[] = [
       "/images/projects/pt-business-blueprint/mobile.jpg",
       "/images/projects/pt-business-blueprint/desktop-full.jpg",
     ],
-    relatedProjects: ["dixons-dispatch", "blood-clinic", "pt-desk"],
+    pages: [
+      "/images/projects/pt-business-blueprint/pages/home-modules.webp",
+      "/images/projects/pt-business-blueprint/pages/home-workbook.webp",
+      "/images/projects/pt-business-blueprint/pages/home-gyms.webp",
+      "/images/projects/pt-business-blueprint/pages/home-buy.webp",
+      "/images/projects/pt-business-blueprint/pages/calculator.webp",
+      "/images/projects/pt-business-blueprint/pages/gym-audit.webp",
+    ],
+    pagesTitle: ["The course,", "and the shop window."],
+    pagesSubtitle:
+      "The sales site, plus the two free tools that bring people in: a pricing calculator and a gym audit.",    relatedProjects: ["dixons-dispatch", "blood-clinic", "pt-desk"],
   },
   {
     slug: "pt-desk",
     title: "PT Desk",
-    category: "AI-Powered",
+    category: "Systems & Platforms",
     tags: ["Bespoke Platform", "SaaS", "Booking Engine", "Stripe", "White Label"],
     heroImage: "/images/projects/pt-desk/hero.jpg",
     thumbnailImage: "/images/projects/pt-desk/thumb.jpg",
@@ -140,12 +150,22 @@ const webProjects: ProjectData[] = [
       "/images/projects/pt-desk/mobile.jpg",
       "/images/projects/pt-desk/desktop-full.jpg",
     ],
-    relatedProjects: ["pt-business-blueprint", "blood-clinic", "dixons-dispatch"],
+    showcase: [
+      "/images/projects/pt-desk/showcase/app-clients.webp",
+      "/images/projects/pt-desk/showcase/app-calendar.webp",
+      "/images/projects/pt-desk/showcase/app-services.webp",
+      "/images/projects/pt-desk/showcase/app-forms.webp",
+      "/images/projects/pt-desk/showcase/client-view.webp",
+      "/images/projects/pt-desk/showcase/booking.webp",
+    ],
+    showcaseTitle: ["The back end", "is the product."],
+    showcaseSubtitle:
+      "The trainer's own desk: clients and credits, the week they have actually opened, the sessions they sell, their PAR-Q in their own words, and what the client sees when they book. Shown on the public demo, so none of it is anybody's real data.",    relatedProjects: ["pt-business-blueprint", "blood-clinic", "dixons-dispatch"],
   },
   {
     slug: "adept-heating",
     title: "Adept Heating",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Build", "Local SEO", "Hosting Transfer", "Trades"],
     heroImage: "/images/projects/adept-heating/hero.jpg",
     thumbnailImage: "/images/projects/adept-heating/thumb.jpg",
@@ -186,12 +206,30 @@ const webProjects: ProjectData[] = [
       "/images/projects/adept-heating/mobile.jpg",
       "/images/projects/adept-heating/desktop-full.jpg",
     ],
-    relatedProjects: ["hotchen-construction", "nick-firth-tiles", "quickfit-ev"],
+    pages: [
+      "/images/projects/adept-heating/pages/services.webp",
+      "/images/projects/adept-heating/pages/boiler-installation.webp",
+      "/images/projects/adept-heating/pages/area-south-anston.webp",
+      "/images/projects/adept-heating/pages/reviews.webp",
+      "/images/projects/adept-heating/pages/about.webp",
+      "/images/projects/adept-heating/pages/contact.webp",
+    ],
+    pagesTitle: ["34 pages,", "every one earning."],
+    pagesSubtitle:
+      "Seventeen services and ten areas, each written for what somebody actually types when their heating has packed in.",
+    showcase: [
+      "/images/projects/adept-heating/showcase/home-services.webp",
+      "/images/projects/adept-heating/showcase/home-reviews.webp",
+      "/images/projects/adept-heating/showcase/home-areas.webp",
+    ],
+    showcaseTitle: ["The proof,", "on the page."],
+    showcaseSubtitle:
+      "Real Google reviews pulled in twice a day and rendered in our own design, so the section is fast and can never sit there empty.",    relatedProjects: ["hotchen-construction", "nick-firth-tiles", "quickfit-ev"],
   },
   {
     slug: "full-tray",
     title: "The Full Tray",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Branding", "Publication Design", "Sales Page", "WordPress", "Print"],
     heroImage: "/images/projects/full-tray/hero.jpg",
     thumbnailImage: "/images/projects/full-tray/thumb.jpg",
@@ -266,7 +304,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "apex-gym-glasgow",
     title: "Apex Gym Glasgow",
-    category: "AI-Powered",
+    category: "AI-Accelerated",
     tags: [
       "Website",
       "AI-Accelerated",
@@ -365,7 +403,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "dr-shabri",
     title: "Dr Shabri",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: [
       "WordPress",
       "Elementor",
@@ -466,7 +504,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "onyx-lagree",
     title: "Onyx Lagree and Co",
-    category: "AI-Powered",
+    category: "AI-Accelerated",
     tags: [
       "AI-Accelerated",
       "Custom CMS",
@@ -574,7 +612,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "blood-clinic",
     title: "The Blood Clinic UK",
-    category: "AI-Powered",
+    category: "Systems & Platforms",
     tags: [
       "AI-Accelerated",
       "Custom Platform",
@@ -676,7 +714,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "dixons-dispatch",
     title: "Dixons Dispatch",
-    category: "AI-Powered",
+    category: "Systems & Platforms",
     tags: ["AI-Accelerated", "Website", "Custom Platform", "Operations CRM", "Driver App"],
     heroImage: "/images/projects/dixons-dispatch/hero.jpg",
     thumbnailImage: "/images/projects/dixons-dispatch/thumb.jpg",
@@ -756,7 +794,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "calibre-coaching",
     title: "Calibre Coaching",
-    category: "AI-Powered",
+    category: "AI-Accelerated",
     tags: ["AI-Accelerated", "Website", "Custom CMS", "Built-in CRM", "Rebrand"],
     heroImage: "/images/projects/calibre-coaching/hero.jpg",
     thumbnailImage: "/images/projects/calibre-coaching/thumb.jpg",
@@ -819,7 +857,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "physique-method",
     title: "Physique Method",
-    category: "AI-Powered",
+    category: "AI-Accelerated",
     tags: ["AI-Accelerated", "Website", "Custom CMS", "Lead Capture"],
     heroImage: "/images/projects/physique-method/hero.jpg",
     thumbnailImage: "/images/projects/physique-method/thumb.jpg",
@@ -883,7 +921,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "spotlight-dance",
     title: "Spotlight School of Dance",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "WordPress", "Local SEO", "Hosting"],
     heroImage: "/images/projects/spotlight-dance/hero.jpg",
     thumbnailImage: "/images/projects/spotlight-dance/thumb.jpg",
@@ -926,7 +964,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "sp26-bodybuilding",
     title: "SP26 Bodybuilding",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "Custom Build", "Booking Platform", "Claude Code", "WordPress"],
     heroImage: "/images/projects/sp26-bodybuilding/hero.jpg",
     thumbnailImage: "/images/projects/sp26-bodybuilding/thumb.jpg",
@@ -983,7 +1021,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "mind-muscle-movement",
     title: "The Mind and Muscle Movement",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "Landing Page", "Custom Build", "Hosting", "SSL"],
     heroImage: "/images/projects/mind-muscle-movement/hero.jpg",
     thumbnailImage: "/images/projects/mind-muscle-movement/thumb.jpg",
@@ -1032,7 +1070,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "lifefit-physique",
     title: "LifeFit Physique",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "Custom Build", "WordPress", "SEO", "Hosting"],
     heroImage: "/images/projects/lifefit-physique/hero.jpg",
     thumbnailImage: "/images/projects/lifefit-physique/thumb.jpg",
@@ -1081,7 +1119,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "dr-rio",
     title: "Dr Rio",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "Landing Page", "Logo", "SEO", "Hosting"],
     heroImage: "/images/projects/dr-rio/hero.jpg",
     thumbnailImage: "/images/projects/dr-rio/thumb.jpg",
@@ -1130,7 +1168,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "b3x-graphics",
     title: "B3x Graphics",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "E-Commerce", "Design + Dev", "Custom Build"],
     heroImage: "/images/projects/b3x-graphics/hero.jpg",
     thumbnailImage: "/images/projects/b3x-graphics/thumb.jpg",
@@ -1173,7 +1211,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "wlwt-coaching",
     title: "Weight Loss With Tarn",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "Custom Build", "Hosting", "SSL"],
     heroImage: "/images/projects/wlwt-coaching/hero.jpg",
     thumbnailImage: "/images/projects/wlwt-coaching/thumb.jpg",
@@ -1222,7 +1260,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "sensory-emergency",
     title: "Sensory Emergency",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "Custom Build", "Hosting", "Good Cause"],
     heroImage: "/images/projects/sensory-emergency/hero.jpg",
     thumbnailImage: "/images/projects/sensory-emergency/thumb.jpg",
@@ -1271,7 +1309,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "team-procoach",
     title: "Team Procoach",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "Landing Pages", "Social Graphics", "Ongoing"],
     heroImage: "/images/projects/team-procoach/hero.jpg",
     thumbnailImage: "/images/projects/team-procoach/thumb.jpg",
@@ -1328,7 +1366,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "thecoachconsultant",
     title: "The Coach Consultant",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Website", "Bespoke Design", "Hosting", "SSL"],
     heroImage: "/images/projects/thecoachconsultant/hero.jpg",
     thumbnailImage: "/images/projects/thecoachconsultant/thumb.jpg",
@@ -1376,7 +1414,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "hotchen-construction",
     title: "Hotchen Construction",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Design", "Hosting Transfer"],
     heroImage: "/images/projects/hotchen-construction/hero.jpg",
     thumbnailImage: "/images/projects/hotchen-construction/thumb.jpg",
@@ -1419,7 +1457,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "nick-firth-tiles",
     title: "Nick Firth Tiles",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Design", "E-commerce Roadmap"],
     heroImage: "/images/projects/nick-firth-tiles/hero.jpg",
     thumbnailImage: "/images/projects/nick-firth-tiles/thumb.jpg",
@@ -1467,7 +1505,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "crown-labels",
     title: "Crown Labels",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Design", "Hosting Transfer"],
     heroImage: "/images/projects/crown-labels/hero.jpg",
     thumbnailImage: "/images/projects/crown-labels/thumb.jpg",
@@ -1510,7 +1548,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "body-lab",
     title: "The Body Lab",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Design", "Hosting Transfer"],
     heroImage: "/images/projects/body-lab/hero.jpg",
     thumbnailImage: "/images/projects/body-lab/thumb.jpg",
@@ -1558,7 +1596,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "quickfit-ev",
     title: "QuickFit EV",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Design", "Booking"],
     heroImage: "/images/projects/quickfit-ev/hero.jpg",
     thumbnailImage: "/images/projects/quickfit-ev/thumb.jpg",
@@ -1606,7 +1644,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "drug-free-bodybuilding",
     title: "Drug Free Bodybuilding",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "WooCommerce", "E-commerce", "Bespoke Design"],
     heroImage: "/images/projects/drug-free-bodybuilding/hero.jpg",
     thumbnailImage: "/images/projects/drug-free-bodybuilding/thumb.jpg",
@@ -1654,7 +1692,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "complete-dentist-academy",
     title: "Complete Dentist Academy",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Design", "Education"],
     heroImage: "/images/projects/complete-dentist-academy/hero.jpg",
     thumbnailImage: "/images/projects/complete-dentist-academy/thumb.jpg",
@@ -1697,7 +1735,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "br-accountancy",
     title: "BR Accountancy",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Logo Design", "WordPress", "Bespoke Design"],
     heroImage: "/images/projects/br-accountancy/hero.jpg",
     thumbnailImage: "/images/projects/br-accountancy/thumb.jpg",
@@ -1745,7 +1783,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "strength-in-us",
     title: "Strength In Us",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Design", "Weekly Graphics", "Ongoing"],
     heroImage: "/images/projects/strength-in-us/hero.jpg",
     thumbnailImage: "/images/projects/strength-in-us/thumb.jpg",
@@ -1801,7 +1839,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "newgen-coaching",
     title: "Newgen Coaching",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["Logo Design", "WordPress", "Bespoke Design"],
     heroImage: "/images/projects/newgen-coaching/hero.jpg",
     thumbnailImage: "/images/projects/newgen-coaching/thumb.jpg",
@@ -1844,7 +1882,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "jic",
     title: "JIC Refractory",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Design", "Industrial"],
     heroImage: "/images/projects/jic/hero.jpg",
     thumbnailImage: "/images/projects/jic/thumb.jpg",
@@ -1893,7 +1931,7 @@ const webProjects: ProjectData[] = [
   {
     slug: "steel-city-car-keys",
     title: "Steel City Car Keys",
-    category: "Web Design & Build",
+    category: "Websites",
     tags: ["WordPress", "Bespoke Design", "Local SEO"],
     heroImage: "/images/projects/steel-city-car-keys/hero.jpg",
     thumbnailImage: "/images/projects/steel-city-car-keys/thumb.jpg",
@@ -1942,7 +1980,7 @@ const landingProjects: ProjectData[] = [
   {
     slug: "titanom",
     title: "Titanom.AI",
-    category: "AI-Powered",
+    category: "AI-Accelerated",
     tags: ["AI-Accelerated", "Rebrand", "Logo", "Landing Page", "Social Pack"],
     heroImage: "/images/projects/titanom/hero.jpg",
     thumbnailImage: "/images/projects/titanom/thumb.jpg",
@@ -2003,7 +2041,7 @@ const landingProjects: ProjectData[] = [
   {
     slug: "dan-reeve",
     title: "Reeve Conditioning Institute",
-    category: "AI-Powered",
+    category: "AI-Accelerated",
     tags: ["AI-Accelerated", "Landing Page", "Coaching"],
     heroImage: "/images/projects/dan-reeve/hero.jpg",
     thumbnailImage: "/images/projects/dan-reeve/thumb.jpg",
@@ -2094,7 +2132,7 @@ const landingProjects: ProjectData[] = [
   {
     slug: "kensington-scott",
     title: "Kensington Scott",
-    category: "AI-Powered",
+    category: "AI-Accelerated",
     tags: ["AI-Accelerated", "Landing Page", "Bespoke Kitchens"],
     heroImage: "/images/projects/kensington-scott/hero.jpg",
     thumbnailImage: "/images/projects/kensington-scott/thumb.jpg",
@@ -2273,7 +2311,7 @@ const landingProjects: ProjectData[] = [
   {
     slug: "noura",
     title: "Noura",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand", "GHL Landing Page", "Coaching"],
     heroImage: "/images/projects/noura/hero.jpg",
     thumbnailImage: "/images/projects/noura/thumb.jpg",
@@ -2366,7 +2404,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "dan-james",
     title: "Daniel James Coaching",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand Set Up", "Logo", "Social Set Up", "Welcome Pack"],
     heroImage: "/images/projects/dan-james/hero.jpg",
     thumbnailImage: "/images/projects/dan-james/thumb.jpg",
@@ -2422,7 +2460,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "trident-coaching",
     title: "Trident Coaching",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Rebrand", "Logo", "Social Set Up", "Brand Guidelines"],
     heroImage: "/images/projects/trident-coaching/hero.jpg",
     thumbnailImage: "/images/projects/trident-coaching/thumb.jpg",
@@ -2478,7 +2516,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "casey-lifestyle",
     title: "Casey Lifestyle Coaching",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand Set Up", "Logo", "Social Set Up"],
     heroImage: "/images/projects/casey-lifestyle/hero.jpg",
     thumbnailImage: "/images/projects/casey-lifestyle/thumb.jpg",
@@ -2531,7 +2569,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "alexis-gosset",
     title: "Alexis Gosset",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand Set Up", "Logo", "Welcome Pack"],
     heroImage: "/images/projects/alexis-gosset/hero.jpg",
     thumbnailImage: "/images/projects/alexis-gosset/thumb.jpg",
@@ -2594,7 +2632,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "sculpt-society",
     title: "The Sculpt Society",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand Set Up", "Logo", "Social Set Up"],
     heroImage: "/images/projects/sculpt-society/hero.jpg",
     thumbnailImage: "/images/projects/sculpt-society/thumb.jpg",
@@ -2647,7 +2685,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "vanguard-brand",
     title: "Vanguard",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand Set Up", "Logo", "Identity"],
     heroImage: "/images/projects/vanguard-brand/hero.jpg",
     thumbnailImage: "/images/projects/vanguard-brand/thumb.jpg",
@@ -2695,7 +2733,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "primecore-brand",
     title: "PrimeCore",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand Set Up", "Logo", "Identity"],
     heroImage: "/images/projects/primecore-brand/hero.jpg",
     thumbnailImage: "/images/projects/primecore-brand/thumb.jpg",
@@ -2746,7 +2784,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "hvme-brand",
     title: "HVME",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Logo", "Social Set Up"],
     heroImage: "/images/projects/hvme-brand/hero.jpg",
     thumbnailImage: "/images/projects/hvme-brand/thumb.jpg",
@@ -2789,7 +2827,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "wright-coaching-brand",
     title: "Wright Coaching",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand Set Up", "Logo", "Identity"],
     heroImage: "/images/projects/wright-coaching-brand/hero.jpg",
     thumbnailImage: "/images/projects/wright-coaching-brand/thumb.jpg",
@@ -2832,7 +2870,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "ac-visuals-logo",
     title: "AC Visuals",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Logo Design"],
     heroImage: "/images/projects/ac-visuals-logo/hero.jpg",
     thumbnailImage: "/images/projects/ac-visuals-logo/thumb.jpg",
@@ -2873,7 +2911,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "her-era-brand",
     title: "Her Era",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand Set Up", "Logo", "Brand Guidelines"],
     heroImage: "/images/projects/her-era-brand/hero.jpg",
     thumbnailImage: "/images/projects/her-era-brand/thumb.jpg",
@@ -2916,7 +2954,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "delta-brand",
     title: "Delta Project",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Logo Design", "Social Templates", "Brand Icons"],
     heroImage: "/images/projects/delta-brand/hero.jpg",
     thumbnailImage: "/images/projects/delta-brand/thumb.jpg",
@@ -2954,7 +2992,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "mastery-method",
     title: "Mastery Method",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Logo Design", "Landing Page", "Community Build"],
     heroImage: "/images/projects/mastery-method/hero.jpg",
     thumbnailImage: "/images/projects/mastery-method/thumb.jpg",
@@ -2992,7 +3030,7 @@ const brandingProjects: ProjectData[] = [
   {
     slug: "vantage-brand",
     title: "Vantage Point",
-    category: "Branding / Logo Design",
+    category: "Branding",
     tags: ["Full Brand Set Up", "Logo", "Welcome Pack"],
     heroImage: "/images/projects/vantage-brand/hero.jpg",
     thumbnailImage: "/images/projects/vantage-brand/thumb.jpg",
@@ -3041,7 +3079,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "mattmc-socials",
     title: "Matt McCullough",
-    category: "Graphic Subscriptions",
+    category: "Social Graphics",
     tags: ["IG Carousels", "Social Graphics", "AI-Accelerated", "Ongoing"],
     heroImage: "/images/projects/mattmc-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/mattmc-socials/graphics/post-1-slide-01.jpg",
@@ -3100,7 +3138,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "fox-socials",
     title: "Trained By Fox",
-    category: "Graphic Subscriptions",
+    category: "Social Graphics",
     tags: ["IG Carousels", "Bodybuilding", "Ongoing"],
     heroImage: "/images/projects/fox-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/fox-socials/graphics/post-1-slide-01.jpg",
@@ -3152,7 +3190,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "icm-socials",
     title: "ICM Education",
-    category: "Graphic Subscriptions",
+    category: "Social Graphics",
     tags: ["IG Carousels", "Education", "Ongoing"],
     heroImage: "/images/projects/icm-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/icm-socials/graphics/post-1-slide-01.jpg",
@@ -3204,7 +3242,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "square-one-socials",
     title: "Square One Gym",
-    category: "Graphic Subscriptions",
+    category: "Social Graphics",
     tags: ["IG Carousels", "Gym", "Ongoing"],
     heroImage: "/images/projects/square-one-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/square-one-socials/graphics/post-1-slide-01.jpg",
@@ -3251,7 +3289,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "myles-socials",
     title: "Mind Architect Myles",
-    category: "AI-Powered",
+    category: "AI-Accelerated",
     tags: ["AI-Accelerated", "Claude Code", "IG Carousels", "Ongoing"],
     heroImage: "/images/projects/myles-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/myles-socials/graphics/post-1-slide-01.jpg",
@@ -3298,7 +3336,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "prepdad-socials",
     title: "The Prep Dad",
-    category: "Graphic Subscriptions",
+    category: "Social Graphics",
     tags: ["AI + Bespoke", "IG Carousels", "French", "Ongoing"],
     heroImage: "/images/projects/prepdad-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/prepdad-socials/graphics/post-1-slide-01.jpg",
@@ -3345,7 +3383,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "mrf-socials",
     title: "Marsha Rose Fit",
-    category: "Graphic Subscriptions",
+    category: "Social Graphics",
     tags: ["IG Carousels", "Coaching", "Editorial", "Ongoing"],
     heroImage: "/images/projects/mrf-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/mrf-socials/graphics/post-1-slide-01.jpg",
@@ -3392,7 +3430,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "proiq-socials",
     title: "ProIQ",
-    category: "Graphic Subscriptions",
+    category: "Social Graphics",
     tags: ["IG Carousels", "Ongoing"],
     heroImage: "/images/projects/proiq-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/proiq-socials/graphics/post-1-slide-01.jpg",
@@ -3438,7 +3476,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "cammy-socials",
     title: "Cammy",
-    category: "Graphic Subscriptions",
+    category: "Social Graphics",
     tags: ["IG Carousels", "Weekly", "Ongoing"],
     heroImage: "/images/projects/cammy-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/cammy-socials/graphics/post-1-slide-01.jpg",
@@ -3484,7 +3522,7 @@ const socialProjects: ProjectData[] = [
   {
     slug: "matt-cusano-socials",
     title: "Matt Cusano",
-    category: "Graphic Subscriptions",
+    category: "Social Graphics",
     tags: ["IG Carousels", "Fortnightly", "Ongoing"],
     heroImage: "/images/projects/matt-cusano-socials/graphics/post-1-slide-01.jpg",
     thumbnailImage: "/images/projects/matt-cusano-socials/graphics/post-1-slide-01.jpg",
