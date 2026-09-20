@@ -5,27 +5,55 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { useCalendly } from "./CalendlyProvider";
+import { projects } from "@/data/projects";
 
-const serviceLinks = [
-  { label: "Web Design & Development", href: "/services/web-design" },
-  { label: "Logo Design & Branding", href: "/services/branding" },
-  { label: "Social Media Graphics", href: "/services/social-media" },
-  { label: "SEO & Monthly Support", href: "/services/seo-support" },
-  { label: "Shopify & E-Commerce", href: "/services/ecommerce" },
-  { label: "Landing Pages & Ads", href: "/services/landing-pages" },
-  { label: "AI-Powered Web Design", href: "/services/ai-design" },
-  { label: "AI for Your Business", href: "/services/ai-business-support" },
+/* Services mega menu. Grouped on Alex's call 20 Sep 2026: "the services nav
+   needs to be more like a mega menu", "so it shows it easier for user". The
+   flat eight item list buried everything, and Systems was not in it at all. */
+const serviceGroups: { heading: string; items: { label: string; blurb: string; href: string }[] }[] = [
+  {
+    heading: "Websites",
+    items: [
+      { label: "Web Design & Development", blurb: "Custom sites built to bring enquiries in", href: "/services/web-design" },
+      { label: "Shopify & E-Commerce", blurb: "Shops built to sell, not just list", href: "/services/ecommerce" },
+      { label: "Landing Pages & Ads", blurb: "One page, one job, built to convert", href: "/services/landing-pages" },
+      { label: "AI-Powered Web Design", blurb: "The same custom design, live in weeks", href: "/services/ai-design" },
+    ],
+  },
+  {
+    heading: "Brand & content",
+    items: [
+      { label: "Logo Design & Branding", blurb: "Identity that matches the work behind it", href: "/services/branding" },
+      { label: "Social Media Graphics", blurb: "Your own design slot, every week", href: "/services/social-media" },
+      { label: "SEO & Monthly Support", blurb: "Get found, and stay looked after", href: "/services/seo-support" },
+    ],
+  },
+  {
+    heading: "Systems & AI",
+    items: [
+      { label: "Bespoke Systems & Software", blurb: "CRMs, portals and booking systems", href: "/services/systems" },
+      { label: "AI for Your Business", blurb: "Set up round how you already work", href: "/services/ai-business-support" },
+    ],
+  },
 ];
 
-const navLinks = [
-  { label: "Work", href: "/work" },
-  { label: "Services", href: "/services", hasDropdown: true },
-  // Systems is DELIBERATELY ABSENT from the nav, top level and dropdown both,
-  // on Alex's call 2 Sep 2026 ("don't think it is needed in nav", "and as well
-  // as dropdown menu"). It was in both for about an hour. The page is still
-  // reached from the /services grid, the homepage card, the sitemap and the
-  // Organization schema, all of which read services.ts automatically. Do not
-  // "restore" it here as a missing service.
+/* The case studies shown in the Work mega menu, newest first. Update this list
+   when a new case study ships. */
+const WORK_MENU_SLUGS = ["blood-clinic", "dixons-dispatch", "apex-gym-glasgow", "calibre-coaching"];
+
+const workMenu = WORK_MENU_SLUGS.map((slug) => {
+  const p = projects.find((x) => x.slug === slug);
+  if (!p) throw new Error(`Work menu project not found: ${slug}`);
+  return { slug: p.slug, title: p.title, industry: p.client.industry, hero: p.heroImage };
+});
+
+/* Systems has NO top level item on purpose: measured at 1024px the centre nav
+   already overlapped the CTA cluster by 26px with six links, and a seventh took
+   it to 58px. It leads the "Systems & AI" column of the mega menu instead,
+   which answers Alex on 20 Sep 2026: "it is hard to find". */
+const navLinks: { label: string; href: string; menu?: "services" | "work" }[] = [
+  { label: "Work", href: "/work", menu: "work" },
+  { label: "Services", href: "/services", menu: "services" },
   { label: "How We Work", href: "/how-we-work" },
   { label: "Industries", href: "/industries" },
   { label: "About", href: "/about" },
@@ -34,13 +62,13 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<"services" | "work" | null>(null);
+  const [mobileMenu, setMobileMenu] = useState<"services" | "work" | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const bgOpacity = useTransform(scrollY, [0, 100], [0, 0.7]);
   const glassTint = useTransform(scrollY, [0, 100], [0.04, 0.08]);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const { openCalendly } = useCalendly();
 
   useEffect(() => {
@@ -51,12 +79,17 @@ export default function Navbar() {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpenMenu(null);
       }
     };
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpenMenu(null); };
     document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
   }, []);
 
   return (
@@ -126,98 +159,179 @@ export default function Navbar() {
           </motion.span>
         </Link>
 
-        {/* Desktop nav - centered */}
-        <div className="hidden lg:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
+        {/* Desktop nav, centred. Both mega menus hang off this container rather
+            than off each item, so a wide panel stays centred on the viewport
+            instead of running off the left edge under "Work". */}
+        <div
+          className="hidden lg:flex items-center gap-6 absolute left-1/2 -translate-x-1/2"
+          ref={menuRef}
+          onMouseLeave={() => setOpenMenu(null)}
+        >
           {navLinks.map((link, i) => (
-            <div key={link.label} className="relative" ref={link.hasDropdown ? dropdownRef : undefined}>
+            <motion.div
+              key={link.label}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + i * 0.05, duration: 0.5 }}
+              className="relative"
+            >
+              {link.menu ? (
+                <button
+                  onClick={() => setOpenMenu(openMenu === link.menu ? null : link.menu!)}
+                  onMouseEnter={() => setOpenMenu(link.menu!)}
+                  aria-expanded={openMenu === link.menu}
+                  className={`flex items-center gap-1 text-sm transition-colors duration-200 hover:text-pink ${
+                    openMenu === link.menu ? "text-pink" : "text-muted"
+                  }`}
+                >
+                  {link.label}
+                  <motion.svg
+                    animate={{ rotate: openMenu === link.menu ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </motion.svg>
+                </button>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="text-sm text-muted transition-colors duration-200 hover:text-pink"
+                >
+                  {link.label}
+                  <motion.span
+                    className="absolute -bottom-1 left-0 h-0.5 bg-pink"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.2 }}
+                  />
+                </Link>
+              )}
+            </motion.div>
+          ))}
+
+          <AnimatePresence>
+            {openMenu && (
               <motion.div
-                initial={{ opacity: 0, y: -20 }}
+                key={openMenu}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.05, duration: 0.5 }}
-                className="relative"
+                exit={{ opacity: 0, y: 6 }}
+                transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                /* pt-4 not mt-4: the padding keeps the hover path from the
+                   button into the panel unbroken, so it does not flicker shut
+                   on the way down. */
+                className="absolute top-full left-1/2 -translate-x-1/2 pt-4 z-50"
               >
-                {link.hasDropdown ? (
-                  <button
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    onMouseEnter={() => setServicesOpen(true)}
-                    className="flex items-center gap-1 text-sm text-muted transition-colors duration-200 hover:text-pink group"
-                  >
-                    {link.label}
-                    <motion.svg
-                      animate={{ rotate: servicesOpen ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="w-3.5 h-3.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </motion.svg>
-                  </button>
-                ) : (
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted transition-colors duration-200 hover:text-pink group"
-                  >
-                    {link.label}
-                    <motion.span
-                      className="absolute -bottom-1 left-0 h-0.5 bg-pink"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: "100%" }}
-                      transition={{ duration: 0.2 }}
-                    />
-                  </Link>
-                )}
-              </motion.div>
+                <div
+                  className={`rounded-2xl border border-card-border bg-[#0d0d0f]/97 backdrop-blur-xl shadow-2xl p-5 ${
+                    openMenu === "services" ? "w-[min(92vw,940px)]" : "w-[min(92vw,820px)]"
+                  }`}
+                >
+                  {openMenu === "services" ? (
+                    <>
+                      <div className="grid grid-cols-4 gap-5">
+                        {serviceGroups.map((group) => (
+                          <div key={group.heading}>
+                            <p className="mb-2 px-2 text-[11px] font-bold uppercase tracking-[0.12em] text-pink">
+                              {group.heading}
+                            </p>
+                            <div className="flex flex-col">
+                              {group.items.map((item) => (
+                                <Link
+                                  key={item.href}
+                                  href={item.href}
+                                  onClick={() => setOpenMenu(null)}
+                                  className="group rounded-lg px-2 py-2 transition-colors duration-150 hover:bg-pink/10"
+                                >
+                                  <span className="block text-[13.5px] font-semibold text-white/90 group-hover:text-white">
+                                    {item.label}
+                                  </span>
+                                  <span className="block text-xs leading-snug text-muted">{item.blurb}</span>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
 
-              {/* Services dropdown */}
-              {link.hasDropdown && (
-                <AnimatePresence>
-                  {servicesOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                      onMouseLeave={() => setServicesOpen(false)}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-xl border border-card-border bg-[#111111]/95 backdrop-blur-xl p-2 shadow-2xl"
-                    >
-                      {/* Arrow */}
-                      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-[#111111] border-l border-t border-card-border" />
-
-                      {serviceLinks.map((service, j) => (
+                        {/* Feature panel. Systems is the thing people never find,
+                            so it gets the corner of the menu with the real estate. */}
                         <Link
-                          key={service.href}
-                          href={service.href}
-                          onClick={() => setServicesOpen(false)}
-                          className="block rounded-lg px-4 py-2.5 text-sm text-muted hover:text-white hover:bg-pink/10 transition-colors duration-150"
+                          href="/services/systems"
+                          onClick={() => setOpenMenu(null)}
+                          className="flex flex-col justify-between rounded-xl border border-pink/25 bg-gradient-to-br from-pink/15 to-purple-500/10 p-4 transition-colors duration-200 hover:border-pink/50"
                         >
-                          <motion.span
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: j * 0.03 }}
-                          >
-                            {service.label}
-                          </motion.span>
-                        </Link>
-                      ))}
-
-                      <div className="border-t border-card-border mt-1 pt-1">
-                        <Link
-                          href="/services"
-                          onClick={() => setServicesOpen(false)}
-                          className="block rounded-lg px-4 py-2.5 text-sm text-pink font-medium hover:bg-pink/10 transition-colors duration-150"
-                        >
-                          View all services →
+                          <div>
+                            <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-pink">Built for you</p>
+                            <p className="mt-2 text-sm font-semibold text-white">Bespoke systems &amp; software</p>
+                            <p className="mt-1.5 text-xs leading-snug text-muted">
+                              There is a spreadsheet doing the job your software could not. We build CRMs, portals and
+                              booking systems round how you already work.
+                            </p>
+                          </div>
+                          <span className="mt-4 text-xs font-semibold text-pink">See what we build &rarr;</span>
                         </Link>
                       </div>
-                    </motion.div>
+
+                      <div className="mt-4 flex items-center justify-between border-t border-card-border pt-3">
+                        <span className="text-xs text-muted">Not sure which one you need? We will tell you straight.</span>
+                        <Link
+                          href="/services"
+                          onClick={() => setOpenMenu(null)}
+                          className="text-sm font-medium text-pink hover:text-white transition-colors"
+                        >
+                          View all services &rarr;
+                        </Link>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="grid grid-cols-4 gap-4">
+                        {workMenu.map((item) => (
+                          <Link
+                            key={item.slug}
+                            href={`/work/${item.slug}`}
+                            onClick={() => setOpenMenu(null)}
+                            className="group"
+                          >
+                            <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-card-border">
+                              <Image
+                                src={item.hero}
+                                alt={item.title}
+                                fill
+                                sizes="200px"
+                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-70" />
+                            </div>
+                            <p className="mt-2 text-[13.5px] font-semibold text-white/90 group-hover:text-white">
+                              {item.title}
+                            </p>
+                            <p className="text-xs text-muted">{item.industry}</p>
+                          </Link>
+                        ))}
+                      </div>
+
+                      <div className="mt-4 flex items-center justify-between border-t border-card-border pt-3">
+                        <span className="text-xs text-muted">450+ builds since 2016. These are the latest.</span>
+                        <Link
+                          href="/work"
+                          onClick={() => setOpenMenu(null)}
+                          className="text-sm font-medium text-pink hover:text-white transition-colors"
+                        >
+                          View all work &rarr;
+                        </Link>
+                      </div>
+                    </>
                   )}
-                </AnimatePresence>
-              )}
-            </div>
-          ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Desktop CTAs.
@@ -301,18 +415,18 @@ export default function Navbar() {
             <div className="px-6 py-8 flex flex-col gap-4">
               {navLinks.map((link, i) => (
                 <div key={link.label}>
-                  {link.hasDropdown ? (
+                  {link.menu ? (
                     <>
                       <motion.button
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: i * 0.05 }}
-                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                        onClick={() => setMobileMenu(mobileMenu === link.menu ? null : link.menu!)}
                         className="flex items-center justify-between w-full text-2xl font-semibold text-muted hover:text-white transition-colors"
                       >
                         {link.label}
                         <motion.svg
-                          animate={{ rotate: mobileServicesOpen ? 180 : 0 }}
+                          animate={{ rotate: mobileMenu === link.menu ? 180 : 0 }}
                           transition={{ duration: 0.2 }}
                           className="w-5 h-5"
                           fill="none"
@@ -324,7 +438,7 @@ export default function Navbar() {
                         </motion.svg>
                       </motion.button>
                       <AnimatePresence>
-                        {mobileServicesOpen && (
+                        {mobileMenu === link.menu && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
@@ -332,25 +446,62 @@ export default function Navbar() {
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden"
                           >
-                            <div className="pl-4 pt-3 pb-1 flex flex-col gap-2">
-                              {serviceLinks.map((service, j) => (
+                            {link.menu === "services" ? (
+                              <div className="pl-1 pt-3 pb-1 flex flex-col gap-4">
+                                {serviceGroups.map((group) => (
+                                  <div key={group.heading}>
+                                    <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em] text-pink">
+                                      {group.heading}
+                                    </p>
+                                    <div className="flex flex-col">
+                                      {group.items.map((item) => (
+                                        <Link
+                                          key={item.href}
+                                          href={item.href}
+                                          onClick={() => setMobileOpen(false)}
+                                          className="py-1.5 text-base text-muted hover:text-pink transition-colors"
+                                        >
+                                          {item.label}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
                                 <Link
-                                  key={service.href}
-                                  href={service.href}
+                                  href="/services"
                                   onClick={() => setMobileOpen(false)}
-                                  className="text-base text-muted hover:text-pink transition-colors py-1"
+                                  className="text-base font-medium text-pink"
                                 >
-                                  {service.label}
+                                  View all services &rarr;
                                 </Link>
-                              ))}
-                              <Link
-                                href="/services"
-                                onClick={() => setMobileOpen(false)}
-                                className="text-base text-pink font-medium pt-1"
-                              >
-                                View all services →
-                              </Link>
-                            </div>
+                              </div>
+                            ) : (
+                              <div className="pl-1 pt-3 pb-1 flex flex-col gap-3">
+                                {workMenu.map((item) => (
+                                  <Link
+                                    key={item.slug}
+                                    href={`/work/${item.slug}`}
+                                    onClick={() => setMobileOpen(false)}
+                                    className="flex items-center gap-3"
+                                  >
+                                    <span className="relative h-12 w-20 flex-none overflow-hidden rounded-lg border border-card-border">
+                                      <Image src={item.hero} alt={item.title} fill sizes="80px" className="object-cover" />
+                                    </span>
+                                    <span>
+                                      <span className="block text-base text-white/90">{item.title}</span>
+                                      <span className="block text-xs text-muted">{item.industry}</span>
+                                    </span>
+                                  </Link>
+                                ))}
+                                <Link
+                                  href="/work"
+                                  onClick={() => setMobileOpen(false)}
+                                  className="text-base font-medium text-pink"
+                                >
+                                  View all work &rarr;
+                                </Link>
+                              </div>
+                            )}
                           </motion.div>
                         )}
                       </AnimatePresence>
