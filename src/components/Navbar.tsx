@@ -33,13 +33,14 @@ const serviceGroups: { heading: string; items: { label: string; blurb: string; h
     items: [
       { label: "Bespoke Systems & Software", blurb: "CRMs, portals and booking systems", href: "/services/systems" },
       { label: "AI for Your Business", blurb: "Set up round how you already work", href: "/services/ai-business-support" },
+      { label: "Custom Apps", blurb: "On your team's phones, or your clients'", href: "/custom-app-development-uk" },
     ],
   },
 ];
 
 /* The case studies shown in the Work mega menu, newest first. Update this list
    when a new case study ships. */
-const WORK_MENU_SLUGS = ["pt-business-blueprint", "pt-desk", "adept-heating", "full-tray"];
+const WORK_MENU_SLUGS = ["skulpt", "1of1-hub", "pt-business-blueprint", "adept-heating"];
 
 const workMenu = WORK_MENU_SLUGS.map((slug) => {
   const p = projects.find((x) => x.slug === slug);

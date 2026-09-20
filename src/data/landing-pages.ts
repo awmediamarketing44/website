@@ -1477,6 +1477,59 @@ const extraPages: LandingPageData[] = [
     ],
     serviceName: "AW Media OS Client Support Portal",
     serviceType: "Website support and maintenance",
+  },
+  // Custom apps. Both live builds behind it (Skulpt, 1 of 1 Hub) are phone-first
+  // web apps installed to the home screen, NOT store listings. Nothing on this
+  // page claims an App Store or Google Play presence, because there is not one.
+  {
+    slug: "custom-app-development-uk",
+    metaTitle: "Custom App Development UK | Bespoke Business Apps | AW Media",
+    metaDescription:
+      "Bespoke app development for UK businesses. Apps built round your process, installed on your team's or your clients' phones, owned outright by you. Book a free call.",
+    tag: "Custom apps · UK",
+    title: "An app your people",
+    titleAccent: "will actually open.",
+    headerDescription:
+      "Most business apps fail because they were built to impress rather than to be used at seven in the morning with one hand. We build the thing somebody opens every day, round the job they are already doing.",
+    introHeading: ["Most businesses do not", "need an app. Some really do."],
+    introParas: [
+      "We will say this before anybody has spent a penny: if what you need is your information on a phone, you probably do not need an app in the stores. A web app that installs to the home screen opens the same, works the same, updates instantly and does not need Apple or Google to approve it. That is what we build most of the time, and it is why these projects are realistic for normal businesses.",
+      "An app earns its place when somebody uses it constantly, out in the world, with their hands full. A coach's client opening their session at six in the morning. A driver at the back of a van taking proof of delivery. An engineer on site filling in a checklist where there is no signal. That is when the phone is the right place for the software, and that is the work we take on.",
+      "The apps we have built are all the same shape underneath: a business running on a spreadsheet, or an inbox, or somebody's memory, turned into something the people who need it can actually hold. The plan goes out, the data comes back, and nobody is retyping anything.",
+    ],
+    servicesHeading: ["What a bespoke app", "usually turns out to be."],
+    services: [
+      { title: "The thing your clients hold", description: "Their plan, their bookings, their results or their progress, on their phone, branded as you rather than as software." },
+      { title: "The thing your staff use", description: "Drivers, engineers and field staff, with photos, signatures, checklists and jobs, built to work with one hand." },
+      { title: "Data that flows both ways", description: "What they log goes back into the system you already run on, including a spreadsheet if that is genuinely how you work." },
+      { title: "Notifications that matter", description: "Push and email when something needs them, rather than a badge for everything until people turn it all off." },
+      { title: "Works when the signal does not", description: "Built phone-first, so it loads fast, survives a bad connection and does not fall over in a car park." },
+      { title: "Yours outright", description: "On final payment the code and the data are yours, hosted in the UK, with no seat fees and nothing holding you in." },
+    ],
+    whyHeading: ["How we build them", "without the usual bill."],
+    why: [
+      { title: "Home screen first, stores later.", description: "Installing to the home screen gets you the app experience without store reviews, developer accounts or a release cycle every time you fix a typo. If a store listing is genuinely needed, we wrap it afterwards." },
+      { title: "We bring your data with us.", description: "Migrating what you already have is part of the job. On the triathlon app that meant 307 existing sessions moved across and read back off the server to prove nothing had been mangled." },
+      { title: "Built to be used, not demoed.", description: "The first version goes in real hands early and gets fixed off what people actually do with it, rather than being perfect in a meeting and awkward in a car park." },
+    ],
+    faqHeading: "Custom apps",
+    faqs: [
+      { question: "Will it be on the App Store?", answer: "Only if it needs to be. Most of what we build installs straight to the home screen, which looks and behaves like an app without the store in the middle. Where a listing genuinely matters we can wrap the app for the stores, published under your own developer accounts so the listing belongs to you." },
+      { question: "Do you build iPhone and Android separately?", answer: "No, and that is the point. One build that works on both, so you are not paying twice and waiting twice every time something changes." },
+      { question: "Can it work with the system we already use?", answer: "Usually yes. We have built an app that reads and writes a coach's own Google Sheet, because that was genuinely how he worked and there was no sense forcing him off it." },
+      { question: "What about wearables and health data?", answer: "Where a client has a device we can pull that data in automatically so it is not another daily chore. Which devices are realistic depends on the project, and we will tell you straight what is and is not possible before you count on it." },
+      { question: "Is people's data safe in it?", answer: "It is hosted in the UK, sign in is two-step, and anything sensitive like progress photos is handled properly with consent recorded and deletion available in the app. We test permissions by fetching data as the wrong person rather than trusting the menu to hide it." },
+      { question: "What does an app cost?", answer: "It is quoted per job, because the price is driven by what it has to do and who uses it. Book a call, describe the job it has to make easier, and Alex will come back with a straight number." },
+    ],
+    ctaHeadline: "Got something that should be on a phone?",
+    ctaSubtext: "Book a free 20-minute call. Tell us who would open it and what they would do in it, and we will tell you honestly whether an app is the right answer.",
+    relatedLinks: [
+      { label: "Skulpt case study", href: "/work/skulpt", blurb: "A triathlon coaching app: sessions, zones, strength and nutrition, live and in daily use." },
+      { label: "1 of 1 Hub case study", href: "/work/1of1-hub", blurb: "A coach's Google Sheet turned into an app, with the client's data flowing back into it." },
+      { label: "Bespoke Systems & Software", href: "/services/systems", blurb: "The bigger picture: CRMs, portals and booking systems behind the apps." },
+    ],
+    serviceName: "Custom App Development",
+    serviceType: "Mobile and web app development",
   },];
 
 export const landingPages: LandingPageData[] = [

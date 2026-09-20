@@ -67,6 +67,7 @@ const areaLinks = [
   { label: "Booking System Development", href: "/booking-system-development-uk" },
   { label: "Access Database Replacement", href: "/access-database-replacement" },
   { label: "AW Media OS (client portal)", href: "/aw-media-os" },
+  { label: "Custom App Development", href: "/custom-app-development-uk" },
 ];
 
 const footerLinks = {
