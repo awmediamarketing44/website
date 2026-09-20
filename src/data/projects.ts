@@ -103,7 +103,21 @@ const webProjects: ProjectData[] = [
     ],
     pagesTitle: ["The course,", "and the shop window."],
     pagesSubtitle:
-      "The sales site, plus the two free tools that bring people in: a pricing calculator and a gym audit.",    relatedProjects: ["dixons-dispatch", "blood-clinic", "pt-desk"],
+      "The sales site, plus the two free tools that bring people in: a pricing calculator and a gym audit.",    showcase: [
+      "/images/projects/pt-business-blueprint/showcase/admin-curriculum.webp",
+      "/images/projects/pt-business-blueprint/showcase/admin-assignments.webp",
+      "/images/projects/pt-business-blueprint/showcase/admin-certificates.webp",
+      "/images/projects/pt-business-blueprint/showcase/admin-dashboard.webp",
+      "/images/projects/pt-business-blueprint/showcase/portal-home.webp",
+      "/images/projects/pt-business-blueprint/showcase/portal-tools.webp",
+      "/images/projects/pt-business-blueprint/showcase/portal-assessments.webp",
+      "/images/projects/pt-business-blueprint/showcase/portal-my-business.webp",
+      "/images/projects/pt-business-blueprint/showcase/gym-portal.webp",
+      "/images/projects/pt-business-blueprint/showcase/portal-booking.webp",
+    ],
+    showcaseTitle: ["The back office", "and the student side."],
+    showcaseSubtitle:
+      "The owner edits the curriculum, the assessments and the certificates himself. Students get the course, ten working tools, their marked portfolio, a monthly business check-in and a booking diary. Gyms get their own portal with seats for their trainers.",    relatedProjects: ["dixons-dispatch", "blood-clinic", "pt-desk"],
   },
   {
     slug: "pt-desk",
