@@ -5,7 +5,6 @@ import CalendlyProvider from "@/components/CalendlyProvider";
 import RouteTransition from "@/components/RouteTransition";
 import FloatingOrbs from "@/components/FloatingOrbs";
 import CursorSpotlight from "@/components/CursorSpotlight";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics, { AnalyticsNoscript } from "@/components/Analytics";
 import { aggregateRating, offerCatalog } from "@/lib/schema";
 import "./globals.css";
@@ -164,7 +163,8 @@ export default function RootLayout({
         <CursorSpotlight />
         <RouteTransition />
         <CalendlyProvider>{children}</CalendlyProvider>
-        <WhatsAppButton />
+        {/* The floating WhatsApp circle moved INTO the Live chat pill the CRM
+            widget draws bottom left (WhatsApp + AI chat in one). */}
         {/* Website live chat (AI in Alex's voice, hands over to him in the CRM).
             Served by the CRM; while it is in test mode there it only shows for a
             browser that has opened the site with ?chat=test. */}
