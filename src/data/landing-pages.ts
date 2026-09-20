@@ -1224,7 +1224,207 @@ const extraPages: LandingPageData[] = [
     serviceName: "AI Web Design",
     serviceType: "Web design",
   },
-];
+
+  // ── Systems and bespoke software ──────────────────────────────────────────
+  // Added 20 Sep 2026. The systems work had no SEO surface at all: 13 location
+  // pages for web design, nothing for the CRMs, portals and booking systems.
+  // No prices on these pages on purpose, systems are quoted per job.
+  {
+    slug: "access-database-replacement",
+    metaTitle: "Microsoft Access Database Replacement | AW Media",
+    metaDescription:
+      "Still running the business on a Microsoft Access database? We replace it with a web system your whole team can use, without losing thirty years of records. UK studio since 2016.",
+    tag: "Access replacement · UK",
+    title: "Your Access database",
+    titleAccent: "is running out of road.",
+    headerDescription:
+      "Thirty years of records, one machine in the corner nobody dares turn off, and a version of Windows that is going out of support. We move businesses off Access onto a web system their whole team can use, and we bring the data with us.",
+    introHeading: ["The database still works.", "That is the problem."],
+    introParas: [
+      "Access databases do not fail loudly. They just quietly stop fitting. One person can be in it at a time, it only runs on that machine, the person who built it left in 2011, and every year it gets harder to find anyone who will touch it. Then Microsoft moves on and suddenly there is a date on it.",
+      "The answer is almost never to rebuild the same thing in the same shape. We look at what the business actually does now, keep the bits that earn their place, drop the fields nobody has filled in since 2014, and build a system your office, your drivers or your engineers, and your customers can all use at once.",
+      "The records come with you. Every job, every customer, every historic line, migrated and checked rather than started again from a blank screen. We have moved a courier firm off a 32-bit Access back office that had carried NHS work for over forty years, and nobody lost a single job record.",
+    ],
+    servicesHeading: ["What replacing Access", "actually involves."],
+    services: [
+      { title: "We read your database first", description: "Tables, queries, forms and the macros somebody bolted on in a hurry. We work out what the business genuinely relies on before anybody designs anything." },
+      { title: "Your data, migrated and checked", description: "Historic records moved across and reconciled, not abandoned. You keep the history you have spent decades building up." },
+      { title: "Everybody in at once", description: "A web system, so the office, the people out on the road and your customers can all be in it at the same time, from any device." },
+      { title: "The same job, fewer steps", description: "The double entry, the re-typing and the spreadsheet that shadows the database all disappear into one record." },
+      { title: "Built round how you work", description: "Your stages, your rates, your paperwork. We fit the software to the business, not the business to somebody else's software." },
+      { title: "Looked after afterwards", description: "Hosting, backups, changes and support from the people who built it, on a monthly plan if you want one." },
+    ],
+    whyHeading: ["Why firms come to us", "for this specifically."],
+    why: [
+      { title: "We have actually done it.", description: "Dixons Dispatch ran on a 32-bit Access back office being switched off at the end of 2026. It is now one platform with three doors: office, drivers and customers." },
+      { title: "We will tell you if it is a setup job.", description: "Sometimes the honest answer is that an off-the-shelf tool does this, cheaper, and somebody else maintains it. We say so, and we would rather say it than sell you a build." },
+      { title: "Nothing gets lost.", description: "The migration is the risky half and it is the half we plan first. Records are moved, counted and checked against the old system before anybody switches anything off." },
+    ],
+    faqHeading: "Access replacement",
+    faqs: [
+      { question: "Can you keep all our old records?", answer: "Yes, that is usually the first thing we plan. We map every table and field, move the data across, then count and check it against the old database before anything is switched off. You keep your history." },
+      { question: "Do we have to change how we work?", answer: "No. The point of building something bespoke is that it fits how you already run the job. We will flag anywhere your process only exists because Access made you do it that way, then it is your call whether to keep it." },
+      { question: "How long does it take?", answer: "It depends on how much the database does. A single-purpose one is a matter of weeks, a full back office with invoicing, scheduling and reporting is longer. You get a timeline before anything starts, and the clock runs from when we have everything from you." },
+      { question: "What does it cost?", answer: "Systems are quoted per job, because no two Access databases hold the same mess. Alex prices every one himself after a proper look at what is in yours. Book a call and you will get a straight number." },
+      { question: "Can our customers see their own jobs?", answer: "If you want them to. A customer portal is one of the most common things we add at this point, because the calls asking where something is stop almost overnight." },
+    ],
+    ctaHeadline: "Still on Access, with a date hanging over it?",
+    ctaSubtext: "Book a free 20-minute call. Tell us what it holds and how many people use it, and we will tell you straight what it would take to replace.",
+    relatedLinks: [
+      { label: "Bespoke Systems & Software", href: "/services/systems", blurb: "The whole picture: CRMs, portals, booking diaries and the reporting underneath them." },
+      { label: "Dixons Dispatch case study", href: "/work/dixons-dispatch", blurb: "A forty-year-old courier firm moved off a dying Access database onto one live platform." },
+      { label: "Bespoke CRM Development", href: "/bespoke-crm-development-uk", blurb: "If what you really need is the customer and job side, start here." },
+    ],
+    serviceName: "Microsoft Access Database Replacement",
+    serviceType: "Custom software development",
+  },
+  {
+    slug: "bespoke-crm-development-uk",
+    metaTitle: "Bespoke CRM Development UK | Custom CRM Built Round You | AW Media",
+    metaDescription:
+      "Custom CRM development for UK businesses. A CRM built round how you actually sell and deliver, not another subscription you bend to fit. Book a free call.",
+    tag: "Bespoke CRM · UK",
+    title: "A CRM built round you,",
+    titleAccent: "not one you bend to fit.",
+    headerDescription:
+      "Most CRMs are somebody else's idea of how you should work, rented monthly, with the half you need locked behind the tier above. A bespoke CRM does your job, in your language, and it is yours.",
+    introHeading: ["You already have a CRM.", "It is called a spreadsheet."],
+    introParas: [
+      "Nearly every business we build one for is already running the thing in some form: a spreadsheet, a shared inbox, a WhatsApp group and somebody's memory. It works right up until two people need it at once, or somebody leaves, or a job quietly falls down the gap between the three of them.",
+      "Off-the-shelf CRMs solve that and create a new problem. You pay per seat forever, the fields are nearly right, the reports are nearly right, and the one thing that would save you a day a week is on the enterprise plan. So people stop using it properly and the spreadsheet comes back.",
+      "A bespoke CRM is built round the way you already sell and deliver. Your stages, your rates, your paperwork, your reports. Everybody sees the same record, nothing is typed twice, and when the business changes the system changes with it rather than holding you still.",
+    ],
+    servicesHeading: ["What we build into", "a bespoke CRM."],
+    services: [
+      { title: "Your pipeline, your stages", description: "Enquiries through to won, named the way your team already names them, dragged across a board anybody can read at a glance." },
+      { title: "Quoting off your own rates", description: "Quotes built from your real rate card, sent as a proper document, and turned into a job the moment somebody says yes." },
+      { title: "Invoicing and statements", description: "Invoices, statements and pay runs generated and emailed as PDFs, so month end stops being a fortnight of typing." },
+      { title: "Everything on one record", description: "Calls, notes, files, photos and paperwork attached to the job, so nobody has to go looking in an inbox for the answer." },
+      { title: "Reporting you would actually use", description: "The numbers you run the business on, not a dashboard of vanity charts nobody opens twice." },
+      { title: "Connected to what you already pay for", description: "Accounts software, calendars, payments, email and messaging, so nothing is entered twice and nothing goes missing between systems." },
+    ],
+    whyHeading: ["Why bespoke beats", "another subscription."],
+    why: [
+      { title: "It fits the job you do.", description: "Nobody has to remember that the notes field is really the delivery instructions. The system says what your business says." },
+      { title: "You own it.", description: "No per-seat fee that grows every time you hire. On final payment the system, the code and the data are yours." },
+      { title: "It changes when you do.", description: "New service line, new process, new report. It gets built, rather than going on a feature request list somebody else prioritises." },
+    ],
+    faqHeading: "Bespoke CRM",
+    faqs: [
+      { question: "Is a bespoke CRM not overkill for a small business?", answer: "Often it is, and we will say so. If an off-the-shelf tool genuinely does the job, it is cheaper and somebody else maintains it. Bespoke earns its place when the way you sell or deliver is genuinely yours, or when what you are paying per seat has quietly overtaken the cost of owning something." },
+      { question: "How long does a CRM build take?", answer: "Usually weeks rather than months for a first working version, then it grows. We would rather get the core live and in your hands early than disappear for a quarter and hand over something nobody has tested." },
+      { question: "Can it work on phones?", answer: "Yes. Everything we build works in a browser on any device, and where people are genuinely out on the road we build the phone view first and install it like an app." },
+      { question: "What about our existing data?", answer: "It comes across. Spreadsheets, an old CRM, an Access database, exports from whatever you are on now. We map it, move it and check it before anybody relies on it." },
+      { question: "What does a bespoke CRM cost?", answer: "It is quoted per job, because the price is driven by what it has to do and who uses it. Book a call, tell us where your current setup falls over, and Alex will come back with a straight number." },
+    ],
+    ctaHeadline: "Outgrown the spreadsheet?",
+    ctaSubtext: "Book a free 20-minute call. Tell us how the work moves through your business now and we will tell you honestly whether bespoke is worth it.",
+    relatedLinks: [
+      { label: "Bespoke Systems & Software", href: "/services/systems", blurb: "Portals, booking diaries, staff apps and the reporting that sits under all of it." },
+      { label: "Dixons Dispatch case study", href: "/work/dixons-dispatch", blurb: "Jobs, mileage, invoicing and driver pay in one platform, replacing a dying database." },
+      { label: "Client Portal Development", href: "/client-portal-development", blurb: "The customer-facing half: their own login, their own jobs, fewer phone calls for you." },
+    ],
+    serviceName: "Bespoke CRM Development",
+    serviceType: "Custom software development",
+  },
+  {
+    slug: "client-portal-development",
+    metaTitle: "Client Portal Development | Custom Customer Portals | AW Media",
+    metaDescription:
+      "Custom client and customer portal development. Give clients their own login to see their jobs, bookings, results and documents, and stop answering the same email twice.",
+    tag: "Client portals · UK",
+    title: "Give your clients",
+    titleAccent: "their own door in.",
+    headerDescription:
+      "A client portal is the difference between answering where are we up to twelve times a week and a customer logging in and seeing for themselves. Built round your business, branded as yours.",
+    introHeading: ["Most of your inbox", "is people asking the same thing."],
+    introParas: [
+      "Where is my order. Can you resend that invoice. What did we agree. Which date am I booked in. None of it is difficult, all of it takes a person, and it lands on the one member of staff who is already the busiest.",
+      "A portal turns those questions into a page. Your client signs in and sees their own jobs, bookings, documents, results or progress, live, without waiting for somebody to come back to them. It also makes you look considerably more organised than whoever they were with before.",
+      "We have built them for a private clinic where patients see their own results, for a courier firm where customers re-book a job in one click, and for a course business where gyms watch their own trainers work through the programme. Same idea, three very different businesses.",
+    ],
+    servicesHeading: ["What a client portal", "can take off your plate."],
+    services: [
+      { title: "Their own live view", description: "Jobs, bookings, orders or progress, updated as you update them, so nobody has to ask for a status." },
+      { title: "Documents in one place", description: "Invoices, reports, certificates and paperwork, always downloadable, never dug out of an email thread." },
+      { title: "Self-serve actions", description: "Re-book, approve, upload, pay or sign, so the easy jobs stop needing one of your people." },
+      { title: "Branded as you", description: "Your logo, your colours, your domain. It looks like part of your business, because it is." },
+      { title: "Proper access control", description: "People see their own records and nobody else's, with logins you control and can switch off the day somebody leaves." },
+      { title: "Notifications that land", description: "Email or push when something changes, so the portal pulls people back rather than sitting there waiting." },
+    ],
+    whyHeading: ["Why clients ask us", "for a portal."],
+    why: [
+      { title: "It kills the chasing.", description: "The same questions stop arriving, because the answer is already on their screen whenever they want it." },
+      { title: "It makes you look bigger.", description: "A branded login says organised and established. Plenty of firms win work on that alone against a competitor with a shared inbox." },
+      { title: "It is built on your data.", description: "The portal reads the same records your team works from, so there is no second system to keep in step." },
+    ],
+    faqHeading: "Client portals",
+    faqs: [
+      { question: "Can a portal sit on top of what we already use?", answer: "Often yes. If your data already lives in a system with a sensible way in, the portal can read from it. Where it cannot, we build the record properly first, because a portal reading from a mess just shows the mess to your customers." },
+      { question: "Is it secure?", answer: "Each person only ever sees their own records, and we prove that by testing it as the wrong person rather than trusting the menu to hide things. Logins are yours to issue and revoke, and anything sensitive is handled accordingly." },
+      { question: "Will our clients actually use it?", answer: "They use it when it saves them a phone call. Make the thing they always ask for the first thing on the screen, send them an email the moment something changes, and it gets used. Bury it and it will not." },
+      { question: "Can they pay or book through it?", answer: "Yes. Payments, bookings, uploads, approvals and e-signatures are all normal parts of these builds." },
+      { question: "What does a client portal cost?", answer: "It depends what it has to show and what people can do in it. Systems are quoted per job. Book a call, describe the questions you keep answering, and we will price it properly." },
+    ],
+    ctaHeadline: "Sick of answering the same question?",
+    ctaSubtext: "Book a free 20-minute call. Tell us what your clients keep asking for and we will tell you what a portal would take.",
+    relatedLinks: [
+      { label: "Bespoke Systems & Software", href: "/services/systems", blurb: "CRMs, portals, booking systems and staff apps, built round how you already work." },
+      { label: "The Blood Clinic case study", href: "/work/blood-clinic", blurb: "Bookings, payments and a patient portal, rebuilt off three outsourced plugins." },
+      { label: "Booking System Development", href: "/booking-system-development-uk", blurb: "If the questions are mostly about dates and slots, start with the diary." },
+    ],
+    serviceName: "Client Portal Development",
+    serviceType: "Custom software development",
+  },
+  {
+    slug: "booking-system-development-uk",
+    metaTitle: "Custom Booking System Development UK | AW Media",
+    metaDescription:
+      "Bespoke booking systems built round your hours, capacity and rules. Take deposits, cut no-shows and stop paying per booking. UK studio since 2016. Book a free call.",
+    tag: "Booking systems · UK",
+    title: "A booking system",
+    titleAccent: "that fits your diary.",
+    headerDescription:
+      "Your opening hours, your capacity, your notice periods, your deposits, your rules about who can book what. Built into your own site, so nobody is paying per booking to somebody else.",
+    introHeading: ["Off-the-shelf booking", "only fits simple businesses."],
+    introParas: [
+      "If you take one type of appointment, at one place, with one person, the usual tools are fine. The trouble starts the moment reality gets involved: two rooms, three staff, a clinic that runs on alternate Thursdays, a deposit on some services and not others, a two-hour gap for setup, a form that has to be signed before anybody turns up.",
+      "That is when businesses end up with a booking tool plus a spreadsheet plus a phone, and the double bookings start. A bespoke booking system takes your rules seriously: what is bookable, by whom, when, for how long, at what price, with what paperwork attached.",
+      "It lives on your own site, under your own brand, with no per-booking fee going out the door. And because it is yours, the confirmation emails, the reminders and the cancellation rules all sound like you rather than like software.",
+    ],
+    servicesHeading: ["What we build into", "a booking system."],
+    services: [
+      { title: "Your real availability", description: "Hours, capacity, breaks, holidays and notice periods, with your own calendar blocking itself out both ways so nobody books you while you are somewhere else." },
+      { title: "Deposits and payment", description: "Take a deposit, the full amount or a package up front, with the card held so a late cancellation follows your policy instead of your patience." },
+      { title: "The paperwork attached", description: "Forms, waivers and consent sent on booking and returned signed, flagged if something needs looking at before the appointment." },
+      { title: "Reminders that cut no-shows", description: "Email or text before the appointment, plus easy rescheduling, because the alternative is an empty slot nobody paid for." },
+      { title: "Multi-staff and multi-site", description: "Different people, rooms, services and locations, each with their own rules, in one diary you can actually read." },
+      { title: "Yours, not rented", description: "On your domain, in your branding, with no per-booking commission and the data sitting in your system." },
+    ],
+    whyHeading: ["Why bespoke booking", "is worth it."],
+    why: [
+      { title: "It obeys your rules.", description: "The awkward bits, the ones every tool makes you work around, are exactly the bits we build in." },
+      { title: "It protects the money.", description: "Deposits, prepayment and clear cancellation terms mean the slot is paid for before somebody decides not to come." },
+      { title: "It is part of your site.", description: "No jarring handover to a third-party page with somebody else's logo on it, which is where a lot of bookings quietly die." },
+    ],
+    faqHeading: "Booking systems",
+    faqs: [
+      { question: "Can it handle several staff and locations?", answer: "Yes. Each person, room or site can have its own hours, services and rules, all in one diary. That is usually the reason people move off an off-the-shelf tool in the first place." },
+      { question: "Does it sync with our calendars?", answer: "Yes, both ways with Google and Outlook. Something in a personal calendar blocks the slot, and anything booked lands in the right calendar with the meeting or address on it." },
+      { question: "Can we take payment at the point of booking?", answer: "Yes, through Stripe or your existing provider. Deposits, full payment, packages and monthly plans are all normal." },
+      { question: "What happens to our existing bookings?", answer: "They come across. We have migrated live booking data before without double-selling a single slot, and we check it against the old system before switching over." },
+      { question: "What does a booking system cost?", answer: "It is quoted per job and driven by how complicated your rules are. Book a call, walk us through a typical week, and Alex will price it properly." },
+    ],
+    ctaHeadline: "Diary in three places?",
+    ctaSubtext: "Book a free 20-minute call. Walk us through how a typical week actually books and we will tell you what it would take to run it in one place.",
+    relatedLinks: [
+      { label: "Bespoke Systems & Software", href: "/services/systems", blurb: "The wider picture: CRMs, portals, staff apps and the reporting behind them." },
+      { label: "The Blood Clinic case study", href: "/work/blood-clinic", blurb: "A booking engine, patient portal and lab connection rebuilt from the ground up." },
+      { label: "Client Portal Development", href: "/client-portal-development", blurb: "Let clients see and manage their own bookings, jobs and documents." },
+    ],
+    serviceName: "Booking System Development",
+    serviceType: "Custom software development",
+  },];
 
 export const landingPages: LandingPageData[] = [
   ...CITIES.flatMap((city) => VARIANTS.map((build) => build(city))),

@@ -62,6 +62,10 @@ const areaLinks = [
   { label: "AI Web Design", href: "/ai-web-design" },
   { label: "Landing Page Design", href: "/landing-page-design-uk" },
   { label: "Small Business Web Design", href: "/web-design-for-small-businesses-uk" },
+  { label: "Bespoke CRM Development", href: "/bespoke-crm-development-uk" },
+  { label: "Client Portal Development", href: "/client-portal-development" },
+  { label: "Booking System Development", href: "/booking-system-development-uk" },
+  { label: "Access Database Replacement", href: "/access-database-replacement" },
 ];
 
 const footerLinks = {
