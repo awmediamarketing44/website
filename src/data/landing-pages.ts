@@ -1495,7 +1495,7 @@ const extraPages: LandingPageData[] = [
     introParas: [
       "We will say this before anybody has spent a penny: if what you need is your information on a phone, you probably do not need an app in the stores. A web app that installs to the home screen opens the same, works the same, updates instantly and does not need Apple or Google to approve it. That is what we build most of the time, and it is why these projects are realistic for normal businesses.",
       "An app earns its place when somebody uses it constantly, out in the world, with their hands full. A coach's client opening their session at six in the morning. A driver at the back of a van taking proof of delivery. An engineer on site filling in a checklist where there is no signal. That is when the phone is the right place for the software, and that is the work we take on.",
-      "The apps we have built are all the same shape underneath: a business running on a spreadsheet, or an inbox, or somebody's memory, turned into something the people who need it can actually hold. The plan goes out, the data comes back, and nobody is retyping anything.",
+      "The apps we build are all the same shape underneath: a business running on a spreadsheet, or an inbox, or somebody's memory, turned into something the people who need it can actually hold. The plan goes out, the data comes back, and nobody is retyping anything.",
     ],
     servicesHeading: ["What a bespoke app", "usually turns out to be."],
     services: [
@@ -1524,7 +1524,7 @@ const extraPages: LandingPageData[] = [
     ctaHeadline: "Got something that should be on a phone?",
     ctaSubtext: "Book a free 20-minute call. Tell us who would open it and what they would do in it, and we will tell you honestly whether an app is the right answer.",
     relatedLinks: [
-      { label: "Skulpt case study", href: "/work/skulpt", blurb: "A triathlon coaching app: sessions, zones, strength and nutrition, live and in daily use." },
+      { label: "Skulpt case study", href: "/work/skulpt", blurb: "A triathlon coaching app: sessions, zones, strength and nutrition, built phone first." },
       { label: "1 of 1 Hub case study", href: "/work/1of1-hub", blurb: "A coach's Google Sheet turned into an app, with the client's data flowing back into it." },
       { label: "Bespoke Systems & Software", href: "/services/systems", blurb: "The bigger picture: CRMs, portals and booking systems behind the apps." },
     ],

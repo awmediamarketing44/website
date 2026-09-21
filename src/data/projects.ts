@@ -91,7 +91,7 @@ const webProjects: ProjectData[] = [
       stats: [
         { value: "307", label: "sessions migrated and verified" },
         { value: "286", label: "sessions with zone minutes reconciled" },
-        { value: "Live", label: "and in daily use by real athletes" },
+        { value: "57", label: "strength movements in the library" },
       ],
     },
     gallery: [
@@ -108,7 +108,7 @@ const webProjects: ProjectData[] = [
     ],
     showcaseTitle: ["The app,", "screen by screen."],
     showcaseSubtitle:
-      "The design the build follows: the athlete's day, the coach's block builder, nutrition, check-ins and the owner view. The live app is at skulpttri.co.uk, behind a login, so these are the screens rather than somebody's real training data.",
+      "The design the build follows: the athlete's day, the coach's block builder, nutrition, check-ins and the owner view. Shown as designed screens rather than anybody's real training data.",
     relatedProjects: ["1of1-hub", "pt-desk", "pt-business-blueprint"],
   },
   {
@@ -159,7 +159,7 @@ const webProjects: ProjectData[] = [
     showcase: ["/images/projects/1of1-hub/showcase/app-login.webp"],
     showcaseTitle: ["Built for", "a phone first."],
     showcaseSubtitle:
-      "Light and dark, installed to the home screen. The rest of the app sits behind a client login, so what is shown here is the front door rather than anybody's check-in photos.",
+      "Light and dark, installed to the home screen. The rest sits behind a client login, so what is shown here is the front door rather than anybody's check-in photos.",
     relatedProjects: ["skulpt", "pt-desk", "pt-business-blueprint"],
   },
   {
