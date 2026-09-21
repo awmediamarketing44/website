@@ -40,7 +40,7 @@ const serviceGroups: { heading: string; items: { label: string; blurb: string; h
 
 /* The case studies shown in the Work mega menu, newest first. Update this list
    when a new case study ships. */
-const WORK_MENU_SLUGS = ["skulpt", "1of1-hub", "pt-business-blueprint", "adept-heating"];
+const WORK_MENU_SLUGS = ["pt-business-blueprint", "pt-desk", "adept-heating", "full-tray"];
 
 const workMenu = WORK_MENU_SLUGS.map((slug) => {
   const p = projects.find((x) => x.slug === slug);
