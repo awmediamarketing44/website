@@ -38,7 +38,7 @@ export const comparisons: ComparisonData[] = [
   {
     slug: "aw-media-vs-typical-agency",
     metaTitle:
-      "AW Media vs a Typical Web Design Agency | Compared | AW Media",
+      "AW Media vs a Typical Web Design Agency | Compared",
     metaDescription:
       "How AW Media compares to a typical UK web design agency on turnaround, pricing, support and process. Custom design at AI-accelerated speed, since 2016.",
     tag: "Comparison",
@@ -128,7 +128,7 @@ export const comparisons: ComparisonData[] = [
   {
     slug: "website-cost-uk",
     metaTitle:
-      "How Much Does a Website Cost in the UK? | 2026 Prices | AW Media",
+      "How Much Does a Website Cost in the UK? | AW Media",
     metaDescription:
       "What a website costs in the UK in 2026 by type: landing page, business website and online store. AW Media prices from £695, published up front.",
     tag: "Pricing",
@@ -198,9 +198,9 @@ export const comparisons: ComparisonData[] = [
   {
     slug: "wix-vs-professional-web-design",
     metaTitle:
-      "Wix and DIY vs a Professional Website | Which Wins? | AW Media",
+      "Wix and DIY vs a Professional Website | AW Media",
     metaDescription:
-      "Wix and DIY builders versus a professionally built website, compared on cost over time, SEO, speed, conversion and ownership. When DIY is fine and when it costs you.",
+      "Wix and DIY builders versus a professionally built website, compared on cost over time, SEO, speed and ownership. When DIY is fine and when it costs you.",
     tag: "Comparison",
     title: "Wix and DIY vs a",
     titleAccent: "professional build.",

@@ -19,8 +19,11 @@ export async function generateMetadata({
   if (!download) return { title: "Resource not found" };
 
   return {
-    title: `${download.title} | Free Download`,
-    description: download.description,
+    // A metaTitle is used verbatim so the page can keep its title under 60 chars.
+    title: download.metaTitle
+      ? { absolute: download.metaTitle }
+      : `${download.title} | Free Download`,
+    description: download.metaDescription ?? download.description,
     alternates: { canonical: `/free-resources/${slug}` },
     openGraph: {
       title: download.title,

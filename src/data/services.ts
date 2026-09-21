@@ -200,7 +200,7 @@ export const services: ServiceData[] = [
   {
     slug: "social-media",
     title: "Social Media Graphics",
-    metaTitle: "Social Media Marketing Sheffield | Content & Graphics | AW Media",
+    metaTitle: "Social Media Marketing Sheffield | Graphics | AW Media",
     metaDescription:
       "Social media marketing and design for Sheffield businesses. On-brand content, carousels, templates and ad creative, planned and delivered for you every week.",
     tag: "Social Media",

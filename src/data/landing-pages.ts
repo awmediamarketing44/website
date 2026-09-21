@@ -684,9 +684,9 @@ const extraPages: LandingPageData[] = [
   // wordpress web design sheffield
   {
     slug: "wordpress-web-design-sheffield",
-    metaTitle: "WordPress Web Design Sheffield | Bespoke, Fast, No Bloat | AW Media",
+    metaTitle: "WordPress Web Design Sheffield | No Bloat | AW Media",
     metaDescription:
-      "Bespoke WordPress web design in Sheffield, built from scratch not a stretched Elementor template. AI-accelerated, faster than page-builder sites, easy to edit. Book a free call.",
+      "Bespoke WordPress web design in Sheffield, built from scratch, not a stretched Elementor template. Faster than page-builder sites and easy to edit.",
     tag: "WordPress Web Design · Sheffield",
     title: "WordPress web design",
     titleAccent: "Sheffield, done properly.",
@@ -738,7 +738,7 @@ const extraPages: LandingPageData[] = [
   // ecommerce web design sheffield
   {
     slug: "ecommerce-web-design-sheffield",
-    metaTitle: "Ecommerce Website Design Sheffield | Shopify Agency | AW Media",
+    metaTitle: "Ecommerce Web Design Sheffield | Shopify Agency | AW Media",
     metaDescription:
       "Ecommerce web design and Shopify agency in Sheffield. Custom Shopify and WooCommerce stores built to sell, from £2,495. Award-winning studio since 2016.",
     tag: "Ecommerce & Shopify · Sheffield",
@@ -933,7 +933,7 @@ const extraPages: LandingPageData[] = [
   // graphic-designer pages: this one is cost/process/deliverables focused)
   {
     slug: "logo-design-sheffield",
-    metaTitle: "Logo Design Sheffield | Full Logo Suite, Every File | AW Media",
+    metaTitle: "Logo Design Sheffield | Full Logo Suite | AW Media",
     metaDescription:
       "Logo design in Sheffield from a 4x award-winning studio. Hand-designed, never generated: a full logo suite with every print and web file included, since 2016.",
     tag: "Logo Design · Sheffield",
@@ -1233,7 +1233,7 @@ const extraPages: LandingPageData[] = [
     slug: "access-database-replacement",
     metaTitle: "Microsoft Access Database Replacement | AW Media",
     metaDescription:
-      "Still running the business on a Microsoft Access database? We replace it with a web system your whole team can use, without losing thirty years of records. UK studio since 2016.",
+      "Still running the business on a Microsoft Access database? We replace it with a web system the whole team can use, without losing thirty years of records.",
     tag: "Access replacement · UK",
     title: "Your Access database",
     titleAccent: "is running out of road.",
@@ -1280,7 +1280,7 @@ const extraPages: LandingPageData[] = [
   },
   {
     slug: "bespoke-crm-development-uk",
-    metaTitle: "Bespoke CRM Development UK | Custom CRM Built Round You | AW Media",
+    metaTitle: "Bespoke CRM Development UK | Built Round You | AW Media",
     metaDescription:
       "Custom CRM development for UK businesses. A CRM built round how you actually sell and deliver, not another subscription you bend to fit. Book a free call.",
     tag: "Bespoke CRM · UK",
@@ -1329,9 +1329,9 @@ const extraPages: LandingPageData[] = [
   },
   {
     slug: "client-portal-development",
-    metaTitle: "Client Portal Development | Custom Customer Portals | AW Media",
+    metaTitle: "Client Portal Development | Customer Portals | AW Media",
     metaDescription:
-      "Custom client and customer portal development. Give clients their own login to see their jobs, bookings, results and documents, and stop answering the same email twice.",
+      "Custom client and customer portal development. Give clients a login for their jobs, bookings, results and documents, and stop answering the same email twice.",
     tag: "Client portals · UK",
     title: "Give your clients",
     titleAccent: "their own door in.",
@@ -1380,7 +1380,7 @@ const extraPages: LandingPageData[] = [
     slug: "booking-system-development-uk",
     metaTitle: "Custom Booking System Development UK | AW Media",
     metaDescription:
-      "Bespoke booking systems built round your hours, capacity and rules. Take deposits, cut no-shows and stop paying per booking. UK studio since 2016. Book a free call.",
+      "Bespoke booking systems built round your hours, capacity and rules. Take deposits, cut no-shows and stop paying per booking. Book a free call.",
     tag: "Booking systems · UK",
     title: "A booking system",
     titleAccent: "that fits your diary.",
@@ -1432,7 +1432,7 @@ const extraPages: LandingPageData[] = [
     slug: "aw-media-os",
     metaTitle: "AW Media OS | Your Support Portal & App | AW Media",
     metaDescription:
-      "Every client we look after gets AW Media OS: report a problem, watch it get fixed, sign it off, and see exactly what your support plan did each month. Web and iPhone.",
+      "Every client we look after gets AW Media OS: report a problem, watch it get fixed, sign it off, and see what your support plan did each month.",
     tag: "AW Media OS · included with support",
     title: "Every job you have asked us for,",
     titleAccent: "in one place.",
@@ -1485,7 +1485,7 @@ const extraPages: LandingPageData[] = [
     slug: "custom-app-development-uk",
     metaTitle: "Custom App Development UK | Bespoke Business Apps | AW Media",
     metaDescription:
-      "Bespoke app development for UK businesses. Apps built round your process, installed on your team's or your clients' phones, owned outright by you. Book a free call.",
+      "Bespoke app development for UK businesses. Apps built round your process, on your team's or your clients' phones, owned outright by you. Book a free call.",
     tag: "Custom apps · UK",
     title: "An app your people",
     titleAccent: "will actually open.",

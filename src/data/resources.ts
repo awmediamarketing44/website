@@ -26,6 +26,10 @@ export interface ResourceDownload {
   cta: string;
   /** Longer intro used on the capture page. */
   intro: string;
+  /** Optional SEO title for the capture page, used verbatim. Keep under 60 chars. */
+  metaTitle?: string;
+  /** Optional SEO description for the capture page. Keep under 160 chars. */
+  metaDescription?: string;
 }
 
 export interface ResourceAudit {
@@ -69,6 +73,7 @@ export const downloads: ResourceDownload[] = [
     cta: "Get the price guide",
     intro:
       "Nobody gives you a straight answer on price, so here is ours, including what we charge. Pop your details in and we will email it over.",
+    metaTitle: "What A Website Should Cost In 2026 | AW Media",
   },
   {
     slug: "brand-basics",
@@ -86,6 +91,7 @@ export const downloads: ResourceDownload[] = [
     cta: "Get the brand guide",
     intro:
       "Four things carry almost all the weight, and three of them are free to fix. Pop your details in and we will email it over.",
+    metaTitle: "Brand Basics: Look Like The Premium Option | AW Media",
   },
   {
     slug: "local-seo-starter",
@@ -103,6 +109,7 @@ export const downloads: ResourceDownload[] = [
     cta: "Get the SEO starter",
     intro:
       "Most local businesses are not outranked, just less complete than the one above them. Pop your details in and we will email it over.",
+    metaTitle: "Local SEO Starter: Get Found On Google | AW Media",
   },
   {
     slug: "visible-to-ai",
@@ -120,6 +127,8 @@ export const downloads: ResourceDownload[] = [
     cta: "Get the AI guide",
     intro:
       "Ranking fourth on Google still puts you on the page. Being fourth in an AI's opinion means you were never mentioned. Pop your details in and we will email it over.",
+    metaDescription:
+      "How AI decides who to recommend, and why most websites get skipped. A free 8 page guide on being visible to ChatGPT, Perplexity and Google's AI.",
   },
   {
     slug: "get-your-week-back",
@@ -137,6 +146,8 @@ export const downloads: ResourceDownload[] = [
     cta: "Get the time guide",
     intro:
       "Most owners are not short of hours, they are short of systems. Pop your details in and we will email it over.",
+    metaDescription:
+      "The admin most owners still do by hand, and which bits are genuinely worth handing to a system. A free 8 page guide, no research required.",
   },
 ];
 

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AiLabelCheckClient from "./Client";
 
 export const metadata: Metadata = {
-  title: "Free AI Label Checker | Will Your Post Get An AI Badge?",
+  title: "Free AI Label Checker | Will It Get Flagged?",
   description:
-    "Check whether Instagram, LinkedIn, TikTok or YouTube will stamp an AI label on your carousel, graphic or photo before you post it. Free, instant, and it tells you exactly what caused it.",
+    "Check whether Instagram, LinkedIn, TikTok or YouTube will stamp an AI label on your post before you publish it, and see exactly what caused it.",
   alternates: { canonical: "/ai-label-check" },
   openGraph: {
     title: "Free AI Label Checker — Will Your Post Get An AI Badge?",
